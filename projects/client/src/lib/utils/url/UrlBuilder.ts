@@ -173,7 +173,6 @@ export const UrlBuilder = {
 
   home: () => '/',
   shows: () => '/shows',
-  discover: () => '/discover',
   media: (type: MediaType, id: string) => {
     switch (type) {
       case 'show':

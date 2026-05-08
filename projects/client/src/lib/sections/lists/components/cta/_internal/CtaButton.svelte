@@ -28,7 +28,7 @@
       case "smart-list":
         return UrlBuilder.lists.smart.create();
       default:
-        return UrlBuilder.discover();
+        return UrlBuilder.movies();
     }
   });
 

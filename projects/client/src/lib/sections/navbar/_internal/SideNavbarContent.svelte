@@ -1,8 +1,10 @@
 <script lang="ts">
-  import DiscoverIcon from "$lib/components/icons/DiscoverIcon.svelte";
+  import CalendarIcon from "$lib/components/icons/CalendarIcon.svelte";
   import HomeIcon from "$lib/components/icons/mobile/HomeIcon.svelte";
   import ListIcon from "$lib/components/icons/mobile/ListIcon.svelte";
+  import MovieIcon from "$lib/components/icons/MovieIcon.svelte";
   import SearchIcon from "$lib/components/icons/SearchIcon.svelte";
+  import ShowIcon from "$lib/components/icons/ShowIcon.svelte";
   import Link from "$lib/components/link/Link.svelte";
   import * as m from "$lib/features/i18n/messages";
   import RenderFor from "$lib/guards/RenderFor.svelte";
@@ -14,7 +16,9 @@
 
 {#snippet iconSearch()}<SearchIcon />{/snippet}
 {#snippet iconHome()}<HomeIcon />{/snippet}
-{#snippet iconDiscover()}<DiscoverIcon />{/snippet}
+{#snippet iconFilms()}<MovieIcon />{/snippet}
+{#snippet iconShows()}<ShowIcon />{/snippet}
+{#snippet iconDiary()}<CalendarIcon />{/snippet}
 {#snippet iconList()}<ListIcon />{/snippet}
 
 {#snippet navSubLink(href: string, title: string)}
@@ -49,20 +53,44 @@
 
   <RenderFor audience="authenticated">
     <NavGroup
-      href={UrlBuilder.discover()}
-      label={m.button_label_discover()}
-      title={m.page_title_discover()}
-      icon={iconDiscover}
+      href={UrlBuilder.movies()}
+      label={m.button_label_films()}
+      title={m.page_title_movies()}
+      icon={iconFilms}
       {isCollapsed}
     >
-      {@render navSubLink(UrlBuilder.trending(), m.list_title_trending())}
-      {@render navSubLink(UrlBuilder.recommended(), m.list_title_recommended())}
+      {@render navSubLink("/movies/popular", m.list_title_most_popular())}
+      {@render navSubLink("/movies/trending", m.list_title_trending())}
       {@render navSubLink(
-        UrlBuilder.anticipated(),
+        "/movies/anticipated",
         m.list_title_most_anticipated(),
       )}
-      {@render navSubLink(UrlBuilder.popular(), m.list_title_most_popular())}
+      {@render navSubLink("/movies/recommended", m.list_title_recommended())}
     </NavGroup>
+
+    <NavGroup
+      href={UrlBuilder.shows()}
+      label={m.button_label_shows()}
+      title={m.page_title_shows()}
+      icon={iconShows}
+      {isCollapsed}
+    >
+      {@render navSubLink("/shows/popular", m.list_title_most_popular())}
+      {@render navSubLink("/shows/trending", m.list_title_trending())}
+      {@render navSubLink(
+        "/shows/anticipated",
+        m.list_title_most_anticipated(),
+      )}
+      {@render navSubLink("/shows/recommended", m.list_title_recommended())}
+    </NavGroup>
+
+    <NavGroup
+      href="/diary"
+      label={m.button_label_diary()}
+      title={m.page_title_diary()}
+      icon={iconDiary}
+      {isCollapsed}
+    />
 
     <NavGroup
       href={UrlBuilder.lists.user("me")}

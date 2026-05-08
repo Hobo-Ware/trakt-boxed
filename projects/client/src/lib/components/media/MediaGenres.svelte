@@ -20,9 +20,9 @@
   <div class="trakt-media-genres">
     {#each genres as genre (genre)}
       <Link
-        href={UrlBuilder.discover() +
+        href={(type === "movie" ? UrlBuilder.movies() : UrlBuilder.shows()) +
           "?search=" +
-          encodeURIComponent(JSON.stringify({ genres: [genre], type }))}
+          encodeURIComponent(JSON.stringify({ genres: [genre] }))}
       >
         <span class="trakt-media-genre-chip">{toTranslatedGenre(genre)}</span>
       </Link>
