@@ -1,0 +1,146 @@
+/*
+  trakt-boxed page-level patterns.
+
+  Naming: every shared surface class starts with `summary-*`. They are
+  framework-agnostic — any Svelte route or section can opt in just by
+  applying the class.
+
+  Reference: ../../letterboxd-research/notes/film-summary.md and
+  profile-diary.md. Letterboxd's hero is a near-full-width cinematic
+  backdrop that fades into the page background; text never overlays it,
+  the title block is below.
+*/
+
+/* The cinematic backdrop frame. Goes at the very top of a page. */
+.summary-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  margin: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .summary-hero {
+    aspect-ratio: 21 / 9;
+    max-height: 60dvh;
+  }
+}
+
+.summary-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 30%;
+
+  z-index: 0;
+}
+
+/*
+  Bottom-anchored fade so the backdrop reads as part of the page. Top
+  fade is a thinner safe area for the navbar. Centred composition is
+  preserved within the middle 80% so X / LinkedIn 5–10% edge crops do
+  not eat the subject.
+*/
+.summary-hero-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-background) 70%, transparent) 0%,
+      transparent 18%,
+      transparent 55%,
+      color-mix(in srgb, var(--color-background) 60%, transparent) 80%,
+      var(--color-background) 100%
+    );
+}
+
+/* The vertical stack pattern: poster, title block, action row, body. */
+.summary-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+
+  width: 100%;
+  max-width: var(--ni-720);
+  margin-inline: auto;
+
+  padding-inline: var(--layout-distance-side);
+  padding-block: var(--gap-l);
+}
+
+/*
+  Lowercase tracked verb chip — the Letterboxd voice for diary/log
+  surfaces ("watched", "rated", "reviewed", "listed"). Use as a small
+  meta label above titles or row entries.
+*/
+.summary-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-xxs);
+
+  font-size: var(--font-size-tag);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--color-text-secondary);
+}
+
+/*
+  Serif title moment. Apply to media titles (films, shows). The
+  font-family is wired in +layout.svelte so this class only owns size +
+  spacing; it does not redeclare the family.
+*/
+.summary-title-serif {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+
+  font-size: var(--ni-32);
+}
+
+@media (min-width: 768px) {
+  .summary-title-serif {
+    font-size: var(--ni-44);
+  }
+}
+
+/* Dark slate card surface for sub-blocks (rating widget, action card). */
+.summary-card {
+  background: color-mix(in srgb, var(--color-foreground) 6%, transparent);
+  border: var(--ni-1) solid color-mix(in srgb, var(--color-foreground) 8%, transparent);
+  border-radius: var(--border-radius-m);
+
+  padding: var(--gap-m);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+/*
+  3-state poster outline for personal status. Watched gets the positive
+  accent, watchlist gets the network blue, neither stays neutral. The
+  outline is encoded via box-shadow so it does not affect layout.
+*/
+.summary-poster-state {
+  border-radius: var(--border-radius-xs);
+  transition: box-shadow var(--transition-increment) ease-in-out;
+}
+
+.summary-poster-state[data-state="watched"] {
+  box-shadow: 0 0 0 var(--ni-2) var(--tboxed-positive);
+}
+
+.summary-poster-state[data-state="watchlist"] {
+  box-shadow: 0 0 0 var(--ni-2) var(--tboxed-network);
+}

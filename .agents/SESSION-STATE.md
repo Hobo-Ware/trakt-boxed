@@ -10,6 +10,21 @@ from trakt-web. Tagline: "Your movie diary on Trakt." Reference repo:
 https://github.com/Hobo-Ware/trakt-time. Letterboxd research at
 `../letterboxd-research/` (read `notes/SUMMARY.md` first).
 
+**Stretch goal (per user, 2026-05-08):** trakt-boxed should be
+"letter-boxed that has also shows and slightly better design". Lean
+into episode-tracking as first-class alongside films, and make the
+visual treatment more refined than Letterboxd's defaults — Fraunces
+serif for media titles instead of Tiempos, the three-state poster
+outline applied consistently, and the diary spreadsheet gracefully
+collapses to mobile cards with the verb-coded glyphs.
+
+**When you don't have what you need: re-read the research.** If
+context has been compacted and a visual decision is unclear, open
+`../letterboxd-research/notes/<surface>.md` and the matching mobile
+screenshot before guessing. Brief is in `notes/SUMMARY.md`; per-surface
+notes (film-summary, profile-diary, film-reviews, single-list, etc.)
+include color samples, typography, and mobile-vs-desktop deltas.
+
 ## Done
 
 1. `refactor(treeshake): drop unreachable upstream features` — dropped
@@ -36,10 +51,11 @@ https://github.com/Hobo-Ware/trakt-time. Letterboxd research at
 Each bullet = one or more atomic conventional commits. Stop only when
 context is exhausted, not after each item.
 
-5. **Mobile shell continued** — bottom nav already rewired (commit 6).
-   Still needed: page-level cover hero pattern, `summary-*` shared
-   classes in `style/components.css`. Diary route still points at
-   `/history` — repoint when the diary route lands.
+5. **Mobile shell** — DONE: bottom nav rewired, page-level cover hero
+   pattern + summary-* shared classes (`style/components.css`),
+   Fraunces wired as the serif for `.summary-title-serif` /
+   `.trakt-responsive-title`. Diary route still points at `/history` —
+   repoint when the dedicated diary route lands.
 6. **Movie summary page** with shared atoms from day one: `MediaCoverHero`,
    `MediaPoster`, `MediaRating`, `MediaGenres`, `MediaActionsRow`. Build
    the atoms upfront — don't ship duplicates and refactor later.

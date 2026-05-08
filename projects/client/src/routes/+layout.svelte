@@ -85,7 +85,7 @@
     crossorigin="anonymous"
   />
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..700&family=Roboto+Mono:wght@400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..700&family=Roboto+Mono:wght@400;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
     rel="stylesheet"
   />
   <style>
@@ -123,6 +123,12 @@
     kbd,
     samp {
       font-family: "Roboto Mono", "Courier New", monospace;
+    }
+
+    .summary-title-serif,
+    .trakt-responsive-title {
+      font-family: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
+      font-optical-sizing: auto;
     }
 
     body:has(dialog[open]),

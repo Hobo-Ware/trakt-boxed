@@ -19,6 +19,8 @@ import './theme/modes.scss';
 
 import './typography/index.css';
 
+import './components.css';
+
 import './animations/index.css';
 
 import './layers/index.css';
