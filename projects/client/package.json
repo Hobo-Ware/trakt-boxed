@@ -15,7 +15,9 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "eslint .",
     "test:unit": "vitest",
-    "test:cov": "vitest --coverage"
+    "test:cov": "vitest --coverage",
+    "i18n:check": "deno run --allow-read --allow-write scripts/sync-i18n.ts --check",
+    "i18n:sync": "deno run --allow-read --allow-write scripts/sync-i18n.ts --sync"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20260505.1",
