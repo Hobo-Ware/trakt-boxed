@@ -2,6 +2,7 @@
   import { useDiscover } from "$lib/features/discover/useDiscover";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import TraktPageCoverSetter from "$lib/sections/layout/TraktPageCoverSetter.svelte";
+  import ListDetailHeader from "$lib/sections/lists/user/_internal/ListDetailHeader.svelte";
   import { useListSorting } from "$lib/sections/lists/user/_internal/useListSorting";
   import ListActions from "$lib/sections/lists/user/ListActions.svelte";
   import ListSortActions from "$lib/sections/lists/user/ListSortActions.svelte";
@@ -63,6 +64,7 @@
   <TraktPageCoverSetter />
 
   {#if $list}
+    <ListDetailHeader list={$list} />
     <UserListPaginatedList
       list={$list}
       type={$mode}

@@ -2,6 +2,7 @@
   import { useDiscover } from "$lib/features/discover/useDiscover";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import TraktPageCoverSetter from "$lib/sections/layout/TraktPageCoverSetter.svelte";
+  import ListDetailHeader from "$lib/sections/lists/user/_internal/ListDetailHeader.svelte";
   import { useListSorting } from "$lib/sections/lists/user/_internal/useListSorting";
   import ListActions from "$lib/sections/lists/user/ListActions.svelte";
   import ListSortActions from "$lib/sections/lists/user/ListSortActions.svelte";
@@ -61,9 +62,10 @@
     {/snippet}
   </NavbarStateSetter>
 
-  {#if !$isLoading}
+  {#if !$isLoading && $list}
+    <ListDetailHeader list={$list} />
     <UserListPaginatedList
-      list={$list!}
+      list={$list}
       type={$mode}
       sortBy={$current.sorting.value}
       sortHow={$current.sortHow}
