@@ -303,4 +303,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: projects/client
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: "4.88.0"
           command: deploy --message "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" --tag "${{ steps.vars.outputs.short_sha }}"
