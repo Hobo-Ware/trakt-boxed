@@ -1195,5 +1195,10 @@
   "page_title_diary": "Diary",
   "text_diary_empty": "No diary entries yet",
   "list_title_reviews": "Reviews",
-  "eyebrow_verb_watched": "watched"
+  "eyebrow_verb_watched": "watched",
+  "eyebrow_already_on_letterboxd": "Already on Letterboxd?",
+  "text_letterboxd_export_title": "Bring your diary along",
+  "text_letterboxd_export_body": "Drop your Letterboxd export and your watched films, ratings, and watchlist all land in trakt-boxed in one go.",
+  "link_text_letterboxd_export": "Get your Letterboxd export",
+  "text_letterboxd_export_compact": "Already on Letterboxd?"
 }

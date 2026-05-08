@@ -1195,5 +1195,10 @@
   "page_title_diary": "ダイアリー",
   "text_diary_empty": "まだダイアリーに記録がありません",
   "list_title_reviews": "レビュー",
-  "eyebrow_verb_watched": "視聴済み"
+  "eyebrow_verb_watched": "視聴済み",
+  "eyebrow_already_on_letterboxd": "すでにLetterboxdをお使いですか？",
+  "text_letterboxd_export_title": "あなたのダイアリーを持ってきましょう",
+  "text_letterboxd_export_body": "Letterboxdのエクスポートをドロップすれば、視聴済み映画・評価・ウォッチリストがまとめてtrakt-boxedに取り込まれます。",
+  "link_text_letterboxd_export": "Letterboxdのエクスポートを取得",
+  "text_letterboxd_export_compact": "すでにLetterboxdをお使いですか？"
 }

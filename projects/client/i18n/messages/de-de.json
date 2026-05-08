@@ -1195,5 +1195,10 @@
   "page_title_diary": "Tagebuch",
   "text_diary_empty": "Noch keine Tagebucheinträge",
   "list_title_reviews": "Rezensionen",
-  "eyebrow_verb_watched": "gesehen"
+  "eyebrow_verb_watched": "gesehen",
+  "eyebrow_already_on_letterboxd": "Schon auf Letterboxd?",
+  "text_letterboxd_export_title": "Nimm dein Tagebuch mit",
+  "text_letterboxd_export_body": "Lade deinen Letterboxd-Export hoch und deine gesehenen Filme, Bewertungen und Watchlist landen in einem Schritt in trakt-boxed.",
+  "link_text_letterboxd_export": "Hol dir deinen Letterboxd-Export",
+  "text_letterboxd_export_compact": "Schon auf Letterboxd?"
 }

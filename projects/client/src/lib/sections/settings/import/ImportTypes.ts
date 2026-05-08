@@ -1,7 +1,6 @@
 export type ImportSource =
-  | 'imdb'
   | 'letterboxd'
-  | 'tvtime'
+  | 'imdb'
   | 'trakt-json'
   | 'trakt-csv';
 
@@ -81,6 +80,25 @@ export const IMPORT_SOURCE_CONFIGS: Record<
   ImportSource,
   ImportSourceConfig
 > = {
+  letterboxd: {
+    id: 'letterboxd',
+    name: 'Letterboxd',
+    accept: '.zip',
+    maxFiles: 1,
+    guide: {
+      title: 'Bring your Letterboxd diary to trakt-boxed',
+      description:
+        'Already keep a Letterboxd diary? Drop your export .zip here and your watched films, ratings, and watchlist all land in trakt-boxed in one go.',
+      steps: [
+        ['Sign in to Letterboxd'],
+        ['Open your', {
+          text: 'Letterboxd export settings',
+          href: 'https://letterboxd.com/data/export/',
+        }],
+        ['Download the .zip and drop it here'],
+      ],
+    },
+  },
   imdb: {
     id: 'imdb',
     name: 'IMDb',
@@ -103,43 +121,6 @@ export const IMPORT_SOURCE_CONFIGS: Record<
         }],
         ['Click on Export'],
         ['Upload the .csv files here'],
-      ],
-    },
-  },
-  letterboxd: {
-    id: 'letterboxd',
-    name: 'Letterboxd',
-    accept: '.zip',
-    maxFiles: 1,
-    guide: {
-      title: 'Bring your Letterboxd diary to Trakt! 🎬',
-      description:
-        "It's just a hop, skip, and a .zip away! Download your Letterboxd data and import it here. Here's the lowdown on getting that .zip:",
-      steps: [
-        ['Go to Letterboxd and login'],
-        ['Open your', {
-          text: 'Letterboxd Export settings',
-          href: 'https://letterboxd.com/data/export/',
-        }],
-        ['Download your Letterboxd export data in a zip file and upload it here'],
-      ],
-    },
-  },
-  tvtime: {
-    id: 'tvtime',
-    name: 'TV Time',
-    accept: '.csv',
-    maxFiles: 1,
-    guide: {
-      title: "Your TV Time isn't lost in space! 🚀",
-      steps: [
-        [{
-          text: 'Send an email',
-          href:
-            'mailto:support@tvtime.com?subject=GDPR Data Request&body=Hi, I would like to receive a copy of my data according to GDPR laws.',
-        }, 'to TV Time support requesting your GDPR data export'],
-        ["Check your inbox in about 1\u20132 weeks. You'll get two emails: one with a .zip file and another with a password to unlock it."],
-        ["Once you have the unlocked file, upload the 'tracking-prod-records-v2.csv' file here. Note: only entries with an episode_id will be imported."],
       ],
     },
   },

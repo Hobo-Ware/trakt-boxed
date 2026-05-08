@@ -1195,5 +1195,10 @@
   "page_title_diary": "Diário",
   "text_diary_empty": "Nenhum registro no diário ainda",
   "list_title_reviews": "Resenhas",
-  "eyebrow_verb_watched": "visto"
+  "eyebrow_verb_watched": "visto",
+  "eyebrow_already_on_letterboxd": "Já está no Letterboxd?",
+  "text_letterboxd_export_title": "Traga seu diário junto",
+  "text_letterboxd_export_body": "Envie sua exportação do Letterboxd e seus filmes assistidos, notas e watchlist caem no trakt-boxed de uma vez.",
+  "link_text_letterboxd_export": "Pegue sua exportação do Letterboxd",
+  "text_letterboxd_export_compact": "Já está no Letterboxd?"
 }

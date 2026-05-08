@@ -1,5 +1,6 @@
 <script lang="ts">
   import Logo from "$lib/components/logo/Logo.svelte";
+  import LetterboxdExportCta from "$lib/sections/settings/_internal/import/LetterboxdExportCta.svelte";
   import LoginButton from "./components/LoginButton.svelte";
   import Steps from "./components/Steps.svelte";
   import TraktApps from "./components/TraktApps.svelte";
@@ -15,6 +16,8 @@
     </div>
 
     <Steps />
+
+    <LetterboxdExportCta variant="compact" />
   </div>
 
   <TraktApps />

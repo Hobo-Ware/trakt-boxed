@@ -1195,5 +1195,10 @@
   "page_title_diary": "Dagboek",
   "text_diary_empty": "Nog geen dagboeknotities",
   "list_title_reviews": "Recensies",
-  "eyebrow_verb_watched": "gezien"
+  "eyebrow_verb_watched": "gezien",
+  "eyebrow_already_on_letterboxd": "Al op Letterboxd?",
+  "text_letterboxd_export_title": "Neem je dagboek mee",
+  "text_letterboxd_export_body": "Upload je Letterboxd-export en je gekeken films, beoordelingen en watchlist landen in één keer in trakt-boxed.",
+  "link_text_letterboxd_export": "Haal je Letterboxd-export op",
+  "text_letterboxd_export_compact": "Al op Letterboxd?"
 }

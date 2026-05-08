@@ -1195,5 +1195,10 @@
   "page_title_diary": "Дневник",
   "text_diary_empty": "Пока нет записей в дневнике",
   "list_title_reviews": "Отзывы",
-  "eyebrow_verb_watched": "посмотрел"
+  "eyebrow_verb_watched": "посмотрел",
+  "eyebrow_already_on_letterboxd": "Уже на Letterboxd?",
+  "text_letterboxd_export_title": "Возьмите дневник с собой",
+  "text_letterboxd_export_body": "Загрузите экспорт Letterboxd, и просмотренные фильмы, оценки и watchlist окажутся в trakt-boxed одним движением.",
+  "link_text_letterboxd_export": "Получить экспорт Letterboxd",
+  "text_letterboxd_export_compact": "Уже на Letterboxd?"
 }
