@@ -3,6 +3,7 @@
   import ListAction from "$lib/sections/components/lists-drawer/ListAction.svelte";
   import ListsDrawer from "$lib/sections/components/lists-drawer/ListsDrawer.svelte";
   import SetCoverImageAction from "$lib/sections/media-actions/cover-image/SetCoverImageAction.svelte";
+  import FavoriteAction from "$lib/sections/media-actions/favorite/FavoriteAction.svelte";
   import MarkAsWatchedAction from "$lib/sections/media-actions/mark-as-watched/MarkAsWatchedAction.svelte";
   import { useIsWatched } from "$lib/sections/media-actions/mark-as-watched/useIsWatched";
   import HistoryButton from "$lib/sections/summary/components/history/HistoryButton.svelte";
@@ -23,6 +24,13 @@
     {media}
   />
 {/if}
+
+<FavoriteAction
+  style="dropdown-item"
+  type={media.type}
+  id={media.id}
+  {title}
+/>
 
 <ListAction
   style="dropdown-item"
