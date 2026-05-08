@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {weergave} other {weergaven}}",
   "yir_unit_rating": "{count, plural, one {beoordeling} other {beoordelingen}}",
   "yir_unit_show": "{count, plural, one {serie} other {series}}",
-  "yir_upgrade_message": "Upgrade naar VIP en krijg je eigen all-time en jaarlijkse Jaaroverzicht pagina's, plus nog veel meer geweldige functies!"
+  "yir_upgrade_message": "Upgrade naar VIP en krijg je eigen all-time en jaarlijkse Jaaroverzicht pagina's, plus nog veel meer geweldige functies!",
+  "button_label_films": "Films",
+  "button_label_diary": "Dagboek"
 }

@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {exibição} other {exibições}}",
   "yir_unit_rating": "{count, plural, one {avaliação} other {avaliações}}",
   "yir_unit_show": "{count, plural, one {série} other {séries}}",
-  "yir_upgrade_message": "Faça upgrade para VIP e tenha suas próprias páginas de Retrospectiva anual e de todos os tempos, além de muitos outros recursos excelentes!"
+  "yir_upgrade_message": "Faça upgrade para VIP e tenha suas próprias páginas de Retrospectiva anual e de todos os tempos, além de muitos outros recursos excelentes!",
+  "button_label_films": "Filmes",
+  "button_label_diary": "Diário"
 }

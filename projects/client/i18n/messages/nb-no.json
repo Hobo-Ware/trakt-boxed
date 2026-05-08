@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {avspilling} other {avspillinger}}",
   "yir_unit_rating": "{count, plural, one {vurdering} other {vurderinger}}",
   "yir_unit_show": "{count, plural, one {serie} other {serier}}",
-  "yir_upgrade_message": "Oppgrader til VIP og få dine egne tilbakeblikkssider for alle tider og årlige, pluss mange flere flotte funksjoner!"
+  "yir_upgrade_message": "Oppgrader til VIP og få dine egne tilbakeblikkssider for alle tider og årlige, pluss mange flere flotte funksjoner!",
+  "button_label_films": "Films",
+  "button_label_diary": "Diary"
 }

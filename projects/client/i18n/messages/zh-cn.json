@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {播放} other {播放}}",
   "yir_unit_rating": "{count, plural, one {评分} other {评分}}",
   "yir_unit_show": "{count, plural, one {剧集} other {剧集}}",
-  "yir_upgrade_message": "升级到 VIP，即可获得您专属的全部时间及年度回顾页面，以及更多精彩功能！"
+  "yir_upgrade_message": "升级到 VIP，即可获得您专属的全部时间及年度回顾页面，以及更多精彩功能！",
+  "button_label_films": "电影",
+  "button_label_diary": "日记"
 }

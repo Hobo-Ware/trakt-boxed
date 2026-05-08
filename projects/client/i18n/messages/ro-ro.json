@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {vizionare} other {vizionări}}",
   "yir_unit_rating": "{count, plural, one {evaluare} other {evaluări}}",
   "yir_unit_show": "{count, plural, one {serial} other {seriale}}",
-  "yir_upgrade_message": "Fă upgrade la VIP și obține propriile pagini Anul în Revistă pentru toate timpurile și anual, plus multe alte funcții grozave!"
+  "yir_upgrade_message": "Fă upgrade la VIP și obține propriile pagini Anul în Revistă pentru toate timpurile și anual, plus multe alte funcții grozave!",
+  "button_label_films": "Films",
+  "button_label_diary": "Diary"
 }

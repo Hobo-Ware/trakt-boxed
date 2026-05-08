@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {reproducción} other {reproducciones}}",
   "yir_unit_rating": "{count, plural, one {valoración} other {valoraciones}}",
   "yir_unit_show": "{count, plural, one {serie} other {series}}",
-  "yir_upgrade_message": "¡Actualiza a VIP y obtén tus propias páginas de Resumen del Año totales y anuales, además de muchas más funciones geniales!"
+  "yir_upgrade_message": "¡Actualiza a VIP y obtén tus propias páginas de Resumen del Año totales y anuales, además de muchas más funciones geniales!",
+  "button_label_films": "Películas",
+  "button_label_diary": "Diario"
 }

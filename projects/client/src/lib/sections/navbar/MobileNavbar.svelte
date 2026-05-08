@@ -1,8 +1,7 @@
 <script lang="ts">
-  import DiscoverIcon from "$lib/components/icons/DiscoverIcon.svelte";
-  import HomeIcon from "$lib/components/icons/mobile/HomeIcon.svelte";
+  import CalendarIcon from "$lib/components/icons/CalendarIcon.svelte";
   import ListIcon from "$lib/components/icons/mobile/ListIcon.svelte";
-  import SearchIcon from "$lib/components/icons/SearchIcon.svelte";
+  import MovieIcon from "$lib/components/icons/MovieIcon.svelte";
   import Link from "$lib/components/link/Link.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import RenderFor from "$lib/guards/RenderFor.svelte";
@@ -44,13 +43,16 @@
     {/if}
 
     <div class="trakt-mobile-navbar-links">
-      <Link href={UrlBuilder.home()} label={m.button_label_home()}>
-        <HomeIcon />
+      <Link href={UrlBuilder.movies()} label={m.button_label_films()}>
+        <MovieIcon />
       </Link>
 
       <RenderFor audience="authenticated">
-        <Link href={UrlBuilder.discover()} label={m.button_label_discover()}>
-          <DiscoverIcon />
+        <Link
+          href={UrlBuilder.history.home()}
+          label={m.button_label_diary()}
+        >
+          <CalendarIcon />
         </Link>
 
         <Link
@@ -58,10 +60,6 @@
           label={m.button_label_browse_lists()}
         >
           <ListIcon />
-        </Link>
-
-        <Link href={UrlBuilder.search()} label={m.button_label_search()}>
-          <SearchIcon />
         </Link>
 
         <ProfileLink />

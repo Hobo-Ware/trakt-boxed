@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {visionnage} other {visionnages}}",
   "yir_unit_rating": "{count, plural, one {note} other {notes}}",
   "yir_unit_show": "{count, plural, one {série} other {séries}}",
-  "yir_upgrade_message": "Passez au statut VIP et accédez à vos pages de bilan annuel et de tous les temps, ainsi qu'à de nombreuses autres fonctionnalités exceptionnelles!"
+  "yir_upgrade_message": "Passez au statut VIP et accédez à vos pages de bilan annuel et de tous les temps, ainsi qu'à de nombreuses autres fonctionnalités exceptionnelles!",
+  "button_label_films": "Films",
+  "button_label_diary": "Journal"
 }

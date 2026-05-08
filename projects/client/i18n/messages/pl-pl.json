@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {odtworzenie} few {odtworzenia} many {odtworzeń} other {odtworzenia}}",
   "yir_unit_rating": "{count, plural, one {ocena} few {oceny} many {ocen} other {oceny}}",
   "yir_unit_show": "{count, plural, one {serial} few {seriale} many {seriali} other {seriale}}",
-  "yir_upgrade_message": "Ulepsz do VIP i zyskaj dostęp do stron z Podsumowaniem Roku (za cały czas i rocznym), a także wielu innych wspaniałych funkcji!"
+  "yir_upgrade_message": "Ulepsz do VIP i zyskaj dostęp do stron z Podsumowaniem Roku (za cały czas i rocznym), a także wielu innych wspaniałych funkcji!",
+  "button_label_films": "Filmy",
+  "button_label_diary": "Dziennik"
 }

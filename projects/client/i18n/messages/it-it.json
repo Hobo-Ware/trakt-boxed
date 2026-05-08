@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {riproduzione} other {riproduzioni}}",
   "yir_unit_rating": "{count, plural, one {valutazione} other {valutazioni}}",
   "yir_unit_show": "{count, plural, one {serie} other {serie}}",
-  "yir_upgrade_message": "Passa a VIP e ottieni le tue pagine di riepilogo dell'anno e di tutti i tempi, oltre a molte altre fantastiche funzionalità!"
+  "yir_upgrade_message": "Passa a VIP e ottieni le tue pagine di riepilogo dell'anno e di tutti i tempi, oltre a molte altre fantastiche funzionalità!",
+  "button_label_films": "Film",
+  "button_label_diary": "Diario"
 }

@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {перегляд} few {перегляди} other {переглядів}}",
   "yir_unit_rating": "{count, plural, one {оцінка} few {оцінки} other {оцінок}}",
   "yir_unit_show": "{count, plural, one {серіал} few {серіали} other {серіалів}}",
-  "yir_upgrade_message": "Оновіться до VIP і отримайте власні сторінки підсумків року за весь час та за рік, а також багато інших чудових функцій!"
+  "yir_upgrade_message": "Оновіться до VIP і отримайте власні сторінки підсумків року за весь час та за рік, а також багато інших чудових функцій!",
+  "button_label_films": "Films",
+  "button_label_diary": "Diary"
 }

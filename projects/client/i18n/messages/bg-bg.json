@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {гледане} other {гледания}}",
   "yir_unit_rating": "{count, plural, one {оценка} other {оценки}}",
   "yir_unit_show": "{count, plural, one {сериал} other {сериала}}",
-  "yir_upgrade_message": "Надстройте до VIP и получете свои собствени страници за годишен преглед за всички времена и за годината, плюс много други страхотни функции!"
+  "yir_upgrade_message": "Надстройте до VIP и получете свои собствени страници за годишен преглед за всички времена и за годината, плюс много други страхотни функции!",
+  "button_label_films": "Films",
+  "button_label_diary": "Diary"
 }

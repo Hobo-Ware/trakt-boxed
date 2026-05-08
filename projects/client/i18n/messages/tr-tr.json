@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {izleme} other {izleme}}",
   "yir_unit_rating": "{count, plural, one {oy} other {oy}}",
   "yir_unit_show": "{count, plural, one {dizi} other {dizi}}",
-  "yir_upgrade_message": "VIP'ye yükseltin ve tüm zamanların ve yıllık Yılın Özeti sayfalarınıza ek olarak çok daha fazla harika özelliğe sahip olun!"
+  "yir_upgrade_message": "VIP'ye yükseltin ve tüm zamanların ve yıllık Yılın Özeti sayfalarınıza ek olarak çok daha fazla harika özelliğe sahip olun!",
+  "button_label_films": "Films",
+  "button_label_diary": "Diary"
 }

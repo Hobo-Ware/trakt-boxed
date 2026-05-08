@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {play} other {plays}}",
   "yir_unit_rating": "{count, plural, one {rating} other {ratings}}",
   "yir_unit_show": "{count, plural, one {show} other {shows}}",
-  "yir_upgrade_message": "Upgrade to VIP and get your own all time and yearly Year in Review pages, plus a lot more great features!"
+  "yir_upgrade_message": "Upgrade to VIP and get your own all time and yearly Year in Review pages, plus a lot more great features!",
+  "button_label_films": "Films",
+  "button_label_diary": "Diary"
 }

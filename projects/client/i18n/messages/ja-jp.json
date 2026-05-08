@@ -1189,5 +1189,7 @@
   "yir_unit_play": "{count, plural, one {再生} other {再生}}",
   "yir_unit_rating": "{count, plural, one {評価} other {評価}}",
   "yir_unit_show": "{count, plural, one {番組} other {番組}}",
-  "yir_upgrade_message": "VIPにアップグレードして、通算および年間の年次レビューページ、さらに多くの素晴らしい機能を手に入れましょう！"
+  "yir_upgrade_message": "VIPにアップグレードして、通算および年間の年次レビューページ、さらに多くの素晴らしい機能を手に入れましょう！",
+  "button_label_films": "映画",
+  "button_label_diary": "ダイアリー"
 }
