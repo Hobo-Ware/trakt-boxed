@@ -1193,5 +1193,7 @@
   "button_label_films": "Películas",
   "button_label_diary": "Diario",
   "page_title_diary": "Diario",
-  "text_diary_empty": "Aún no hay entradas en el diario"
+  "text_diary_empty": "Aún no hay entradas en el diario",
+  "list_title_reviews": "Reseñas",
+  "eyebrow_verb_watched": "visto"
 }

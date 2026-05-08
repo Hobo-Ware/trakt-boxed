@@ -1193,5 +1193,7 @@
   "button_label_films": "Films",
   "button_label_diary": "Diary",
   "page_title_diary": "Diary",
-  "text_diary_empty": "No diary entries yet"
+  "text_diary_empty": "No diary entries yet",
+  "list_title_reviews": "Reviews",
+  "eyebrow_verb_watched": "watched"
 }

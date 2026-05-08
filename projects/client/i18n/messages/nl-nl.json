@@ -1193,5 +1193,7 @@
   "button_label_films": "Films",
   "button_label_diary": "Dagboek",
   "page_title_diary": "Dagboek",
-  "text_diary_empty": "Nog geen dagboeknotities"
+  "text_diary_empty": "Nog geen dagboeknotities",
+  "list_title_reviews": "Recensies",
+  "eyebrow_verb_watched": "gezien"
 }

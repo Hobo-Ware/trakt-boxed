@@ -1193,5 +1193,7 @@
   "button_label_films": "电影",
   "button_label_diary": "日记",
   "page_title_diary": "日记",
-  "text_diary_empty": "还没有日记记录"
+  "text_diary_empty": "还没有日记记录",
+  "list_title_reviews": "评论",
+  "eyebrow_verb_watched": "已观看"
 }

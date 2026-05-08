@@ -1,6 +1,7 @@
 <script lang="ts">
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { getLocale } from "$lib/features/i18n/index.ts";
+  import * as m from "$lib/features/i18n/messages.ts";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import type { MediaComment } from "$lib/requests/models/MediaComment.ts";
   import type { MediaEntry } from "$lib/requests/models/MediaEntry.ts";
@@ -52,6 +53,9 @@
       </div>
     {/snippet}
 
+    <span class="summary-eyebrow trakt-comment-eyebrow"
+      >{m.eyebrow_verb_watched()}</span
+    >
     <UserProfileLink user={comment.user} />
   </TextCardHeader>
 </div>
@@ -88,5 +92,9 @@
     display: flex;
     align-items: center;
     gap: var(--gap-xs);
+  }
+
+  .trakt-comment-eyebrow {
+    margin-right: var(--gap-xxs);
   }
 </style>

@@ -1193,5 +1193,7 @@
   "button_label_films": "映画",
   "button_label_diary": "ダイアリー",
   "page_title_diary": "ダイアリー",
-  "text_diary_empty": "まだダイアリーに記録がありません"
+  "text_diary_empty": "まだダイアリーに記録がありません",
+  "list_title_reviews": "レビュー",
+  "eyebrow_verb_watched": "視聴済み"
 }

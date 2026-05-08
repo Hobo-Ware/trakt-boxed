@@ -1193,5 +1193,7 @@
   "button_label_films": "Film",
   "button_label_diary": "Diario",
   "page_title_diary": "Diario",
-  "text_diary_empty": "Nessuna voce nel diario"
+  "text_diary_empty": "Nessuna voce nel diario",
+  "list_title_reviews": "Recensioni",
+  "eyebrow_verb_watched": "visto"
 }

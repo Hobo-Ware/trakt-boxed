@@ -1193,5 +1193,7 @@
   "button_label_films": "Films",
   "button_label_diary": "Journal",
   "page_title_diary": "Journal",
-  "text_diary_empty": "Aucune entrée pour le moment"
+  "text_diary_empty": "Aucune entrée pour le moment",
+  "list_title_reviews": "Critiques",
+  "eyebrow_verb_watched": "vu"
 }

@@ -1193,5 +1193,7 @@
   "button_label_films": "Фильмы",
   "button_label_diary": "Дневник",
   "page_title_diary": "Дневник",
-  "text_diary_empty": "Пока нет записей в дневнике"
+  "text_diary_empty": "Пока нет записей в дневнике",
+  "list_title_reviews": "Отзывы",
+  "eyebrow_verb_watched": "посмотрел"
 }

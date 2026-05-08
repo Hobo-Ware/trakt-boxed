@@ -49,7 +49,7 @@
   <SectionList
     id={`comments-list-${media.slug}-${$sortType.value}`}
     items={$comments}
-    title={m.list_title_comments()}
+    title={m.list_title_reviews()}
     --height-list="var(--height-comments-list)"
     {metaInfo}
     drilldown={{

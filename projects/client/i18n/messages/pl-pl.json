@@ -1193,5 +1193,7 @@
   "button_label_films": "Filmy",
   "button_label_diary": "Dziennik",
   "page_title_diary": "Dziennik",
-  "text_diary_empty": "Brak wpisów w dzienniku"
+  "text_diary_empty": "Brak wpisów w dzienniku",
+  "list_title_reviews": "Recenzje",
+  "eyebrow_verb_watched": "obejrzane"
 }
