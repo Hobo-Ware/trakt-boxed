@@ -59,9 +59,17 @@
       color: var(--color-text-secondary);
     }
 
-    /** FIXME: remove when we have adaptive typography and updated sizes */
-    font-size: var(--font-size-title);
-    line-height: var(--ni-22);
+    /*
+      Letterboxd section labels are 11-12px tracked uppercase — no
+      mixed-case body title. The chrome that says "this is a section"
+      is the typography itself, not surrounding card edges.
+      Reference: research/notes/SUMMARY.md.
+    */
+    font-size: var(--ni-12);
+    line-height: var(--ni-16);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     &.ellipsis {
       max-width: 100%;
       width: 100%;
