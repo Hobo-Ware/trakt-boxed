@@ -1,10 +1,16 @@
 :root {
-  --border-radius-xs: var(--ni-4);
-  --border-radius-s: var(--ni-8);
-  --border-radius-m: var(--ni-12);
-  --border-radius-l: var(--ni-16);
-  --border-radius-xl: var(--ni-20);
-  --border-radius-xxl: var(--ni-24);
+  /*
+    Letterboxd-tight radii. Posters and pills are essentially square;
+    only drawers and the brand mark earn meaningful curvature. The
+    scale below is about half trakt-web's original — the visual
+    identity is hairlines and slabs, not rounded tiles.
+  */
+  --border-radius-xs: var(--ni-2);
+  --border-radius-s: var(--ni-3);
+  --border-radius-m: var(--ni-4);
+  --border-radius-l: var(--ni-6);
+  --border-radius-xl: var(--ni-10);
+  --border-radius-xxl: var(--ni-14);
 
   --border-thickness-xxs: var(--ni-1);
   --border-thickness-xs: var(--ni-2);
