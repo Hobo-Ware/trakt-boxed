@@ -15,6 +15,7 @@
   import ProfileOverflowMenu from "./_internal/ProfileOverflowMenu.svelte";
   import { useFollowUserRequest } from "./_internal/useFollowUser";
   import ProfileImage from "./ProfileImage.svelte";
+  import ProfileStatsRow from "./ProfileStatsRow.svelte";
 
   type ProfilePageBannerProps = DisplayableProfileProps & {
     variant?: "private" | "public";
@@ -90,6 +91,10 @@
       </div>
     </div>
   </div>
+
+  {#if $isMe}
+    <ProfileStatsRow {slug} />
+  {/if}
 
   {#if isPublic}
     <ProfileAbout {profile} {slug} />

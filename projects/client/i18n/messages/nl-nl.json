@@ -1200,5 +1200,9 @@
   "text_letterboxd_export_title": "Neem je dagboek mee",
   "text_letterboxd_export_body": "Upload je Letterboxd-export en je gekeken films, beoordelingen en watchlist landen in één keer in trakt-boxed.",
   "link_text_letterboxd_export": "Haal je Letterboxd-export op",
-  "text_letterboxd_export_compact": "Al op Letterboxd?"
+  "text_letterboxd_export_compact": "Al op Letterboxd?",
+  "profile_stat_films": "Films",
+  "profile_stat_this_year": "Dit jaar",
+  "profile_stat_lists": "Lijsten",
+  "profile_stat_following": "Volgend"
 }

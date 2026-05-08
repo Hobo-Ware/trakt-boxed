@@ -1200,5 +1200,9 @@
   "text_letterboxd_export_title": "Zabierz dziennik ze sobą",
   "text_letterboxd_export_body": "Wgraj eksport Letterboxd, a obejrzane filmy, oceny i watchlist trafią do trakt-boxed za jednym razem.",
   "link_text_letterboxd_export": "Pobierz swój eksport Letterboxd",
-  "text_letterboxd_export_compact": "Masz konto na Letterboxd?"
+  "text_letterboxd_export_compact": "Masz konto na Letterboxd?",
+  "profile_stat_films": "Filmy",
+  "profile_stat_this_year": "W tym roku",
+  "profile_stat_lists": "Listy",
+  "profile_stat_following": "Obserwowani"
 }

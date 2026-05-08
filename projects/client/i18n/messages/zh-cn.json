@@ -1200,5 +1200,9 @@
   "text_letterboxd_export_title": "带上你的日记",
   "text_letterboxd_export_body": "上传你的 Letterboxd 导出，观看的影片、评分和观看清单将一并导入 trakt-boxed。",
   "link_text_letterboxd_export": "获取你的 Letterboxd 导出",
-  "text_letterboxd_export_compact": "已经在使用 Letterboxd？"
+  "text_letterboxd_export_compact": "已经在使用 Letterboxd？",
+  "profile_stat_films": "电影",
+  "profile_stat_this_year": "今年",
+  "profile_stat_lists": "片单",
+  "profile_stat_following": "关注中"
 }

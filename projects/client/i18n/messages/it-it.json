@@ -1200,5 +1200,9 @@
   "text_letterboxd_export_title": "Porta con te il tuo diario",
   "text_letterboxd_export_body": "Carica il tuo export Letterboxd: film visti, voti e watchlist arrivano in trakt-boxed in un colpo solo.",
   "link_text_letterboxd_export": "Scarica il tuo export Letterboxd",
-  "text_letterboxd_export_compact": "Già su Letterboxd?"
+  "text_letterboxd_export_compact": "Già su Letterboxd?",
+  "profile_stat_films": "Film",
+  "profile_stat_this_year": "Quest'anno",
+  "profile_stat_lists": "Liste",
+  "profile_stat_following": "Seguiti"
 }

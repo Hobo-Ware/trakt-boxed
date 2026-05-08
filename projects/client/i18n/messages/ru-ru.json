@@ -1200,5 +1200,9 @@
   "text_letterboxd_export_title": "Возьмите дневник с собой",
   "text_letterboxd_export_body": "Загрузите экспорт Letterboxd, и просмотренные фильмы, оценки и watchlist окажутся в trakt-boxed одним движением.",
   "link_text_letterboxd_export": "Получить экспорт Letterboxd",
-  "text_letterboxd_export_compact": "Уже на Letterboxd?"
+  "text_letterboxd_export_compact": "Уже на Letterboxd?",
+  "profile_stat_films": "Фильмы",
+  "profile_stat_this_year": "В этом году",
+  "profile_stat_lists": "Списки",
+  "profile_stat_following": "Подписки"
 }

@@ -1200,5 +1200,9 @@
   "text_letterboxd_export_title": "あなたのダイアリーを持ってきましょう",
   "text_letterboxd_export_body": "Letterboxdのエクスポートをドロップすれば、視聴済み映画・評価・ウォッチリストがまとめてtrakt-boxedに取り込まれます。",
   "link_text_letterboxd_export": "Letterboxdのエクスポートを取得",
-  "text_letterboxd_export_compact": "すでにLetterboxdをお使いですか？"
+  "text_letterboxd_export_compact": "すでにLetterboxdをお使いですか？",
+  "profile_stat_films": "映画",
+  "profile_stat_this_year": "今年",
+  "profile_stat_lists": "リスト",
+  "profile_stat_following": "フォロー中"
 }
