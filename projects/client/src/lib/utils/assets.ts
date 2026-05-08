@@ -32,10 +32,9 @@ const generateShareCover = (type: 'show' | 'movie') =>
 export const DEFAULT_SHARE_SHOW_COVER = generateShareCover('show');
 export const DEFAULT_SHARE_MOVIE_COVER = generateShareCover('movie');
 
-export const DEFAULT_SHARE_COVER = assertDefined(
-  shuffle([
-    DEFAULT_SHARE_SHOW_COVER,
-    DEFAULT_SHARE_MOVIE_COVER,
-  ]).at(0),
-  'Default share cover is required',
-);
+/*
+  Brand share card. Pinned (not shuffled) so every non-media surface
+  shares the trakt-boxed mark + tagline rather than a random Trakt
+  promo still. Media pages still pass their own cover.
+*/
+export const DEFAULT_SHARE_COVER = `${assets}/og-card.png` as HttpsUrl;

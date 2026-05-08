@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!--
+    OG card. Centred composition; everything sits inside the inner
+    80% (120 +/- 960 horizontal, 60 +/- 510 vertical) so X / LinkedIn
+    edge crops do not eat the mark or the wordmark.
+  -->
+  <defs>
+    <linearGradient id="tboxed-card-bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d1117" />
+      <stop offset="1" stop-color="#131517" />
+    </linearGradient>
+    <linearGradient id="tboxed-mark" x1="0" y1="0" x2="220" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00b020" />
+      <stop offset="1" stop-color="#40bcf4" />
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="630" fill="url(#tboxed-card-bg)" />
+
+  <!-- Decorative film perforations hugging the right edge, very soft. -->
+  <g fill="#ffffff" fill-opacity="0.05">
+    <rect x="1138" y="120" width="14" height="20" rx="3" />
+    <rect x="1138" y="180" width="14" height="20" rx="3" />
+    <rect x="1138" y="240" width="14" height="20" rx="3" />
+    <rect x="1138" y="300" width="14" height="20" rx="3" />
+    <rect x="1138" y="360" width="14" height="20" rx="3" />
+    <rect x="1138" y="420" width="14" height="20" rx="3" />
+    <rect x="1138" y="480" width="14" height="20" rx="3" />
+  </g>
+
+  <!-- Mark, top-left of the centred safe area. -->
+  <g transform="translate(150, 200)">
+    <rect x="0" y="0" width="220" height="220" rx="50" ry="50" fill="url(#tboxed-mark)" />
+    <text
+      x="110"
+      y="156"
+      text-anchor="middle"
+      font-size="120"
+      letter-spacing="-4"
+      font-family="'Fraunces','Iowan Old Style','Palatino',Georgia,serif"
+      font-weight="700"
+      fill="#ffffff"
+    >tb</text>
+  </g>
+
+  <!-- Wordmark + tagline, baseline aligned to the centre of the mark. -->
+  <g transform="translate(420, 280)">
+    <text
+      x="0"
+      y="0"
+      font-family="'Fraunces','Iowan Old Style','Palatino',Georgia,serif"
+      font-weight="700"
+      font-size="92"
+      letter-spacing="-2"
+      fill="#ffffff"
+    >trakt-boxed</text>
+    <text
+      x="0"
+      y="64"
+      font-family="Roboto,Arial,sans-serif"
+      font-weight="400"
+      font-size="32"
+      letter-spacing="0.5"
+      fill="#9ab"
+    >Your movie diary on Trakt.</text>
+  </g>
+</svg>
