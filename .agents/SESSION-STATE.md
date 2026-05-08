@@ -66,19 +66,50 @@ include color samples, typography, and mobile-vs-desktop deltas.
 15. `build(i18n): add sync-i18n script for locale parity` —
     `deno task i18n:check` / `deno task i18n:sync`. Currently reports
     parity across all 21 locales.
+16. `feat(brand): trakt-boxed mark, PWA icons, and OG card` — gradient
+    rounded-square mark with serif "tb", PWA icon set re-rendered via
+    inkscape, 1200x630 OG card with safe-area composition.
+    DEFAULT_SHARE_COVER pinned to og-card.png.
+17. `feat(media): wire MediaGenres into the movie/show summary
+    surfaces` — pill row drilldowns into the corresponding /movies or
+    /shows catalog filtered by genre.
+18. `docs(rules): add infra and i18n agent rules` — Cloudflare worker
+    invariants, /v3/users/me vs typed @trakt/api distinction, the
+    edge-crop guideline, paraglide-as-canonical i18n, sync workflow,
+    snake_case naming.
+19. `refactor(nav): drop /discover landing; pivot side nav to Films /
+    Shows / Diary` — Letterboxd has no cross-media discover. Sub-routes
+    /discover/popular etc. stay alive; the landing page is gone.
+    UrlBuilder.discover() removed; MediaGenres + CtaButton route to
+    /movies or /shows directly.
+20. `feat(profile): Letterboxd-style stat row on the user banner` —
+    isMe-only for now; films / this year / lists / following with
+    deep links per cell. Hairlines between cells, tracked uppercase
+    labels, large numerals.
+21. `refactor(lists): tighten list-card poster collage` — 12 posters
+    layered with ~30% slice per poster, left-anchored z-stack, smaller
+    corner radius. Cascades through every list-summary surface.
 
-## Done. The brief queue is empty.
+## Done. The brief queue is empty (and then some).
 
-If you pick up after compaction, the next moves are quality work:
+If you pick up after compaction, the next moves are still quality:
 - Sweep dead VIP analytics keys (`VipUpsell`, `VipUpgrade`, etc.).
-- Wire the new media atoms into MovieSummary / ShowSummary so they
-  actually render on the page (atoms shipped, consumers haven't
-  swapped yet).
+- Wire the remaining media atoms (MediaCoverHero, MediaPoster with
+  state, MediaActionsRow, MediaRating) into surfaces beyond the
+  summary — diary cards, poster grids, lists.
+- Add a per-user stats query so the profile stat row works for
+  arbitrary users, not just isMe. Same query unlocks a followers
+  count.
+- Per-film engagement sub-tabs: /movies/[slug]/members,
+  /movies/[slug]/lists. The Reviews drawer already exists; Members
+  and Lists are the missing pair.
 - Add `deno task i18n:check` to CI before deploy.
 - Real Letterboxd export ZIP fixture round-trip test for
   LetterboxdParser + the multi-CSV ingest.
 - Re-read `../letterboxd-research/` notes per the guardrail before any
-  visual call.
+  visual call. Surfaces still un-redesigned: homepage hero (anonymous
+  / authed both), search results, single-list detail, member directory
+  (entirely missing as a route), film cast/crew tabs.
 
 ## Hard guardrails
 
