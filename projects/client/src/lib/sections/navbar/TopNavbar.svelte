@@ -4,7 +4,6 @@
   import { trackWindowScroll } from "$lib/utils/actions/trackWindowScroll";
   import NavbarHeader from "./_internal/NavbarHeader.svelte";
   import FilterButton from "./components/filter/FilterButton.svelte";
-  import GetVIPLink from "./components/GetVIPLink.svelte";
   import JoinTraktButton from "./components/JoinTraktButton.svelte";
   import { useNavbarState } from "./useNavbarState";
 
@@ -37,7 +36,6 @@
             <FilterButton isDisabled={!$state.hasFilters} />
           {/if}
         </RenderFor>
-        <RenderFor audience="free"><GetVIPLink source="navbar" /></RenderFor>
       </div>
     </nav>
 

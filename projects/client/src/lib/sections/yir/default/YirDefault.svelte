@@ -9,7 +9,6 @@
   import YirStudiosSection from "./_internal/YirStudiosSection.svelte";
   import YirRatedSection from "./_internal/YirRatedSection.svelte";
   import YirPeopleSection from "./_internal/YirPeopleSection.svelte";
-  import YirUpgradeSection from "./_internal/YirUpgradeSection.svelte";
 
   const {
     detail,
@@ -76,5 +75,3 @@
 {#if detail.lastWatched}
   <YirCalendarSection how="last" item={detail.lastWatched} {year} />
 {/if}
-
-<YirUpgradeSection />

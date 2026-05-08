@@ -9,7 +9,6 @@
   import ProfileImage from "$lib/sections/profile-banner/ProfileImage.svelte";
   import { formatLocalDate } from "$lib/utils/date/formatLocalDate";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay";
-  import ManageSubscriptionButton from "./components/ManageSubscriptionButton.svelte";
   import { getSwitchInnerText } from "./getSwitchInnerText";
   import LargeSettingsRow from "./LargeSettingsRow.svelte";
   import SettingInputDrawer from "./SettingInputDrawer.svelte";
@@ -164,8 +163,6 @@
       {$profile.about}
     </p>
   </LargeSettingsRow>
-
-  <ManageSubscriptionButton />
 
   <SettingsRow title={m.text_private_account()}>
     {#snippet action()}

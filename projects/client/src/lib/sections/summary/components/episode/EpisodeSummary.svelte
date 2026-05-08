@@ -1,7 +1,6 @@
 <script lang="ts">
   import RatingList from "$lib/components/summary/RatingList.svelte";
   import SummaryPoster from "$lib/components/summary/SummaryPoster.svelte";
-  import Spoiler from "$lib/features/spoilers/components/Spoiler.svelte";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import { useWatchCount } from "$lib/stores/useWatchCount";
   import type { Snippet } from "svelte";
@@ -69,9 +68,7 @@
     <RatingList ratings={$ratings} entry={episode} />
   </SummaryHeader>
 
-  <Spoiler media={episode} {show} {type}>
-    <SummaryOverview {title} {overview} />
-  </Spoiler>
+  <SummaryOverview {title} {overview} />
 
   <RenderFor audience="authenticated">
     <SummaryActions>

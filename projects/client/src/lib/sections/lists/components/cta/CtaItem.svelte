@@ -1,7 +1,5 @@
 <script lang="ts">
   import { DpadNavigationType } from "$lib/features/navigation/models/DpadNavigationType";
-  import ActivityCtaCard from "./_internal/ActivityCtaCard.svelte";
-  import ActivityCtaPlaceholder from "./_internal/ActivityCtaPlaceholder.svelte";
   import ListCtaCard from "./_internal/ListCtaCard.svelte";
   import MediaCtaCard from "./_internal/MediaCtaCard.svelte";
   import PlaceholderItem from "./_internal/PlaceholderItem.svelte";
@@ -20,9 +18,7 @@
 
 <div class="trakt-cta-item">
   {#if variant === "card"}
-    {#if cta.type === "activity" || cta.type === "social"}
-      <ActivityCtaCard intl={CtaItemIntlProvider} {cta} />
-    {:else if cta.type === "personal-list" || cta.type === "smart-list"}
+    {#if cta.type === "personal-list" || cta.type === "smart-list"}
       <ListCtaCard intl={CtaItemIntlProvider} {cta} />
     {:else}
       <MediaCtaCard {cta} intl={CtaItemIntlProvider} />
@@ -34,11 +30,7 @@
       data-dpad-navigation={DpadNavigationType.List}
       class="trakt-cta-list-placeholder"
     >
-      {#if cta.type === "activity" || cta.type === "social"}
-        <ActivityCtaPlaceholder intl={CtaPlaceholderIntlProvider} {cta} />
-      {:else}
-        <PlaceholderItem {cta} intl={CtaPlaceholderIntlProvider} />
-      {/if}
+      <PlaceholderItem {cta} intl={CtaPlaceholderIntlProvider} />
     </div>
   {/if}
 </div>

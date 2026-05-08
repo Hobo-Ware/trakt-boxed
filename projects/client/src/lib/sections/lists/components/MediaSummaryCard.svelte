@@ -10,7 +10,6 @@
   import { useTrack } from "$lib/features/analytics/useTrack";
   import { getLocale } from "$lib/features/i18n";
   import * as m from "$lib/features/i18n/messages.ts";
-  import Spoiler from "$lib/features/spoilers/components/Spoiler.svelte";
   import { useMedia, WellKnownMediaQuery } from "$lib/stores/css/useMedia";
   import { EPISODE_COVER_PLACEHOLDER } from "$lib/utils/assets";
   import { toHumanDate } from "$lib/utils/formatting/date/toHumanDate";
@@ -206,9 +205,7 @@
           <p class="trakt-card-title ellipsis">
             {episodeSubtitle(rest.episode)}
             {#if !["multiple_episodes", "full_season"].includes(rest.episode.type)}
-              <Spoiler media={rest.episode} show={media} type="episode">
-                - {rest.episode.title}
-              </Spoiler>
+              - {rest.episode.title}
             {/if}
           </p>
         {:else}
@@ -225,9 +222,7 @@
         </p>
       {:else if isShowContext && rest.type === "episode"}
         <p class="trakt-card-title ellipsis">
-          <Spoiler media={rest.episode} show={media} type="episode">
-            {rest.episode.title}
-          </Spoiler>
+          {rest.episode.title}
         </p>
         <p class="trakt-card-subtitle secondary ellipsis">
           {episodeSubtitle(rest.episode)}
@@ -242,9 +237,7 @@
             episodeNumber: rest.episode.number,
           })}
           {#if rest.variant !== "start"}
-            <Spoiler media={rest.episode} show={media} type="episode">
-              - {rest.episode.title}
-            </Spoiler>
+            - {rest.episode.title}
           {/if}
         </p>
       {:else if rest.variant === "credit"}

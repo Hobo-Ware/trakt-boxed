@@ -1,6 +1,5 @@
 <script lang="ts">
   import Logo from "$lib/components/logo/Logo.svelte";
-  import JoinForFree from "./components/JoinForFree.svelte";
   import LoginButton from "./components/LoginButton.svelte";
   import Steps from "./components/Steps.svelte";
   import TraktApps from "./components/TraktApps.svelte";
@@ -16,8 +15,6 @@
     </div>
 
     <Steps />
-
-    <JoinForFree />
   </div>
 
   <TraktApps />

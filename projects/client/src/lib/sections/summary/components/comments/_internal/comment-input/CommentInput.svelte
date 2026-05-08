@@ -9,7 +9,6 @@
   import type { ActiveComment } from "../models/ActiveComment";
   import { usePostComment, type UseAddCommentProps } from "../usePostComment";
   import { autoResizeArea as autoResizeAreaFn } from "./autoResizeArea";
-  import SpoilerSwitch from "./SpoilerSwitch.svelte";
   import { useContentObserver } from "./useContentObserver";
 
   type CommentInputProps = {
@@ -28,7 +27,6 @@
   }: CommentInputProps = $props();
 
   let textAreaElement: HTMLTextAreaElement;
-  let isSpoiler = $state(false);
 
   const { contentObserver, hasContent } = $derived(useContentObserver());
   const { postComment, isCommenting, error } = usePostComment();
@@ -40,7 +38,7 @@
   const postCommentHandler = async () => {
     const response = await postComment({
       comment: textAreaElement.value,
-      isSpoiler,
+      isSpoiler: false,
       ...props,
     });
 
@@ -73,12 +71,6 @@
     ></textarea>
 
     <div class="trakt-comment-actions">
-      <SpoilerSwitch
-        disabled={$isCommenting}
-        isChecked={isSpoiler}
-        onclick={() => (isSpoiler = !isSpoiler)}
-      />
-
       <ActionButton
         onclick={postCommentHandler}
         {label}

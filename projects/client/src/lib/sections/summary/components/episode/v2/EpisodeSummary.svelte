@@ -5,7 +5,6 @@
   import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
   import { useWatchCount } from "$lib/stores/useWatchCount";
   import EpisodeTitle from "../../_internal/EpisodeTitle.svelte";
-  import SpoilerSection from "../../_internal/SpoilerSection.svelte";
   import Summary from "../../_internal/Summary.svelte";
   import SummaryPosterTags from "../../_internal/SummaryPosterTags.svelte";
   import SummaryRateNow from "../../_internal/SummaryRateNow.svelte";
@@ -73,7 +72,5 @@
     </RenderFor>
   {/snippet}
 
-  <SpoilerSection media={episode} {show} {type}>
-    <p class="secondary">{overview}</p>
-  </SpoilerSection>
+  <p class="secondary">{overview}</p>
 </Summary>

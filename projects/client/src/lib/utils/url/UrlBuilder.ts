@@ -263,14 +263,11 @@ export const UrlBuilder = {
   socialMedia: {
     reddit: () => 'https://www.reddit.com/r/trakt',
   },
-  vip: () => '/vip',
   terms: () => '/terms',
   privacy: () => '/privacy',
   about: () => '/about',
   branding: () => '/branding',
-  renewVip: () => 'vip/renew',
   og: {
-    vip: () => 'https://trakt.tv/vip',
     status: () => 'https://status.trakt.tv',
     about: () => 'https://trakt.tv/about',
     branding: () => 'https://trakt.tv/branding',

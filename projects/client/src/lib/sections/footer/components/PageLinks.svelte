@@ -1,36 +1,10 @@
 <script lang="ts">
   import Link from "$lib/components/link/Link.svelte";
-  import { useUser } from "$lib/features/auth/stores/useUser";
   import * as m from "$lib/features/i18n/messages.ts";
-  import RenderFor from "$lib/guards/RenderFor.svelte";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-
-  const { user } = useUser();
 </script>
 
-<div class="trakt-page-links" class:is-vip={$user.isVip}>
-  <RenderFor audience="vip">
-    <Link href={UrlBuilder.vip()}>
-      <span class="bold">VIP</span>
-    </Link>
-
-    <Link
-      href={UrlBuilder.feedback()}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span class="bold">{m.link_text_feedback()}</span>
-    </Link>
-
-    <Link
-      href={UrlBuilder.og.support($user?.slug)}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span class="bold">{m.link_text_support()}</span>
-    </Link>
-  </RenderFor>
-
+<div class="trakt-page-links">
   <Link href={UrlBuilder.og.forums()} target="_blank" rel="noopener noreferrer">
     <span class="bold">{m.link_text_forums()}</span>
   </Link>

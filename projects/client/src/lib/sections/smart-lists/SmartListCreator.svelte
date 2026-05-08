@@ -9,26 +9,20 @@
   import { useFilter } from "$lib/features/filters/useFilter";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { MediaType } from "$lib/requests/models/MediaType";
-  import type { UserLimits } from "$lib/requests/models/UserLimits";
   import { iffy } from "$lib/utils/function/iffy";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import FilterTabs from "../navbar/components/filter/FilterTabs.svelte";
-  import LimitWarning from "./_internal/LimitWarning.svelte";
   import MediaTypeToggler from "./_internal/MediaTypeToggler.svelte";
   import TargetDropdown from "./_internal/TargetDropdown.svelte";
   import TargetPreview from "./_internal/TargetPreview.svelte";
   import { ListTarget } from "./models/ListTarget";
   import { useCreateSmartList } from "./useCreateSmartList";
 
-  const { mode, limits }: { mode: DiscoverMode; limits: UserLimits } = $props();
+  const { mode }: { mode: DiscoverMode } = $props();
 
   const { createList, isCreating } = useCreateSmartList();
   const { filterMap } = useFilter();
-  const { user } = useUser();
-
-  const limit = iffy(() =>
-    $user.isVip ? limits.dynamicLists.vip : limits.dynamicLists.free,
-  );
+  const { user: _user } = useUser();
 
   let listName = $state("");
   let type = $state<MediaType>(iffy(() => (mode === "media" ? "show" : mode)));
@@ -54,8 +48,7 @@
     goBack();
   };
 
-  const isAtLimit = $derived(limits.dynamicLists.current >= limit);
-  const isDisabled = $derived(isAtLimit || $isCreating);
+  const isDisabled = $derived($isCreating);
 </script>
 
 {#snippet targetSelector()}
@@ -81,10 +74,6 @@
     size="normal"
     hasAutoClose={false}
   >
-    {#if isAtLimit}
-      <LimitWarning />
-    {/if}
-
     <Form
       onSubmit={onCreateHandler}
       onCancel={goBack}
@@ -92,7 +81,7 @@
       confirmButtonText={m.button_text_create()}
       confirmButtonLabel={m.button_label_create_list()}
     >
-      <div class="trakt-smart-list-form-content" class:is-limited={isAtLimit}>
+      <div class="trakt-smart-list-form-content">
         <FormInput
           placeholder={m.input_placeholder_lists_name()}
           onChange={(value) => (listName = value)}
@@ -132,11 +121,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-xl);
-
-    &.is-limited {
-      opacity: 0.5;
-      pointer-events: none;
-    }
   }
 
   .trakt-target-selector-container {

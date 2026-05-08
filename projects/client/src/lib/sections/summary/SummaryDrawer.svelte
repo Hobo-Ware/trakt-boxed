@@ -4,7 +4,6 @@
   import type { Season } from "$lib/requests/models/Season";
   import type { SentimentAnalysis } from "$lib/requests/models/SentimentAnalysis";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry";
-  import WhereToWatchDrawer from "$lib/sections/lists/where-to-watch/_internal/WhereToWatchDrawer.svelte";
   import {
     SummaryDrawers,
     summaryDrawerNavigation,
@@ -18,7 +17,6 @@
   import NotesDrawer from "./components/notes/NotesDrawer.svelte";
   import SeasonsDrawer from "./components/seasons/SeasonsDrawer.svelte";
   import SentimentDrawer from "./components/sentiment/SentimentDrawer.svelte";
-  import TriviaDrawer from "./components/trivia/TriviaDrawer.svelte";
   import VideoDrawer from "./components/videos/VideoDrawer.svelte";
 
   const {
@@ -55,22 +53,10 @@
     details.type === "episode" ? details.show.slug : details.media.slug,
   );
 
-  const media = $derived("media" in details ? details.media : undefined);
-
   const showEntry = $derived.by(() => {
     if (details.type === "episode") return details.show;
     if (details.media.type === "show") return details.media as ShowEntry;
   });
-
-  const whereToWatchTarget = $derived(
-    details.type === "episode"
-      ? {
-          type: "episode" as const,
-          media: details.show,
-          episode: details.episode,
-        }
-      : { type: details.type, media: details.media },
-  );
 </script>
 
 {#if drawer === SummaryDrawers.Sentiment && sentiment}
@@ -89,20 +75,12 @@
   <VideoDrawer {videos} slug={mediaSlug} onClose={close} />
 {/if}
 
-{#if drawer === SummaryDrawers.Trivia && media}
-  <TriviaDrawer {media} onClose={close} />
-{/if}
-
 {#if drawer === SummaryDrawers.History}
   <HistoryDrawer {...details} onClose={close} />
 {/if}
 
-{#if drawer === SummaryDrawers.Notes && media}
-  <NotesDrawer {media} onClose={close} />
-{/if}
-
-{#if drawer === SummaryDrawers.WhereToWatch}
-  <WhereToWatchDrawer {...whereToWatchTarget} onClose={close} />
+{#if drawer === SummaryDrawers.Notes && "media" in details}
+  <NotesDrawer media={details.media} onClose={close} />
 {/if}
 
 {#if drawer === SummaryDrawers.Seasons && seasons && currentSeason != null && showEntry}

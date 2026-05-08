@@ -7,7 +7,6 @@
   import type { MediaComment } from "$lib/requests/models/MediaComment.ts";
   import { toTranslatedErrorComment } from "$lib/utils/formatting/string/toTranslatedErrorComment.ts";
   import { iffy } from "$lib/utils/function/iffy.ts";
-  import SpoilerSwitch from "../_internal/comment-input/SpoilerSwitch.svelte";
   import type { ActiveComment } from "../_internal/models/ActiveComment.ts";
   import {
     type UseAddCommentProps,
@@ -40,13 +39,9 @@
   const initialComment = iffy(() =>
     rest.mode === "edit" ? rest.comment.comment : "",
   );
-  const initialIsSpoiler = iffy(() =>
-    rest.mode === "edit" ? rest.comment.isSpoiler : false,
-  );
 
   let isOpen = $state(true);
   let comment = $state(initialComment);
-  let isSpoiler = $state(initialIsSpoiler);
 
   const { postComment, isCommenting, error } = usePostComment();
 
@@ -69,7 +64,7 @@
   async function handleSubmit() {
     const response = await postComment({
       comment,
-      isSpoiler,
+      isSpoiler: false,
       ...commentProps,
     });
 
@@ -88,14 +83,6 @@
   }
 </script>
 
-{#snippet badge()}
-  <SpoilerSwitch
-    disabled={$isCommenting}
-    isChecked={isSpoiler}
-    onclick={() => (isSpoiler = !isSpoiler)}
-  />
-{/snippet}
-
 <Drawer
   onClose={() => {
     isOpen = false;
@@ -104,7 +91,6 @@
   size="auto"
   title={m.dialog_title_comment()}
   classList="trakt-add-review-drawer"
-  {badge}
 >
   <Form
     onSubmit={handleSubmit}

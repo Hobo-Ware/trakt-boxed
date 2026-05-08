@@ -4,12 +4,10 @@ export type CtaType =
   | 'up-next'
   | 'start-watching'
   | 'released'
-  | 'activity'
   | 'upcoming'
   | 'personal-activity'
   | 'watchlist'
   | 'favorites'
-  | 'social'
   | 'personal-list'
   | 'smart-list'
   | 'progress';
@@ -44,13 +42,10 @@ export type Cta = CtaMap[CtaType];
 
 export type MediaCta = Exclude<
   Cta,
-  { type: 'activity' } | { type: 'social' } | { type: 'personal-list' } | {
-    type: 'smart-list';
-  }
+  { type: 'personal-list' } | { type: 'smart-list' }
 >;
 
 export type ListCta = Extract<
   Cta,
   { type: 'personal-list' } | { type: 'smart-list' }
 >;
-export type SocialCta = Extract<Cta, { type: 'activity' } | { type: 'social' }>;

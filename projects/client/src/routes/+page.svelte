@@ -5,7 +5,6 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import RenderForFeature from "$lib/guards/RenderForFeature.svelte";
-  import Banner from "$lib/sections/banner/Banner.svelte";
   import DashboardDrawer from "$lib/sections/dashboard/DashboardDrawer.svelte";
   import DiscoverToggles from "$lib/sections/discover/DiscoverToggles.svelte";
   import Landing from "$lib/sections/landing/Landing.svelte";
@@ -45,7 +44,6 @@
       {/snippet}
     </NavbarStateSetter>
 
-    <Banner />
     <UpNextList />
 
     <RenderForFeature flag={FeatureFlag.ThisWeek}>

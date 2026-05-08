@@ -1,8 +1,6 @@
 <script lang="ts">
   import Button from "$lib/components/buttons/Button.svelte";
-  import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import * as m from "$lib/features/i18n/messages.ts";
-  import UpsellCta from "$lib/features/upsell/UpsellCta.svelte";
   import { slide } from "svelte/transition";
   import type { ImportCounts } from "../../import/ImportTypes.ts";
 
@@ -14,20 +12,6 @@
   };
 
   const { counts, totalItems, onstart, onreset }: ImportSummaryProps = $props();
-
-  const { user, limits } = useUser();
-
-  const isVipLimitExceeded = $derived.by(() => {
-    if ($user?.isVip) return false;
-    if (!$limits) return false;
-
-    const watchlistFreeLimit = $limits.watchlistItems.free;
-    const historyFreeLimit = $limits.history.free;
-
-    return (
-      counts.watchlist > watchlistFreeLimit || counts.history > historyFreeLimit
-    );
-  });
 </script>
 
 <div class="import-summary" transition:slide={{ duration: 150, axis: "y" }}>
@@ -49,16 +33,10 @@
     {/if}
   </div>
 
-  {#if isVipLimitExceeded}
-    <UpsellCta source="import" variant="small">
-      {m.import_vip_limit_exceeded({ count: totalItems })}
-    </UpsellCta>
-  {/if}
-
   <div class="import-summary-actions">
     <Button
       label={m.button_label_start_import()}
-      disabled={isVipLimitExceeded || totalItems === 0}
+      disabled={totalItems === 0}
       onclick={onstart}
       color="purple"
       size="small"

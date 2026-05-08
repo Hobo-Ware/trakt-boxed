@@ -10,8 +10,6 @@
   import { AnalyticsEvent } from "$lib/features/analytics/events/AnalyticsEvent";
   import { useTrack } from "$lib/features/analytics/useTrack";
   import * as m from "$lib/features/i18n/messages.ts";
-  import Spoiler from "$lib/features/spoilers/components/Spoiler.svelte";
-  import { useEpisodeSpoilerImage } from "$lib/features/spoilers/useEpisodeSpoilerImage";
   import {
     EPISODE_COVER_PLACEHOLDER,
     MEDIA_POSTER_PLACEHOLDER,
@@ -35,9 +33,7 @@
 
   const isShowContext = $derived("context" in rest && rest.context === "show");
 
-  const src = $derived(
-    useEpisodeSpoilerImage({ episode, show, variant: rest.variant }),
-  );
+  const src = $derived(episode.cover.url ?? EPISODE_COVER_PLACEHOLDER);
 
   const { track } = useTrack(AnalyticsEvent.SummaryDrilldown);
 </script>
@@ -92,7 +88,7 @@
     >
       <CardCover
         title={show.title}
-        src={$src ?? EPISODE_COVER_PLACEHOLDER}
+        src={src}
         alt={`${show.title} - ${episode.title}`}
         {badge}
         {tag}
@@ -108,9 +104,7 @@
     <CardFooter {action}>
       {#if isShowContext}
         <p class="trakt-card-title ellipsis">
-          <Spoiler media={episode} {show} type="episode">
-            {episode.title}
-          </Spoiler>
+          {episode.title}
         </p>
         <p class="trakt-card-subtitle ellipsis">
           {episodeNumberLabel({
@@ -129,9 +123,7 @@
         <p class="trakt-card-subtitle ellipsis">
           {episodeSubtitle(episode)}
           {#if !["multiple_episodes", "full_season"].includes(episode.type)}
-            <Spoiler media={episode} {show} type="episode">
-              - {episode.title}
-            </Spoiler>
+            - {episode.title}
           {/if}
         </p>
       {/if}

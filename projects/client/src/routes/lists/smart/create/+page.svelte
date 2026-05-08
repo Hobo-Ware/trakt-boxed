@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { useUser } from "$lib/features/auth/stores/useUser";
   import { useDiscover } from "$lib/features/discover/useDiscover";
   import * as m from "$lib/features/i18n/messages.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
@@ -9,8 +8,6 @@
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
 
   const { mode } = useDiscover();
-
-  const { limits } = useUser();
 </script>
 
 <TraktPage
@@ -21,7 +18,5 @@
   <TraktPageCoverSetter />
   <NavbarStateSetter mode="minimal" hasFilters />
 
-  {#if $limits}
-    <SmartListCreator mode={$mode} limits={$limits} />
-  {/if}
+  <SmartListCreator mode={$mode} />
 </TraktPage>

@@ -21,7 +21,6 @@
   import NavigationProvider from "$lib/features/navigation/NavigationProvider.svelte";
   import AddNoteDrawerProvider from "$lib/features/notes/AddNoteDrawerProvider.svelte";
   import GlobalParameterProvider from "$lib/features/parameters/GlobalParameterProvider.svelte";
-  import PlayerProvider from "$lib/features/player/YoutubePlayerProvider.svelte";
   import QueryClientProvider from "$lib/features/query/QueryClientProvider.svelte";
   import RedirectProvider from "$lib/features/redirect/RedirectProvider.svelte";
   import ReportDialogProvider from "$lib/features/report/ReportDialogProvider.svelte";
@@ -85,15 +84,10 @@
     href="https://media.trakt.tv"
     crossorigin="anonymous"
   />
-  <link rel="preconnect" href="https://cdn.plyr.io" crossorigin="anonymous" />
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..700&family=Roboto+Mono:wght@400;600&display=swap"
     rel="stylesheet"
   />
-  <!-- Plyr CSS -->
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.8.3/plyr.css" />
-  <!-- Plyr JS -->
-  <script src="https://cdn.plyr.io/3.8.3/plyr.js"></script>
   <style>
     html,
     body {
@@ -152,8 +146,7 @@
               consent={data.cookieConsent}
               isBot={data.isBot}
             >
-              <PlayerProvider>
-                <AnalyticsProvider>
+              <AnalyticsProvider>
                   <RedirectProvider>
                     <NavigationProvider>
                       <NavigationHistoryProvider>
@@ -223,7 +216,6 @@
                     {/key}
                   </RedirectProvider>
                 </AnalyticsProvider>
-              </PlayerProvider>
             </CookieConsentProvider>
           </FeatureFlagProvider>
         </AuthProvider>

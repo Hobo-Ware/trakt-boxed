@@ -3,7 +3,6 @@
   import Link from "$lib/components/link/Link.svelte";
   import { useDiscover } from "$lib/features/discover/useDiscover";
   import * as m from "$lib/features/i18n/messages.ts";
-  import BannerContainer from "$lib/sections/banner/_internal/BannerContainer.svelte";
   import {
     dashboardDrawerNavigation,
     DashboardDrawers,
@@ -97,11 +96,11 @@
 </script>
 
 {#if $isLoading}
-  <BannerContainer variant="fluid">
+  <div class="trakt-streak-banner">
     <div class="trakt-streak-skeleton"></div>
-  </BannerContainer>
+  </div>
 {:else}
-  <BannerContainer variant="fluid">
+  <div class="trakt-streak-banner">
     <trakt-streak-callout>
       <Link {...drilldownLink}>
         <div class="trakt-streak-callout">
@@ -143,7 +142,7 @@
         </div>
       </Link>
     </trakt-streak-callout>
-  </BannerContainer>
+  </div>
 {/if}
 
 <style lang="scss">
@@ -152,6 +151,10 @@
   trakt-streak-callout,
   .trakt-streak-skeleton {
     height: var(--ni-80);
+  }
+
+  .trakt-streak-banner {
+    width: 100%;
   }
 
   trakt-streak-callout {

@@ -1,13 +1,12 @@
 <script lang="ts">
   import * as m from "$lib/features/i18n/messages";
 
-  import { useEpisodeSpoilerImage } from "$lib/features/spoilers/useEpisodeSpoilerImage";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import SeasonList from "$lib/sections/lists/season/SeasonList.svelte";
+  import { EPISODE_COVER_PLACEHOLDER } from "$lib/utils/assets";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import CastList from "../lists/CastList.svelte";
   import RelatedList from "../lists/RelatedList.svelte";
-  import WhereToWatchList from "../lists/where-to-watch/WhereToWatchList.svelte";
   import SummaryCover from "./components/_internal/SummaryCover.svelte";
   import Comments from "./components/comments/Comments.svelte";
   import EpisodeSummary from "./components/episode/EpisodeSummary.svelte";
@@ -29,9 +28,7 @@
     UrlBuilder.related.episode(show.slug, episode.season, episode.number),
   );
 
-  const posterSrc = $derived(
-    useEpisodeSpoilerImage({ episode, show, variant: "default" }),
-  );
+  const posterSrc = $derived(episode.cover.url ?? EPISODE_COVER_PLACEHOLDER);
 
   const networks = $derived(
     (() => {
@@ -58,7 +55,7 @@
     {showIntl}
     {episodeIntl}
     {crew}
-    posterSrc={$posterSrc}
+    posterSrc={posterSrc}
   />
 </RenderFor>
 
@@ -70,24 +67,8 @@
     {episodeIntl}
     {streamOn}
     {crew}
-    posterSrc={$posterSrc}
-  >
-    {#snippet contextualContent()}
-      <RenderFor audience="all" device={["desktop"]}>
-        <WhereToWatchList
-          type="episode"
-          {episode}
-          media={show}
-          {streamOn}
-          variant="inline"
-        />
-      </RenderFor>
-    {/snippet}
-  </EpisodeSummary>
-</RenderFor>
-
-<RenderFor audience="all" device={["mobile", "tablet-sm", "tablet-lg"]}>
-  <WhereToWatchList type="episode" {episode} media={show} {streamOn} />
+    posterSrc={posterSrc}
+  />
 </RenderFor>
 
 <CastList

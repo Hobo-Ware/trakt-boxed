@@ -26,10 +26,6 @@ import {
   type UserNotesHistory,
 } from '../queries/currentUserNotesQuery.ts';
 import {
-  currentUserPlexLibraryQuery,
-  type UserPlexLibrary,
-} from '../queries/currentUserPlexLibraryQuery.ts';
-import {
   currentUserRatingsQuery,
   type UserRatings,
 } from '../queries/currentUserRatingsQuery.ts';
@@ -115,9 +111,6 @@ export function useUser() {
   );
   const favoritesQuerySignal = useQuery(currentUserFavoritesQuery());
   const followingQuerySignal = useQuery(currentUserNetworkQuery());
-  const plexLibraryQuerySignal = useQuery(
-    currentUserPlexLibraryQuery(),
-  );
   const likesQuerySignal = useQuery(currentUserLikesQuery());
   const limitsQuerySignal = useQuery(userLimitsQuery());
   const notesQuerySignal = useQuery(currentUserNotesQuery());
@@ -150,11 +143,6 @@ export function useUser() {
           }),
           network: of<UserNetwork>({
             following: [],
-          }),
-          plexLibrary: of<UserPlexLibrary>({
-            movieIds: [],
-            episodeIds: [],
-            showIds: [],
           }),
           likes: of<UserLikes>({
             lists: new Map(),
@@ -191,9 +179,6 @@ export function useUser() {
         network: followingQuerySignal.pipe(
           map((network) => network.data),
         ),
-        plexLibrary: plexLibraryQuerySignal.pipe(
-          map((collection) => collection.data),
-        ),
         likes: likesQuerySignal.pipe(
           map((likes) => likes.data),
         ),
@@ -228,7 +213,6 @@ export function useUser() {
     reactions: userContext$.pipe(switchMap((ctx) => ctx.reactions)),
     favorites: userContext$.pipe(switchMap((ctx) => ctx.favorites)),
     network: userContext$.pipe(switchMap((ctx) => ctx.network)),
-    plexLibrary: userContext$.pipe(switchMap((ctx) => ctx.plexLibrary)),
     likes: userContext$.pipe(switchMap((ctx) => ctx.likes)),
     limits: userContext$.pipe(switchMap((ctx) => ctx.limits)),
     notes: userContext$.pipe(switchMap((ctx) => ctx.notes)),

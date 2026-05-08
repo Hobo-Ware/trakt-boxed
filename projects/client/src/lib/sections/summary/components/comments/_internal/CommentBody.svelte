@@ -1,70 +1,47 @@
 <script lang="ts">
   import { lineClamp } from "$lib/components/text/lineClamp";
-  import Spoiler from "$lib/features/spoilers/components/Spoiler.svelte";
-  import { spoilMeAnyway } from "$lib/features/spoilers/components/spoilMeAnyway";
   import type { MediaComment } from "$lib/requests/models/MediaComment";
-  import type { MediaEntry } from "$lib/requests/models/MediaEntry";
-  import { NOOP_FN } from "$lib/utils/constants";
   import { Marked } from "marked";
   import { createHeadingRenderer } from "./marked/createHeadingRenderer";
   import { createParagraphRenderer } from "./marked/createParagraphRenderer";
-  import { spoilerExtension } from "./marked/spoilerExtension";
 
   const maxPreviewLines = 3;
 
   type CommentBodyProps = {
-    media: MediaEntry;
     comment: MediaComment;
     type: "full" | "preview";
     onClick?: () => void;
   };
 
-  const { comment, media, type, onClick }: CommentBodyProps = $props();
+  const { comment, type, onClick }: CommentBodyProps = $props();
 
   const marked = $derived(
     new Marked({
-      extensions: [spoilerExtension()],
       renderer: {
-        paragraph: createParagraphRenderer(comment.isSpoiler),
+        paragraph: createParagraphRenderer(),
         heading: createHeadingRenderer(),
       },
     }),
   );
-
-  const spoilAction = $derived(type === "preview" ? NOOP_FN : spoilMeAnyway);
 </script>
 
 {#snippet commentText()}
-  <!--
-        -gfm: to enable GitHub Flavored Markdown
-        -breaks: to enable gfm line breaks
-      -->
   {@html marked.parse(comment.comment, { gfm: true, breaks: true })}
 {/snippet}
 
 {#if type === "full"}
-  <Spoiler {media} type={media.type}>
+  <div class="trakt-comment">
+    {@render commentText()}
+  </div>
+{:else}
+  <button class="trakt-comment-preview" onclick={onClick}>
     <div
-      class="trakt-comment"
-      class:trakt-spoiler={comment.isSpoiler}
-      use:spoilAction
+      class="trakt-comment trakt-comment-preview-content"
+      use:lineClamp={{ lines: maxPreviewLines }}
+      style="--max-lines: {maxPreviewLines}"
     >
       {@render commentText()}
     </div>
-  </Spoiler>
-{:else}
-  <button class="trakt-comment-preview" onclick={onClick}>
-    <Spoiler {media} type={media.type} variant="persistent">
-      <div
-        class="trakt-comment trakt-comment-preview-content"
-        use:lineClamp={{ lines: maxPreviewLines }}
-        style="--max-lines: {maxPreviewLines}"
-        class:trakt-spoiler={comment.isSpoiler}
-        use:spoilAction
-      >
-        {@render commentText()}
-      </div>
-    </Spoiler>
   </button>
 {/if}
 
@@ -90,21 +67,6 @@
     :global(.trakt-comment-heading) {
       text-transform: none;
       text-decoration: underline;
-    }
-
-    &,
-    :global(p) {
-      transition: var(--transition-increment) ease-in-out;
-      transition-property: filter, padding;
-    }
-
-    &:global(.trakt-spoiler),
-    :global(p.trakt-spoiler span) {
-      @include spoiler-blur();
-    }
-
-    :global(p.trakt-spoiler span) {
-      pointer-events: none;
     }
   }
 

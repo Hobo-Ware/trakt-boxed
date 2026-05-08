@@ -4,7 +4,6 @@
   import SummaryActionsBar from "../../../_internal/SummaryActionsBar.svelte";
   import BookmarkAction from "./BookmarkAction.svelte";
   import MediaPopupActions from "./MediaPopupActions.svelte";
-  import TrailerButton from "./TrailerButton.svelte";
 
   const { media, title }: { media: MediaEntry; title: string } = $props();
 
@@ -22,5 +21,4 @@
 <SummaryActionsBar popup={{ actions: popupActions, title }}>
   <TrackAction {...targetProps} />
   <BookmarkAction {media} />
-  <TrailerButton slug={media.slug} trailer={media.trailer} style="action" />
 </SummaryActionsBar>

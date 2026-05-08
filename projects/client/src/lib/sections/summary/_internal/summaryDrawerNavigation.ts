@@ -6,9 +6,7 @@ export enum SummaryDrawers {
   Details = 'details',
   Cast = 'cast',
   Videos = 'videos',
-  Trivia = 'trivia',
   History = 'history',
-  WhereToWatch = 'where-to-watch',
   Seasons = 'seasons',
   Notes = 'notes',
   Comments = 'comments',
@@ -30,12 +28,8 @@ function mapToDrawer(value: string | Nil) {
       return SummaryDrawers.Cast;
     case SummaryDrawers.Videos:
       return SummaryDrawers.Videos;
-    case SummaryDrawers.Trivia:
-      return SummaryDrawers.Trivia;
     case SummaryDrawers.History:
       return SummaryDrawers.History;
-    case SummaryDrawers.WhereToWatch:
-      return SummaryDrawers.WhereToWatch;
     case SummaryDrawers.Seasons:
       return SummaryDrawers.Seasons;
     case SummaryDrawers.Notes:

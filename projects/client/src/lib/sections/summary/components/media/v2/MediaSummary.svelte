@@ -8,7 +8,6 @@
   import type { MediaStudio } from "$lib/requests/models/MediaStudio";
   import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
   import { useWatchCount } from "$lib/stores/useWatchCount";
-  import SpoilerSection from "../../_internal/SpoilerSection.svelte";
   import Summary from "../../_internal/Summary.svelte";
   import SummaryPosterTags from "../../_internal/SummaryPosterTags.svelte";
   import SummaryRateNow from "../../_internal/SummaryRateNow.svelte";
@@ -82,7 +81,5 @@
     </RenderFor>
   {/snippet}
 
-  <SpoilerSection {media} type={media.type}>
-    <p class="secondary small">{intl.overview ?? media.overview}</p>
-  </SpoilerSection>
+  <p class="secondary small">{intl.overview ?? media.overview}</p>
 </Summary>

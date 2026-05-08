@@ -1,12 +1,9 @@
 <script lang="ts">
-  import MeetTheTeam from "./components/MeetTheTeam.svelte";
   import WhatIsTrakt from "./components/WhatIsTrakt.svelte";
 </script>
 
 <div class="trakt-about">
   <WhatIsTrakt />
-  <div class="trakt-about-divider"></div>
-  <MeetTheTeam />
 </div>
 
 <style lang="scss">

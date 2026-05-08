@@ -8,7 +8,6 @@ import { recommendations } from './handlers/recommendations.ts';
 import { search } from './handlers/search.ts';
 import { shows } from './handlers/shows.ts';
 import { sync } from './handlers/sync.ts';
-import { team } from './handlers/team.ts';
 import { users } from './handlers/users.ts';
 import { watchNow } from './handlers/watchNow.ts';
 
@@ -24,7 +23,6 @@ const handlers = [
   ...search,
   ...lists,
   ...comments,
-  ...team,
 ];
 
 export const server = setupServer(...handlers);

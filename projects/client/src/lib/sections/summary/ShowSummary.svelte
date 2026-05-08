@@ -12,13 +12,11 @@
   import RelatedList from "../lists/RelatedList.svelte";
   import SeasonList from "../lists/season/SeasonList.svelte";
   import VideoList from "../lists/VideoList.svelte";
-  import WhereToWatchList from "../lists/where-to-watch/WhereToWatchList.svelte";
   import Comments from "./components/comments/Comments.svelte";
   import Lists from "./components/lists/Lists.svelte";
   import MediaSummary from "./components/media/MediaSummary.svelte";
   import MediaSummaryV2 from "./components/media/v2/MediaSummary.svelte";
   import Sentiment from "./components/sentiment/Sentiment.svelte";
-  import TriviaList from "./components/trivia/TriviaList.svelte";
   import type { CommonMediaSummaryProps } from "./models/CommonMediaSummaryProps";
   import SummaryDrawer from "./SummaryDrawer.svelte";
 
@@ -77,7 +75,6 @@
   <MediaSummary {media} {intl} {crew} {streamOn} type="show">
     {#snippet contextualContent()}
       <RenderFor audience="all" device={["desktop"]}>
-        <WhereToWatchList type="show" {media} {streamOn} variant="inline" />
         <Sentiment {sentiment} slug={media.slug} variant="inline" />
       </RenderFor>
     {/snippet}
@@ -85,7 +82,6 @@
 </RenderFor>
 
 <RenderFor audience="all" device={["mobile", "tablet-sm", "tablet-lg"]}>
-  <WhereToWatchList type="show" {media} {streamOn} />
   <Sentiment {sentiment} slug={media.slug} />
 </RenderFor>
 
@@ -116,5 +112,3 @@
   type="show"
   drilldownLink={listsLink}
 />
-
-<TriviaList {media} />

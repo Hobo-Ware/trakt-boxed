@@ -33,7 +33,6 @@ const STATIC_ROUTES: ReadonlyArray<SitemapEntry> = [
   { path: '/media/recommended', priority: '0.7', changefreq: 'daily' },
   { path: '/discover', priority: '0.8', changefreq: 'daily' },
   { path: '/search', priority: '0.6', changefreq: 'monthly' },
-  { path: '/vip', priority: '0.5', changefreq: 'monthly' },
   { path: '/about', priority: '0.4', changefreq: 'monthly' },
   { path: '/privacy', priority: '0.3', changefreq: 'monthly' },
   { path: '/terms', priority: '0.3', changefreq: 'monthly' },
