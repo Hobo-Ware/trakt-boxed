@@ -11,7 +11,7 @@
   import CtaItem from "../components/cta/CtaItem.svelte";
   import type { Cta } from "../components/cta/models/Cta.ts";
   import ListSummaryItem from "../components/list-summary/ListSummaryItem.svelte";
-  import CreateListAction from "./_internal/CreateListAction.svelte";
+  import CreateListPill from "./_internal/CreateListPill.svelte";
   import ListsHeader from "./_internal/ListsHeader.svelte";
   import SaveListDrawer from "./_internal/SaveListDrawer.svelte";
   import type { PersonalListType } from "./models/PersonalListType.ts";
@@ -87,7 +87,7 @@
 
           {#snippet actions()}
             {#if isMine && $lists.length > 0}
-              <CreateListAction />
+              <CreateListPill />
             {/if}
           {/snippet}
         </ListsHeader>
@@ -130,7 +130,7 @@
 
       {#snippet actions()}
         {#if isMine}
-          <CreateListAction />
+          <CreateListPill />
         {/if}
       {/snippet}
     </SectionList>
