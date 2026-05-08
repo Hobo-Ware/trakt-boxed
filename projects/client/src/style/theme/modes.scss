@@ -255,17 +255,21 @@
 
 // Define theme variables for dark mode
 @mixin dark-theme {
-  --color-floating-background: var(--shade-930);
-  --color-shadow: var(--shade-940);
+  /*
+    trakt-boxed runs Letterboxd's slate aesthetic:
+      page bg #131517 (--shade-940), surface slate #2e3337 (--shade-900),
+      muted text #9ea6ac (--shade-300). Brand accents come from
+      --tboxed-positive / --tboxed-rating / --tboxed-network. No purple.
+  */
+  --color-floating-background: var(--shade-900);
+  --color-shadow: var(--shade-1000);
 
   --color-foreground: var(--shade-10);
-  --color-background: color-mix(in srgb,
-      var(--shade-920) 97%,
-      var(--purple-900));
+  --color-background: var(--shade-940);
 
   --color-text-primary: var(--shade-10);
   --color-text-secondary: var(--shade-300);
-  --color-text-emphasis: var(--purple-300);
+  --color-text-emphasis: var(--tboxed-positive);
 
   --color-input-background: color-mix(in srgb,
       var(--shade-800) 25%,
@@ -291,7 +295,7 @@
    * Card
    */
   --color-card-background: var(--color-floating-background);
-  --color-official-list-background: var(--purple-800);
+  --color-official-list-background: var(--shade-800);
 
   /*
    * Actions bar
@@ -314,7 +318,7 @@
       color-mix(in srgb, var(--color-shadow) 30%, transparent) 61%,
       color-mix(in srgb, var(--color-shadow) 25%, transparent) 80%,
       transparent 100%);
-  --list-meta-info-color: var(--purple-400);
+  --list-meta-info-color: var(--shade-300);
 
   /*
    * Button
@@ -325,7 +329,7 @@
   /**
    * Link
    */
-  --color-link-active: var(--purple-400);
+  --color-link-active: var(--tboxed-positive);
 
   /*
    * Navbar
@@ -395,7 +399,7 @@
    * Toggle
    */
   --toggler-background-color: var(--shade-900);
-  --toggler-tracker-color: var(--purple-500);
+  --toggler-tracker-color: var(--tboxed-positive);
   --toggle-background-color: var(--shade-700);
   --toggle-background-hover-color: var(--shade-600);
   --toggle-foreground-color: var(--shade-50);
@@ -418,7 +422,7 @@
   /*
    * Sentiment
    */
-  --color-sentiment-good: var(--purple-200);
+  --color-sentiment-good: var(--tboxed-positive);
   --color-sentiment-bad: var(--red-100);
   --color-sentiment-highlight-border: color-mix(in srgb,
       var(--shade-10) 10%,
@@ -466,9 +470,14 @@
   /*
    * Profile page
    */
-  --background-profile-details: radial-gradient(50% 40% at 50% 0%,
-      var(--purple-950) 0%,
-      var(--purple-1000) 100%);
+  /*
+    Profile cinematic banner. Letterboxd uses a user-chosen still here;
+    until trakt-boxed surfaces that, we use a softened slate radial
+    that fades into the page.
+  */
+  --background-profile-details: radial-gradient(60% 50% at 50% 0%,
+      var(--shade-900) 0%,
+      var(--shade-940) 100%);
   --background-vip-profile-details: radial-gradient(50% 40% at 50% 0%,
       var(--red-950) 0%,
       var(--red-1000) 100%);
@@ -487,23 +496,23 @@
   --color-streak-surface: linear-gradient(90deg,
       var(--shade-940) 0%,
       var(--shade-920) 100%);
-  --color-streak-day: var(--purple-400);
+  --color-streak-day: var(--tboxed-positive);
 
   /*
-   * Activity heatmap
+   * Activity heatmap. Letterboxd-style green ramp on slate.
    */
   --color-heatmap-empty: var(--shade-800);
-  --color-heatmap-l1: color-mix(in srgb, var(--purple-900) 80%, transparent);
-  --color-heatmap-l2: var(--purple-700);
-  --color-heatmap-l3: var(--purple-500);
-  --color-heatmap-l4: var(--purple-300);
+  --color-heatmap-l1: color-mix(in srgb, var(--tboxed-positive) 25%, transparent);
+  --color-heatmap-l2: color-mix(in srgb, var(--tboxed-positive) 50%, transparent);
+  --color-heatmap-l3: color-mix(in srgb, var(--tboxed-positive) 75%, transparent);
+  --color-heatmap-l4: var(--tboxed-positive);
 
   /*
    * Charts
    */
   --color-bar-chart-bar-default: var(--shade-300);
   --color-bar-chart-bar-highlight: var(--shade-10);
-  --color-bar-chart-bar-hover: var(--purple-500);
+  --color-bar-chart-bar-hover: var(--tboxed-positive);
 }
 
 // Apply themes to selectors
