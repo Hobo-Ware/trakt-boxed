@@ -1,0 +1,22 @@
+:root {
+  /*
+    trakt-boxed brand tokens.
+
+    Three accents on a near-black canvas, each owning one verb:
+      positive  — watched / liked / log
+      rating    — stars
+      network   — follow / activity
+  */
+
+  --tboxed-positive: #00b020;
+  --tboxed-positive-soft: #00b02033;
+  --tboxed-positive-hover: #00cc26;
+
+  --tboxed-rating: #ff8000;
+  --tboxed-rating-soft: #ff800033;
+  --tboxed-rating-hover: #ff9426;
+
+  --tboxed-network: #40bcf4;
+  --tboxed-network-soft: #40bcf433;
+  --tboxed-network-hover: #5fc7f6;
+}
