@@ -38,49 +38,47 @@ include color samples, typography, and mobile-vs-desktop deltas.
    in `style/palette/tboxed.css`.
 4. `ci: pin Wrangler 4.88.0 and persist projects/client/.npmrc`.
 5. `docs(planning): record trakt-boxed session state for autonomous resume`.
-6. `chore(scripts): drop i18n meta generator and e2e harness` — removed
-   the orphaned i18n meta generator + .scripts/, dropped pre:dev/
-   prebuild/pretest/test:e2e tasks. Bundled in this same commit:
-   bottom-nav rewire to Films/Diary/Lists/Profile + new
-   `button_label_films` and `button_label_diary` keys across all 20
-   locale JSONs (translated for de/fr/es/it/pt-br/nl/ja/zh-cn/ru/pl;
-   English fallback elsewhere).
+6. `chore(scripts): drop i18n meta generator and e2e harness` —
+   bundled with the bottom-nav rewire to Films/Diary/Lists/Profile +
+   `button_label_films` / `button_label_diary` across 20 locales.
+7. `feat(shell): cover hero pattern and summary-* shared classes` —
+   `style/components.css` + Fraunces serif for media titles.
+8. `feat(media): trakt-boxed media atoms` — MediaCoverHero, MediaPoster
+   (3-state outline via useMediaWatchState), MediaRating, MediaGenres,
+   MediaActionsRow. No barrel; consumers import directly from each
+   file.
+9. `feat(diary): chronological diary surface at /diary` — calendar
+   tile cards with films + episodes interleaved, mobile bottom nav
+   Diary tab now points at /diary.
+10. `feat(lists): inline create-list pill on personal lists` — fast-add
+    flow that hits useSaveList + List.Created invalidation; full
+    SaveListDrawer still owns the description/privacy path.
+11. `feat(reviews): surface comments as Reviews` — list_title_reviews
+    key + lowercase "watched" eyebrow on each review header.
+12. `feat(media): Favorite in the more-options popup`.
+13. Profile — verified upstream already meets the brief (gear next to
+    username when isOwner via SettingsButton, ProfileImageCropDialog
+    wired into ProfileImage isEditable, no duplicate gear).
+14. `feat(import): make Letterboxd primary; drop TV Time path; ship
+    export CTA` — LetterboxdExportCta.svelte (default + compact),
+    compact variant ships in Landing + MobileLanding next to the
+    LoginButton. TV Time parsers + tvtime ImportSource gone.
+15. `build(i18n): add sync-i18n script for locale parity` —
+    `deno task i18n:check` / `deno task i18n:sync`. Currently reports
+    parity across all 21 locales.
 
-## Next, in order
+## Done. The brief queue is empty.
 
-Each bullet = one or more atomic conventional commits. Stop only when
-context is exhausted, not after each item.
-
-5. **Mobile shell** — DONE: bottom nav rewired, page-level cover hero
-   pattern + summary-* shared classes (`style/components.css`),
-   Fraunces wired as the serif for `.summary-title-serif` /
-   `.trakt-responsive-title`. Diary route still points at `/history` —
-   repoint when the dedicated diary route lands.
-6. **Movie summary page** with shared atoms from day one: `MediaCoverHero`,
-   `MediaPoster`, `MediaRating`, `MediaGenres`, `MediaActionsRow`. Build
-   the atoms upfront — don't ship duplicates and refactor later.
-7. **Diary** — chronological log with date headers, inline star rating,
-   review snippet. The marquee feature.
-8. **Lists** with create-inline pill. Mirror trakt-time's
-   `CreateListPill` flow: POST `/users/me/lists`, invalidate
-   `List.Created`, optimistic UI.
-9. **Reviews** — Letterboxd's "review" is Trakt's "comment" with a star
-   rating attached. Surface comments as reviews, sort by likes by
-   default, inline thread expansion.
-10. **More-options sheet** — `[label] + circular icon button` pattern
-    beside the watch toggle (NOT a chunky bordered text pill — we
-    learned that already). Sheet handles rating, favorite, watchlist,
-    lists, mark-as-watched, create list. Pipe `watchedProps` so the
-    sheet can mark-as-watched in place.
-11. **Profile** — avatar upload + crop, gear icon next to the username
-    row when `isOwner`, NO duplicate gear at the bottom.
-12. **Settings** — TV Time importer (history + watchlist) plus the
-    Liberator extension CTA on both the import block and the login
-    gate. Single `TvTimeLiberatorCta.svelte` with default + compact
-    variants.
-13. **i18n sync helper** — write `scripts/sync-i18n.ts` that ensures
-    every locale carries the full key set (translated where listed,
-    English fallback elsewhere). Run after every feature.
+If you pick up after compaction, the next moves are quality work:
+- Sweep dead VIP analytics keys (`VipUpsell`, `VipUpgrade`, etc.).
+- Wire the new media atoms into MovieSummary / ShowSummary so they
+  actually render on the page (atoms shipped, consumers haven't
+  swapped yet).
+- Add `deno task i18n:check` to CI before deploy.
+- Real Letterboxd export ZIP fixture round-trip test for
+  LetterboxdParser + the multi-CSV ingest.
+- Re-read `../letterboxd-research/` notes per the guardrail before any
+  visual call.
 
 ## Hard guardrails
 
@@ -116,9 +114,11 @@ context is exhausted, not after each item.
 - Vitest must be run from `projects/client/` so the `$lib`/`$test`
   aliases resolve.
 - `i18n/messages/{locale}.json` files are now the i18n source of truth
-  (Paraglide reads them directly). When adding strings, edit ALL 20
-  locale files in lockstep; a sync helper at `scripts/sync-i18n.ts` is
-  still TODO (item 13).
+  (Paraglide reads them directly). When adding strings, edit
+  `en.json` then run `deno task i18n:sync` to fan English fallbacks
+  into the other 20 locales. `deno task i18n:check` is the CI check.
+- No barrel files (`index.ts` re-exports). Import each component or
+  function from its own path.
 
 ## Dev commands
 
