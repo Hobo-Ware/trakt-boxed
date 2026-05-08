@@ -38,11 +38,39 @@
   const isPublic = $derived(variant === "public");
 </script>
 
+<!--
+  Letterboxd-flavour profile banner: cinematic backdrop ledge (the
+  radial behind .profile-page-banner-container is set on the parent
+  page), centred avatar-and-name stack, location subtitle, then the
+  five-stat row. Actions float to the top-right corner.
+
+  Reference: research/notes/profile.md and the profile-mobile.png
+  screenshot — avatar sits centred below the banner edge, the display
+  name is the most prominent type on the page.
+-->
 <div class="profile-page-banner-container">
+  <div class="profile-actions-floating">
+    {#if isPublic}
+      <ShareButton
+        title={profile.name.first}
+        urlOverride={UrlBuilder.profile.user(shareableSlug)}
+        textFactory={({ title: name }) => m.text_share_profile({ name })}
+        source={{ id: "profile", type: $isMe ? "own" : "other" }}
+      />
+    {/if}
+    <RenderFor audience="authenticated">
+      {#if !$isMe}
+        <ProfileOverflowMenu {profile} {slug} />
+      {:else}
+        <SettingsButton style="action" />
+      {/if}
+    </RenderFor>
+  </div>
+
   <div class="profile-identity">
     <ProfileImage
       isEditable={$isMe}
-      --image-size="var(--ni-64)"
+      --image-size="var(--ni-80)"
       --border-width="var(--border-thickness-s)"
       name={profile.name.first}
       src={profile.avatar.url}
@@ -57,38 +85,18 @@
           {/if}
         </RenderFor>
         {#if !isBlocked && !isPending}
-          <RenderFor audience="all" device={["tablet-lg", "desktop"]}>
-            {#if profile.isVip}
-              <VipBadge isDirector={profile.isDirector} />
-            {/if}
-          </RenderFor>
+          {#if profile.isVip}
+            <VipBadge isDirector={profile.isDirector} />
+          {/if}
         {/if}
       {/snippet}
     </ProfileImage>
+
     <div class="profile-user-details" data-hj-suppress data-sentry-mask>
-      <span class="title ellipsis">{toDisplayableName(profile)}</span>
-      {#if isPublic}
-        <span class="user-location ellipsis">{profile.location}</span>
+      <h1 class="profile-display-name">{toDisplayableName(profile)}</h1>
+      {#if isPublic && profile.location}
+        <p class="profile-location">{profile.location}</p>
       {/if}
-    </div>
-    <div class="profile-actions">
-      <div class="profile-icon-actions">
-        {#if isPublic}
-          <ShareButton
-            title={profile.name.first}
-            urlOverride={UrlBuilder.profile.user(shareableSlug)}
-            textFactory={({ title: name }) => m.text_share_profile({ name })}
-            source={{ id: "profile", type: $isMe ? "own" : "other" }}
-          />
-        {/if}
-        <RenderFor audience="authenticated">
-          {#if !$isMe}
-            <ProfileOverflowMenu {profile} {slug} />
-          {:else}
-            <SettingsButton style="action" />
-          {/if}
-        </RenderFor>
-      </div>
     </div>
   </div>
 
@@ -105,34 +113,51 @@
   @use "$style/scss/mixins/index" as *;
 
   .profile-page-banner-container {
+    position: relative;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
+
     gap: var(--gap-m);
+    padding-top: var(--gap-xl);
+    padding-bottom: var(--gap-m);
+
     width: 100%;
-    height: 100%;
-    min-height: 0;
+    box-sizing: border-box;
 
     :global(.trakt-profile-about) {
       flex: 1;
       min-height: 0;
+      align-self: stretch;
+      text-align: center;
     }
 
-    @include for-tablet-sm-and-below {
-      height: auto;
+    :global(.trakt-profile-about .line-clamp-container) {
+      align-items: center;
+    }
+  }
 
-      :global(.trakt-profile-about) {
-        flex: initial;
-      }
+  .profile-actions-floating {
+    position: absolute;
+    top: var(--gap-xs);
+    right: var(--gap-m);
 
-      :global(.trakt-profile-about .line-clamp-container) {
-        align-items: flex-start;
-      }
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xxs);
+
+    z-index: var(--layer-raised);
+
+    :global(svg) {
+      width: var(--ni-22);
+      height: var(--ni-22);
     }
   }
 
   .profile-identity {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: var(--gap-s);
 
@@ -145,22 +170,7 @@
       :global(.trakt-blocked-user-tag),
       :global(.trakt-pending-follow-tag) {
         z-index: var(--layer-base);
-        margin-top: var(--ni-neg-16);
-      }
-    }
-
-    @include for-tablet-sm-and-below {
-      gap: var(--gap-xs);
-      flex-wrap: wrap;
-
-      span.ellipsis {
-        white-space: normal;
-      }
-
-      :global(.profile-image-container) {
-        --width: var(--ni-40);
-        --height: var(--ni-40);
-        --border-width: var(--border-thickness-xs);
+        margin-top: var(--ni-neg-12);
       }
     }
   }
@@ -168,50 +178,35 @@
   .profile-user-details {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-micro);
+    align-items: center;
+    gap: var(--ni-2);
     min-width: 0;
-    flex: 1;
+    text-align: center;
+  }
 
-    .user-location {
-      color: var(--color-text-secondary);
+  /*
+    Display name is the most prominent type on the page — Fraunces
+    serif (the trakt-boxed media-title font) at a generous size.
+  */
+  .profile-display-name {
+    margin: 0;
+    font-family: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    font-size: var(--ni-26);
+
+    color: var(--color-foreground);
+
+    @include for-tablet-lg {
+      font-size: var(--ni-32);
     }
   }
 
-  .profile-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-s);
-    flex-shrink: 0;
-
-    position: relative;
-    z-index: var(--layer-raised);
-
-    :global(svg) {
-      width: var(--ni-24);
-      height: var(--ni-24);
-    }
-
-    @include for-tablet-sm-and-below {
-      gap: var(--gap-xs);
-    }
-  }
-
-  .profile-icon-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-xxs);
-
-    :global(.trakt-popup-menu-button) {
-      @include for-mouse() {
-        &:hover {
-          background-color: color-mix(
-            in srgb,
-            var(--color-foreground) 10%,
-            transparent
-          );
-          color: inherit;
-        }
-      }
-    }
+  .profile-location {
+    margin: 0;
+    font-size: var(--font-size-tag);
+    color: var(--color-text-secondary);
   }
 </style>
