@@ -1,4 +1,5 @@
 <script lang="ts">
+  import MediaGenres from "$lib/components/media/MediaGenres.svelte";
   import RatingList from "$lib/components/summary/RatingList.svelte";
   import SummaryPoster from "$lib/components/summary/SummaryPoster.svelte";
   import RenderFor from "$lib/guards/RenderFor.svelte";
@@ -72,6 +73,8 @@
       <SummaryTitle {title} {crew} {...target} />
       <RatingList ratings={$ratings} entry={media} />
     </SummaryHeader>
+
+    <MediaGenres genres={media.genres ?? []} {type} />
 
     <SummaryOverview {title} overview={intl.overview ?? media.overview} />
   </div>

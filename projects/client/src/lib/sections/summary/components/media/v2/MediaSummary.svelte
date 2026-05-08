@@ -1,5 +1,6 @@
 <script lang="ts">
   import CoverImageSetter from "$lib/components/background/CoverImageSetter.svelte";
+  import MediaGenres from "$lib/components/media/MediaGenres.svelte";
   import RatingList from "$lib/components/summary/RatingList.svelte";
   import SummaryPoster from "$lib/components/summary/SummaryPoster.svelte";
   import RenderFor from "$lib/guards/RenderFor.svelte";
@@ -75,6 +76,7 @@
   {#snippet meta()}
     <RatingList ratings={$ratings} entry={media} />
     <SummaryTitle {title} {crew} {...target} />
+    <MediaGenres genres={media.genres ?? []} type={target.type} />
 
     <RenderFor audience="authenticated">
       <MediaActions {media} {title} />
