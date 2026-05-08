@@ -87,7 +87,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     sentrySvelteKit({
       org: 'trakt-tv',
-      project: 'trakt-web',
+      project: 'trakt-boxed',
     }),
     sveltekit(),
     sveltekitOG(),

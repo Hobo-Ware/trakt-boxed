@@ -1,10 +1,9 @@
-# trakt-web
+# trakt-boxed
 
-<a href="https://app.deepsource.com/gh/trakt/trakt-web/"><img src="https://app.deepsource.com/gh/trakt/trakt-web.svg/?label=code+coverage&show_trend=true&token=tiC5fNXEfyZqbFXqMggxzbWT" /></a>
-<a href="https://app.deepsource.com/gh/trakt/trakt-web/"><img src="https://app.deepsource.com/gh/trakt/trakt-web.svg/?label=active+issues&show_trend=true&token=tiC5fNXEfyZqbFXqMggxzbWT" /></a>
-<a href="https://app.deepsource.com/gh/trakt/trakt-web/"><img src="https://app.deepsource.com/gh/trakt/trakt-web.svg/?label=resolved+issues&show_trend=true&token=tiC5fNXEfyZqbFXqMggxzbWT" /></a>
+> Your movie diary on Trakt.
 
-<a href="https://github.com/trakt/trakt-web/actions/workflows/ci_cd.yml"><img src="https://github.com/trakt/trakt-web/actions/workflows/ci_cd.yml/badge.svg" /></a>
+A mobile-first, Letterboxd-flavoured Trakt client. Forked from
+[trakt-web](https://github.com/trakt/trakt-web).
 
 ---
 

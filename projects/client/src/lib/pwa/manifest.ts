@@ -1,10 +1,10 @@
 import type { ManifestOptions } from 'vite-plugin-pwa';
 
 export const manifest: Partial<ManifestOptions> = {
-  id: 'trakt-web-pwa',
-  name: 'Trakt Lite',
-  short_name: 'Trakt',
-  description: 'A lightweight Trakt.tv client',
+  id: 'trakt-boxed-pwa',
+  name: 'trakt-boxed',
+  short_name: 'boxed',
+  description: 'Your movie diary on Trakt.',
   dir: 'ltr',
   lang: 'en',
   prefer_related_applications: false,

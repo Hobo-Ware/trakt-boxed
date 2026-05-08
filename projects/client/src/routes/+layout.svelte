@@ -66,7 +66,7 @@
 </script>
 
 <svelte:head>
-  <title>Trakt Web</title>
+  <title>trakt-boxed</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     rel="preconnect"
