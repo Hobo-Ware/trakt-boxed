@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {dizi} other {dizi}}",
   "yir_upgrade_message": "VIP'ye yükseltin ve tüm zamanların ve yıllık Yılın Özeti sayfalarınıza ek olarak çok daha fazla harika özelliğe sahip olun!",
   "button_label_films": "Films",
-  "button_label_diary": "Diary"
+  "button_label_diary": "Diary",
+  "page_title_diary": "Diary",
+  "text_diary_empty": "No diary entries yet"
 }

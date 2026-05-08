@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {番組} other {番組}}",
   "yir_upgrade_message": "VIPにアップグレードして、通算および年間の年次レビューページ、さらに多くの素晴らしい機能を手に入れましょう！",
   "button_label_films": "映画",
-  "button_label_diary": "ダイアリー"
+  "button_label_diary": "ダイアリー",
+  "page_title_diary": "ダイアリー",
+  "text_diary_empty": "まだダイアリーに記録がありません"
 }

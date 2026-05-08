@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {série} other {séries}}",
   "yir_upgrade_message": "Faça upgrade para VIP e tenha suas próprias páginas de Retrospectiva anual e de todos os tempos, além de muitos outros recursos excelentes!",
   "button_label_films": "Filmes",
-  "button_label_diary": "Diário"
+  "button_label_diary": "Diário",
+  "page_title_diary": "Diário",
+  "text_diary_empty": "Nenhum registro no diário ainda"
 }

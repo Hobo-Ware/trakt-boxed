@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {serie} other {series}}",
   "yir_upgrade_message": "¡Actualiza a VIP y obtén tus propias páginas de Resumen del Año totales y anuales, además de muchas más funciones geniales!",
   "button_label_films": "Películas",
-  "button_label_diary": "Diario"
+  "button_label_diary": "Diario",
+  "page_title_diary": "Diario",
+  "text_diary_empty": "Aún no hay entradas en el diario"
 }

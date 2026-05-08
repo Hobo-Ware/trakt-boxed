@@ -48,10 +48,7 @@
       </Link>
 
       <RenderFor audience="authenticated">
-        <Link
-          href={UrlBuilder.history.home()}
-          label={m.button_label_diary()}
-        >
+        <Link href="/diary" label={m.button_label_diary()}>
           <CalendarIcon />
         </Link>
 

@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {Serie} other {Serien}}",
   "yir_upgrade_message": "Upgrade auf VIP und erhalte deine eigenen Jahresrückblicke für alle Zeiten und Jahre, plus viele weitere tolle Funktionen!",
   "button_label_films": "Filme",
-  "button_label_diary": "Tagebuch"
+  "button_label_diary": "Tagebuch",
+  "page_title_diary": "Tagebuch",
+  "text_diary_empty": "Noch keine Tagebucheinträge"
 }

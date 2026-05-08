@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {serie} other {series}}",
   "yir_upgrade_message": "Upgrade naar VIP en krijg je eigen all-time en jaarlijkse Jaaroverzicht pagina's, plus nog veel meer geweldige functies!",
   "button_label_films": "Films",
-  "button_label_diary": "Dagboek"
+  "button_label_diary": "Dagboek",
+  "page_title_diary": "Dagboek",
+  "text_diary_empty": "Nog geen dagboeknotities"
 }

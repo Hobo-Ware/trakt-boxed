@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {série} other {séries}}",
   "yir_upgrade_message": "Passez au statut VIP et obtenez vos propres pages de bilan annuel et de tous les temps, ainsi que de nombreuses autres fonctionnalités géniales!",
   "button_label_films": "Films",
-  "button_label_diary": "Journal"
+  "button_label_diary": "Journal",
+  "page_title_diary": "Journal",
+  "text_diary_empty": "Aucune entrée pour le moment"
 }

@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {сериал} few {сериала} many {сериалов} other {сериалов}}",
   "yir_upgrade_message": "Перейдите на VIP-подписку и получите доступ к своим страницам «Обзор года» за все время и за каждый год, а также к множеству других замечательных функций!",
   "button_label_films": "Фильмы",
-  "button_label_diary": "Дневник"
+  "button_label_diary": "Дневник",
+  "page_title_diary": "Дневник",
+  "text_diary_empty": "Пока нет записей в дневнике"
 }

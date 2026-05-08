@@ -1191,5 +1191,7 @@
   "yir_unit_show": "{count, plural, one {серіал} few {серіали} other {серіалів}}",
   "yir_upgrade_message": "Оновіться до VIP і отримайте власні сторінки підсумків року за весь час та за рік, а також багато інших чудових функцій!",
   "button_label_films": "Films",
-  "button_label_diary": "Diary"
+  "button_label_diary": "Diary",
+  "page_title_diary": "Diary",
+  "text_diary_empty": "No diary entries yet"
 }
