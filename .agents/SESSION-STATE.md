@@ -89,6 +89,28 @@ include color samples, typography, and mobile-vs-desktop deltas.
 21. `refactor(lists): tighten list-card poster collage` — 12 posters
     layered with ~30% slice per poster, left-anchored z-stack, smaller
     corner radius. Cascades through every list-summary surface.
+22. `feat(theme): swap dark theme to Letterboxd slate palette` — page
+    bg --shade-940 (#131517), surface --shade-900, link/emphasis/
+    streak/heatmap/sentiment/toggler/chart-hover all swap from
+    purple to --tboxed-positive. Profile-details radial drops the
+    purple-950 bath in favour of slate.
+23. `feat(lists): tracked-uppercase section labels` — every
+    SectionList header now carries 11px bold uppercase tracked titles,
+    replacing the body-weight mixed-case heading.
+24. `feat(theme): halve the border-radius scale` — xs/s/m/l/xl/xxl all
+    drop to roughly half their trakt-web values; posters become film
+    cells, cards become slabs, the brand mark stays a touch curved.
+25. `feat(films): poster-only grid for popular / trending /
+    anticipated` — FilmsPosterGrid renders just posters in a 4-up
+    mobile / 7-up desktop layout with an in-viewport sentinel for
+    infinite paging. Wired into the three discover sub-routes.
+26. `feat(profile): centred Letterboxd-flavour banner` — avatar
+    centred, display name in Fraunces 26-32px serif, location
+    underneath, page actions floated to the top-right corner.
+27. `feat(lists): editorial detail header for single-list pages` —
+    ListDetailHeader renders the byline + serif title + full
+    description on /users/[user]/lists/[list] and /lists/official/
+    [list]. Drops the tooltip-clamped duplicate inside the list body.
 
 ## Done. The brief queue is empty (and then some).
 
@@ -103,6 +125,15 @@ If you pick up after compaction, the next moves are still quality:
 - Per-film engagement sub-tabs: /movies/[slug]/members,
   /movies/[slug]/lists. The Reviews drawer already exists; Members
   and Lists are the missing pair.
+- Member directory route /members/popular/this-week — entirely
+  missing as a surface; needs both a query and a row component.
+- Search results: re-author as a mixed-entity row feed
+  (research/notes/search.md). Today still uses the Trakt section
+  layout; the row treatment with poster + title + alt-titles + green
+  director chip is the Letterboxd signature.
+- Numbered rank overlay on single-list poster grid items (1, 2, 3
+  ...). Today they render unranked — Letterboxd's curated lists are
+  ordered editorial artifacts.
 - Add `deno task i18n:check` to CI before deploy.
 - Real Letterboxd export ZIP fixture round-trip test for
   LetterboxdParser + the multi-CSV ingest.
