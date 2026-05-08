@@ -22,15 +22,24 @@ https://github.com/Hobo-Ware/trakt-time. Letterboxd research at
    (#00b020), `--tboxed-rating` (#ff8000), `--tboxed-network` (#40bcf4)
    in `style/palette/tboxed.css`.
 4. `ci: pin Wrangler 4.88.0 and persist projects/client/.npmrc`.
+5. `docs(planning): record trakt-boxed session state for autonomous resume`.
+6. `chore(scripts): drop i18n meta generator and e2e harness` — removed
+   the orphaned i18n meta generator + .scripts/, dropped pre:dev/
+   prebuild/pretest/test:e2e tasks. Bundled in this same commit:
+   bottom-nav rewire to Films/Diary/Lists/Profile + new
+   `button_label_films` and `button_label_diary` keys across all 20
+   locale JSONs (translated for de/fr/es/it/pt-br/nl/ja/zh-cn/ru/pl;
+   English fallback elsewhere).
 
 ## Next, in order
 
 Each bullet = one or more atomic conventional commits. Stop only when
 context is exhausted, not after each item.
 
-5. **Mobile shell** — bottom nav (Films / Diary / Lists / Profile),
-   page-level cover hero pattern, `summary-*` shared classes in
-   `style/components.css`.
+5. **Mobile shell continued** — bottom nav already rewired (commit 6).
+   Still needed: page-level cover hero pattern, `summary-*` shared
+   classes in `style/components.css`. Diary route still points at
+   `/history` — repoint when the diary route lands.
 6. **Movie summary page** with shared atoms from day one: `MediaCoverHero`,
    `MediaPoster`, `MediaRating`, `MediaGenres`, `MediaActionsRow`. Build
    the atoms upfront — don't ship duplicates and refactor later.
@@ -79,14 +88,21 @@ context is exhausted, not after each item.
 
 ## Known baseline
 
-- 21–22 pre-existing test failures (date-fixture related on
+- 21 pre-existing test failures (date-fixture related on
   toRelativeHumanDay / AirDateTag / MediaDetails / mapToConfirmation /
-  formatSortValue). Not regressions — present before treeshake.
+  formatSortValue). Not regressions — present before treeshake. Stable
+  across all commits in this session.
 - VIP analytics events (`VipUpsell`, `VipUpgrade`, `VipManage`,
   `VipCancel`, `BannerDismiss`) are now dead code; safe to remove in a
   later sweep but don't block builds.
 - Letterboxd research lives at `../letterboxd-research/`; sample 4–5
   screenshots before any visual call.
+- Vitest must be run from `projects/client/` so the `$lib`/`$test`
+  aliases resolve.
+- `i18n/messages/{locale}.json` files are now the i18n source of truth
+  (Paraglide reads them directly). When adding strings, edit ALL 20
+  locale files in lockstep; a sync helper at `scripts/sync-i18n.ts` is
+  still TODO (item 13).
 
 ## Dev commands
 
