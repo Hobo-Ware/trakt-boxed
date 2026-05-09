@@ -136,6 +136,44 @@ include color samples, typography, and mobile-vs-desktop deltas.
     /users/[user]/lists/[list] and /lists/official/[list]. Tabular-
     numeral rank pill bottom-left, 4-up mobile / 7-up desktop,
     infinite-scroll sentinel.
+33. `fix(media): unalias $state rune collision in MediaPoster` —
+    the watch-state observable was destructured into `state`,
+    which collided with the Svelte 5 `$state` rune at the
+    `$state ?? "none"` site and broke the dev build. Renamed to
+    `watchState` so the auto-subscription reads as `$watchState`.
+34. `feat(summary): Letterboxd summary block library` — eight
+    stateless blocks under `_internal/`: LetterboxdMetaRow (year /
+    runtime / cert / status / trailer), LetterboxdSynopsis
+    (uppercase tagline + collapsible overview),
+    LetterboxdRatingsHistogram (10-bucket green bar chart + score),
+    LetterboxdCastChips (24-up grid + show-all),
+    LetterboxdGenreChips (translated chips routed into /movies or
+    /shows), LetterboxdDetailsPanel (studio / country / language /
+    runtime), LetterboxdEpisodeHero (greenfield episode hero),
+    LetterboxdSummaryStack (max-width container), LetterboxdSubTabs
+    (parked anchor strip).
+35. `feat(summary): rewrite movie / show / episode pages from
+    scratch` — visual layouts entirely new on top of the unchanged
+    useMovie / useShow / useEpisode data hooks. Movie + show share
+    hero -> meta-row -> tagline + synopsis -> ratings histogram ->
+    cast chips -> genre chips -> details panel -> sentiment ->
+    comments -> related -> popular lists. Shows layer SeasonList
+    above the static blocks. Episode is greenfield with a "From
+    <Show>" breadcrumb eyebrow, season/episode pills, and the
+    same synopsis/ratings/cast cadence.
+36. `feat(search): rewrite results as a Letterboxd row feed` —
+    LetterboxdSearchResults + LetterboxdSearchRow replace the
+    poster grid with a single column of rows: poster left,
+    title + year right, alt-title hint, entity meta chip
+    (FILM / SHOW / PERSON / LIST + country + runtime, or list
+    byline + count). Same SearchItem contract; useSearch
+    untouched.
+37. `feat(home): Letterboxd-style welcome banner above
+    dashboard` — Fraunces serif greeting (Good morning/afternoon/
+    evening + first name) on top of an editorial eyebrow showing
+    today's date in green plus "your trakt-boxed journal".
+    Dashboard tracking surfaces (UpNext, WatchList, etc.) stay
+    intact below the banner.
 
 ## Done. The brief queue is empty (and then some).
 
