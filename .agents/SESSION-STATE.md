@@ -111,6 +111,31 @@ include color samples, typography, and mobile-vs-desktop deltas.
     ListDetailHeader renders the byline + serif title + full
     description on /users/[user]/lists/[list] and /lists/official/
     [list]. Drops the tooltip-clamped duplicate inside the list body.
+28. `feat(nav): rebuild chrome as a Letterboxd top ribbon` — three-dot
+    logo (orange/green/blue) + thin top nav with Films / Lists /
+    Members / Journal + search + avatar. Replaces SideNavbar /
+    TopNavbar / MobileNavbar dispatch with a single LetterboxdNav.
+29. `feat(landing): rebuild anonymous home and sign-in as Letterboxd
+    surfaces` — single-column page with cinematic backdrop hero,
+    serif tagline, single green CTA, two decorative poster strips,
+    six-tile feature grid. /sign-in is a centred slate card with the
+    three-dot mark, Fraunces headline, single OIDC-bridging CTA.
+30. `feat(routes): profile sub-tabs + /members/popular + /journal` —
+    ProfileSubTabs ride the 11-tab horizontal sub-row on every
+    profile, /members/popular shows the user network in member-row
+    rhythm, /journal renders popular movies + shows as editorial
+    cards on a steel-blue canvas with Fraunces headlines.
+31. `feat(summary): Letterboxd-flavour hero on movie + show pages` —
+    LetterboxdMediaHero replaces the dual MediaSummary /
+    MediaSummaryV2 dispatch. Cinematic backdrop bleed, 220px poster,
+    Fraunces title at 32/44/60px, eyebrow + entity type, brand-green
+    "DIRECTED BY" / "CREATED BY" credit links. Films and shows
+    siblings on the same hero.
+32. `feat(lists): numbered Letterboxd grid on single-list detail` —
+    LetterboxdListGrid replaces section-list rendering on both
+    /users/[user]/lists/[list] and /lists/official/[list]. Tabular-
+    numeral rank pill bottom-left, 4-up mobile / 7-up desktop,
+    infinite-scroll sentinel.
 
 ## Done. The brief queue is empty (and then some).
 
