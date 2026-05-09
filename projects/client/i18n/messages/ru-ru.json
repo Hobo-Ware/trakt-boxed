@@ -1212,5 +1212,22 @@
   "button_label_journal": "Открыть журнал",
   "button_label_members": "Просмотр участников",
   "button_label_profile": "Открыть профиль",
-  "button_text_create_account": "Создать аккаунт"
+  "button_text_create_account": "Создать аккаунт",
+  "text_landing_tagline_line_1": "Отслеживайте фильмы и сериалы, которые вы посмотрели.",
+  "text_landing_tagline_line_2": "Сохраняйте те, что хотите увидеть.",
+  "text_landing_tagline_line_3": "Расскажите друзьям, что хорошо.",
+  "button_text_landing_cta": "Начать — это бесплатно",
+  "text_landing_subline": "Социальная сеть для синефилов.",
+  "text_landing_available_on": "Доступно в",
+  "text_landing_app_store": "App Store",
+  "text_landing_play_store": "Google Play",
+  "eyebrow_landing_features": "trakt-boxed позволяет…",
+  "text_landing_feature_track": "Отслеживать каждый фильм и сериал, который вы смотрели (или начать сегодня)",
+  "text_landing_feature_like": "Поддержать любимые фильмы, списки и обзоры лайком",
+  "text_landing_feature_review": "Писать и делиться обзорами, читать обзоры тех, на кого подписаны",
+  "text_landing_feature_rate": "Оценивать каждый тайтл по пятибалльной шкале (с половинками)",
+  "text_landing_feature_watchlist": "Вести список фильмов и сериалов, которые хочется посмотреть",
+  "text_landing_feature_lists": "Собирать и делиться списками на любую тему",
+  "text_signin_title": "Войти в trakt-boxed",
+  "text_signin_new_prompt": "Новичок на trakt-boxed?"
 }

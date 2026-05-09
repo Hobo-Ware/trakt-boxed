@@ -1212,5 +1212,22 @@
   "button_label_journal": "Otwórz dziennik",
   "button_label_members": "Przeglądaj członków",
   "button_label_profile": "Otwórz profil",
-  "button_text_create_account": "Utwórz konto"
+  "button_text_create_account": "Utwórz konto",
+  "text_landing_tagline_line_1": "Śledź filmy i seriale, które obejrzałeś.",
+  "text_landing_tagline_line_2": "Zapisz te, które chcesz zobaczyć.",
+  "text_landing_tagline_line_3": "Powiedz znajomym, co jest dobre.",
+  "button_text_landing_cta": "Zacznij — to za darmo",
+  "text_landing_subline": "Sieć społecznościowa dla kinomanów.",
+  "text_landing_available_on": "Dostępne w",
+  "text_landing_app_store": "App Store",
+  "text_landing_play_store": "Google Play",
+  "eyebrow_landing_features": "trakt-boxed pozwala ci…",
+  "text_landing_feature_track": "Śledzić każdy film i serial, który widziałeś (albo zacząć od dziś)",
+  "text_landing_feature_like": "Pokazać miłość ulubionym filmom, listom i recenzjom przez polubienie",
+  "text_landing_feature_review": "Pisać i udostępniać recenzje, śledzić innych członków by czytać ich",
+  "text_landing_feature_rate": "Oceniać każdy tytuł w pięciogwiazdkowej skali (z połówkami)",
+  "text_landing_feature_watchlist": "Prowadzić watchlistę filmów i seriali do obejrzenia",
+  "text_landing_feature_lists": "Tworzyć i udostępniać listy na dowolny temat",
+  "text_signin_title": "Zaloguj się do trakt-boxed",
+  "text_signin_new_prompt": "Nowy w trakt-boxed?"
 }

@@ -1212,5 +1212,22 @@
   "button_label_journal": "Abrir diario",
   "button_label_members": "Ver miembros",
   "button_label_profile": "Abrir perfil",
-  "button_text_create_account": "Crear cuenta"
+  "button_text_create_account": "Crear cuenta",
+  "text_landing_tagline_line_1": "Registra películas y series que viste.",
+  "text_landing_tagline_line_2": "Guarda las que quieres ver.",
+  "text_landing_tagline_line_3": "Dile a tus amigos qué es bueno.",
+  "button_text_landing_cta": "Empieza — es gratis",
+  "text_landing_subline": "La red social para cinéfilos.",
+  "text_landing_available_on": "Disponible en",
+  "text_landing_app_store": "App Store",
+  "text_landing_play_store": "Google Play",
+  "eyebrow_landing_features": "trakt-boxed te permite…",
+  "text_landing_feature_track": "Registrar cada película y serie que has visto (o empezar hoy mismo)",
+  "text_landing_feature_like": "Mostrar amor por tus pelis, listas y reseñas favoritas con un like",
+  "text_landing_feature_review": "Escribir y compartir reseñas y seguir a otros para leer las suyas",
+  "text_landing_feature_rate": "Calificar cada título con cinco estrellas (con medias) para capturar tu reacción",
+  "text_landing_feature_watchlist": "Mantener una watchlist de pelis y series por ver",
+  "text_landing_feature_lists": "Crear y compartir listas sobre cualquier tema",
+  "text_signin_title": "Inicia sesión en trakt-boxed",
+  "text_signin_new_prompt": "¿Nuevo en trakt-boxed?"
 }

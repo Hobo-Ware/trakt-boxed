@@ -1212,5 +1212,22 @@
   "button_label_journal": "Dagboek openen",
   "button_label_members": "Leden bekijken",
   "button_label_profile": "Profiel openen",
-  "button_text_create_account": "Account aanmaken"
+  "button_text_create_account": "Account aanmaken",
+  "text_landing_tagline_line_1": "Houd films en series bij die je hebt gezien.",
+  "text_landing_tagline_line_2": "Bewaar die je wilt zien.",
+  "text_landing_tagline_line_3": "Vertel je vrienden wat goed is.",
+  "button_text_landing_cta": "Aan de slag — gratis",
+  "text_landing_subline": "Het sociale netwerk voor cinefielen.",
+  "text_landing_available_on": "Beschikbaar op",
+  "text_landing_app_store": "App Store",
+  "text_landing_play_store": "Google Play",
+  "eyebrow_landing_features": "trakt-boxed laat je…",
+  "text_landing_feature_track": "Elke film en serie bijhouden die je ooit hebt gezien (of vandaag beginnen)",
+  "text_landing_feature_like": "Liefde tonen voor je favoriete films, lijsten en recensies met een like",
+  "text_landing_feature_review": "Recensies schrijven en delen, en leden volgen om hun recensies te lezen",
+  "text_landing_feature_rate": "Elke titel waarderen met vijf sterren (met halve) om je reactie vast te leggen",
+  "text_landing_feature_watchlist": "Een watchlist bijhouden van films en series die je nog wilt zien",
+  "text_landing_feature_lists": "Lijsten samenstellen en delen over elk onderwerp",
+  "text_signin_title": "Inloggen bij trakt-boxed",
+  "text_signin_new_prompt": "Nieuw bij trakt-boxed?"
 }

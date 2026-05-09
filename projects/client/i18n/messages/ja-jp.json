@@ -1212,5 +1212,22 @@
   "button_label_journal": "ジャーナルを開く",
   "button_label_members": "メンバーを見る",
   "button_label_profile": "プロフィールを開く",
-  "button_text_create_account": "アカウント作成"
+  "button_text_create_account": "アカウント作成",
+  "text_landing_tagline_line_1": "観た映画やドラマを記録。",
+  "text_landing_tagline_line_2": "観たいものを保存。",
+  "text_landing_tagline_line_3": "友達におすすめを伝える。",
+  "button_text_landing_cta": "無料で始める",
+  "text_landing_subline": "シネフィルのSNS。",
+  "text_landing_available_on": "入手先",
+  "text_landing_app_store": "App Store",
+  "text_landing_play_store": "Google Play",
+  "eyebrow_landing_features": "trakt-boxedでできること…",
+  "text_landing_feature_track": "これまでに観たすべての映画やドラマを記録（今日から始めてもOK）",
+  "text_landing_feature_like": "お気に入りの作品・リスト・レビューにいいねを",
+  "text_landing_feature_review": "レビューを書いて共有、メンバーをフォローして読む",
+  "text_landing_feature_rate": "半星まで対応の5段階で各作品を評価",
+  "text_landing_feature_watchlist": "観たい映画やドラマのウォッチリストを管理",
+  "text_landing_feature_lists": "あらゆるテーマでリストを作成して共有",
+  "text_signin_title": "trakt-boxedにサインイン",
+  "text_signin_new_prompt": "trakt-boxedは初めてですか？"
 }

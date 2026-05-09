@@ -1212,5 +1212,22 @@
   "button_label_journal": "打开日志",
   "button_label_members": "浏览成员",
   "button_label_profile": "打开个人资料",
-  "button_text_create_account": "创建账户"
+  "button_text_create_account": "创建账户",
+  "text_landing_tagline_line_1": "记录你看过的电影和剧集。",
+  "text_landing_tagline_line_2": "保存想看的作品。",
+  "text_landing_tagline_line_3": "告诉朋友哪些值得看。",
+  "button_text_landing_cta": "免费开始使用",
+  "text_landing_subline": "影迷的社交网络。",
+  "text_landing_available_on": "下载于",
+  "text_landing_app_store": "App Store",
+  "text_landing_play_store": "Google Play",
+  "eyebrow_landing_features": "trakt-boxed 让你…",
+  "text_landing_feature_track": "记录看过的每一部电影和剧集（也可以从今天开始）",
+  "text_landing_feature_like": "为喜欢的影片、片单和评论点赞",
+  "text_landing_feature_review": "撰写并分享评论，关注他人阅读他们的评论",
+  "text_landing_feature_rate": "用五星制（含半星）为每部作品评分",
+  "text_landing_feature_watchlist": "维护想看的影视片单",
+  "text_landing_feature_lists": "围绕任何主题创建并分享片单",
+  "text_signin_title": "登录 trakt-boxed",
+  "text_signin_new_prompt": "第一次使用 trakt-boxed？"
 }
