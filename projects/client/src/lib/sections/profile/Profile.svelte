@@ -14,6 +14,7 @@
   import ProgressList from "./components/ProgressList.svelte";
   import type { DisplayableProfileProps } from "./DisplayableProfileProps.ts";
   import ProfileDrawer from "./ProfileDrawer.svelte";
+  import ProfileSubTabs from "./ProfileSubTabs.svelte";
 
   const { profile, slug }: DisplayableProfileProps = $props();
 
@@ -25,6 +26,8 @@
 <ProfileContainer {profile} {slug}>
   <ProfileDetails {slug} {profile} />
 </ProfileContainer>
+
+<ProfileSubTabs {slug} />
 
 {#if $isMe}
   <PersonalHistoryList mode={$mode} />
