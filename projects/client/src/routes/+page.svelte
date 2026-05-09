@@ -6,6 +6,7 @@
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import RenderForFeature from "$lib/guards/RenderForFeature.svelte";
   import DashboardDrawer from "$lib/sections/dashboard/DashboardDrawer.svelte";
+  import LetterboxdHomeWelcome from "$lib/sections/dashboard/LetterboxdHomeWelcome.svelte";
   import DiscoverToggles from "$lib/sections/discover/DiscoverToggles.svelte";
   import Landing from "$lib/sections/landing/Landing.svelte";
   import MobileLanding from "$lib/sections/landing/MobileLanding.svelte";
@@ -43,6 +44,8 @@
         <DiscoverToggles />
       {/snippet}
     </NavbarStateSetter>
+
+    <LetterboxdHomeWelcome />
 
     <UpNextList />
 
