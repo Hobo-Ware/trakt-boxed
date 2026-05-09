@@ -21,13 +21,13 @@
 
   const { src, alt, href, media }: MediaPosterProps = $props();
 
-  const { state } = $derived(
+  const { state: watchState } = $derived(
     media
       ? useMediaWatchState({ type: media.type, id: media.id })
       : { state: undefined },
   );
 
-  const dataState = $derived($state ?? "none");
+  const dataState = $derived($watchState ?? "none");
 </script>
 
 <div class="summary-poster-state" data-state={dataState}>
