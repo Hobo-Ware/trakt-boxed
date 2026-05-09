@@ -1290,5 +1290,13 @@
   "lb_episode_breadcrumb": "From {show}",
   "lb_episode_meta_aired": "Aired",
   "lb_episode_season_number": "Season {number}",
-  "lb_episode_episode_number": "Episode {number}"
+  "lb_episode_episode_number": "Episode {number}",
+  "lb_search_eyebrow_default": "Type to search films, shows, people, and lists",
+  "lb_search_eyebrow_results": "Showing matches for \"{query}\"",
+  "lb_search_alt_title": "Alternative title",
+  "lb_search_entity_person": "Person",
+  "lb_search_entity_list": "List",
+  "lb_search_list_byline": "by {user}",
+  "lb_search_list_count_unit": "items",
+  "lb_search_empty": "No matches yet — try a different query."
 }

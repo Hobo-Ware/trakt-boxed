@@ -2,11 +2,10 @@
   import * as m from "$lib/features/i18n/messages";
 
   import { page } from "$app/state";
-  import type { SearchItem } from "$lib/features/search/models/SearchItem";
+  import LetterboxdSearchResults from "$lib/features/search/LetterboxdSearchResults.svelte";
   import SearchInput from "$lib/features/search/SearchInput.svelte";
   import SearchModeToggles from "$lib/features/search/SearchModeToggles.svelte";
   import SearchPlaceHolder from "$lib/features/search/SearchPlaceHolder.svelte";
-  import SearchResultsGrid from "$lib/features/search/SearchResultsGrid.svelte";
   import { useSearch } from "$lib/features/search/useSearch";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
@@ -17,8 +16,7 @@
 
   const query = $derived(page.url.searchParams.get("q")?.trim());
 
-  const { search, clear, results, mode, postRecentSearch, coverSrc } =
-    useSearch();
+  const { search, clear, results, mode, coverSrc } = useSearch();
 
   $effect(() => {
     if (!query) {
@@ -35,14 +33,6 @@
 
   // FIXME: deal with ios onscreen keyboard and move to mobile navbar
   const isMobileApple = isMobileAppleDevice();
-
-  const onResultClick = (item: SearchItem) => {
-    if (!query) {
-      return;
-    }
-
-    postRecentSearch(item, query);
-  };
 </script>
 
 <TraktPage
@@ -87,10 +77,10 @@
 
   <div class="trakt-search-results-container">
     {#if $results}
-      <SearchResultsGrid
+      <LetterboxdSearchResults
         items={$results.items}
         type={$results.type}
-        onclick={onResultClick}
+        {query}
       />
     {:else if !query}
       <SearchPlaceHolder />
