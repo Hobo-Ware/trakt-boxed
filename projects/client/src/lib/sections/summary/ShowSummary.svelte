@@ -1,43 +1,37 @@
 <script lang="ts">
   /*
-    Show summary surface, rebuilt from scratch alongside the movie
-    page. Letterboxd is films-only — trakt-boxed extends the same
-    cinematic hero, ratings histogram, synopsis, cast/genre/details
-    blocks, then layers Seasons + Episodes back in since TV needs
-    them. Data hooks (useShow) come straight from the trakt-web fork.
-  */
-  import * as m from "$lib/features/i18n/messages";
+    Show summary surface — fully rebuilt alongside MovieSummary on
+    the same Letterboxd shell. Adds the LetterboxdSeasonsRail since
+    TV needs seasonal structure films don't. Zero imports from the
+    trakt-web SectionList or summary/components rails.
 
+    Data hooks (useShow) come from the trakt-web fork unchanged.
+  */
+  import { useStreamingPreferences } from "$lib/stores/useStreamingPreferences.ts";
   import type { MediaStudio } from "$lib/requests/models/MediaStudio";
-  import type { MediaVideo } from "$lib/requests/models/MediaVideo";
   import type { Season } from "$lib/requests/models/Season";
-  import type { SentimentAnalysis } from "$lib/requests/models/SentimentAnalysis.ts";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import RelatedList from "../lists/RelatedList.svelte";
-  import SeasonList from "../lists/season/SeasonList.svelte";
-  import VideoList from "../lists/VideoList.svelte";
-  import Comments from "./components/comments/Comments.svelte";
-  import Lists from "./components/lists/Lists.svelte";
-  import Sentiment from "./components/sentiment/Sentiment.svelte";
-  import LetterboxdMediaHero from "./LetterboxdMediaHero.svelte";
   import LetterboxdCastChips from "./_internal/LetterboxdCastChips.svelte";
   import LetterboxdDetailsPanel from "./_internal/LetterboxdDetailsPanel.svelte";
   import LetterboxdGenreChips from "./_internal/LetterboxdGenreChips.svelte";
+  import LetterboxdHeroBlock from "./_internal/LetterboxdHeroBlock.svelte";
   import LetterboxdMetaRow from "./_internal/LetterboxdMetaRow.svelte";
+  import LetterboxdPopularLists from "./_internal/LetterboxdPopularLists.svelte";
   import LetterboxdRatingsHistogram from "./_internal/LetterboxdRatingsHistogram.svelte";
-  import LetterboxdSummaryStack from "./_internal/LetterboxdSummaryStack.svelte";
+  import LetterboxdRelatedStrip from "./_internal/LetterboxdRelatedStrip.svelte";
+  import LetterboxdReviewStack from "./_internal/LetterboxdReviewStack.svelte";
+  import LetterboxdSeasonsRail from "./_internal/LetterboxdSeasonsRail.svelte";
+  import LetterboxdSignInCard from "./_internal/LetterboxdSignInCard.svelte";
+  import LetterboxdSummaryShell from "./_internal/LetterboxdSummaryShell.svelte";
   import LetterboxdSynopsis from "./_internal/LetterboxdSynopsis.svelte";
+  import LetterboxdWhereToWatch from "./_internal/LetterboxdWhereToWatch.svelte";
   import type { CommonMediaSummaryProps } from "./models/CommonMediaSummaryProps";
-  import SummaryDrawer from "./SummaryDrawer.svelte";
 
   type ShowSummaryProps = {
     media: ShowEntry;
     studios: MediaStudio[];
     seasons: Season[];
-    videos: MediaVideo[];
     currentSeason: number;
-    sentiment: SentimentAnalysis | Nil;
   } & CommonMediaSummaryProps;
 
   const {
@@ -46,89 +40,57 @@
     intl,
     crew,
     seasons,
-    videos,
     currentSeason,
-    sentiment,
+    streamOn,
   }: ShowSummaryProps = $props();
 
-  const relatedLink = $derived(UrlBuilder.related.show(media.slug));
-  const listsLink = $derived(UrlBuilder.popularLists.show(media.slug));
-
-  const networks = $derived(
-    [
-      ...new Set(
-        [media.network, ...seasons.map((s) => s.network)].filter(
-          (n): n is string => n != null,
-        ),
-      ),
-    ].map((name) => ({ name })),
-  );
+  const { country } = useStreamingPreferences();
 
   const overview = $derived(intl?.overview ?? media.overview);
+  const title = $derived(intl?.title ?? media.title);
 
   const showStatusLabel = $derived(
     media.status ? media.status.replaceAll("_", " ") : null,
   );
 </script>
 
-<SummaryDrawer
-  {sentiment}
-  {studios}
-  {crew}
-  {media}
-  {networks}
-  {videos}
-  {seasons}
-  {currentSeason}
-  type="show"
-/>
+<LetterboxdSummaryShell
+  backdropUrl={media.cover?.url?.medium}
+  posterUrl={media.poster?.url?.medium}
+  posterAlt={title}
+>
+  {#snippet main()}
+    <LetterboxdHeroBlock {title} year={media.year} type="show" {crew} />
 
-<LetterboxdMediaHero
-  {media}
-  {crew}
-  type="show"
-  intlTitle={intl?.title}
-  overview={null}
-/>
+    <LetterboxdMetaRow
+      year={media.year}
+      runtime={media.runtime}
+      certification={media.certification}
+      trailer={media.trailer}
+      extra={showStatusLabel}
+    />
 
-<LetterboxdSummaryStack>
-  <LetterboxdMetaRow
-    year={media.year}
-    runtime={media.runtime}
-    certification={media.certification}
-    trailer={media.trailer}
-    extra={showStatusLabel}
-  />
+    <LetterboxdSynopsis tagline={media.tagline} {overview} />
 
-  <LetterboxdSynopsis tagline={media.tagline} {overview} />
+    <LetterboxdRatingsHistogram type="show" slug={media.slug} />
 
-  <LetterboxdRatingsHistogram type="show" slug={media.slug} />
-</LetterboxdSummaryStack>
+    <LetterboxdSeasonsRail show={media} {seasons} {currentSeason} />
 
-<Sentiment {sentiment} slug={media.slug} />
+    <LetterboxdCastChips cast={crew.cast} />
 
-<SeasonList show={media} {seasons} {currentSeason} />
+    <LetterboxdGenreChips genres={media.genres} type="show" />
 
-<LetterboxdSummaryStack>
-  <LetterboxdCastChips cast={crew.cast} />
-  <LetterboxdGenreChips genres={media.genres} type="show" />
-  <LetterboxdDetailsPanel {media} {studios} />
-</LetterboxdSummaryStack>
+    <LetterboxdDetailsPanel {media} {studios} />
 
-<Comments {media} type="show" />
+    <LetterboxdReviewStack type="show" slug={media.slug} />
 
-<VideoList slug={media.slug} {videos} />
+    <LetterboxdRelatedStrip type="show" slug={media.slug} />
 
-<RelatedList
-  title={m.lb_section_related_shows()}
-  slug={media.slug}
-  type="show"
-  drilldownLink={relatedLink}
-/>
+    <LetterboxdPopularLists type="show" slug={media.slug} />
+  {/snippet}
 
-<Lists
-  slug={media.slug}
-  title={media.title}
-  type="show"
-  drilldownLink={listsLink}
-/>
+  {#snippet aside()}
+    <LetterboxdSignInCard />
+    <LetterboxdWhereToWatch {streamOn} country={$country} />
+  {/snippet}
+</LetterboxdSummaryShell>

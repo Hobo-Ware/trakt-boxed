@@ -8,8 +8,9 @@
 
   const { params }: PageProps = $props();
 
-  const { movie, intl, studios, crew, streamOn, isLoading, videos, sentiment } =
-    $derived(useMovie(params.slug));
+  const { movie, intl, studios, crew, streamOn, isLoading } = $derived(
+    useMovie(params.slug),
+  );
 </script>
 
 <TraktPage
@@ -31,8 +32,6 @@
       crew={$crew!}
       intl={$intl!}
       streamOn={$streamOn}
-      videos={$videos}
-      sentiment={$sentiment}
     />
   {:else}
     <!-- TODO: remove this when we have empty state, currently prevents content jumps -->

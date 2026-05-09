@@ -11,14 +11,12 @@
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import type { PageProps } from "./$types";
   import { useShow } from "./useShow";
-  import { useShowVideos } from "./useShowVideos";
 
   const { params }: PageProps = $props();
 
-  const { show, intl, studios, crew, seasons, streamOn, isLoading, sentiment } =
-    $derived(useShow(params.slug));
-
-  const videos = $derived(useShowVideos({ slug: params.slug }));
+  const { show, intl, studios, crew, seasons, streamOn, isLoading } = $derived(
+    useShow(params.slug),
+  );
 
   const currentSeason = $derived(
     parseInt(page.url.searchParams.get("season") ?? ""),
@@ -79,8 +77,6 @@
       crew={$crew!}
       seasons={$seasons!}
       streamOn={$streamOn}
-      videos={$videos}
-      sentiment={$sentiment}
       {currentSeason}
     />
   {:else}

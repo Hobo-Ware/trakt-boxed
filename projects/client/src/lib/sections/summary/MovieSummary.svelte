@@ -1,98 +1,78 @@
 <script lang="ts">
   /*
-    Movie summary surface, rebuilt from scratch around the
-    Letterboxd film page. The data layer (useMovie) stays as it
-    arrived from the trakt-web fork; everything visual is new.
-    Reference: ../../../letterboxd-research/notes/film-summary.md.
-  */
-  import * as m from "$lib/features/i18n/messages";
+    Movie summary surface — fully rebuilt around the Letterboxd
+    film page skeleton. Zero imports from the trakt-web SectionList
+    or summary/components rails: review feed, related strip, popular
+    lists, where-to-watch, hero, and details panel each hit their
+    own data hook directly.
 
+    Data hooks (useMovie) come from the trakt-web fork unchanged.
+  */
+  import { useStreamingPreferences } from "$lib/stores/useStreamingPreferences.ts";
   import type { MediaStudio } from "$lib/requests/models/MediaStudio";
-  import type { MediaVideo } from "$lib/requests/models/MediaVideo";
   import type { MovieEntry } from "$lib/requests/models/MovieEntry";
-  import type { SentimentAnalysis } from "$lib/requests/models/SentimentAnalysis.ts";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import RelatedList from "../lists/RelatedList.svelte";
-  import VideoList from "../lists/VideoList.svelte";
-  import Comments from "./components/comments/Comments.svelte";
-  import Lists from "./components/lists/Lists.svelte";
-  import CommunitySentiment from "./components/sentiment/Sentiment.svelte";
-  import LetterboxdMediaHero from "./LetterboxdMediaHero.svelte";
   import LetterboxdCastChips from "./_internal/LetterboxdCastChips.svelte";
   import LetterboxdDetailsPanel from "./_internal/LetterboxdDetailsPanel.svelte";
   import LetterboxdGenreChips from "./_internal/LetterboxdGenreChips.svelte";
+  import LetterboxdHeroBlock from "./_internal/LetterboxdHeroBlock.svelte";
   import LetterboxdMetaRow from "./_internal/LetterboxdMetaRow.svelte";
+  import LetterboxdPopularLists from "./_internal/LetterboxdPopularLists.svelte";
   import LetterboxdRatingsHistogram from "./_internal/LetterboxdRatingsHistogram.svelte";
-  import LetterboxdSummaryStack from "./_internal/LetterboxdSummaryStack.svelte";
+  import LetterboxdRelatedStrip from "./_internal/LetterboxdRelatedStrip.svelte";
+  import LetterboxdReviewStack from "./_internal/LetterboxdReviewStack.svelte";
+  import LetterboxdSignInCard from "./_internal/LetterboxdSignInCard.svelte";
+  import LetterboxdSummaryShell from "./_internal/LetterboxdSummaryShell.svelte";
   import LetterboxdSynopsis from "./_internal/LetterboxdSynopsis.svelte";
+  import LetterboxdWhereToWatch from "./_internal/LetterboxdWhereToWatch.svelte";
   import type { CommonMediaSummaryProps } from "./models/CommonMediaSummaryProps";
-  import SummaryDrawer from "./SummaryDrawer.svelte";
 
-  const {
-    media,
-    studios,
-    intl,
-    crew,
-    videos,
-    sentiment,
-  }: {
+  type MovieSummaryProps = {
     media: MovieEntry;
     studios: MediaStudio[];
-    videos: MediaVideo[];
-    sentiment: SentimentAnalysis | Nil;
-  } & CommonMediaSummaryProps = $props();
+  } & CommonMediaSummaryProps;
 
-  const relatedLink = $derived(UrlBuilder.related.movie(media.slug));
-  const listsLink = $derived(UrlBuilder.popularLists.movie(media.slug));
+  const { media, studios, intl, crew, streamOn }: MovieSummaryProps = $props();
+
+  const { country } = useStreamingPreferences();
 
   const overview = $derived(intl?.overview ?? media.overview);
+  const title = $derived(intl?.title ?? media.title);
 </script>
 
-<SummaryDrawer {sentiment} {studios} {crew} {media} {videos} type="movie" />
+<LetterboxdSummaryShell
+  backdropUrl={media.cover?.url?.medium}
+  posterUrl={media.poster?.url?.medium}
+  posterAlt={title}
+>
+  {#snippet main()}
+    <LetterboxdHeroBlock {title} year={media.year} type="movie" {crew} />
 
-<LetterboxdMediaHero
-  {media}
-  {crew}
-  type="movie"
-  intlTitle={intl?.title}
-  overview={null}
-/>
+    <LetterboxdMetaRow
+      year={media.year}
+      runtime={media.runtime}
+      certification={media.certification}
+      trailer={media.trailer}
+    />
 
-<LetterboxdSummaryStack>
-  <LetterboxdMetaRow
-    year={media.year}
-    runtime={media.runtime}
-    certification={media.certification}
-    trailer={media.trailer}
-  />
+    <LetterboxdSynopsis tagline={media.tagline} {overview} />
 
-  <LetterboxdSynopsis tagline={media.tagline} {overview} />
+    <LetterboxdRatingsHistogram type="movie" slug={media.slug} />
 
-  <LetterboxdRatingsHistogram type="movie" slug={media.slug} />
-</LetterboxdSummaryStack>
+    <LetterboxdCastChips cast={crew.cast} />
 
-<CommunitySentiment {sentiment} slug={media.slug} />
+    <LetterboxdGenreChips genres={media.genres} type="movie" />
 
-<LetterboxdSummaryStack>
-  <LetterboxdCastChips cast={crew.cast} />
-  <LetterboxdGenreChips genres={media.genres} type="movie" />
-  <LetterboxdDetailsPanel {media} {studios} />
-</LetterboxdSummaryStack>
+    <LetterboxdDetailsPanel {media} {studios} />
 
-<Comments {media} type="movie" />
+    <LetterboxdReviewStack type="movie" slug={media.slug} />
 
-<VideoList slug={media.slug} {videos} />
+    <LetterboxdRelatedStrip type="movie" slug={media.slug} />
 
-<RelatedList
-  title={m.lb_section_related_films()}
-  slug={media.slug}
-  type="movie"
-  drilldownLink={relatedLink}
-/>
+    <LetterboxdPopularLists type="movie" slug={media.slug} />
+  {/snippet}
 
-<Lists
-  slug={media.slug}
-  title={media.title}
-  type="movie"
-  drilldownLink={listsLink}
-/>
+  {#snippet aside()}
+    <LetterboxdSignInCard />
+    <LetterboxdWhereToWatch {streamOn} country={$country} />
+  {/snippet}
+</LetterboxdSummaryShell>
