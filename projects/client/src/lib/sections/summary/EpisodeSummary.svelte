@@ -1,17 +1,26 @@
 <script lang="ts">
+  /*
+    Episode summary surface, rebuilt from scratch. Letterboxd has no
+    episode page so this is greenfield: we mirror the cinematic film
+    hero but make the eyebrow a "From <Show>" breadcrumb, swap the
+    year+credit line for season/episode pills, and reuse the same
+    synopsis/ratings/cast/details rhythm as movie + show. Data comes
+    from useEpisode unchanged.
+  */
   import * as m from "$lib/features/i18n/messages";
 
-  import RenderFor from "$lib/guards/RenderFor.svelte";
   import SeasonList from "$lib/sections/lists/season/SeasonList.svelte";
-  import { EPISODE_COVER_PLACEHOLDER } from "$lib/utils/assets";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import CastList from "../lists/CastList.svelte";
   import RelatedList from "../lists/RelatedList.svelte";
-  import SummaryCover from "./components/_internal/SummaryCover.svelte";
   import Comments from "./components/comments/Comments.svelte";
-  import EpisodeSummary from "./components/episode/EpisodeSummary.svelte";
-  import EpisodeSummaryV2 from "./components/episode/v2/EpisodeSummary.svelte";
   import type { EpisodeSummaryProps } from "./components/EpisodeSummaryProps";
+  import LetterboxdCastChips from "./_internal/LetterboxdCastChips.svelte";
+  import LetterboxdEpisodeHero from "./_internal/LetterboxdEpisodeHero.svelte";
+  import LetterboxdGenreChips from "./_internal/LetterboxdGenreChips.svelte";
+  import LetterboxdMetaRow from "./_internal/LetterboxdMetaRow.svelte";
+  import LetterboxdRatingsHistogram from "./_internal/LetterboxdRatingsHistogram.svelte";
+  import LetterboxdSummaryStack from "./_internal/LetterboxdSummaryStack.svelte";
+  import LetterboxdSynopsis from "./_internal/LetterboxdSynopsis.svelte";
   import SummaryDrawer from "./SummaryDrawer.svelte";
 
   const {
@@ -20,15 +29,12 @@
     showIntl,
     seasons,
     episodeIntl,
-    streamOn,
     crew,
   }: EpisodeSummaryProps = $props();
 
   const relatedLink = $derived(
     UrlBuilder.related.episode(show.slug, episode.season, episode.number),
   );
-
-  const posterSrc = $derived(episode.cover.url ?? EPISODE_COVER_PLACEHOLDER);
 
   const networks = $derived(
     (() => {
@@ -39,44 +45,38 @@
       return name ? [{ name }] : [];
     })(),
   );
+
+  const overview = $derived(episodeIntl?.overview ?? episode.overview);
 </script>
 
-<!-- 
-  Episodes don't have their own colors, so we fallback to their show's color
-  if available. This approach ensures visual consistency between a show and its
-  episodes.
--->
-<SummaryCover src={episode.cover.url ?? ""} colors={show.colors} type="show" />
-
-<RenderFor audience="all" device={["mobile", "tablet-sm"]}>
-  <EpisodeSummaryV2
-    {episode}
-    {show}
-    {showIntl}
-    {episodeIntl}
-    {crew}
-    posterSrc={posterSrc}
-  />
-</RenderFor>
-
-<RenderFor audience="all" device={["tablet-lg", "desktop"]}>
-  <EpisodeSummary
-    {episode}
-    {show}
-    {showIntl}
-    {episodeIntl}
-    {streamOn}
-    {crew}
-    posterSrc={posterSrc}
-  />
-</RenderFor>
-
-<CastList
-  title={m.list_title_actors()}
-  cast={crew.cast}
-  slug={show.slug}
-  type="episode"
+<LetterboxdEpisodeHero
+  {episode}
+  {show}
+  intlTitle={episodeIntl?.title}
+  showIntlTitle={showIntl?.title}
 />
+
+<LetterboxdSummaryStack>
+  <LetterboxdMetaRow
+    year={episode.year}
+    runtime={episode.runtime}
+    certification={episode.certification ?? null}
+  />
+
+  <LetterboxdSynopsis tagline={null} {overview} />
+
+  <LetterboxdRatingsHistogram
+    type="episode"
+    slug={show.slug}
+    season={episode.season}
+    episode={episode.number}
+  />
+</LetterboxdSummaryStack>
+
+<LetterboxdSummaryStack>
+  <LetterboxdCastChips cast={crew.cast} />
+  <LetterboxdGenreChips genres={episode.genres} type="show" />
+</LetterboxdSummaryStack>
 
 <Comments
   media={show}
@@ -89,7 +89,7 @@
 <SeasonList {show} {seasons} currentSeason={episode.season} />
 
 <RelatedList
-  title={m.list_title_related_shows()}
+  title={m.lb_section_related_shows()}
   slug={show.slug}
   type="show"
   drilldownLink={relatedLink}
