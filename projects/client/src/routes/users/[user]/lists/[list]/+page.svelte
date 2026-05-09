@@ -1,12 +1,14 @@
 <script lang="ts">
   import { useDiscover } from "$lib/features/discover/useDiscover";
+  import { useFilter } from "$lib/features/filters/useFilter";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import TraktPageCoverSetter from "$lib/sections/layout/TraktPageCoverSetter.svelte";
+  import LetterboxdListGrid from "$lib/sections/lists/user/LetterboxdListGrid.svelte";
   import ListDetailHeader from "$lib/sections/lists/user/_internal/ListDetailHeader.svelte";
   import { useListSorting } from "$lib/sections/lists/user/_internal/useListSorting";
+  import { useListItems } from "$lib/sections/lists/user/useListItems";
   import ListActions from "$lib/sections/lists/user/ListActions.svelte";
   import ListSortActions from "$lib/sections/lists/user/ListSortActions.svelte";
-  import UserListPaginatedList from "$lib/sections/lists/user/UserListPaginatedList.svelte";
   import { useUserListSummary } from "$lib/sections/lists/user/useUserListSummary.ts";
   import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
@@ -22,6 +24,7 @@
   );
 
   const { mode, current: currentDiscoverMode } = useDiscover();
+  const { filterMap } = useFilter();
 
   const listName = $derived($list?.name ?? "");
 
@@ -34,6 +37,23 @@
   {#if $list}
     <ListActions list={$list} />
   {/if}
+{/snippet}
+
+{#snippet listBody(currentList: NonNullable<typeof $list>)}
+  {@const itemsQuery = useListItems({
+    list: currentList,
+    type: $mode === "media" ? undefined : $mode,
+    sortBy: $current.sorting.value,
+    sortHow: $current.sortHow,
+    filter: $filterMap,
+  })}
+  {@const itemsObservable = itemsQuery.list}
+  {@const hasNextPageObservable = itemsQuery.hasNextPage}
+  <LetterboxdListGrid
+    items={$itemsObservable ?? []}
+    hasNextPage={$hasNextPageObservable ?? false}
+    onLoadMore={itemsQuery.fetchNextPage}
+  />
 {/snippet}
 
 <TraktPage
@@ -65,11 +85,6 @@
 
   {#if $list}
     <ListDetailHeader list={$list} />
-    <UserListPaginatedList
-      list={$list}
-      type={$mode}
-      sortBy={$current.sorting.value}
-      sortHow={$current.sortHow}
-    />
+    {@render listBody($list)}
   {/if}
 </TraktPage>
