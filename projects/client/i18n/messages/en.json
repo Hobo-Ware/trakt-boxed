@@ -1305,5 +1305,17 @@
   "lb_home_welcome_evening": "Good evening",
   "lb_home_welcome_late": "Still up?",
   "lb_home_welcome_named": "{greeting}, {name}",
-  "lb_home_welcome_subline": "Pick up where you left off, or scroll for what's next."
+  "lb_home_welcome_subline": "Pick up where you left off, or scroll for what's next.",
+  "lb_section_view_all": "All",
+  "lb_seasons_count_unit": "seasons",
+  "lb_seasons_episodes_unit": "episodes",
+  "lb_review_byline_prefix": "Review by",
+  "lb_review_spoiler_cover": "This review may contain spoilers — tap to reveal",
+  "lb_signin_card_eyebrow": "Sign in to log this",
+  "lb_signin_card_lede": "Log it, rate it, like it, review it. Add to lists, your watchlist, and more.",
+  "lb_signin_card_cta": "Sign in",
+  "lb_wtw_pill_stream": "Blu",
+  "lb_wtw_pill_rent": "Rent",
+  "lb_wtw_pill_buy": "Buy",
+  "lb_wtw_pill_free": "Free"
 }
