@@ -174,6 +174,28 @@ include color samples, typography, and mobile-vs-desktop deltas.
     today's date in green plus "your trakt-boxed journal".
     Dashboard tracking surfaces (UpNext, WatchList, etc.) stay
     intact below the banner.
+38. `feat(summary): from-scratch Letterboxd summary block
+    library` — nine new blocks each hitting the underlying Trakt
+    queries directly with no SectionList wrapping. Replaces the
+    Comments / Lists / RelatedList / VideoList / Sentiment /
+    SeasonList trakt-web rails entirely:
+    LetterboxdSummaryShell (desktop two-column shell + cinematic
+    backdrop), LetterboxdHeroBlock (eyebrow + Fraunces title),
+    LetterboxdReviewCard + LetterboxdReviewStack (Popular +
+    Recent vertical review feeds), LetterboxdRelatedStrip (flat
+    3/4/6-up grid), LetterboxdPopularLists (5-poster collage list
+    cards stacked), LetterboxdSeasonsRail (show seasons grid),
+    LetterboxdWhereToWatch (BLU / RENT / BUY / FREE / 4K pills),
+    LetterboxdSignInCard (anonymous-only right-rail CTA).
+39. `feat(summary): rebuild movie / show / episode pages around
+    new shell` — every trakt-web rail removed from
+    MovieSummary / ShowSummary / EpisodeSummary. Each surface is
+    now a composition of the new block library on the two-column
+    shell, with a sign-in CTA + where-to-watch right rail. Movie
+    and show share the same flow; show inserts a SeasonsRail;
+    episode keeps the cinematic still as backdrop with a "From
+    <Show>" breadcrumb eyebrow and S/E pills. Drops the unused
+    videos / sentiment props from the +page.svelte files.
 
 ## Done. The brief queue is empty (and then some).
 
