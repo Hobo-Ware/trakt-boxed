@@ -1248,5 +1248,10 @@
   "eyebrow_journal_featured": "En vedette",
   "eyebrow_journal_section_curated": "Cinémascope",
   "eyebrow_journal_section_film": "Film",
-  "eyebrow_journal_section_show": "Série"
+  "eyebrow_journal_section_show": "Série",
+  "eyebrow_entity_film": "Film",
+  "eyebrow_entity_show": "Série",
+  "eyebrow_credit_directed_by": "Réalisé par",
+  "eyebrow_credit_created_by": "Créé par",
+  "eyebrow_credit_written_by": "Écrit par"
 }

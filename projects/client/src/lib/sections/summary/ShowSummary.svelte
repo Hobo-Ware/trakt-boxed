@@ -1,7 +1,15 @@
 <script lang="ts">
+  /*
+    Show summary surface, Letterboxd-flavour.
+
+    Shares the same hero layout as MovieSummary so films and shows
+    sit as siblings rather than as different page types — the
+    Letterboxd treatment is applied once and trakt-boxed extends it
+    naturally to TV. SeasonList stays in the body since shows have
+    seasonal structure films don't.
+  */
   import * as m from "$lib/features/i18n/messages";
 
-  import RenderFor from "$lib/guards/RenderFor.svelte";
   import type { MediaStudio } from "$lib/requests/models/MediaStudio";
   import type { MediaVideo } from "$lib/requests/models/MediaVideo";
   import type { Season } from "$lib/requests/models/Season";
@@ -14,9 +22,8 @@
   import VideoList from "../lists/VideoList.svelte";
   import Comments from "./components/comments/Comments.svelte";
   import Lists from "./components/lists/Lists.svelte";
-  import MediaSummary from "./components/media/MediaSummary.svelte";
-  import MediaSummaryV2 from "./components/media/v2/MediaSummary.svelte";
   import Sentiment from "./components/sentiment/Sentiment.svelte";
+  import LetterboxdMediaHero from "./LetterboxdMediaHero.svelte";
   import type { CommonMediaSummaryProps } from "./models/CommonMediaSummaryProps";
   import SummaryDrawer from "./SummaryDrawer.svelte";
 
@@ -35,7 +42,6 @@
     intl,
     crew,
     seasons,
-    streamOn,
     videos,
     currentSeason,
     sentiment,
@@ -67,23 +73,15 @@
   type="show"
 />
 
-<RenderFor audience="all" device={["mobile", "tablet-sm"]}>
-  <MediaSummaryV2 {media} {studios} {intl} {crew} type="show" />
-</RenderFor>
+<LetterboxdMediaHero
+  {media}
+  {crew}
+  type="show"
+  intlTitle={intl?.title}
+  overview={intl?.overview ?? media.overview}
+/>
 
-<RenderFor audience="all" device={["tablet-lg", "desktop"]}>
-  <MediaSummary {media} {intl} {crew} {streamOn} type="show">
-    {#snippet contextualContent()}
-      <RenderFor audience="all" device={["desktop"]}>
-        <Sentiment {sentiment} slug={media.slug} variant="inline" />
-      </RenderFor>
-    {/snippet}
-  </MediaSummary>
-</RenderFor>
-
-<RenderFor audience="all" device={["mobile", "tablet-sm", "tablet-lg"]}>
-  <Sentiment {sentiment} slug={media.slug} />
-</RenderFor>
+<Sentiment {sentiment} slug={media.slug} />
 
 <CastList
   title={m.list_title_actors()}
@@ -105,7 +103,6 @@
   drilldownLink={relatedLink}
 />
 
-<!-- TODO: move back to designed position when we have faster queries -->
 <Lists
   slug={media.slug}
   title={media.title}

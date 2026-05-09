@@ -1248,5 +1248,10 @@
   "eyebrow_journal_featured": "注目",
   "eyebrow_journal_section_curated": "シネマスコープ",
   "eyebrow_journal_section_film": "映画",
-  "eyebrow_journal_section_show": "シリーズ"
+  "eyebrow_journal_section_show": "シリーズ",
+  "eyebrow_entity_film": "映画",
+  "eyebrow_entity_show": "シリーズ",
+  "eyebrow_credit_directed_by": "監督",
+  "eyebrow_credit_created_by": "原案",
+  "eyebrow_credit_written_by": "脚本"
 }

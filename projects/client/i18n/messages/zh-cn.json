@@ -1248,5 +1248,10 @@
   "eyebrow_journal_featured": "精选",
   "eyebrow_journal_section_curated": "宽银幕",
   "eyebrow_journal_section_film": "电影",
-  "eyebrow_journal_section_show": "剧集"
+  "eyebrow_journal_section_show": "剧集",
+  "eyebrow_entity_film": "电影",
+  "eyebrow_entity_show": "剧集",
+  "eyebrow_credit_directed_by": "导演",
+  "eyebrow_credit_created_by": "主创",
+  "eyebrow_credit_written_by": "编剧"
 }

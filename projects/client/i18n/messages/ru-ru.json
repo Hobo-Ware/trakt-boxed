@@ -1248,5 +1248,10 @@
   "eyebrow_journal_featured": "В центре внимания",
   "eyebrow_journal_section_curated": "Синемаскоп",
   "eyebrow_journal_section_film": "Фильм",
-  "eyebrow_journal_section_show": "Сериал"
+  "eyebrow_journal_section_show": "Сериал",
+  "eyebrow_entity_film": "Фильм",
+  "eyebrow_entity_show": "Сериал",
+  "eyebrow_credit_directed_by": "Режиссёр",
+  "eyebrow_credit_created_by": "Автор",
+  "eyebrow_credit_written_by": "Сценарист"
 }

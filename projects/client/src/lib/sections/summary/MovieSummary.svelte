@@ -1,6 +1,15 @@
 <script lang="ts">
+  /*
+    Movie summary surface, Letterboxd-flavour.
+
+    Replace the old MediaSummary / MediaSummaryV2 dual-render with a
+    single LetterboxdMediaHero that lays out the cinematic backdrop +
+    poster + title block the way every Letterboxd film page does.
+    The downstream sections (Cast, Comments-as-Reviews, Lists,
+    Related, Sentiment, Videos) keep working — they're already
+    section-list components that ride the page rhythm we want.
+  */
   import * as m from "$lib/features/i18n/messages";
-  import RenderFor from "$lib/guards/RenderFor.svelte";
 
   import type { MediaStudio } from "$lib/requests/models/MediaStudio";
   import type { MediaVideo } from "$lib/requests/models/MediaVideo";
@@ -12,9 +21,8 @@
   import VideoList from "../lists/VideoList.svelte";
   import Comments from "./components/comments/Comments.svelte";
   import Lists from "./components/lists/Lists.svelte";
-  import MediaSummary from "./components/media/MediaSummary.svelte";
-  import MediaSummaryV2 from "./components/media/v2/MediaSummary.svelte";
   import CommunitySentiment from "./components/sentiment/Sentiment.svelte";
+  import LetterboxdMediaHero from "./LetterboxdMediaHero.svelte";
   import type { CommonMediaSummaryProps } from "./models/CommonMediaSummaryProps";
   import SummaryDrawer from "./SummaryDrawer.svelte";
 
@@ -23,7 +31,6 @@
     studios,
     intl,
     crew,
-    streamOn,
     videos,
     sentiment,
   }: {
@@ -39,23 +46,15 @@
 
 <SummaryDrawer {sentiment} {studios} {crew} {media} {videos} type="movie" />
 
-<RenderFor audience="all" device={["mobile", "tablet-sm"]}>
-  <MediaSummaryV2 {media} {studios} {crew} {intl} type="movie" />
-</RenderFor>
+<LetterboxdMediaHero
+  {media}
+  {crew}
+  type="movie"
+  intlTitle={intl?.title}
+  overview={intl?.overview ?? media.overview}
+/>
 
-<RenderFor audience="all" device={["tablet-lg", "desktop"]}>
-  <MediaSummary {media} {intl} {streamOn} {crew} type="movie">
-    {#snippet contextualContent()}
-      <RenderFor audience="all" device={["desktop"]}>
-        <CommunitySentiment {sentiment} slug={media.slug} variant="inline" />
-      </RenderFor>
-    {/snippet}
-  </MediaSummary>
-</RenderFor>
-
-<RenderFor audience="all" device={["mobile", "tablet-sm", "tablet-lg"]}>
-  <CommunitySentiment {sentiment} slug={media.slug} />
-</RenderFor>
+<CommunitySentiment {sentiment} slug={media.slug} />
 
 <CastList
   title={m.list_title_actors()}
@@ -75,7 +74,6 @@
   drilldownLink={relatedLink}
 />
 
-<!-- TODO: move back to designed position when we have faster queries -->
 <Lists
   slug={media.slug}
   title={media.title}
