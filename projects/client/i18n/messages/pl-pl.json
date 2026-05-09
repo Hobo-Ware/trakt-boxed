@@ -1205,5 +1205,12 @@
   "profile_stat_this_year": "W tym roku",
   "profile_stat_lists": "Listy",
   "profile_stat_following": "Obserwowani",
-  "eyebrow_list_by": "Lista od"
+  "eyebrow_list_by": "Lista od",
+  "text_lists": "Listy",
+  "text_members": "Członkowie",
+  "text_journal": "Dziennik",
+  "button_label_journal": "Otwórz dziennik",
+  "button_label_members": "Przeglądaj członków",
+  "button_label_profile": "Otwórz profil",
+  "button_text_create_account": "Utwórz konto"
 }

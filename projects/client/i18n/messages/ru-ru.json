@@ -1205,5 +1205,12 @@
   "profile_stat_this_year": "В этом году",
   "profile_stat_lists": "Списки",
   "profile_stat_following": "Подписки",
-  "eyebrow_list_by": "Список от"
+  "eyebrow_list_by": "Список от",
+  "text_lists": "Списки",
+  "text_members": "Участники",
+  "text_journal": "Журнал",
+  "button_label_journal": "Открыть журнал",
+  "button_label_members": "Просмотр участников",
+  "button_label_profile": "Открыть профиль",
+  "button_text_create_account": "Создать аккаунт"
 }

@@ -1205,5 +1205,12 @@
   "profile_stat_this_year": "今年",
   "profile_stat_lists": "片单",
   "profile_stat_following": "关注中",
-  "eyebrow_list_by": "片单作者"
+  "eyebrow_list_by": "片单作者",
+  "text_lists": "片单",
+  "text_members": "成员",
+  "text_journal": "日志",
+  "button_label_journal": "打开日志",
+  "button_label_members": "浏览成员",
+  "button_label_profile": "打开个人资料",
+  "button_text_create_account": "创建账户"
 }

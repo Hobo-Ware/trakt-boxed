@@ -1205,5 +1205,12 @@
   "profile_stat_this_year": "今年",
   "profile_stat_lists": "リスト",
   "profile_stat_following": "フォロー中",
-  "eyebrow_list_by": "リスト作成者"
+  "eyebrow_list_by": "リスト作成者",
+  "text_lists": "リスト",
+  "text_members": "メンバー",
+  "text_journal": "ジャーナル",
+  "button_label_journal": "ジャーナルを開く",
+  "button_label_members": "メンバーを見る",
+  "button_label_profile": "プロフィールを開く",
+  "button_text_create_account": "アカウント作成"
 }

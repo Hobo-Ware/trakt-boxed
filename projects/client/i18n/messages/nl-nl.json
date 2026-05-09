@@ -1205,5 +1205,12 @@
   "profile_stat_this_year": "Dit jaar",
   "profile_stat_lists": "Lijsten",
   "profile_stat_following": "Volgend",
-  "eyebrow_list_by": "Lijst van"
+  "eyebrow_list_by": "Lijst van",
+  "text_lists": "Lijsten",
+  "text_members": "Leden",
+  "text_journal": "Dagboek",
+  "button_label_journal": "Dagboek openen",
+  "button_label_members": "Leden bekijken",
+  "button_label_profile": "Profiel openen",
+  "button_text_create_account": "Account aanmaken"
 }

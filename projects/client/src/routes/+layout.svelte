@@ -32,9 +32,7 @@
   import WSInvalidator from "$lib/features/websocket/WSInvalidator.svelte";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import MarkAsWatchedDrawerProvider from "$lib/sections/media-actions/mark-as-watched/MarkAsWatchedDrawerProvider.svelte";
-  import MobileNavbar from "$lib/sections/navbar/MobileNavbar.svelte";
-  import SideNavbar from "$lib/sections/navbar/SideNavbar.svelte";
-  import TopNavbar from "$lib/sections/navbar/TopNavbar.svelte";
+  import LetterboxdNav from "$lib/sections/navbar/LetterboxdNav.svelte";
   import NavbarToastContent from "$lib/sections/toast/NavbarToastContent.svelte";
   import { isPWA } from "$lib/utils/devices/isPWA.ts";
   import { retry } from "$lib/utils/retry/retry.js";
@@ -172,31 +170,13 @@
                                       <ThemeProvider theme={data.theme}>
                                         <ListScrollHistoryProvider>
                                           <!--
-                                        All navbars are added in the layout to make sure they can
-                                        persist during navigation. The state is set on a page level.
+                                        Letterboxd-flavour single ribbon, shared across breakpoints.
+                                        State (filters, contextual actions) still rides on
+                                        useNavbarState so per-page setters keep working.
                                       -->
-                                          <RenderFor
-                                            audience="all"
-                                            device={["mobile", "tablet-sm"]}
-                                          >
-                                            <TopNavbar />
-                                          </RenderFor>
-
-                                          <RenderFor
-                                            audience="all"
-                                            device={["desktop", "tablet-lg"]}
-                                          >
-                                            <SideNavbar />
-                                          </RenderFor>
+                                          <LetterboxdNav />
 
                                           {@render children()}
-
-                                          <RenderFor
-                                            audience="all"
-                                            device={["mobile", "tablet-sm"]}
-                                          >
-                                            <MobileNavbar />
-                                          </RenderFor>
 
                                           <RenderFor audience="authenticated">
                                             <NavbarToastContent />
