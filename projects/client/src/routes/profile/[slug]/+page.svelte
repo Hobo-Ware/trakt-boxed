@@ -1,0 +1,52 @@
+<script lang="ts">
+  /*
+    Public profile route. Resolves the user via useProfile from
+    the slug, sets the cover image, then dispatches Profile vs
+    PrivateProfile depending on the privacy bit. No data side
+    effects beyond reading from the hook.
+  */
+  import CoverImageSetter from "$lib/components/background/CoverImageSetter.svelte";
+  import * as m from "$lib/features/i18n/messages.ts";
+  import RenderFor from "$lib/guards/RenderFor.svelte";
+  import DiscoverToggles from "$lib/sections/discover/DiscoverToggles.svelte";
+  import TraktPage from "$lib/sections/layout/TraktPage.svelte";
+  import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
+  import PrivateProfile from "$lib/sections/profile/PrivateProfile.svelte";
+  import Profile from "$lib/sections/profile/Profile.svelte";
+  import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
+  import type { PageProps } from "./$types";
+  import { useProfile } from "./useProfile";
+
+  const { params }: PageProps = $props();
+  const { user, isLoading } = $derived(useProfile(params.slug));
+
+  const title = $derived(
+    $user?.username
+      ? m.page_title_user_profile({ username: $user.username })
+      : m.page_title_profile(),
+  );
+</script>
+
+<TraktPage
+  audience="all"
+  image={DEFAULT_SHARE_COVER}
+  {title}
+  hasDynamicContent={true}
+>
+  <RenderFor audience="authenticated">
+    <NavbarStateSetter>
+      {#snippet actions()}
+        <DiscoverToggles />
+      {/snippet}
+    </NavbarStateSetter>
+  </RenderFor>
+
+  {#if !$isLoading && $user}
+    <CoverImageSetter src={$user.cover?.url} type="main" />
+    {#if $user.private}
+      <PrivateProfile profile={$user} slug={$user.slug ?? ""} />
+    {:else}
+      <Profile profile={$user} slug={$user.slug ?? ""} />
+    {/if}
+  {/if}
+</TraktPage>
