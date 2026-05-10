@@ -196,6 +196,17 @@ include color samples, typography, and mobile-vs-desktop deltas.
     episode keeps the cinematic still as backdrop with a "From
     <Show>" breadcrumb eyebrow and S/E pills. Drops the unused
     videos / sentiment props from the +page.svelte files.
+40. `chore(routes): drop 12 content +page surfaces ahead of
+    rebuild` + `feat(routes): rebuild 12 content +page surfaces
+    from blank` — /movies, /shows, /diary, /calendar, /history,
+    /people/[slug], /profile/[slug], /profile/me, /members/popular,
+    /social/activity, /lists/official/[list], /users/[user]/lists/
+    [list] all wiped and rewritten as fresh compositions. Common
+    Letterboxd Fraunces hero on each editorial surface; catalogs
+    use 4 stacked LetterboxdCatalogSection grids; list-detail
+    pages use a new LetterboxdListGridFeed wrapper that anchors
+    the useListItems subscription at component scope so the
+    leaf grid stays presentational.
 
 ## Done. The brief queue is empty (and then some).
 
