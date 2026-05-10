@@ -1317,5 +1317,21 @@
   "lb_wtw_pill_stream": "Blu",
   "lb_wtw_pill_rent": "Rent",
   "lb_wtw_pill_buy": "Buy",
-  "lb_wtw_pill_free": "Free"
+  "lb_wtw_pill_free": "Free",
+  "lb_catalog_eyebrow_films": "Curated for you",
+  "lb_catalog_eyebrow_shows": "Curated for you",
+  "lb_catalog_lede_films": "What the world's watching, what you're missing, and what's worth your night.",
+  "lb_catalog_lede_shows": "What the world's bingeing, what's about to drop, and what to queue up next.",
+  "lb_catalog_section_popular_this_week": "Popular this week",
+  "lb_catalog_section_most_anticipated": "Most anticipated",
+  "lb_catalog_section_all_time_popular": "All-time popular",
+  "lb_catalog_section_for_you": "For you",
+  "lb_diary_eyebrow": "Your viewing journal",
+  "lb_diary_lede": "Every film and episode you've watched, scrolled like a personal log.",
+  "lb_calendar_eyebrow": "Release calendar",
+  "lb_calendar_lede": "Air dates for the shows you follow and the films you're waiting on.",
+  "lb_history_eyebrow": "Personal archive",
+  "lb_history_lede": "Every play, every rewatch, paginated and sorted by when you watched.",
+  "lb_activity_eyebrow": "Network feed",
+  "lb_activity_lede": "What the people you follow watched, rated, and reviewed."
 }
