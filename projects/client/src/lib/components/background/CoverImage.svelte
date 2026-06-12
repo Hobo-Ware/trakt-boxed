@@ -32,7 +32,7 @@
     width: 100%;
     background: var(--shade-900);
 
-    opacity: 0.25;
+    opacity: 0.4;
 
     @include color-mix-variable-with-fallback(
       --trakt-cover-primary-color-transparent,
@@ -63,7 +63,7 @@
       left: 0;
       position: relative;
 
-      filter: grayscale(0.5);
+      filter: grayscale(0.2);
 
       transition: var(--transition-increment) ease-in-out;
       transition-property: filter, opacity, width, left;

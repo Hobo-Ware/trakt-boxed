@@ -12,6 +12,7 @@
   import VideoList from "../lists/VideoList.svelte";
   import WhereToWatchList from "../lists/where-to-watch/WhereToWatchList.svelte";
   import Comments from "./components/comments/Comments.svelte";
+  import RatingsHistogram from "./components/rating/RatingsHistogram.svelte";
   import Lists from "./components/lists/Lists.svelte";
   import MediaSummary from "./components/media/MediaSummary.svelte";
   import MediaSummaryV2 from "./components/media/v2/MediaSummary.svelte";
@@ -49,6 +50,7 @@
   <MediaSummary {media} {intl} {streamOn} {crew} type="movie">
     {#snippet contextualContent()}
       <RenderFor audience="all" device={["desktop"]}>
+        <RatingsHistogram type="movie" {media} />
         <WhereToWatchList type="movie" {media} {streamOn} variant="inline" />
         <Sentiment
           {sentiment}
@@ -62,6 +64,7 @@
 </RenderFor>
 
 <RenderFor audience="all" device={["mobile", "tablet-sm", "tablet-lg"]}>
+  <RatingsHistogram type="movie" {media} />
   <WhereToWatchList type="movie" {media} {streamOn} />
   <Sentiment {sentiment} slug={media.slug} type="movie" />
 </RenderFor>
