@@ -24,8 +24,8 @@
     transparent
   );
 
-  --color-text-watch-count-tag: var(--shade-10);
-  --color-background-watch-count-tag: var(--purple-500);
+  --color-text-watch-count-tag: var(--shade-920);
+  --color-background-watch-count-tag: var(--green-500);
 
   --color-text-trend-tag: var(--shade-10);
   --color-background-trend-neutral-background-tag: var(--color-text-secondary);
@@ -47,9 +47,9 @@
   /**
    * Buttons
    */
-  --color-background-purple: var(--purple-500);
-  --color-foreground-purple: var(--purple-50);
-  --color-background-purple-hover: var(--purple-700);
+  --color-background-purple: var(--green-600);
+  --color-foreground-purple: var(--shade-920);
+  --color-background-purple-hover: var(--green-500);
 
   --color-background-red: var(--red-500);
   --color-foreground-red: var(--red-50);
@@ -70,9 +70,9 @@
   /**
    * Toggle switches
    */
-  --color-tick-purple: var(--purple-500);
-  --color-switch-foreground-purple: var(--purple-50);
-  --color-switch-background-purple: var(--purple-800);
+  --color-tick-purple: var(--green-500);
+  --color-switch-foreground-purple: var(--green-50);
+  --color-switch-background-purple: var(--green-800);
 
   --color-tick-red: var(--red-500);
   --color-switch-foreground-red: var(--red-50);
@@ -98,11 +98,11 @@
   /**
    * Ratings
    */
-  --color-ratings-trakt: var(--purple-500);
+  --color-ratings-trakt: var(--green-500);
 
   /**
    * Inputs
    */
-  --color-input-focus: var(--purple-500);
+  --color-input-focus: var(--green-500);
   --color-input-error: var(--red-600);
 }

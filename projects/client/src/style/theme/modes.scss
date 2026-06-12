@@ -13,7 +13,7 @@
 
   --color-text-primary: var(--shade-900);
   --color-text-secondary: var(--shade-800);
-  --color-text-emphasis: var(--purple-700);
+  --color-text-emphasis: var(--green-700);
 
   --color-input-background: var(--shade-10);
 
@@ -41,7 +41,7 @@
    * Card
    */
   --color-card-background: var(--color-floating-background);
-  --color-official-list-background: var(--purple-200);
+  --color-official-list-background: var(--blue-200);
 
   /*
    * Actions bar
@@ -70,7 +70,7 @@
     color-mix(in srgb, var(--color-shadow) 7%, transparent) 86%,
     transparent 100%
   );
-  --list-meta-info-color: var(--purple-700);
+  --list-meta-info-color: var(--blue-700);
 
   /*
    * Button
@@ -81,7 +81,7 @@
   /*
    * Link
    */
-  --color-link-active: var(--purple-700);
+  --color-link-active: var(--blue-700);
 
   /*
    * Navbar
@@ -181,7 +181,7 @@
   /*
    * Sentiment
    */
-  --color-sentiment-good: var(--purple-700);
+  --color-sentiment-good: var(--green-700);
   --color-sentiment-bad: var(--red-800);
   --color-sentiment-highlight-border: color-mix(
     in srgb,
@@ -248,7 +248,7 @@
    */
   --background-profile-details: radial-gradient(
     50% 40% at 50% 0%,
-    var(--purple-50) 0%,
+    var(--shade-40) 0%,
     var(--shade-50) 100%
   );
   --background-vip-profile-details: radial-gradient(
@@ -273,23 +273,23 @@
     var(--shade-20) 0%,
     var(--shade-40) 100%
   );
-  --color-streak-day: var(--purple-600);
+  --color-streak-day: var(--green-700);
 
   /*
    * Activity heatmap
    */
   --color-heatmap-empty: var(--shade-200);
-  --color-heatmap-l1: var(--purple-100);
-  --color-heatmap-l2: var(--purple-300);
-  --color-heatmap-l3: var(--purple-500);
-  --color-heatmap-l4: var(--purple-700);
+  --color-heatmap-l1: var(--green-100);
+  --color-heatmap-l2: var(--green-300);
+  --color-heatmap-l3: var(--green-500);
+  --color-heatmap-l4: var(--green-700);
 
   /*
    * Charts
    */
   --color-bar-chart-bar-default: var(--shade-200);
   --color-bar-chart-bar-highlight: var(--shade-800);
-  --color-bar-chart-bar-hover: var(--purple-500);
+  --color-bar-chart-bar-hover: var(--green-600);
 
   /*
    * Confirmation
@@ -302,19 +302,15 @@
 
 // Define theme variables for dark mode
 @mixin dark-theme {
-  --color-floating-background: var(--shade-930);
+  --color-floating-background: var(--shade-900);
   --color-shadow: var(--shade-940);
 
   --color-foreground: var(--shade-10);
-  --color-background: color-mix(
-    in srgb,
-    var(--shade-920) 97%,
-    var(--purple-900)
-  );
+  --color-background: var(--shade-920);
 
   --color-text-primary: var(--shade-10);
   --color-text-secondary: var(--shade-300);
-  --color-text-emphasis: var(--purple-300);
+  --color-text-emphasis: var(--green-500);
 
   --color-input-background: color-mix(
     in srgb,
@@ -332,7 +328,7 @@
   /**
    * Navbar
    */
-  --color-background-navbar-base: var(--color-floating-background);
+  --color-background-navbar-base: var(--shade-930);
   --color-background-navbar: color-mix(
     in srgb,
     var(--color-background-navbar-base) 90%,
@@ -346,7 +342,7 @@
    * Card
    */
   --color-card-background: var(--color-floating-background);
-  --color-official-list-background: var(--purple-800);
+  --color-official-list-background: var(--blue-800);
 
   /*
    * Actions bar
@@ -373,7 +369,7 @@
     color-mix(in srgb, var(--color-shadow) 25%, transparent) 80%,
     transparent 100%
   );
-  --list-meta-info-color: var(--purple-400);
+  --list-meta-info-color: var(--blue-400);
 
   /*
    * Button
@@ -384,7 +380,7 @@
   /**
    * Link
    */
-  --color-link-active: var(--purple-400);
+  --color-link-active: var(--blue-400);
 
   /*
    * Navbar
@@ -459,8 +455,8 @@
   /*
    * Toggle
    */
-  --toggler-background-color: var(--shade-900);
-  --toggler-tracker-color: var(--purple-500);
+  --toggler-background-color: var(--shade-910);
+  --toggler-tracker-color: var(--green-500);
   --toggle-background-color: var(--shade-700);
   --toggle-background-hover-color: var(--shade-600);
   --toggle-foreground-color: var(--shade-50);
@@ -485,7 +481,7 @@
   /*
    * Sentiment
    */
-  --color-sentiment-good: var(--purple-200);
+  --color-sentiment-good: var(--green-400);
   --color-sentiment-bad: var(--red-100);
   --color-sentiment-highlight-border: color-mix(
     in srgb,
@@ -552,8 +548,8 @@
    */
   --background-profile-details: radial-gradient(
     50% 40% at 50% 0%,
-    var(--purple-950) 0%,
-    var(--purple-1000) 100%
+    var(--shade-910) 0%,
+    var(--shade-920) 100%
   );
   --background-vip-profile-details: radial-gradient(
     50% 40% at 50% 0%,
@@ -577,23 +573,23 @@
     var(--shade-940) 0%,
     var(--shade-920) 100%
   );
-  --color-streak-day: var(--purple-400);
+  --color-streak-day: var(--green-500);
 
   /*
    * Activity heatmap
    */
   --color-heatmap-empty: var(--shade-800);
-  --color-heatmap-l1: color-mix(in srgb, var(--purple-900) 80%, transparent);
-  --color-heatmap-l2: var(--purple-700);
-  --color-heatmap-l3: var(--purple-500);
-  --color-heatmap-l4: var(--purple-300);
+  --color-heatmap-l1: color-mix(in srgb, var(--green-900) 80%, transparent);
+  --color-heatmap-l2: var(--green-700);
+  --color-heatmap-l3: var(--green-600);
+  --color-heatmap-l4: var(--green-500);
 
   /*
    * Charts
    */
   --color-bar-chart-bar-default: var(--shade-300);
   --color-bar-chart-bar-highlight: var(--shade-10);
-  --color-bar-chart-bar-hover: var(--purple-500);
+  --color-bar-chart-bar-hover: var(--green-500);
 
   /*
    * Confirmation
