@@ -47,7 +47,7 @@
 
     @include for-mouse() {
       :global(.trakt-rate-button) {
-        --star-hover-color: var(--orange-400);
+        --star-hover-color: var(--green-400);
         --star-hover-width: 100%;
 
         &:hover,

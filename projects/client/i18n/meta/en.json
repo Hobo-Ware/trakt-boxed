@@ -2716,6 +2716,15 @@
         }
       }
     },
+    "text_label_user_star_rating": {
+      "default": "Rated {stars} out of 5 stars.",
+      "description": "Aria-label for the read-only star rating display showing a rating as stars.",
+      "variables": {
+        "stars": {
+          "type": "number"
+        }
+      }
+    },
     "badge_text_more": {
       "default": "and {count} more",
       "description": "Text for badges shown on covers, used when there are more badges than can fit on the cover. This should be as short as possible.",

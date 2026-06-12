@@ -99,6 +99,7 @@
    * Ratings
    */
   --color-ratings-trakt: var(--green-500);
+  --color-ratings-user: var(--green-500);
 
   /**
    * Inputs
