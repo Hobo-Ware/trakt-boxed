@@ -69,7 +69,9 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .trakt-card-cover {
     --padding-card-tag: var(--ni-8);
 
@@ -77,6 +79,24 @@
     background-color: var(--color-card-background);
     overflow: hidden;
     position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 var(--ni-1)
+        color-mix(in srgb, var(--shade-10) 12%, transparent);
+      pointer-events: none;
+      z-index: var(--layer-raised);
+      transition: box-shadow var(--transition-increment) ease-in-out;
+    }
+
+    @include for-mouse() {
+      &:hover::after {
+        box-shadow: inset 0 0 0 var(--ni-2) var(--green-500);
+      }
+    }
 
     &.trakt-card-cover-placeholder {
       /* FIXME: use SVG placeholders and remove this */
