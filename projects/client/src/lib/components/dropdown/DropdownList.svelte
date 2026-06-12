@@ -173,7 +173,7 @@
 
     //FIXME: merge with SelectFilter
     &:has(:global(select:focus-visible)) {
-      outline: var(--border-thickness-xs) solid var(--purple-500);
+      outline: var(--border-thickness-xs) solid var(--green-500);
       outline-offset: var(--border-thickness-xs);
       border-radius: calc(var(--border-radius-m) * 0.76925);
     }

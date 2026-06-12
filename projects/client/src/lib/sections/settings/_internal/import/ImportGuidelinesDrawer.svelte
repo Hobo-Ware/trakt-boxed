@@ -111,7 +111,7 @@
 
   .field-name,
   .field-value {
-    color: var(--purple-500);
+    color: var(--blue-400);
   }
 
   .field-badge {

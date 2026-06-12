@@ -52,7 +52,7 @@
 
     background-color: color-mix(
       in srgb,
-      var(--purple-400) 10%,
+      var(--green-400) 10%,
       transparent 90%
     );
 

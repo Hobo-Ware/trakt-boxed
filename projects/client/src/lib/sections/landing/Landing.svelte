@@ -98,7 +98,7 @@
 
     background: radial-gradient(
       1000px 1000px at 50% 100%,
-      color-mix(in srgb, var(--purple-500) 30%, transparent) 0%,
+      color-mix(in srgb, var(--shade-500) 30%, transparent) 0%,
       transparent 100%
     );
 

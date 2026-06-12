@@ -66,7 +66,7 @@
       height: var(--ni-40);
       flex-shrink: 0;
 
-      color: var(--purple-500);
+      color: var(--green-500);
     }
   }
 

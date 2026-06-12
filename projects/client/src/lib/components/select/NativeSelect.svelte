@@ -73,7 +73,7 @@
 
     &:has(select:focus-visible) {
       outline-offset: var(--ni-2);
-      outline: var(--border-thickness-xs) solid var(--purple-500);
+      outline: var(--border-thickness-xs) solid var(--green-500);
     }
 
     @include for-mouse {

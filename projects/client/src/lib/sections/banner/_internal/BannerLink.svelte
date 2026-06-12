@@ -47,7 +47,8 @@
       align-items: center;
       gap: var(--gap-xs);
 
-      background-color: var(--purple-500);
+      background-color: var(--green-600);
+      color: var(--shade-920);
       border-radius: var(--border-radius-l);
       padding: var(--ni-8) var(--ni-12);
 
@@ -62,7 +63,7 @@
 
       @include for-mouse() {
         &:hover {
-          color: var(--purple-100);
+          color: var(--shade-1000);
         }
       }
     }

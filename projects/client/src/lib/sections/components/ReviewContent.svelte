@@ -78,7 +78,7 @@
   .trakt-review-content[data-variant="gradient"] {
     background: radial-gradient(
       60.59% 305.37% at 100% 100%,
-      var(--purple-500) 0%,
+      var(--shade-500) 0%,
       var(--shade-900) 100%
     );
   }

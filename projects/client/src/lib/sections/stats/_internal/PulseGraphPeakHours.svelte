@@ -52,7 +52,7 @@
 
   .peak-bar-fill {
     height: 100%;
-    background: var(--purple-500);
+    background: var(--green-500);
     border-radius: var(--ni-4);
     min-width: 2px;
     transition: width var(--transition-increment) ease;

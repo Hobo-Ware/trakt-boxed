@@ -40,15 +40,15 @@
 
         background: linear-gradient(
           45deg,
-          var(--purple-500),
-          var(--purple-300),
-          var(--purple-100),
-          var(--purple-400),
-          var(--purple-700),
-          var(--purple-800),
-          var(--purple-900),
-          var(--purple-700),
-          var(--purple-500)
+          var(--green-500),
+          var(--green-300),
+          var(--green-100),
+          var(--green-400),
+          var(--green-700),
+          var(--green-800),
+          var(--green-900),
+          var(--green-700),
+          var(--green-500)
         );
         background-size: 400%;
 

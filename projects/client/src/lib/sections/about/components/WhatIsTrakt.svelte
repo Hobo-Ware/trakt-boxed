@@ -174,11 +174,11 @@
 
     @include for-mouse {
       &:hover {
-        border-color: color-mix(in srgb, var(--purple-500) 40%, transparent);
+        border-color: color-mix(in srgb, var(--green-500) 40%, transparent);
         background: color-mix(
           in srgb,
           var(--color-card-background) 95%,
-          var(--purple-500) 5%
+          var(--green-500) 5%
         );
       }
     }
@@ -190,7 +190,7 @@
     height: var(--ni-24);
     margin-top: var(--ni-2);
 
-    color: var(--purple-500);
+    color: var(--green-500);
 
     :global(svg) {
       width: 100%;

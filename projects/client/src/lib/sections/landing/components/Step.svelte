@@ -32,7 +32,7 @@
     gap: var(--gap-xxs);
 
     :global(svg) {
-      color: var(--purple-500);
+      color: var(--green-500);
     }
   }
 
@@ -44,7 +44,7 @@
 
   .trakt-landing-step-label::after {
     content: ".";
-    color: var(--purple-500);
+    color: var(--green-500);
   }
 
   .trakt-landing-step-label-shadow {

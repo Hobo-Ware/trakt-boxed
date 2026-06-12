@@ -180,10 +180,10 @@
 
     &[data-color="purple"] {
       @include color(
-        var(--purple-800),
-        var(--purple-200),
-        var(--purple-800),
-        var(--purple-50)
+        var(--green-700),
+        var(--green-200),
+        var(--green-700),
+        var(--green-50)
       );
     }
 

@@ -98,7 +98,7 @@
 
     &:not(:disabled) {
       --active-background-color: var(--shade-10);
-      --active-color: var(--purple-900);
+      --active-color: var(--green-700);
 
       &[data-popup-state="opened"] {
         background-color: var(--active-background-color);

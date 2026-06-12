@@ -121,7 +121,7 @@
     box-sizing: border-box;
 
     border-radius: var(--border-radius-s);
-    border: var(--ni-2) var(--purple-50) solid;
+    border: var(--ni-2) var(--shade-50) solid;
 
     color: var(--color-text-primary);
     background-color: var(--color-input-background);
@@ -148,7 +148,7 @@
     }
 
     &:has(textarea:focus-within) {
-      border-color: var(--purple-500);
+      border-color: var(--green-500);
     }
 
     &:has(textarea[disabled]) {

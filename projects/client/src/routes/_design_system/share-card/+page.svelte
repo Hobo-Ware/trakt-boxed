@@ -289,7 +289,7 @@
 
   .hero-eyebrow {
     font-size: var(--font-size-text-small);
-    color: var(--purple-500);
+    color: var(--green-500);
   }
 
   h1 {
@@ -420,8 +420,8 @@
     border-radius: var(--border-radius-s);
 
     &[data-type="show"] {
-      color: var(--purple-300);
-      background: color-mix(in srgb, var(--purple-500) 15%, transparent);
+      color: var(--green-300);
+      background: color-mix(in srgb, var(--green-500) 15%, transparent);
     }
 
     &[data-type="movie"] {

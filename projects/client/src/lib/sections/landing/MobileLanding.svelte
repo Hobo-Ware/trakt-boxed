@@ -43,7 +43,7 @@
 
     background: radial-gradient(
       200dvw 200dvw at 50% 100%,
-      color-mix(in srgb, var(--purple-500) 50%, transparent) 0%,
+      color-mix(in srgb, var(--shade-500) 50%, transparent) 0%,
       transparent 100%
     );
   }

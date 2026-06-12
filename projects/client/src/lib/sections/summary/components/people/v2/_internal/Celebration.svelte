@@ -10,7 +10,7 @@
     delay={[time.seconds(1), time.seconds(0.25)]}
     fallDistance="10px"
     rounded
-    colorArray={["var(--shade-200)", "var(--purple-600)", "var(--red-400)"]}
+    colorArray={["var(--shade-200)", "var(--green-600)", "var(--red-400)"]}
   />
 </div>
 

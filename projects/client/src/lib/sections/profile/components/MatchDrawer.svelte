@@ -221,7 +221,7 @@
 
   .trakt-match-drawer-gauge-fill {
     fill: none;
-    stroke: var(--purple-500);
+    stroke: var(--green-500);
     stroke-width: var(--stroke-width-match-gauge);
     stroke-linecap: round;
     transition: stroke-dasharray calc(var(--transition-increment) * 2) ease-out;
@@ -322,7 +322,7 @@
     span {
       position: absolute;
       inset: 0 auto 0 0;
-      background: var(--purple-500);
+      background: var(--green-500);
       transition: width calc(var(--transition-increment) * 2) ease-out;
     }
   }

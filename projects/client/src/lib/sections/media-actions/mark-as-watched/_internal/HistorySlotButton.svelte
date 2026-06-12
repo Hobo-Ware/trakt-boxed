@@ -42,8 +42,8 @@
   .trakt-history-slot-btn {
     --color-history-slot: var(--color-text-primary);
     --color-history-line: var(--color-border);
-    --color-history-slot-active: var(--purple-500);
-    --color-history-slot-active-text: var(--shade-10);
+    --color-history-slot-active: var(--green-600);
+    --color-history-slot-active-text: var(--shade-920);
     --height-history-slot-btn: var(--ni-32);
 
     all: unset;

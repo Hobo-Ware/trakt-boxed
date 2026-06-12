@@ -46,7 +46,7 @@
       height: var(--ni-36);
       border-radius: 50%;
       background: conic-gradient(
-        var(--color-progress-ring, var(--purple-500))
+        var(--color-progress-ring, var(--green-500))
           calc(var(--progress, 0) * 360deg),
         transparent 0deg 360deg
       );

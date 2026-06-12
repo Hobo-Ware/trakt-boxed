@@ -85,11 +85,11 @@
 
     transition: color var(--transition-increment) ease-in-out;
 
-    color: var(--purple-400);
+    color: var(--blue-400);
     cursor: pointer;
 
     &:hover {
-      color: var(--purple-500);
+      color: var(--blue-300);
     }
 
     :global(svg) {

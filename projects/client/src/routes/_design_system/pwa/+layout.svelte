@@ -61,13 +61,13 @@
   }
 
   a:hover {
-    color: var(--shade-100);
-    background-color: var(--purple-500);
+    color: var(--shade-920);
+    background-color: var(--green-500);
   }
 
   a.active {
-    background-color: var(--purple-700);
-    color: var(--shade-10);
+    background-color: var(--green-600);
+    color: var(--shade-920);
   }
 
   .trakt-simulator-content {

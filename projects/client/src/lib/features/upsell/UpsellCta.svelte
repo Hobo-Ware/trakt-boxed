@@ -75,7 +75,7 @@
       &:hover,
       &:focus-visible {
         :global(.trakt-link) {
-          border-color: color-mix(in srgb, var(--purple-500) 50%, transparent);
+          border-color: color-mix(in srgb, var(--green-500) 50%, transparent);
         }
       }
     }

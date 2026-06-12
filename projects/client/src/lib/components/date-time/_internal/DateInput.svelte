@@ -89,7 +89,7 @@
     transition: outline var(--transition-increment) ease-in-out;
 
     &:focus-within {
-      outline: var(--border-thickness-xs) solid var(--purple-500);
+      outline: var(--border-thickness-xs) solid var(--green-500);
       border-radius: var(--date-time-border-radius);
     }
   }
