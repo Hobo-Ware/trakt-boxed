@@ -1,6 +1,6 @@
 name: 🎨 Suggest a Design Improvement
 description: Share a visual or UX improvement you'd like to see
-labels: ["design"]
+labels: ['design']
 assignees:
   - ElMagnea
 body:

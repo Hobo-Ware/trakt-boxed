@@ -10,13 +10,14 @@
 
 # Domain rules - load on demand
 
-Domain-specific rules are NOT auto-imported to keep baseline context small.
-Read them when the work touches the matching area. CLAUDE.md routes the
-mapping; the rule files live at `.agents/rules/`:
+Domain-specific rules are NOT auto-imported to keep baseline context small. Read
+them when the work touches the matching area. CLAUDE.md routes the mapping; the
+rule files live at `.agents/rules/`:
 
-- `components.md` - UI surface (lib/components, lib/features, lib/sections, lib/guards)
+- `components.md` - UI surface (lib/components, lib/features, lib/sections,
+  lib/guards)
 - `requests.md` - API requests, queries, mutations, mappers (lib/requests)
 - `utils.md` - shared utilities (lib/utils)
 
-Read with the Read tool when the task enters the domain. Re-read after long
-gaps if context was compacted.
+Read with the Read tool when the task enters the domain. Re-read after long gaps
+if context was compacted.

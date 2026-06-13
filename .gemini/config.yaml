@@ -12,5 +12,5 @@ code_review:
     include_drafts: true
 ignore_patterns: [
   'projects/client/src/mocks/data/**/*.ts',
-  'projects/client/i18n/messages/**'
+  'projects/client/i18n/messages/**',
 ]

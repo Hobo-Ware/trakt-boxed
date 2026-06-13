@@ -93,7 +93,7 @@ jobs:
       needs.files-changed.outputs.client_source == 'true' ||
       needs.files-changed.outputs.workflows == 'true'
       }}
-    name: "The Interrogation Room (Shard) [${{ matrix.shard }}/4]"
+    name: 'The Interrogation Room (Shard) [${{ matrix.shard }}/4]'
     runs-on: ubuntu-latest
     concurrency:
       group: ci-test-${{ github.ref }}-${{ matrix.shard }}
@@ -298,7 +298,7 @@ jobs:
           FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
           FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      
+
       # Add this new step to copy the .npmrc file
       - name: The Ancient Scroll of JSR aka Copy .npmrc
         run: |

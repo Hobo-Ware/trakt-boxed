@@ -1,41 +1,54 @@
 # Project Coding Standards
 
 ## Tech Stack
+
 - SvelteKit + TypeScript project, using Svelte 5 in runes mode.
 
 ## Naming Conventions
 
 ### General Rules
+
 - **PascalCase**: Component names, interfaces, and type aliases
 - **camelCase**: Variables, functions, methods, and local constants.
-- **ALL_CAPS**: Use for global/module-level constants only (e.g., env vars, shared config). Local constants use camelCase.
+- **ALL_CAPS**: Use for global/module-level constants only (e.g., env vars,
+  shared config). Local constants use camelCase.
 
 ### File Naming
+
 - Components: PascalCase (e.g., `ClampedText.svelte`, `MoreButton.svelte`)
 - Utilities/helpers: camelCase (e.g., `lineClamp.ts`, `clickOutside.ts`)
 - Type definitions: PascalCase (e.g., `MediaStoreProps.ts`, `FilterParams.ts`)
 
 ## Commit Standards
-- **Follow Conventional Commits**: All commits must adhere to the [Conventional Commits](https://www.conventionalcommits.org/) specification.
-  - Use types: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `perf:`, etc.
+
+- **Follow Conventional Commits**: All commits must adhere to the
+  [Conventional Commits](https://www.conventionalcommits.org/) specification.
+  - Use types: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`,
+    `perf:`, etc.
   - Example: `feat: add user profile component`
   - Example: `fix: correct date formatting in calendar view`
 
 ## Code Principles
 
 ### Functional Programming
-- **Write functional code**: Prefer pure functions that avoid side effects when possible.
+
+- **Write functional code**: Prefer pure functions that avoid side effects when
+  possible.
 - Functions should return consistent output for the same input.
 - Minimize state mutation and favor immutable data structures.
 - Keep Svelte stores minimal; use `$derived()` for computed values.
 
 ### Immutability
+
 - **Prefer `const` over `let`**: Use `const` whenever possible.
 - Avoid reassigning variables.
-- Use array methods like `map`, `filter`, and `reduce` instead of mutating loops.
-- Use TypeScript's `readonly` types: `Readonly<T>`, `ReadonlyArray<T>`, `ReadonlyMap`, `ReadonlySet`.
+- Use array methods like `map`, `filter`, and `reduce` instead of mutating
+  loops.
+- Use TypeScript's `readonly` types: `Readonly<T>`, `ReadonlyArray<T>`,
+  `ReadonlyMap`, `ReadonlySet`.
 
 **Bad:**
+
 ```typescript
 let result = [];
 for (let i = 0; i < items.length; i++) {
@@ -44,15 +57,19 @@ for (let i = 0; i < items.length; i++) {
 ```
 
 **Good:**
+
 ```typescript
 const result = items.map(transform);
 ```
 
 ### Early Exits
-- **Use guard clauses and early returns**: Check error conditions first and return early.
+
+- **Use guard clauses and early returns**: Check error conditions first and
+  return early.
 - Avoid deep nesting by handling edge cases at the start of functions.
 
 **Bad:**
+
 ```typescript
 function processData(data: Data | null) {
   if (data) {
@@ -67,6 +84,7 @@ function processData(data: Data | null) {
 ```
 
 **Good:**
+
 ```typescript
 function processData(data: Data | null) {
   if (!data) return null;
@@ -78,34 +96,43 @@ function processData(data: Data | null) {
 ```
 
 ### Code Smells to Avoid
+
 - **No nested if statements**: Nested conditionals indicate poor architecture.
   - Refactor into separate functions with clear responsibilities.
   - Use guard clauses and early returns instead.
-- **No abstraction leaks**: Ensure abstractions hide implementation details completely.
-- **No "god functions"**: Each function should have a single, clear responsibility.
+- **No abstraction leaks**: Ensure abstractions hide implementation details
+  completely.
+- **No "god functions"**: Each function should have a single, clear
+  responsibility.
 
 ### Function Design
+
 - **Single Responsibility Principle**: Each function should do one thing well.
 - Function names should clearly describe what they do.
 - When a function takes 3+ parameters, use a single object parameter.
 - Pass dependencies as parameters (dependency injection).
 
 **Bad:**
+
 ```typescript
 fetchData(url, token, retry, timeout);
 ```
 
 **Good:**
+
 ```typescript
 fetchData({ url, token, retry, timeout });
 ```
 
 ### Dependency Injection
-- **Pass dependencies as parameters**: Don't instantiate external services inside functions.
+
+- **Pass dependencies as parameters**: Don't instantiate external services
+  inside functions.
 - Makes functions testable without mocking.
 - Use interface types to define the shape of dependencies.
 
 **Bad:**
+
 ```typescript
 export function fetchUser(id: string) {
   const api = new ApiClient();
@@ -114,6 +141,7 @@ export function fetchUser(id: string) {
 ```
 
 **Good:**
+
 ```typescript
 interface FetchUserParams {
   api: ApiClient;
@@ -126,12 +154,15 @@ export function fetchUser({ api, id }: FetchUserParams) {
 ```
 
 ### Separation of Concerns
+
 - **Push side effects to the edges**: Keep core logic pure and deterministic.
 - API calls, local storage, and DOM manipulation are side effects.
 - Pure functions should handle data transformation only.
-- Side effects should live in the outer layers (components, hooks, server functions).
+- Side effects should live in the outer layers (components, hooks, server
+  functions).
 
 ### Simplicity
+
 - **Keep it simple**: Simple code is maintainable code.
 - Suggestions should be simple and functional with low visual complexity.
 - Split up into smaller functions when needed.
@@ -139,18 +170,22 @@ export function fetchUser({ api, id }: FetchUserParams) {
 - If a solution feels complex, step back and reconsider the approach.
 
 ### Iteration Patterns
-- **Prefer functional methods over imperative loops**: Use `map`, `filter`, `reduce`.
+
+- **Prefer functional methods over imperative loops**: Use `map`, `filter`,
+  `reduce`.
 - Avoid mutable loop counters when possible.
 
 ## TypeScript Standards
 
 ### Type Safety
+
 - Always use TypeScript with strict mode.
 - No `any` types; use specific types or utility types.
 
 ### Type Definitions
 
 #### Props Types
+
 ```typescript
 type LineClampProps = {
   label: string;
@@ -161,6 +196,7 @@ const { children, label, classList = '' }: LineClampProps = $props();
 ```
 
 #### Union Types
+
 ```typescript
 export type MediaStoreProps<T extends { id: number } = { id: number }> =
   | EpisodeProps<T>
@@ -169,6 +205,7 @@ export type MediaStoreProps<T extends { id: number } = { id: number }> =
 ```
 
 #### Utility Types
+
 ```typescript
 type FilterParams = DeepPartial<{
   filter: FilterParam;
@@ -177,6 +214,7 @@ type FilterParams = DeepPartial<{
 ```
 
 ### Zod Schemas
+
 - Use Zod for runtime validation and type inference.
 - Define schema first, then derive type:
 
@@ -188,6 +226,7 @@ export type MediaIntl = z.infer<typeof MediaIntlSchema>;
 ```
 
 ### Null Handling
+
 - Use `Nil` type for `null | undefined`.
 - Use `.nullish()` in Zod schemas for optional nullable fields.
 - Use optional chaining (`?.`) and nullish coalescing (`??`).
@@ -197,11 +236,13 @@ export type MediaIntl = z.infer<typeof MediaIntlSchema>;
 ### Reactive State with Runes
 
 #### `$props()`
+
 ```typescript
 const { children, label, classList = '' }: LineClampProps = $props();
 ```
 
 #### `$derived()`
+
 ```typescript
 const isExpanded = $derived($lines === 1337);
 const hasValidRating = $derived(rating !== undefined);
@@ -299,6 +340,7 @@ Use CSS custom properties for theming:
 ```
 
 ### Class Naming
+
 - Use kebab-case for CSS classes.
 - Descriptive, semantic names.
 - Component-scoped styles preferred.
@@ -335,6 +377,7 @@ export function actionName(node: HTMLElement, params?: ActionParams) {
 ```
 
 ### Utility Functions
+
 - Pure functions when possible.
 - Single responsibility.
 - Well-typed inputs and outputs.
@@ -343,6 +386,7 @@ export function actionName(node: HTMLElement, params?: ActionParams) {
 ## Code Quality
 
 ### ESLint
+
 - TypeScript ESLint recommended rules.
 - Svelte plugin enabled.
 - Unused variables prefixed with `_` are allowed.
@@ -350,11 +394,13 @@ export function actionName(node: HTMLElement, params?: ActionParams) {
 ### Best Practices
 
 #### Prefer Composition
+
 ```typescript
-<Button onclick={handleClick} label={label} />
+<Button onclick={handleClick} label={label} />;
 ```
 
 #### Type Guards
+
 ```typescript
 if (props.type === 'episode') {
   const episodes = props.media.episodes;
@@ -362,6 +408,7 @@ if (props.type === 'episode') {
 ```
 
 #### Conditional Rendering
+
 ```svelte
 {#if condition}
   <Component />
@@ -369,6 +416,7 @@ if (props.type === 'episode') {
 ```
 
 ### Performance
+
 - Use `$derived()` for computed values (cached).
 - Lazy load components when appropriate.
 - Avoid unnecessary reactive statements.

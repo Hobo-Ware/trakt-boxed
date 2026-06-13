@@ -1,6 +1,6 @@
-Before implementing anything, identify which domain you are working in and
-read the corresponding rule file from `.agents/rules/` (only the core rules
-auto-load via AGENTS.md; domain rules load on demand):
+Before implementing anything, identify which domain you are working in and read
+the corresponding rule file from `.agents/rules/` (only the core rules auto-load
+via AGENTS.md; domain rules load on demand):
 
 - UI surface (lib/components, lib/features, lib/sections, lib/guards): read
   components.md

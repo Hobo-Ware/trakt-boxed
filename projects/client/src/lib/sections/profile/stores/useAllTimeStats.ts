@@ -1,7 +1,15 @@
 import type { UserHistory } from '$lib/features/auth/stores/useCurrentUserHistory.ts';
 import { useUser } from '$lib/features/auth/stores/useUser.ts';
 import { chunkedReduce } from '$lib/utils/timing/chunkedReduce.ts';
-import { from, map, Observable, of, shareReplay, startWith, switchMap } from 'rxjs';
+import {
+  from,
+  map,
+  Observable,
+  of,
+  shareReplay,
+  startWith,
+  switchMap,
+} from 'rxjs';
 
 export type AllTimeStats = {
   movieCount: number;

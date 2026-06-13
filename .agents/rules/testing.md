@@ -14,9 +14,11 @@ Vitest + `@testing-library/svelte` in jsdom environment.
 ## File Organization
 
 - **Colocated tests**: place `*.spec.ts` or `*.test.ts` next to source file.
-- **Test beds**: `test/beds/` has factories for queries, stores, component renders.
+- **Test beds**: `test/beds/` has factories for queries, stores, component
+  renders.
 - **Mocks**: MSW for request mocking (`src/mocks/`); env mocks in `test/mocks/`.
-- **Setup**: `vitest-setup.ts` initializes MSW, mocks browser APIs (IntersectionObserver, matchMedia, localStorage, etc.).
+- **Setup**: `vitest-setup.ts` initializes MSW, mocks browser APIs
+  (IntersectionObserver, matchMedia, localStorage, etc.).
 
 ## Running Tests
 
@@ -35,11 +37,13 @@ vitest                   # from projects/client/
 
 ## Test Beds
 
-Always use helpers in `test/beds/` instead of constructing underlying RxJS / Svelte machinery by hand.
+Always use helpers in `test/beds/` instead of constructing underlying RxJS /
+Svelte machinery by hand.
 
 ### Queries & stores - `runQuery`
 
-Use `runQuery` to await the first (or first matching) emission from any RxJS `Observable` returned by a `use*` hook or composable.
+Use `runQuery` to await the first (or first matching) emission from any RxJS
+`Observable` returned by a `use*` hook or composable.
 
 ```ts
 import { runQuery } from '$test/beds/query/runQuery.ts';
@@ -53,7 +57,9 @@ const result = await runQuery({
 
 ### Standalone queries - `createTestBedQuery`
 
-For testing `defineQuery` / `defineInfiniteQuery` outputs directly, wrap with `createTestBedQuery` (or `createTestBedInfiniteQuery`) before passing to `runQuery`.
+For testing `defineQuery` / `defineInfiniteQuery` outputs directly, wrap with
+`createTestBedQuery` (or `createTestBedInfiniteQuery`) before passing to
+`runQuery`.
 
 ```ts
 import { createTestBedQuery } from '$test/beds/query/createTestBedQuery.ts';
@@ -66,11 +72,15 @@ const result = await runQuery({
 
 ### Components - `renderComponent`
 
-Use `renderComponent` (wraps `@testing-library/svelte`'s `render` via `ComponentTestBed`) when a component needs context providers from the test bed. Plain `render(...)` from `@testing-library/svelte` is acceptable for simple prop-driven components.
+Use `renderComponent` (wraps `@testing-library/svelte`'s `render` via
+`ComponentTestBed`) when a component needs context providers from the test bed.
+Plain `render(...)` from `@testing-library/svelte` is acceptable for simple
+prop-driven components.
 
 ## MSW Mock Data Conventions
 
-Mock files live in `src/mocks/` and follow a strict shape - preserve it when adding new fixtures.
+Mock files live in `src/mocks/` and follow a strict shape - preserve it when
+adding new fixtures.
 
 ```
 src/mocks/
@@ -83,7 +93,8 @@ src/mocks/
 ```
 
 - **`response/`** mocks mirror raw API payload - used by MSW handlers.
-- **`mapped/`** mocks mirror output of the corresponding `mapTo*` function - used as expected value in assertions.
+- **`mapped/`** mocks mirror output of the corresponding `mapTo*` function -
+  used as expected value in assertions.
 - Handler URLs use `http://localhost/...` origin and match the SDK path.
 
 ```ts
@@ -96,8 +107,11 @@ http.get(
 
 ## Describe / It Conventions
 
-- Top-level `describe` labels the unit under test, optionally prefixed by kind: `describe('store: useMovie', ...)`, `describe('util: findRegionalIntl', ...)`, `describe('streamingSourcesQuery', ...)`.
-- Nested `describe` blocks group by scenario (e.g. `'movie: Heretic (2024)'`, `'for shows'`).
+- Top-level `describe` labels the unit under test, optionally prefixed by kind:
+  `describe('store: useMovie', ...)`, `describe('util: findRegionalIntl', ...)`,
+  `describe('streamingSourcesQuery', ...)`.
+- Nested `describe` blocks group by scenario (e.g. `'movie: Heretic (2024)'`,
+  `'for shows'`).
 - `it` titles read as sentences starting with `'should ...'`.
 
 ## Path Aliases (test-specific)

@@ -1,37 +1,48 @@
 ---
-applyTo: "**"
+applyTo: '**'
 ---
+
 # Project Coding Standards
 
 ## Tech Stack
+
 - SvelteKit + TypeScript project, using Svelte 5 in runes mode.
 
 ## Naming Conventions
+
 - PascalCase for component names, interfaces, type aliases.
 - camelCase for variables, functions, methods.
 - ALL_CAPS for global constants only (not local constants).
 
 ## Commit Standards
-- **Follow Conventional Commits**: All commits must adhere to [Conventional Commits](https://www.conventionalcommits.org/).
-  - Types: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `perf:`, etc.
+
+- **Follow Conventional Commits**: All commits must adhere to
+  [Conventional Commits](https://www.conventionalcommits.org/).
+  - Types: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `perf:`,
+    etc.
   - Example: `feat: add user profile component`
   - Example: `fix: correct date formatting in calendar view`
 
 ## Code Principles
 
 ### Functional Programming
-- **Write functional code**: Prefer pure functions; avoid side effects when possible.
+
+- **Write functional code**: Prefer pure functions; avoid side effects when
+  possible.
 - Functions return consistent output for same input.
 - Minimize state mutation; favor immutable data structures.
 - Keep Svelte stores minimal; use `$derived()` for computed values.
 
 ### Immutability
+
 - **Prefer `const` over `let`**: Use `const` whenever possible.
 - Avoid reassigning variables.
 - Use `map`, `filter`, `reduce` over mutating loops.
-- Use TypeScript `readonly` types: `Readonly<T>`, `ReadonlyArray<T>`, `ReadonlyMap`, `ReadonlySet`.
+- Use TypeScript `readonly` types: `Readonly<T>`, `ReadonlyArray<T>`,
+  `ReadonlyMap`, `ReadonlySet`.
 
 **Bad:**
+
 ```typescript
 let result = [];
 for (let i = 0; i < items.length; i++) {
@@ -40,15 +51,19 @@ for (let i = 0; i < items.length; i++) {
 ```
 
 **Good:**
+
 ```typescript
 const result = items.map(transform);
 ```
 
 ### Early Exits
-- **Use guard clauses and early returns**: Check error conditions first, return early.
+
+- **Use guard clauses and early returns**: Check error conditions first, return
+  early.
 - Avoid deep nesting by handling edge cases at function start.
 
 **Bad:**
+
 ```typescript
 function processData(data: Data | null) {
   if (data) {
@@ -63,17 +78,19 @@ function processData(data: Data | null) {
 ```
 
 **Good:**
+
 ```typescript
 function processData(data: Data | null) {
   if (!data) return null;
   if (!data.isValid) return null;
   if (!data.hasPermission) return null;
-  
+
   return transform(data);
 }
 ```
 
 ### Code Smells to Avoid
+
 - **No nested if statements**: Nested conditionals signal poor architecture.
   - Refactor into separate functions with clear responsibilities.
   - Use guard clauses and early returns.
@@ -81,27 +98,33 @@ function processData(data: Data | null) {
 - **No "god functions"**: Each function has a single, clear responsibility.
 
 ### Function Design
+
 - **Single Responsibility Principle**: Each function does one thing well.
 - Function names clearly describe what they do.
 - 3+ parameters -> use single object parameter.
 - Pass dependencies as parameters (dependency injection).
 
 **Bad:**
+
 ```typescript
 fetchData(url, token, retry, timeout);
 ```
 
 **Good:**
+
 ```typescript
 fetchData({ url, token, retry, timeout });
 ```
 
 ### Dependency Injection
-- **Pass dependencies as parameters**: Don't instantiate external services inside functions.
+
+- **Pass dependencies as parameters**: Don't instantiate external services
+  inside functions.
 - Makes functions testable without mocking.
 - Use interface types to define dependency shape.
 
 **Bad:**
+
 ```typescript
 export function fetchUser(id: string) {
   const api = new ApiClient();
@@ -110,6 +133,7 @@ export function fetchUser(id: string) {
 ```
 
 **Good:**
+
 ```typescript
 interface FetchUserParams {
   api: ApiClient;
@@ -122,12 +146,14 @@ export function fetchUser({ api, id }: FetchUserParams) {
 ```
 
 ### Separation of Concerns
+
 - **Push side effects to edges**: Keep core logic pure and deterministic.
 - API calls, local storage, DOM manipulation are side effects.
 - Pure functions handle data transformation only.
 - Side effects live in outer layers (components, hooks, server functions).
 
 ### Simplicity
+
 - **Keep it simple**: Simple code is maintainable code.
 - Suggestions should be simple and functional.
 - Suggestions should have low visual complexity.
@@ -137,22 +163,27 @@ export function fetchUser({ api, id }: FetchUserParams) {
 - If a solution feels complex, step back and reconsider.
 
 ### Iteration Patterns
-- **Prefer functional methods over imperative loops**: Use `map`, `filter`, `reduce`.
+
+- **Prefer functional methods over imperative loops**: Use `map`, `filter`,
+  `reduce`.
 - Avoid mutable loop counters when possible.
 - Use recursion for complex accumulation patterns.
 
 ### Type Safety
+
 - Always use TypeScript with strict mode.
 - No `any` types; use specific types or utility types.
 
 ## Svelte 5 Specific Guidelines
 
 ### Reactive State
+
 - Use `$derived()` for computed values (cached).
 - Minimize stores; prefer local reactive state with runes.
 - Use early returns in `$derived()` expressions when appropriate.
 
 ### Component Structure
+
 - Keep components focused and single-purpose.
 - Extract complex logic into separate utility functions.
 - Use snippets for reusable template fragments.

@@ -11,8 +11,10 @@ applyTo: 'projects/client/src/lib/requests/**'
 
 `lib/requests/` integrates with two sources:
 
-- **`@trakt/api`** - Typed SDK for Trakt v2 REST API. Use `api({ fetch })` to call it.
-- **`v3/` endpoints** - Untyped internal endpoints accessed via `rawApiFetch`. Always define a local Zod schema for their response.
+- **`@trakt/api`** - Typed SDK for Trakt v2 REST API. Use `api({ fetch })` to
+  call it.
+- **`v3/` endpoints** - Untyped internal endpoints accessed via `rawApiFetch`.
+  Always define a local Zod schema for their response.
 
 ---
 
@@ -69,8 +71,10 @@ export const someQuery = defineQuery({
 - `request` receives full `params` object - destructure only what you need.
 - `mapper` transforms `response.body` (typed by SDK) into domain model.
 - `schema` is Zod schema for **output** - validates what `mapper` returns.
-- `dependencies` must list every param that, when changed, should refetch. Use spread helpers for filters/search (see below).
-- `invalidations` lists `InvalidateAction.*` tokens that bust this cache when mutations fire.
+- `dependencies` must list every param that, when changed, should refetch. Use
+  spread helpers for filters/search (see below).
+- `invalidations` lists `InvalidateAction.*` tokens that bust this cache when
+  mutations fire.
 
 ---
 
@@ -123,7 +127,9 @@ export const someListQuery = defineInfiniteQuery({
 
 ## Pattern 3 - `v3/` Endpoint Query
 
-`v3/` endpoints not covered by `@trakt/api`'s type system. **Always** define a Zod schema locally for their response, parse with it before returning from request function.
+`v3/` endpoints not covered by `@trakt/api`'s type system. **Always** define a
+Zod schema locally for their response, parse with it before returning from
+request function.
 
 ```ts
 import { defineQuery } from '$lib/features/query/defineQuery.ts';
@@ -174,15 +180,19 @@ export const someV3Query = defineQuery({
 ### Key rules
 
 - **Always** `.parse()` raw JSON - never trust unvalidated `v3/` responses.
-- If endpoint can return empty/error body, guard with `response.ok` and return `{ body: undefined, status: 200 }` as fallback so `mapper` receives `undefined` and handles it gracefully.
+- If endpoint can return empty/error body, guard with `response.ok` and return
+  `{ body: undefined, status: 200 }` as fallback so `mapper` receives
+  `undefined` and handles it gracefully.
 - Export `ResponseSchema` when other files need to reference it.
-- Keep raw response schema (`...ResponseSchema`) and domain schema (`...Schema`) separate.
+- Keep raw response schema (`...ResponseSchema`) and domain schema (`...Schema`)
+  separate.
 
 ---
 
 ## Pattern 4 - Mutation Request
 
-Use for write operations (add, remove, update). Plain async functions - not queries.
+Use for write operations (add, remove, update). Plain async functions - not
+queries.
 
 ```ts
 import { api, type ApiParams } from '$lib/requests/api.ts';
@@ -202,7 +212,8 @@ export function someActionRequest(
 }
 ```
 
-For `v3/` mutations use `rawApiFetch` with `method: 'POST'` / `'DELETE'` and validate with Zod if response body matters.
+For `v3/` mutations use `rawApiFetch` with `method: 'POST'` / `'DELETE'` and
+validate with Zod if response body matters.
 
 ---
 
@@ -210,8 +221,10 @@ For `v3/` mutations use `rawApiFetch` with `method: 'POST'` / `'DELETE'` and val
 
 - Pure functions - no side effects, no API calls.
 - Named `mapTo{DomainType}(apiResponse): DomainType`.
-- Live in `_internal/` if reused across queries; inline or exported from query file if used only once or twice.
-- When extending existing mapper (e.g., adding a field), prefer `.extend()` on schema rather than duplicating.
+- Live in `_internal/` if reused across queries; inline or exported from query
+  file if used only once or twice.
+- When extending existing mapper (e.g., adding a field), prefer `.extend()` on
+  schema rather than duplicating.
 
 ```ts
 // _internal/mapToEntry.ts
@@ -229,7 +242,8 @@ export function mapToEntry(response: EntryResponse): Entry {
 ## Models
 
 - Define Zod schema first; derive TypeScript type with `z.infer`.
-- Use `.nullish()` for optional nullable fields, `.optional()` for fields that may be absent.
+- Use `.nullish()` for optional nullable fields, `.optional()` for fields that
+  may be absent.
 - Export both schema (`EntitySchema`) and type (`Entity`) from same file.
 
 ```ts
@@ -281,7 +295,8 @@ Leave `invalidations: []` for queries that never need external cache busting.
 
 ## Filter & Search Dependencies
 
-When a query accepts `FilterParams` or `SearchParams`, spread the helper functions in `dependencies`:
+When a query accepts `FilterParams` or `SearchParams`, spread the helper
+functions in `dependencies`:
 
 ```ts
 import { getGlobalFilterDependencies } from '$lib/requests/_internal/getGlobalFilterDependencies.ts';
