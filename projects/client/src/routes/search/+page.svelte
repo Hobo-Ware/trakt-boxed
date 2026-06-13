@@ -2,10 +2,10 @@
   import { page } from "$app/state";
   import * as m from "$lib/features/i18n/messages";
   import type { SearchItem } from "$lib/features/search/models/SearchItem";
-  import SearchInput from "$lib/features/search/SearchInput.svelte";
-  import SearchModeToggles from "$lib/features/search/SearchModeToggles.svelte";
   import { useSearch } from "$lib/features/search/useSearch";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
+  import LbSearchBar from "$lib/sections/letterboxd-search/_internal/LbSearchBar.svelte";
+  import LbSearchModes from "$lib/sections/letterboxd-search/_internal/LbSearchModes.svelte";
   import LetterboxdSearchResults from "$lib/sections/letterboxd-search/LetterboxdSearchResults.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
 
@@ -39,8 +39,8 @@
 >
   <section class="lb-search">
     <header class="lb-search__head">
-      <div class="lb-search__input"><SearchInput /></div>
-      <div class="lb-search__modes"><SearchModeToggles /></div>
+      <div class="lb-search__input"><LbSearchBar /></div>
+      <div class="lb-search__modes"><LbSearchModes /></div>
     </header>
 
     <div class="lb-search__body">
@@ -63,13 +63,13 @@
     &__head {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: var(--gap-m);
+      gap: var(--gap-s);
       margin-bottom: var(--gap-l);
+      max-width: 720px;
     }
 
-    &__input { width: min(560px, 100%); }
-    &__modes { display: flex; justify-content: center; }
+    &__input { width: 100%; }
+    &__modes { width: 100%; }
 
     &__placeholder {
       margin: 0;
