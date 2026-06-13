@@ -186,37 +186,38 @@
   data-dropdown-open={isDropdownOpen ? 'true' : undefined}
   bind:this={rootElement}
 >
-  <span class="poster-tile__tooltip" aria-hidden="true">
-    {entry.title}{#if year} <span>({year})</span>{/if}
-  </span>
+  <div class="poster-tile__media">
+    <span class="poster-tile__tooltip" aria-hidden="true">
+      {entry.title}{#if year} <span>({year})</span>{/if}
+    </span>
 
-  <a
-    class="poster-tile__link"
-    {href}
-    aria-label={entry.title}
-    onclick={onClick}
-    onpointerdown={onPointerDown}
-    onpointerup={clearPress}
-    onpointerleave={clearPress}
-    onpointercancel={clearPress}
-  >
-    <div class="poster-tile__frame">
-      {#if entry.poster?.url?.thumb}
-        <img
-          class="poster-tile__image"
-          src={entry.poster.url.thumb}
-          alt={entry.title}
-          loading="lazy"
-        />
-      {:else}
-        <div class="poster-tile__placeholder" aria-hidden="true">
-          <span>{entry.title}</span>
-        </div>
-      {/if}
-    </div>
-  </a>
+    <a
+      class="poster-tile__link"
+      {href}
+      aria-label={entry.title}
+      onclick={onClick}
+      onpointerdown={onPointerDown}
+      onpointerup={clearPress}
+      onpointerleave={clearPress}
+      onpointercancel={clearPress}
+    >
+      <div class="poster-tile__frame">
+        {#if entry.poster?.url?.thumb}
+          <img
+            class="poster-tile__image"
+            src={entry.poster.url.thumb}
+            alt={entry.title}
+            loading="lazy"
+          />
+        {:else}
+          <div class="poster-tile__placeholder" aria-hidden="true">
+            <span>{entry.title}</span>
+          </div>
+        {/if}
+      </div>
+    </a>
 
-  <div class="poster-tile__quickbar">
+    <div class="poster-tile__quickbar">
     <button
       type="button"
       class="poster-tile__icon-btn"
@@ -347,6 +348,7 @@
       </button>
     </div>
   {/if}
+  </div>
 
   {#if showTitle}
     <a class="poster-tile__title" {href}>{entry.title}</a>
@@ -357,10 +359,13 @@
   @use "$style/scss/mixins/index" as *;
 
   .poster-tile {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 6px;
+
+    &__media {
+      position: relative;
+    }
 
     &__tooltip {
       position: absolute;
