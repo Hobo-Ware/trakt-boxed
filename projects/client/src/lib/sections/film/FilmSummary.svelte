@@ -6,7 +6,6 @@
   import { useFavorites } from '$lib/sections/media-actions/favorite/useFavorites.ts';
   import { useMarkAsWatched } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import { useWatchlist } from '$lib/sections/media-actions/watchlist/useWatchlist.ts';
-  import { composerStore } from '$lib/sections/composer';
   import { useRatings } from '$lib/sections/summary/components/rating/useRatings.ts';
   import FilmActionCard from './_internal/FilmActionCard.svelte';
   import FilmBackdrop from './_internal/FilmBackdrop.svelte';
@@ -43,16 +42,16 @@
   const tagline = $derived(intl?.tagline ?? media.tagline);
   const overview = $derived(intl?.overview ?? media.overview);
 
-  const openComposer = () => {
-    composerStore.open({
-      kind: type,
-      id: media.id,
-      slug: media.slug,
-      title: media.title,
-      year: media.year,
-      posterUrl: media.poster?.url?.thumb,
-      effectiveReleaseDate: media.effectiveReleaseDate,
-    });
+  const reviewsHref = $derived(
+    type === 'movie' ? `/movies/${media.slug}/reviews` : `/shows/${media.slug}/reviews`,
+  );
+  const listsHref = $derived(
+    type === 'movie' ? `/movies/${media.slug}/lists` : `/shows/${media.slug}/lists`,
+  );
+  const signInHref = '/silent-redirect';
+
+  const navigateOrSignIn = (href: string) => {
+    void goto($isAuthorized ? href : signInHref);
   };
 
   const markAction = $derived(
@@ -81,22 +80,23 @@
   );
 
   const toggleWatched = async () => {
-    if (!$isAuthorized) return openComposer();
+    if (!$isAuthorized) return void goto(signInHref);
     if ($isWatchedStore) await markAction.removeWatched();
     else await markAction.markAsWatched('now');
   };
 
   const toggleLike = async () => {
-    if (!$isAuthorized) return openComposer();
+    if (!$isAuthorized) return void goto(signInHref);
     if ($isFavoritedStore) await favoriteAction.removeFromFavorites();
     else await favoriteAction.addToFavorites();
   };
 
   const toggleWatchlist = async () => {
-    if (!$isAuthorized) return openComposer();
+    if (!$isAuthorized) return void goto(signInHref);
     if ($isWatchlistedStore) await watchlistAction.removeFromWatchlist();
     else await watchlistAction.addToWatchlist();
   };
+
 </script>
 
 <article class="film-summary" data-type={type}>
@@ -134,15 +134,15 @@
           onToggleLike={toggleLike}
           onToggleWatchlist={toggleWatchlist}
           onRate={(value) => {
-            if (!$isAuthorized) return openComposer();
+            if (!$isAuthorized) return void goto(signInHref);
             ratingAction.addRating(value);
           }}
           onClearRating={() => {
             if (!$isAuthorized) return;
             void ratingAction.removeRating();
           }}
-          onOpenReview={openComposer}
-          onOpenLists={openComposer}
+          onOpenReview={() => navigateOrSignIn(reviewsHref)}
+          onOpenLists={() => navigateOrSignIn(listsHref)}
         />
       </div>
     </div>

@@ -629,6 +629,42 @@
       "default": "Add to lists",
       "description": "Aria label for the lists button in the poster hover drawer."
     },
+    "poster_menu_watched": {
+      "default": "Mark as watched",
+      "description": "Hover menu action to mark the film as watched."
+    },
+    "poster_menu_unwatch": {
+      "default": "Remove from watched",
+      "description": "Hover menu action to undo watched state."
+    },
+    "poster_menu_like": {
+      "default": "Like",
+      "description": "Hover menu action to like the film."
+    },
+    "poster_menu_unlike": {
+      "default": "Unlike",
+      "description": "Hover menu action to remove the like."
+    },
+    "poster_menu_add_watchlist": {
+      "default": "Add to watchlist",
+      "description": "Hover menu action to add the film to the watchlist."
+    },
+    "poster_menu_remove_watchlist": {
+      "default": "Remove from watchlist",
+      "description": "Hover menu action to remove the film from the watchlist."
+    },
+    "poster_menu_review": {
+      "default": "Review or log film…",
+      "description": "Hover menu link to the reviews facet for the film."
+    },
+    "poster_menu_lists": {
+      "default": "Show in lists",
+      "description": "Hover menu link to the lists facet for the film."
+    },
+    "poster_menu_where_to_watch": {
+      "default": "Where to watch",
+      "description": "Hover menu link to the film detail page (streaming list lives there)."
+    },
     "facet_label_members": {
       "default": "Members",
       "description": "Engagement facet tab label - members who favorited."

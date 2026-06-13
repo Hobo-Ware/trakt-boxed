@@ -33,7 +33,6 @@
   import ToastProvider from "$lib/features/toast/ToastProvider.svelte";
   import WSInvalidator from "$lib/features/websocket/WSInvalidator.svelte";
   import RenderFor from "$lib/guards/RenderFor.svelte";
-  import { MegaComposerProvider } from "$lib/sections/composer";
   import LetterboxdNav from "$lib/sections/letterboxd-nav/LetterboxdNav.svelte";
   import MarkAsWatchedDrawerProvider from "$lib/sections/media-actions/mark-as-watched/MarkAsWatchedDrawerProvider.svelte";
   import NavbarToastContent from "$lib/sections/toast/NavbarToastContent.svelte";
@@ -165,7 +164,6 @@
                                   <DiscoverProvider>
                                     <ConfirmationProvider>
                                       <MarkAsWatchedDrawerProvider />
-                                      <MegaComposerProvider />
                                       <AddNoteDrawerProvider />
                                       <ReportDialogProvider />
                                       <CoverImage />
