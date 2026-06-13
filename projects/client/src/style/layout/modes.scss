@@ -2,13 +2,11 @@
 
 :root {
   --layout-distance-side: var(--ni-24);
-  --layout-sidebar-distance: calc(var(--side-navbar-width) + var(--ni-16));
+  // SideNavbar removed in the Letterboxd rebuild; the gutter that used to
+  // clear it collapses to zero across all viewports.
+  --layout-sidebar-distance: var(--ni-0);
 
   @include for-mobile {
     --layout-distance-side: var(--ni-12);
-  }
-
-  @include for-tablet-sm-and-below {
-    --layout-sidebar-distance: var(--ni-0);
   }
 }

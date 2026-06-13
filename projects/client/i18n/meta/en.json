@@ -409,6 +409,34 @@
       "default": "What we've been watching this week",
       "description": "Sub-heading on the popular shows page."
     },
+    "nav_link_films": {
+      "default": "Films",
+      "description": "Top-nav link to popular films."
+    },
+    "nav_link_tv": {
+      "default": "TV",
+      "description": "Top-nav link to popular shows."
+    },
+    "nav_link_lists": {
+      "default": "Lists",
+      "description": "Top-nav link to lists."
+    },
+    "nav_link_members": {
+      "default": "Members",
+      "description": "Top-nav link to social/members."
+    },
+    "nav_link_journal": {
+      "default": "Journal",
+      "description": "Top-nav link to the activity journal/history."
+    },
+    "nav_link_sign_in": {
+      "default": "Sign in",
+      "description": "Top-nav sign-in link."
+    },
+    "nav_link_create_account": {
+      "default": "Create account",
+      "description": "Top-nav create-account link."
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."
