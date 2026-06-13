@@ -393,6 +393,22 @@
       "default": "Status",
       "description": "Heading for the status row in the details panel."
     },
+    "list_title_popular_films": {
+      "default": "Popular Films",
+      "description": "Heading for the Letterboxd-style popular films page."
+    },
+    "list_subtitle_popular_films": {
+      "default": "What we've been watching this week",
+      "description": "Sub-heading on the popular films page."
+    },
+    "list_title_popular_shows": {
+      "default": "Popular Shows",
+      "description": "Heading for the Letterboxd-style popular shows page."
+    },
+    "list_subtitle_popular_shows": {
+      "default": "What we've been watching this week",
+      "description": "Sub-heading on the popular shows page."
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."
