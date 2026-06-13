@@ -728,6 +728,30 @@
       "default": "Popular lists curated by members",
       "description": "Subtitle on the global /lists landing page."
     },
+    "lists_hero_copy": {
+      "default": "Collect, curate, and share. Lists are the perfect way to group films.",
+      "description": "Hero copy on the /lists landing page."
+    },
+    "lists_hero_cta": {
+      "default": "Start your own list",
+      "description": "Hero CTA on the /lists landing page."
+    },
+    "lists_row_featured": {
+      "default": "Featured lists",
+      "description": "Eyebrow for the featured lists row."
+    },
+    "lists_row_popular": {
+      "default": "Popular this week",
+      "description": "Eyebrow for the popular lists row."
+    },
+    "lists_row_recently_liked": {
+      "default": "Recently liked",
+      "description": "Eyebrow for the recently liked lists row."
+    },
+    "lists_row_more": {
+      "default": "More",
+      "description": "More link on a lists row."
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."
