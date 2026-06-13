@@ -4,22 +4,23 @@
 <div class="film-summary-skeleton" aria-hidden="true">
   <div class="film-summary-skeleton__backdrop"></div>
   <div class="film-summary-skeleton__shell">
-    <div class="film-summary-skeleton__hero">
+    <div class="film-summary-skeleton__left">
       <div class="film-summary-skeleton__poster"></div>
-      <div class="film-summary-skeleton__body">
-        <div class="film-summary-skeleton__title"></div>
-        <div class="film-summary-skeleton__meta"></div>
-        <div class="film-summary-skeleton__tagline"></div>
-        <div class="film-summary-skeleton__overview">
-          <div class="film-summary-skeleton__line"></div>
-          <div class="film-summary-skeleton__line"></div>
-          <div class="film-summary-skeleton__line film-summary-skeleton__line--short"></div>
-        </div>
-      </div>
-      <div class="film-summary-skeleton__rail"></div>
+      <div class="film-summary-skeleton__where"></div>
     </div>
-    <div class="film-summary-skeleton__tabs"></div>
-    <div class="film-summary-skeleton__tab-body"></div>
+    <div class="film-summary-skeleton__center">
+      <div class="film-summary-skeleton__title"></div>
+      <div class="film-summary-skeleton__meta"></div>
+      <div class="film-summary-skeleton__tagline"></div>
+      <div class="film-summary-skeleton__overview">
+        <div class="film-summary-skeleton__line"></div>
+        <div class="film-summary-skeleton__line"></div>
+        <div class="film-summary-skeleton__line film-summary-skeleton__line--short"></div>
+      </div>
+      <div class="film-summary-skeleton__tabs"></div>
+      <div class="film-summary-skeleton__tab-body"></div>
+    </div>
+    <div class="film-summary-skeleton__rail"></div>
   </div>
 </div>
 
@@ -46,12 +47,17 @@
       max-width: 1600px;
       margin: 0 auto;
       padding: clamp(120px, 18vw, 240px) clamp(16px, 3vw, 32px) 0;
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr) 280px;
+      gap: var(--gap-l);
+      align-items: start;
     }
 
-    &__hero {
-      display: grid;
-      grid-template-columns: 230px 1fr 280px;
-      gap: var(--gap-l);
+    &__left {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-m);
+      margin-top: -40px;
     }
 
     &__poster {
@@ -59,20 +65,25 @@
       aspect-ratio: 2 / 3;
       border-radius: 2px;
       background: var(--shade-900);
-      margin-top: -40px;
     }
 
-    &__body {
+    &__where {
+      width: 100%;
+      height: 220px;
+      border-radius: 4px;
+      background: var(--shade-900);
+    }
+
+    &__center {
       display: flex;
       flex-direction: column;
       gap: var(--gap-s);
       padding-top: var(--gap-s);
+      min-width: 0;
     }
 
     &__title {
       width: 60%;
-      // Matches FilmTitleBlock title clamp + line-height so the swap to the
-      // real h1 doesn't reflow the credits row underneath.
       height: calc(clamp(2rem, 4.4vw, 3.4rem) * 1.05);
       min-height: calc(clamp(2rem, 4.4vw, 3.4rem) * 1.05);
       border-radius: 3px;
@@ -140,14 +151,16 @@
     }
 
     @include for-tablet-sm {
-      &__hero { grid-template-columns: 160px 1fr; }
+      &__shell { grid-template-columns: 160px minmax(0, 1fr); }
       &__rail { grid-column: 1 / -1; height: 200px; }
     }
 
     @include for-mobile {
-      &__shell { padding: clamp(80px, 30vw, 140px) var(--gap-s) 0; }
-      &__hero { grid-template-columns: 120px 1fr; }
-      &__poster { margin-top: -20px; }
+      &__shell {
+        padding: clamp(80px, 30vw, 140px) var(--gap-s) 0;
+        grid-template-columns: 120px minmax(0, 1fr);
+      }
+      &__left { margin-top: -20px; }
       &__rail { grid-column: 1 / -1; height: 180px; }
       &__title { height: 2rem; min-height: 2rem; }
     }

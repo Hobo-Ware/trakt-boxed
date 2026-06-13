@@ -116,76 +116,74 @@
   <FilmBackdrop src={media.cover?.url?.thumb} alt={title} />
 
   <div class="film-summary__shell">
-    <div class="film-summary__hero">
-      <div class="film-summary__poster">
-        <FilmPoster src={media.poster?.url?.thumb} alt={title} />
-        <FilmWhereToWatch {streamOn} />
-      </div>
+    <aside class="film-summary__left">
+      <FilmPoster src={media.poster?.url?.thumb} alt={title} />
+      <FilmWhereToWatch {streamOn} />
+    </aside>
 
-      <div class="film-summary__body">
-        <FilmTitleBlock
-          {title}
-          originalTitle={media.originalTitle}
-          year={media.year}
-          directors={crew.directors}
-          creators={crew.creators}
-          {type}
-        />
-        <FilmTagline text={tagline} />
-        {#if overview}
-          <FilmOverview text={overview} />
+    <main class="film-summary__center">
+      <FilmTitleBlock
+        {title}
+        originalTitle={media.originalTitle}
+        year={media.year}
+        directors={crew.directors}
+        creators={crew.creators}
+        {type}
+      />
+      <FilmTagline text={tagline} />
+      {#if overview}
+        <FilmOverview text={overview} />
+      {/if}
+
+      <FilmTabsBar active={activeTab} onSelect={selectTab} />
+
+      <div
+        class="film-summary__tab-body"
+        role="tabpanel"
+        id={`film-tabpanel-${activeTab}`}
+        aria-labelledby={`film-tab-${activeTab}`}
+        tabindex="0"
+      >
+        {#if activeTab === 'cast'}
+          <FilmCastGrid cast={crew.cast} />
+        {:else if activeTab === 'crew'}
+          <FilmCrewPanel directors={crew.directors} writers={crew.writers} creators={crew.creators} />
+        {:else if activeTab === 'details'}
+          <FilmDetailsPanel {media} {studios} />
+        {:else if activeTab === 'genres'}
+          <FilmGenresPanel {media} />
+        {:else}
+          <FilmReleasesPanel {media} />
         {/if}
       </div>
 
-      <div class="film-summary__rail">
-        <FilmActionCard
-          isAuthenticated={$isAuthorized}
-          isWatched={$isWatchedStore}
-          isLiked={$isFavoritedStore}
-          isOnWatchlist={$isWatchlistedStore}
-          userRating={$currentRatingStore}
-          {isReleased}
-          onToggleWatched={toggleWatched}
-          onToggleLike={toggleLike}
-          onToggleWatchlist={toggleWatchlist}
-          onRate={(value) => {
-            if (!$isAuthorized) return void goto(signInHref);
-            if (!$isWatchedStore) return;
-            ratingAction.addRating(value);
-          }}
-          onClearRating={() => {
-            if (!$isAuthorized) return;
-            void ratingAction.removeRating();
-          }}
-          onOpenReview={() => navigateOrSignIn(reviewsHref)}
-          onOpenLists={() => navigateOrSignIn(listsHref)}
-        />
-      </div>
-    </div>
+      <FilmReviews {type} slug={media.slug} />
+    </main>
 
-    <FilmTabsBar active={activeTab} onSelect={selectTab} />
-
-    <div
-      class="film-summary__tab-body"
-      role="tabpanel"
-      id={`film-tabpanel-${activeTab}`}
-      aria-labelledby={`film-tab-${activeTab}`}
-      tabindex="0"
-    >
-      {#if activeTab === 'cast'}
-        <FilmCastGrid cast={crew.cast} />
-      {:else if activeTab === 'crew'}
-        <FilmCrewPanel directors={crew.directors} writers={crew.writers} creators={crew.creators} />
-      {:else if activeTab === 'details'}
-        <FilmDetailsPanel {media} {studios} />
-      {:else if activeTab === 'genres'}
-        <FilmGenresPanel {media} />
-      {:else}
-        <FilmReleasesPanel {media} />
-      {/if}
-    </div>
-
-    <FilmReviews {type} slug={media.slug} />
+    <aside class="film-summary__right">
+      <FilmActionCard
+        isAuthenticated={$isAuthorized}
+        isWatched={$isWatchedStore}
+        isLiked={$isFavoritedStore}
+        isOnWatchlist={$isWatchlistedStore}
+        userRating={$currentRatingStore}
+        {isReleased}
+        onToggleWatched={toggleWatched}
+        onToggleLike={toggleLike}
+        onToggleWatchlist={toggleWatchlist}
+        onRate={(value) => {
+          if (!$isAuthorized) return void goto(signInHref);
+          if (!$isWatchedStore) return;
+          ratingAction.addRating(value);
+        }}
+        onClearRating={() => {
+          if (!$isAuthorized) return;
+          void ratingAction.removeRating();
+        }}
+        onOpenReview={() => navigateOrSignIn(reviewsHref)}
+        onOpenLists={() => navigateOrSignIn(listsHref)}
+      />
+    </aside>
   </div>
 </article>
 
@@ -206,30 +204,32 @@
       max-width: 1600px;
       margin: 0 auto;
       padding: clamp(120px, 18vw, 240px) clamp(16px, 3vw, 32px) 0;
-    }
-
-    &__hero {
       display: grid;
-      grid-template-columns: 230px 1fr 280px;
+      grid-template-columns: 230px minmax(0, 1fr) 280px;
       gap: var(--gap-l);
       align-items: start;
     }
 
-    &__poster {
-      position: relative;
+    &__left {
+      position: sticky;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-m);
       margin-top: -40px;
     }
 
-    &__body {
+    &__center {
       display: flex;
       flex-direction: column;
       gap: var(--gap-s);
       padding-top: var(--gap-s);
+      min-width: 0;
     }
 
-    &__rail {
+    &__right {
       position: sticky;
-      top: 96px;
+      top: 80px;
     }
 
     &__tab-body {
@@ -237,10 +237,11 @@
     }
 
     @include for-tablet-sm {
-      &__hero {
-        grid-template-columns: 160px 1fr;
+      &__shell {
+        grid-template-columns: 160px minmax(0, 1fr);
       }
-      &__rail {
+      &__left { position: static; }
+      &__right {
         grid-column: 1 / -1;
         position: static;
       }
@@ -249,14 +250,13 @@
     @include for-mobile {
       &__shell {
         padding: clamp(80px, 30vw, 140px) var(--gap-s) 0;
+        grid-template-columns: 120px minmax(0, 1fr);
       }
-      &__hero {
-        grid-template-columns: 120px 1fr;
-      }
-      &__poster {
+      &__left {
+        position: static;
         margin-top: -20px;
       }
-      &__rail {
+      &__right {
         grid-column: 1 / -1;
         position: static;
       }
