@@ -7,7 +7,12 @@ import type { SentimentAnalysis } from '$lib/requests/models/SentimentAnalysis.t
 import type { ShowEntry } from '$lib/requests/models/ShowEntry.ts';
 export type FilmKind = 'movie' | 'show';
 
-export type FilmStreamingState = unknown;
+import type { StreamingServiceOption, StreamingServiceOptions } from '$lib/requests/models/StreamingServiceOptions.ts';
+
+export type FilmStreamingState = {
+  services: StreamingServiceOptions;
+  preferred?: StreamingServiceOption;
+} | undefined;
 
 export type FilmIntl = {
   title?: string;

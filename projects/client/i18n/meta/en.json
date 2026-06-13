@@ -725,6 +725,46 @@
       "default": "No reviews yet.",
       "description": "Empty state for the reviews facet."
     },
+    "reviews_section_popular": {
+      "default": "Popular reviews",
+      "description": "Eyebrow above the popular reviews block under the film summary."
+    },
+    "reviews_section_recent": {
+      "default": "Recent reviews",
+      "description": "Eyebrow above the recent reviews block under the film summary."
+    },
+    "reviews_more": {
+      "default": "More",
+      "description": "Link to the full reviews facet from the inline reviews block."
+    },
+    "reviews_review_by": {
+      "default": "Review by",
+      "description": "Prefix on a review header line."
+    },
+    "reviews_likes": {
+      "default": "likes",
+      "description": "Suffix on the like count for a review."
+    },
+    "where_to_watch_label": {
+      "default": "Where to watch",
+      "description": "Heading for the streaming services panel under the film poster."
+    },
+    "where_to_watch_badge_stream": {
+      "default": "Stream",
+      "description": "Badge label for subscription streaming."
+    },
+    "where_to_watch_badge_rent": {
+      "default": "Rent",
+      "description": "Badge label for rentable services."
+    },
+    "where_to_watch_badge_buy": {
+      "default": "Buy",
+      "description": "Badge label for purchase services."
+    },
+    "where_to_watch_badge_free": {
+      "default": "Free",
+      "description": "Badge label for free ad-supported services."
+    },
     "facet_empty_lists": {
       "default": "Not on any lists yet.",
       "description": "Empty state for the lists facet."

@@ -18,7 +18,9 @@
   import FilmOverview from './_internal/FilmOverview.svelte';
   import FilmPoster from './_internal/FilmPoster.svelte';
   import FilmReleasesPanel from './_internal/FilmReleasesPanel.svelte';
+  import FilmReviews from './_internal/FilmReviews.svelte';
   import FilmTabsBar from './_internal/FilmTabsBar.svelte';
+  import FilmWhereToWatch from './_internal/FilmWhereToWatch.svelte';
   import FilmTagline from './_internal/FilmTagline.svelte';
   import FilmTitleBlock from './_internal/FilmTitleBlock.svelte';
   import type { FilmSummaryProps } from './models/FilmSummaryProps.ts';
@@ -117,6 +119,7 @@
     <div class="film-summary__hero">
       <div class="film-summary__poster">
         <FilmPoster src={media.poster?.url?.thumb} alt={title} />
+        <FilmWhereToWatch {streamOn} />
       </div>
 
       <div class="film-summary__body">
@@ -181,6 +184,8 @@
         <FilmReleasesPanel {media} />
       {/if}
     </div>
+
+    <FilmReviews {type} slug={media.slug} />
   </div>
 </article>
 
