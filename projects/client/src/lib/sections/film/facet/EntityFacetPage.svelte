@@ -64,12 +64,12 @@
   const statsData = $derived(stats.pipe(map(($q) => $q.data)));
   const commentsData = $derived(
     comments.pipe(
-      map(($q) => $q.data?.pages.flatMap((page) => page.entries) ?? []),
+      map(($q) => $q.data?.pages?.flatMap((page) => page.entries) ?? []),
     ),
   );
   const listsData = $derived(
     lists.pipe(
-      map(($q) => $q.data?.pages.flatMap((page) => page.entries) ?? []),
+      map(($q) => $q.data?.pages?.flatMap((page) => page.entries) ?? []),
     ),
   );
 

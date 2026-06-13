@@ -40,9 +40,6 @@
   const watchDisabled = $derived(!isReleased);
   const rateHint = $derived(!isWatched ? m.poster_disabled_unwatched() : undefined);
   const watchHint = $derived(!isReleased ? m.poster_disabled_unreleased() : undefined);
-
-  let hoverRating = $state<number | null>(null);
-  const displayRating = $derived(hoverRating ?? userRating ?? 0);
 </script>
 
 <aside class="film-action-card" aria-label="Actions">
