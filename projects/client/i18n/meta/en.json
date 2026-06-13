@@ -680,6 +680,10 @@
         "count": { "type": "string" }
       }
     },
+    "lists_subtitle": {
+      "default": "Popular lists curated by members",
+      "description": "Subtitle on the global /lists landing page."
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."

@@ -13,7 +13,7 @@
     { key: 'films', label: m.nav_link_films(), href: '/films' },
     { key: 'tv', label: m.nav_link_tv(), href: '/tv' },
     { key: 'lists', label: m.nav_link_lists(), href: '/lists' },
-    { key: 'members', label: m.nav_link_members(), href: '/social' },
+    { key: 'members', label: m.nav_link_members(), href: '/social/activity' },
     { key: 'journal', label: m.nav_link_journal(), href: '/history' },
   ]);
 </script>

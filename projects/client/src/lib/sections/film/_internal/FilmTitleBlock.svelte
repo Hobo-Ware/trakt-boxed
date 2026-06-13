@@ -62,6 +62,9 @@
       font-weight: 400;
       font-size: clamp(2rem, 4.4vw, 3.4rem);
       line-height: 1.05;
+      // Reserves vertical space for at least one line so the row above stays
+      // pinned while the serif font loads or i18n resolves.
+      min-height: calc(clamp(2rem, 4.4vw, 3.4rem) * 1.05);
       color: var(--color-text-primary);
       margin: 0;
       letter-spacing: -0.01em;
@@ -82,6 +85,8 @@
     &__credits {
       margin: 0;
       font-size: 0.95rem;
+      line-height: 1.4;
+      min-height: calc(0.95rem * 1.4);
       color: var(--color-text-secondary);
       letter-spacing: 0.01em;
     }

@@ -3,6 +3,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import LetterboxdProfile from "$lib/sections/letterboxd-profile/LetterboxdProfile.svelte";
+  import ProfileSkeleton from "$lib/sections/letterboxd-profile/ProfileSkeleton.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
   import type { PageProps } from "./$types";
   import { useProfile } from "./useProfile";
@@ -28,5 +29,7 @@
 >
   {#if !$isLoading && $user}
     <LetterboxdProfile profile={$user} slug={$user.slug ?? params.slug} isMe={$isMe} />
+  {:else}
+    <ProfileSkeleton />
   {/if}
 </TraktPage>

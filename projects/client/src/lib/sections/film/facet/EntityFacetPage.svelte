@@ -16,6 +16,7 @@
   import { combineLatest, map } from 'rxjs';
   import EntityFacetLayout from './EntityFacetLayout.svelte';
   import type { FacetKey } from './EntityFacetNav.svelte';
+  import EntityFacetSkeleton from './EntityFacetSkeleton.svelte';
 
   type Props = {
     kind: 'movie' | 'show';
@@ -82,7 +83,9 @@
     text.length > limit ? `${text.slice(0, limit).trimEnd()}…` : text;
 </script>
 
-{#if $titleState}
+{#if !$titleState}
+  <EntityFacetSkeleton />
+{:else}
   {@const title = $titleState.title}
   {@const year = $titleState.year}
   {@const posterUrl = $titleState.poster?.url?.thumb}

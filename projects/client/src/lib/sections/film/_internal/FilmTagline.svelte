@@ -11,6 +11,8 @@
   .film-tagline {
     margin: 0 0 var(--gap-xs);
     font-size: 0.72rem;
+    line-height: 1.4;
+    min-height: calc(0.72rem * 1.4);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-text-secondary);

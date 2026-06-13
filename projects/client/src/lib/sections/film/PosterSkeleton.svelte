@@ -21,6 +21,11 @@
       aspect-ratio: 2 / 3;
       border-radius: 3px;
       background: var(--shade-900);
+      // Hairline inset matches the default PosterTile outline so swapping
+      // skeleton -> tile keeps the visual edge in the same place.
+      box-shadow:
+        0 0 0 1px var(--color-poster-outline-default) inset,
+        0 8px 18px -10px rgba(0, 0, 0, 0.55);
       position: relative;
       overflow: hidden;
     }
@@ -40,8 +45,11 @@
     }
 
     &__title {
-      height: 1em;
-      min-height: 1.25em;
+      width: 80%;
+      align-self: center;
+      // Matches PosterTile title line-height so the cell height is identical.
+      height: calc(0.8rem * 1.25);
+      min-height: calc(0.8rem * 1.25);
       border-radius: 2px;
       background: var(--shade-900);
       position: relative;

@@ -9,6 +9,7 @@
       <div class="film-summary-skeleton__body">
         <div class="film-summary-skeleton__title"></div>
         <div class="film-summary-skeleton__meta"></div>
+        <div class="film-summary-skeleton__tagline"></div>
         <div class="film-summary-skeleton__overview">
           <div class="film-summary-skeleton__line"></div>
           <div class="film-summary-skeleton__line"></div>
@@ -69,16 +70,27 @@
 
     &__title {
       width: 60%;
-      height: 3rem;
-      min-height: 3rem;
+      // Matches FilmTitleBlock title clamp + line-height so the swap to the
+      // real h1 doesn't reflow the credits row underneath.
+      height: calc(clamp(2rem, 4.4vw, 3.4rem) * 1.05);
+      min-height: calc(clamp(2rem, 4.4vw, 3.4rem) * 1.05);
       border-radius: 3px;
       background: var(--shade-900);
     }
 
     &__meta {
       width: 45%;
-      height: 1rem;
-      min-height: 1rem;
+      height: calc(0.95rem * 1.4);
+      min-height: calc(0.95rem * 1.4);
+      border-radius: 2px;
+      background: var(--shade-900);
+    }
+
+    &__tagline {
+      width: 35%;
+      height: calc(0.72rem * 1.4);
+      min-height: calc(0.72rem * 1.4);
+      margin-top: 4px;
       border-radius: 2px;
       background: var(--shade-900);
     }
@@ -91,8 +103,8 @@
     }
 
     &__line {
-      height: 0.9rem;
-      min-height: 0.9rem;
+      height: calc(1rem * 1.55);
+      min-height: calc(1rem * 1.55);
       border-radius: 2px;
       background: var(--shade-900);
 
