@@ -7,6 +7,7 @@
     isLiked: boolean;
     isOnWatchlist: boolean;
     userRating: number | null;
+    isReleased: boolean;
     onToggleWatched: () => void;
     onToggleLike: () => void;
     onToggleWatchlist: () => void;
@@ -22,6 +23,7 @@
     isLiked,
     isOnWatchlist,
     userRating,
+    isReleased,
     onToggleWatched,
     onToggleLike,
     onToggleWatchlist,
@@ -30,6 +32,14 @@
     onOpenReview,
     onOpenLists,
   }: Props = $props();
+
+  let hoverRating = $state<number | null>(null);
+  const displayRating = $derived(hoverRating ?? userRating ?? 0);
+  const rateDisabled = $derived(!isWatched);
+  const likeDisabled = $derived(!isWatched);
+  const watchDisabled = $derived(!isReleased);
+  const rateHint = $derived(!isWatched ? m.poster_disabled_unwatched() : undefined);
+  const watchHint = $derived(!isReleased ? m.poster_disabled_unreleased() : undefined);
 
   let hoverRating = $state<number | null>(null);
   const displayRating = $derived(hoverRating ?? userRating ?? 0);
@@ -52,6 +62,8 @@
         class="film-action-card__triad-btn film-action-card__triad-btn--watched"
         data-active={isWatched ? "true" : undefined}
         aria-pressed={isWatched}
+        disabled={watchDisabled}
+        title={watchHint}
         onclick={onToggleWatched}
       >
         <span class="film-action-card__triad-glyph" aria-hidden="true">
@@ -69,6 +81,8 @@
         class="film-action-card__triad-btn film-action-card__triad-btn--like"
         data-active={isLiked ? "true" : undefined}
         aria-pressed={isLiked}
+        disabled={likeDisabled}
+        title={rateHint}
         onclick={onToggleLike}
       >
         <span class="film-action-card__triad-glyph" aria-hidden="true">
@@ -107,6 +121,8 @@
         class="film-action-card__rate-row"
         role="radiogroup"
         aria-label={m.text_label_rate()}
+        aria-disabled={rateDisabled}
+        title={rateHint}
         onmouseleave={() => (hoverRating = null)}
       >
         {#each Array.from({ length: 5 }) as _, i (i)}
@@ -123,6 +139,7 @@
               aria-label={`${lowValue}/10`}
               aria-checked={userRating === lowValue}
               role="radio"
+              disabled={rateDisabled}
               onmouseenter={() => (hoverRating = lowValue)}
               onclick={() =>
                 userRating === lowValue ? onClearRating() : onRate(lowValue)}
@@ -133,6 +150,7 @@
               aria-label={`${highValue}/10`}
               aria-checked={userRating === highValue}
               role="radio"
+              disabled={rateDisabled}
               onmouseenter={() => (hoverRating = highValue)}
               onclick={() =>
                 userRating === highValue ? onClearRating() : onRate(highValue)}
@@ -146,6 +164,9 @@
           </span>
         {/each}
       </div>
+      {#if rateHint}
+        <p class="film-action-card__rate-hint">{rateHint}</p>
+      {/if}
     </div>
 
     <div class="film-action-card__divider" aria-hidden="true"></div>
@@ -229,9 +250,14 @@
       color: var(--color-text-secondary);
       transition: color 120ms ease, background 120ms ease;
 
-      &:hover {
+      &:hover:not([disabled]) {
         color: var(--color-text-primary);
         background: color-mix(in srgb, var(--shade-1000) 30%, var(--shade-900));
+      }
+
+      &[disabled] {
+        opacity: 0.4;
+        cursor: not-allowed;
       }
 
       &--watched[data-active="true"] {
@@ -266,6 +292,18 @@
       gap: 6px;
       align-items: center;
       padding: var(--gap-s) 0;
+    }
+
+    &__rate-row[aria-disabled="true"] {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    &__rate-hint {
+      margin: 0;
+      font-size: 0.7rem;
+      color: var(--color-text-secondary);
+      text-align: center;
     }
 
     &__rate-label {

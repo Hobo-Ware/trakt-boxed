@@ -7,6 +7,7 @@
   import { useMarkAsWatched } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import { useWatchlist } from '$lib/sections/media-actions/watchlist/useWatchlist.ts';
   import { useRatings } from '$lib/sections/summary/components/rating/useRatings.ts';
+  import { hasAired } from '$lib/utils/media/hasAired.ts';
   import FilmActionCard from './_internal/FilmActionCard.svelte';
   import FilmBackdrop from './_internal/FilmBackdrop.svelte';
   import FilmCastGrid from './_internal/FilmCastGrid.svelte';
@@ -79,14 +80,24 @@
     ratingAction.current.pipe(map(($current) => $current?.rating ?? null)),
   );
 
+  const isReleased = $derived(
+    hasAired({
+      type,
+      effectiveReleaseDate: media.effectiveReleaseDate,
+      status: media.status,
+    }),
+  );
+
   const toggleWatched = async () => {
     if (!$isAuthorized) return void goto(signInHref);
+    if (!isReleased) return;
     if ($isWatchedStore) await markAction.removeWatched();
     else await markAction.markAsWatched('now');
   };
 
   const toggleLike = async () => {
     if (!$isAuthorized) return void goto(signInHref);
+    if (!$isWatchedStore) return;
     if ($isFavoritedStore) await favoriteAction.removeFromFavorites();
     else await favoriteAction.addToFavorites();
   };
@@ -130,11 +141,13 @@
           isLiked={$isFavoritedStore}
           isOnWatchlist={$isWatchlistedStore}
           userRating={$currentRatingStore}
+          {isReleased}
           onToggleWatched={toggleWatched}
           onToggleLike={toggleLike}
           onToggleWatchlist={toggleWatchlist}
           onRate={(value) => {
             if (!$isAuthorized) return void goto(signInHref);
+            if (!$isWatchedStore) return;
             ratingAction.addRating(value);
           }}
           onClearRating={() => {

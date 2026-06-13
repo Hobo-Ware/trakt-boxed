@@ -665,6 +665,26 @@
       "default": "Where to watch",
       "description": "Hover menu link to the film detail page (streaming list lives there)."
     },
+    "poster_menu_more": {
+      "default": "More actions",
+      "description": "Aria label for the three-dot menu trigger on a poster."
+    },
+    "poster_menu_show_activity": {
+      "default": "Show your activity",
+      "description": "Menu item that opens the user's watch history filtered to this film."
+    },
+    "poster_menu_lists_add": {
+      "default": "Add to lists…",
+      "description": "Menu item that opens the lists facet to attach this film to a list."
+    },
+    "poster_disabled_unreleased": {
+      "default": "Cannot watch — not released yet",
+      "description": "Tooltip + hint shown when the watch button is disabled because the film has not aired."
+    },
+    "poster_disabled_unwatched": {
+      "default": "Mark as watched first",
+      "description": "Hint shown when rating or like is gated behind the watched state."
+    },
     "facet_label_members": {
       "default": "Members",
       "description": "Engagement facet tab label - members who favorited."
