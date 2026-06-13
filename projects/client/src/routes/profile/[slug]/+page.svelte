@@ -1,14 +1,8 @@
 <script lang="ts">
-  import CoverImageSetter from "$lib/components/background/CoverImageSetter.svelte";
-  import { useIsFollowing } from "$lib/features/auth/stores/useIsFollowing.ts";
   import { useIsMe } from "$lib/features/auth/stores/useIsMe.ts";
   import * as m from "$lib/features/i18n/messages.ts";
-  import RenderFor from "$lib/guards/RenderFor.svelte";
-  import DiscoverToggles from "$lib/sections/discover/DiscoverToggles.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
-  import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
-  import PrivateProfile from "$lib/sections/profile/PrivateProfile.svelte";
-  import Profile from "$lib/sections/profile/Profile.svelte";
+  import LetterboxdProfile from "$lib/sections/letterboxd-profile/LetterboxdProfile.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
   import type { PageProps } from "./$types";
   import { useProfile } from "./useProfile";
@@ -17,15 +11,6 @@
 
   const { user, isLoading } = $derived(useProfile(params.slug));
   const { isMe } = $derived(useIsMe(params.slug));
-  const { isFollowing } = $derived(useIsFollowing(params.slug));
-
-  const isPrivateProfile = $derived(
-    $user?.private === true && !$isMe && $isFollowing === false,
-  );
-  const isProfileVisible = $derived(
-    $user != null &&
-      ($isMe === true || $isFollowing === true || !$user.private),
-  );
 
   const title = $derived(
     $user?.username
@@ -39,21 +24,9 @@
   image={DEFAULT_SHARE_COVER}
   {title}
   hasDynamicContent={true}
+  mode="content-only"
 >
-  <RenderFor audience="authenticated">
-    <NavbarStateSetter>
-      {#snippet actions()}
-        <DiscoverToggles />
-      {/snippet}
-    </NavbarStateSetter>
-  </RenderFor>
-
   {#if !$isLoading && $user}
-    <CoverImageSetter src={$user.cover?.url} type="main" />
-    {#if isPrivateProfile}
-      <PrivateProfile profile={$user} slug={$user.slug ?? ""} />
-    {:else if isProfileVisible}
-      <Profile profile={$user} slug={$user.slug ?? ""} />
-    {/if}
+    <LetterboxdProfile profile={$user} slug={$user.slug ?? params.slug} isMe={$isMe} />
   {/if}
 </TraktPage>

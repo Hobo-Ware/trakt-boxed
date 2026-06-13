@@ -547,6 +547,45 @@
         }
       }
     },
+    "profile_joined_in": {
+      "default": "joined {year}",
+      "description": "Tag showing when the user joined.",
+      "variables": {
+        "year": { "type": "string" }
+      }
+    },
+    "profile_cta_edit": {
+      "default": "Edit profile",
+      "description": "CTA on profile page for the current user."
+    },
+    "profile_cta_follow": {
+      "default": "Follow",
+      "description": "CTA on profile page for other users."
+    },
+    "profile_section_eyebrow_favorites": {
+      "default": "Pinned",
+      "description": "Eyebrow above the profile favorites section."
+    },
+    "profile_section_title_favorites": {
+      "default": "Favorite films",
+      "description": "Title of the profile favorites section."
+    },
+    "profile_section_empty_favorites": {
+      "default": "No favorites pinned yet.",
+      "description": "Empty state for the favorites section."
+    },
+    "page_title_watchlist": {
+      "default": "Watchlist",
+      "description": "Page title for the user's watchlist page."
+    },
+    "watchlist_subtitle": {
+      "default": "Films and shows you want to watch",
+      "description": "Subtitle below the watchlist heading."
+    },
+    "watchlist_empty": {
+      "default": "Your watchlist is empty.",
+      "description": "Empty state on the watchlist page."
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."
