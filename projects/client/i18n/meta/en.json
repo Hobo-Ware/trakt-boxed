@@ -361,6 +361,18 @@
       "default": "Releases",
       "description": "Tab label for the releases section on the film page."
     },
+    "tab_label_related": {
+      "default": "Related",
+      "description": "Tab label for the related media section on the film page."
+    },
+    "tab_label_reviews": {
+      "default": "Reviews",
+      "description": "Tab label for the reviews section on the film page."
+    },
+    "related_empty": {
+      "default": "No related titles yet.",
+      "description": "Empty state for the related media tab."
+    },
     "list_title_directors": {
       "default": "Directors",
       "description": "Heading for the directors group in the crew panel."

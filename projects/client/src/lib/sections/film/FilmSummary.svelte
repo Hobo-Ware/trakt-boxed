@@ -17,6 +17,7 @@
   import FilmGenresPanel from './_internal/FilmGenresPanel.svelte';
   import FilmOverview from './_internal/FilmOverview.svelte';
   import FilmPoster from './_internal/FilmPoster.svelte';
+  import FilmRelatedPanel from './_internal/FilmRelatedPanel.svelte';
   import FilmReleasesPanel from './_internal/FilmReleasesPanel.svelte';
   import FilmReviews from './_internal/FilmReviews.svelte';
   import FilmTabsBar from './_internal/FilmTabsBar.svelte';
@@ -152,12 +153,14 @@
           <FilmDetailsPanel {media} {studios} />
         {:else if activeTab === 'genres'}
           <FilmGenresPanel {media} />
-        {:else}
+        {:else if activeTab === 'releases'}
           <FilmReleasesPanel {media} />
+        {:else if activeTab === 'related'}
+          <FilmRelatedPanel {type} slug={media.slug} />
+        {:else}
+          <FilmReviews {type} slug={media.slug} />
         {/if}
       </div>
-
-      <FilmReviews {type} slug={media.slug} />
     </main>
 
     <aside class="film-summary__right">

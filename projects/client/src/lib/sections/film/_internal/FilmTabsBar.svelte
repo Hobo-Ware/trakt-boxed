@@ -15,6 +15,8 @@
     { key: 'details', label: m.tab_label_details() },
     { key: 'genres', label: m.tab_label_genres() },
     { key: 'releases', label: m.tab_label_releases() },
+    { key: 'related', label: m.tab_label_related() },
+    { key: 'reviews', label: m.tab_label_reviews() },
   ]);
 
   const tabId = (key: FilmTab) => `film-tab-${key}`;

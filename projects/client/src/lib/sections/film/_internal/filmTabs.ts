@@ -1,4 +1,11 @@
-export type FilmTab = 'cast' | 'crew' | 'details' | 'genres' | 'releases';
+export type FilmTab =
+  | 'cast'
+  | 'crew'
+  | 'details'
+  | 'genres'
+  | 'releases'
+  | 'related'
+  | 'reviews';
 
 export const FILM_TABS: ReadonlyArray<FilmTab> = [
   'cast',
@@ -6,6 +13,8 @@ export const FILM_TABS: ReadonlyArray<FilmTab> = [
   'details',
   'genres',
   'releases',
+  'related',
+  'reviews',
 ];
 
 const isFilmTab = (value: string | null | undefined): value is FilmTab =>
