@@ -1,14 +1,35 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
+  import { useQuery } from '$lib/features/query/useQuery.ts';
+  import { streamingSourcesQuery } from '$lib/requests/queries/services/streamingSourcesQuery.ts';
+  import type { StreamingSource } from '$lib/requests/models/StreamingSource.ts';
   import type {
     StreamFree,
     StreamingServiceOptions,
     StreamNow,
     StreamOnDemand,
   } from '$lib/requests/models/StreamingServiceOptions.ts';
+  import { map } from 'rxjs';
 
   type Props = { streamOn?: { services: StreamingServiceOptions } | undefined };
   const { streamOn }: Props = $props();
+
+  const sourcesQuery = useQuery(streamingSourcesQuery({}));
+  const sourceLookup = $derived(
+    sourcesQuery.pipe(
+      map(($q) => {
+        const result = new Map<string, StreamingSource>();
+        const byCountry = $q.data;
+        if (!byCountry) return result;
+        for (const list of byCountry.values()) {
+          for (const source of list) {
+            if (!result.has(source.source)) result.set(source.source, source);
+          }
+        }
+        return result;
+      }),
+    ),
+  );
 
   type ServiceRow = {
     source: string;
@@ -72,10 +93,14 @@
     </header>
     <ul class="film-where-to-watch__list">
       {#each rows as row (row.source)}
+        {@const meta = $sourceLookup.get(row.source)}
         <li>
           <a class="film-where-to-watch__row" href={row.link} target="_blank" rel="noreferrer noopener">
             <span class="film-where-to-watch__source">
-              {row.source}
+              {#if meta?.logoUrl}
+                <img class="film-where-to-watch__logo" src={meta.logoUrl} alt="" loading="lazy" />
+              {/if}
+              <span class="film-where-to-watch__source-name">{meta?.name ?? row.source}</span>
               {#if row.is4k}<span class="film-where-to-watch__hd">4K</span>{/if}
             </span>
             <span class="film-where-to-watch__badges">
@@ -138,7 +163,23 @@
       font-size: 0.85rem;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    &__logo {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      object-fit: cover;
+      background: color-mix(in srgb, var(--shade-10) 4%, transparent);
+      flex-shrink: 0;
+    }
+
+    &__source-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     &__hd {
