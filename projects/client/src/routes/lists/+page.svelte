@@ -58,6 +58,7 @@
   @use "$style/scss/mixins/index" as *;
 
   .lists-page {
+    width: 100%;
     max-width: 1600px;
     margin: 0 auto;
     padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);

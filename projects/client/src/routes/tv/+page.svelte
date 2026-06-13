@@ -15,6 +15,7 @@
   audience="all"
   image={DEFAULT_SHARE_MOVIE_COVER}
   title={m.list_title_popular_shows()}
+  mode="content-only"
 >
   <section class="tv-page">
     <header class="tv-page__header">
@@ -34,6 +35,7 @@
   @use "$style/scss/mixins/index" as *;
 
   .tv-page {
+    width: 100%;
     max-width: 1600px;
     margin: 0 auto;
     padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);

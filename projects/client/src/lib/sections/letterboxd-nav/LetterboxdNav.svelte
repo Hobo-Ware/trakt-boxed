@@ -124,8 +124,9 @@
     }
 
     &__burger {
-      display: none;
       all: unset;
+      // Hidden on desktop; for-mobile media query flips this back to block.
+      display: none;
       cursor: pointer;
       width: 32px;
       height: 32px;

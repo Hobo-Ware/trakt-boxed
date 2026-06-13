@@ -129,6 +129,7 @@
     &__shell {
       position: relative;
       z-index: 1;
+      width: 100%;
       max-width: 1600px;
       margin: 0 auto;
       padding: clamp(120px, 18vw, 240px) clamp(16px, 3vw, 32px) 0;
