@@ -437,6 +437,34 @@
       "default": "Create account",
       "description": "Top-nav create-account link."
     },
+    "home_hero_eyebrow": {
+      "default": "Featured",
+      "description": "Eyebrow above the home page hero title."
+    },
+    "home_hero_cta_view": {
+      "default": "View film",
+      "description": "Primary CTA on the home hero, linking to the featured film page."
+    },
+    "home_hero_cta_browse": {
+      "default": "Browse",
+      "description": "Secondary CTA on the home hero, linking to the films grid."
+    },
+    "home_row_eyebrow_popular_this_week": {
+      "default": "Popular this week",
+      "description": "Eyebrow above the home row grids."
+    },
+    "home_row_title_films": {
+      "default": "Films",
+      "description": "Title for the popular films row on the home page."
+    },
+    "home_row_title_shows": {
+      "default": "Shows",
+      "description": "Title for the popular shows row on the home page."
+    },
+    "home_row_view_all": {
+      "default": "View all",
+      "description": "View-all link on a home page row."
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."
