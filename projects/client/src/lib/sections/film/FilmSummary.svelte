@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+  import { page } from '$app/state';
   import { useAuth } from '$lib/features/auth/stores/useAuth.ts';
   import { composerStore } from '$lib/sections/composer';
   import FilmActionCard from './_internal/FilmActionCard.svelte';
@@ -6,6 +8,7 @@
   import FilmCastGrid from './_internal/FilmCastGrid.svelte';
   import FilmCrewPanel from './_internal/FilmCrewPanel.svelte';
   import FilmDetailsPanel from './_internal/FilmDetailsPanel.svelte';
+  import { readTabFromUrl, writeTabToUrl, type FilmTab } from './_internal/filmTabs.ts';
   import FilmGenresPanel from './_internal/FilmGenresPanel.svelte';
   import FilmOverview from './_internal/FilmOverview.svelte';
   import FilmPoster from './_internal/FilmPoster.svelte';
@@ -15,14 +18,21 @@
   import FilmTitleBlock from './_internal/FilmTitleBlock.svelte';
   import type { FilmSummaryProps } from './models/FilmSummaryProps.ts';
 
-  type Tab = 'cast' | 'crew' | 'details' | 'genres' | 'releases';
-
   const { type, media, studios, crew, intl, streamOn, videos, sentiment }: FilmSummaryProps =
     $props();
 
   const { isAuthorized } = useAuth();
 
-  let activeTab = $state<Tab>('cast');
+  const activeTab = $derived<FilmTab>(readTabFromUrl(page.url.searchParams));
+
+  const selectTab = (tab: FilmTab) => {
+    const next = writeTabToUrl(page.url, tab);
+    void goto(`${next.pathname}${next.search}`, {
+      replaceState: true,
+      noScroll: true,
+      keepFocus: true,
+    });
+  };
 
   const title = $derived(intl?.title ?? media.title);
   const tagline = $derived(intl?.tagline ?? media.tagline);
@@ -82,9 +92,15 @@
       </div>
     </div>
 
-    <FilmTabsBar active={activeTab} onSelect={(tab) => (activeTab = tab)} />
+    <FilmTabsBar active={activeTab} onSelect={selectTab} />
 
-    <div class="film-summary__tab-body">
+    <div
+      class="film-summary__tab-body"
+      role="tabpanel"
+      id={`film-tabpanel-${activeTab}`}
+      aria-labelledby={`film-tab-${activeTab}`}
+      tabindex="0"
+    >
       {#if activeTab === 'cast'}
         <FilmCastGrid cast={crew.cast} />
       {:else if activeTab === 'crew'}

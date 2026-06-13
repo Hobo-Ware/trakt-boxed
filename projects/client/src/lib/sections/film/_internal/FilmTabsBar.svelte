@@ -1,28 +1,35 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
-
-  type Tab = 'cast' | 'crew' | 'details' | 'genres' | 'releases';
+  import type { FilmTab } from './filmTabs.ts';
 
   type Props = {
-    active: Tab;
-    onSelect: (tab: Tab) => void;
+    active: FilmTab;
+    onSelect: (tab: FilmTab) => void;
   };
 
   const { active, onSelect }: Props = $props();
 
-  const tabs: { key: Tab; label: string }[] = $derived([
+  const tabs: { key: FilmTab; label: string }[] = $derived([
     { key: 'cast', label: m.tab_label_cast() },
     { key: 'crew', label: m.tab_label_crew() },
     { key: 'details', label: m.tab_label_details() },
     { key: 'genres', label: m.tab_label_genres() },
     { key: 'releases', label: m.tab_label_releases() },
   ]);
+
+  const tabId = (key: FilmTab) => `film-tab-${key}`;
+  const panelId = (key: FilmTab) => `film-tabpanel-${key}`;
 </script>
 
-<nav class="film-tabs" aria-label="Film details">
+<div class="film-tabs" role="tablist" aria-label="Film details">
   {#each tabs as tab (tab.key)}
     <button
       type="button"
+      role="tab"
+      id={tabId(tab.key)}
+      aria-controls={panelId(tab.key)}
+      aria-selected={tab.key === active}
+      tabindex={tab.key === active ? 0 : -1}
       class="film-tabs__tab"
       data-active={tab.key === active ? "true" : undefined}
       onclick={() => onSelect(tab.key)}
@@ -30,7 +37,7 @@
       {tab.label}
     </button>
   {/each}
-</nav>
+</div>
 
 <style lang="scss">
   .film-tabs {
