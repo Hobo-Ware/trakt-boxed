@@ -3210,6 +3210,14 @@
       "default": "Search",
       "description": "Title for the search page."
     },
+    "search_empty": {
+      "default": "No results.",
+      "description": "Empty state on the search results page."
+    },
+    "search_placeholder_copy": {
+      "default": "Search shows, movies, lists, and members.",
+      "description": "Helper copy below the search input when the query is empty."
+    },
     "dropdown_label_extras": {
       "default": "Extras",
       "description": "Aria-label for the dropdown that allows users to filter extras by type, such as trailers, featurettes, etc."

@@ -1,31 +1,23 @@
 <script lang="ts">
-  import * as m from "$lib/features/i18n/messages";
-
   import { page } from "$app/state";
+  import * as m from "$lib/features/i18n/messages";
   import type { SearchItem } from "$lib/features/search/models/SearchItem";
   import SearchInput from "$lib/features/search/SearchInput.svelte";
   import SearchModeToggles from "$lib/features/search/SearchModeToggles.svelte";
-  import SearchPlaceHolder from "$lib/features/search/SearchPlaceHolder.svelte";
-  import SearchResultsGrid from "$lib/features/search/SearchResultsGrid.svelte";
   import { useSearch } from "$lib/features/search/useSearch";
-  import RenderFor from "$lib/guards/RenderFor.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
-  import TraktPageCoverSetter from "$lib/sections/layout/TraktPageCoverSetter.svelte";
-  import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
+  import LetterboxdSearchResults from "$lib/sections/letterboxd-search/LetterboxdSearchResults.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
-  import { isMobileAppleDevice } from "$lib/utils/devices/isMobileAppleDevice";
 
   const query = $derived(page.url.searchParams.get("q")?.trim());
 
-  const { search, clear, results, mode, postRecentSearch, coverSrc } =
-    useSearch();
+  const { search, clear, results, mode, postRecentSearch } = useSearch();
 
   $effect(() => {
     if (!query) {
       clear();
       return;
     }
-
     search(query, $mode);
   });
 
@@ -33,92 +25,60 @@
     query ? m.page_title_search_results({ query }) : m.page_title_search(),
   );
 
-  // FIXME: deal with ios onscreen keyboard and move to mobile navbar
-  const isMobileApple = isMobileAppleDevice();
-
   const onResultClick = (item: SearchItem) => {
-    if (!query) {
-      return;
-    }
-
+    if (!query) return;
     postRecentSearch(item, query);
   };
 </script>
 
 <TraktPage
-  audience="authenticated"
+  audience="all"
   image={DEFAULT_SHARE_COVER}
   title={pageTitle}
+  mode="content-only"
 >
-  <RenderFor audience="authenticated" device={["tablet-lg", "desktop"]}>
-    <NavbarStateSetter mode="full">
-      {#snippet actions()}
-        <SearchModeToggles />
-      {/snippet}
-    </NavbarStateSetter>
+  <section class="lb-search">
+    <header class="lb-search__head">
+      <div class="lb-search__input"><SearchInput /></div>
+      <div class="lb-search__modes"><SearchModeToggles /></div>
+    </header>
 
-    <div role="search" class="trakt-search-container">
-      <SearchInput />
+    <div class="lb-search__body">
+      {#if $results}
+        <LetterboxdSearchResults results={$results} onItemClick={onResultClick} />
+      {:else if !query}
+        <p class="lb-search__placeholder">{m.search_placeholder_copy()}</p>
+      {/if}
     </div>
-  </RenderFor>
-
-  <RenderFor audience="authenticated" device={["tablet-sm", "mobile"]}>
-    {#if isMobileApple}
-      <div role="search" class="trakt-search-container">
-        <SearchInput />
-      </div>
-
-      <NavbarStateSetter mode="full">
-        {#snippet actions()}
-          <SearchModeToggles />
-        {/snippet}
-      </NavbarStateSetter>
-    {:else}
-      <NavbarStateSetter mode="minimal">
-        {#snippet contextualActions()}
-          <SearchModeToggles />
-          <SearchInput />
-        {/snippet}
-      </NavbarStateSetter>
-    {/if}
-  </RenderFor>
-
-  <TraktPageCoverSetter src={$coverSrc} />
-
-  <div class="trakt-search-results-container">
-    {#if $results}
-      <SearchResultsGrid
-        items={$results.items}
-        type={$results.type}
-        onclick={onResultClick}
-      />
-    {:else if !query}
-      <SearchPlaceHolder />
-    {/if}
-  </div>
+  </section>
 </TraktPage>
 
 <style lang="scss">
-  @use "$style/scss/mixins/index" as *;
+  .lb-search {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);
 
-  .trakt-search-container {
-    display: flex;
-    flex-direction: column;
-
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-
-    gap: var(--gap-s);
-    padding: 0 var(--layout-distance-side);
-
-    :global(.trakt-search-icon) {
-      z-index: calc(var(--layer-overlay) - 1);
+    &__head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--gap-m);
+      margin-bottom: var(--gap-l);
     }
 
-    @include for-tablet-sm-and-below {
-      padding-top: 0;
-      padding-bottom: 0;
+    &__input { width: min(560px, 100%); }
+    &__modes { display: flex; justify-content: center; }
+
+    &__placeholder {
+      margin: 0;
+      padding: var(--gap-l) 0;
+      text-align: center;
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
     }
+
+    &__body { width: 100%; }
   }
 </style>

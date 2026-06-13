@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { MediaListSummary } from '$lib/requests/models/MediaListSummary.ts';
-  import ListCard from './ListCard.svelte';
+  import ListCard from '../ListCard.svelte';
 
   type Props = {
     eyebrow: string;
