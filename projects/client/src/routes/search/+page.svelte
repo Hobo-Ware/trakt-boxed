@@ -37,23 +37,25 @@
   title={pageTitle}
   mode="content-only"
 >
-  <section class="lb-search">
+  <section class="lb-search" data-empty={!$results && !query ? "true" : undefined}>
     <header class="lb-search__head">
-      <div class="lb-search__input"><LbSearchBar /></div>
-      <div class="lb-search__modes"><LbSearchModes /></div>
+      <h1 class="lb-search__title">{m.page_title_search()}</h1>
+      <p class="lb-search__copy">{m.search_placeholder_copy()}</p>
+      <LbSearchBar />
+      <LbSearchModes />
     </header>
 
-    <div class="lb-search__body">
-      {#if $results}
+    {#if $results}
+      <div class="lb-search__body">
         <LetterboxdSearchResults results={$results} onItemClick={onResultClick} />
-      {:else if !query}
-        <p class="lb-search__placeholder">{m.search_placeholder_copy()}</p>
-      {/if}
-    </div>
+      </div>
+    {/if}
   </section>
 </TraktPage>
 
 <style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .lb-search {
     width: 100%;
     max-width: 1600px;
@@ -61,24 +63,50 @@
     padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);
 
     &__head {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: var(--gap-s);
       margin-bottom: var(--gap-l);
-      max-width: 720px;
     }
 
-    &__input { width: 100%; }
-    &__modes { width: 100%; }
-
-    &__placeholder {
+    &__title {
       margin: 0;
-      padding: var(--gap-l) 0;
-      text-align: center;
+      font-family: var(--font-family-serif, "Tiempos Headline", Georgia, serif);
+      font-weight: 400;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1.1;
+      color: var(--color-text-primary);
+    }
+
+    &__copy {
+      margin: 0 0 var(--gap-s);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
       color: var(--color-text-secondary);
-      font-size: 0.95rem;
     }
 
     &__body { width: 100%; }
+
+    /* Empty state pulls the header up toward viewport vertical center */
+    &[data-empty="true"] {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .lb-search__head {
+        margin-bottom: 0;
+      }
+    }
+
+    @include for-mobile {
+      &[data-empty="true"] {
+        min-height: 50vh;
+        align-items: flex-start;
+      }
+    }
   }
 </style>
