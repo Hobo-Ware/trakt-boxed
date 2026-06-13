@@ -3,10 +3,10 @@
   import { page } from "$app/state";
   import { useParameters } from "$lib/features/parameters/useParameters";
   import RenderFor from "$lib/guards/RenderFor.svelte";
+  import FilmSummary from "$lib/sections/film/FilmSummary.svelte";
+  import SeasonPicker from "$lib/sections/film/SeasonPicker.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { useUserSeason } from "$lib/sections/lists/stores/useUserSeason";
-  import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
-  import ShowSummary from "$lib/sections/summary/ShowSummary.svelte";
   import { findActiveSeason } from "$lib/utils/media/findActiveSeason";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import type { PageProps } from "./$types";
@@ -28,19 +28,12 @@
 
   const { search } = useParameters();
   const goToSeason = (slug: string, season: number) => {
-    /*
-     * TODO: Consider implementing a custom navigation helper within useParameters
-     * to simplify URL management with query parameters, reducing the need for
-     * manual parameter handling throughout the application.
-     */
     goto(
       UrlBuilder.show(slug, {
-        season: season,
+        season,
         ...Object.fromEntries($search),
       }),
-      {
-        replaceState: true,
-      },
+      { replaceState: true },
     );
   };
 
@@ -61,7 +54,7 @@
     $show != null && $intl != null && $studios != null && $crew != null &&
       $seasons != null,
   );
-  const isReady = $derived(!$isLoading && !isNaN(currentSeason) && hasCoreData);
+  const isReady = $derived(!$isLoading && hasCoreData);
 </script>
 
 <TraktPage
@@ -71,27 +64,37 @@
   image={$show?.poster.url.thumb ?? $show?.cover.url.thumb}
   type="show"
   hasDynamicContent={true}
+  mode="content-only"
 >
-  <RenderFor audience="authenticated">
-    <NavbarStateSetter mode="minimal" />
-  </RenderFor>
-
-  {#if isReady}
-    <ShowSummary
-      media={$show!}
-      intl={$intl!}
-      studios={$studios!}
-      crew={$crew!}
-      seasons={$seasons!}
+  {#if isReady && $show && $studios && $crew && $intl && $seasons}
+    <FilmSummary
+      type="show"
+      media={$show}
+      studios={$studios}
+      crew={$crew}
+      intl={$intl}
       streamOn={$streamOn}
       videos={$videos}
       sentiment={$sentiment}
-      {currentSeason}
     />
+    <div class="show-extras">
+      <SeasonPicker
+        slug={$show.slug}
+        seasons={$seasons}
+        activeSeason={isNaN(currentSeason) ? -1 : currentSeason}
+      />
+    </div>
   {:else}
-    <!-- TODO: remove this when we have empty state, currently prevents content jumps -->
     <RenderFor audience="all" device={["tablet-sm", "tablet-lg", "desktop"]}>
       <div style="height: 100dvh; display:flex"></div>
     </RenderFor>
   {/if}
 </TraktPage>
+
+<style lang="scss">
+  .show-extras {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 3vw, 32px);
+  }
+</style>
