@@ -183,7 +183,7 @@
       }
 
       &--like[data-active="true"] {
-        color: var(--orange-500, #ff9010);
+        color: var(--color-like-active);
       }
     }
 
@@ -225,11 +225,11 @@
       line-height: 1;
       color: color-mix(in srgb, var(--shade-10) 15%, transparent);
 
-      &[data-state="full"] { color: var(--color-background-green, var(--green-500)); }
+      &[data-state="full"] { color: var(--color-rating-star); }
       &[data-state="half"] {
         background: linear-gradient(
           90deg,
-          var(--color-background-green, var(--green-500)) 50%,
+          var(--color-rating-star) 50%,
           color-mix(in srgb, var(--shade-10) 15%, transparent) 50%
         );
         -webkit-background-clip: text;

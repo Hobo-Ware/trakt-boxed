@@ -601,6 +601,85 @@
       "default": "Specials",
       "description": "Label for season 0 / specials."
     },
+    "poster_action_rate": {
+      "default": "Rate",
+      "description": "Aria label for the rate button in the poster hover drawer."
+    },
+    "poster_action_like": {
+      "default": "Like",
+      "description": "Aria label for the like button in the poster hover drawer."
+    },
+    "poster_action_watchlist": {
+      "default": "Add to watchlist",
+      "description": "Aria label for the watchlist button in the poster hover drawer."
+    },
+    "poster_action_review": {
+      "default": "Review",
+      "description": "Aria label for the review button in the poster hover drawer."
+    },
+    "poster_action_lists": {
+      "default": "Add to lists",
+      "description": "Aria label for the lists button in the poster hover drawer."
+    },
+    "facet_label_members": {
+      "default": "Members",
+      "description": "Engagement facet tab label - members who favorited."
+    },
+    "facet_label_fans": {
+      "default": "Fans",
+      "description": "Engagement facet tab label - active watchers."
+    },
+    "facet_label_likes": {
+      "default": "Likes",
+      "description": "Engagement facet tab label - likes."
+    },
+    "facet_label_reviews": {
+      "default": "Reviews",
+      "description": "Engagement facet tab label - reviews/comments."
+    },
+    "facet_label_lists": {
+      "default": "Lists",
+      "description": "Engagement facet tab label - lists containing this entity."
+    },
+    "facet_back_to_overview": {
+      "default": "Back to overview",
+      "description": "Link back to the entity main summary from a facet sub-page."
+    },
+    "facet_empty_members": {
+      "default": "Nobody has marked this as a favorite yet.",
+      "description": "Empty state for the members facet."
+    },
+    "facet_empty_fans": {
+      "default": "No active watchers in the past week.",
+      "description": "Empty state for the fans facet."
+    },
+    "facet_empty_likes": {
+      "default": "No likes yet.",
+      "description": "Empty state for the likes facet."
+    },
+    "facet_empty_reviews": {
+      "default": "No reviews yet.",
+      "description": "Empty state for the reviews facet."
+    },
+    "facet_empty_lists": {
+      "default": "Not on any lists yet.",
+      "description": "Empty state for the lists facet."
+    },
+    "facet_likes_summary": {
+      "default": "{count} likes from {voters} voters",
+      "description": "Summary line on the likes facet.",
+      "variables": {
+        "count": { "type": "string" },
+        "voters": { "type": "string" }
+      }
+    },
+    "facet_fans_summary": {
+      "default": "{count} watchers in the last week",
+      "description": "Summary line on the fans facet.",
+      "variables": {
+        "count": { "type": "string" }
+      }
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."

@@ -1,5 +1,6 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
+  import PosterGridSkeleton from '$lib/sections/film/PosterGridSkeleton.svelte';
   import { usePopularList } from '$lib/sections/lists/popular/usePopularList.ts';
   import HomeHero from './_internal/HomeHero.svelte';
   import HomeRow from './_internal/HomeRow.svelte';
@@ -23,24 +24,40 @@
   {/if}
 
   <div class="home__shell">
-    <HomeRow
-      eyebrow={m.home_row_eyebrow_popular_this_week()}
-      title={m.home_row_title_films()}
-      entries={$movies ?? []}
-      viewAllHref="/films"
-      viewAllLabel={m.home_row_view_all()}
-    />
+    {#if $moviesLoading && (!$movies || $movies.length === 0)}
+      <section class="home__skeleton-row">
+        <header class="home__skeleton-header">
+          <div class="home__skeleton-eyebrow"></div>
+          <div class="home__skeleton-title"></div>
+        </header>
+        <PosterGridSkeleton count={7} columns={7} />
+      </section>
+    {:else}
+      <HomeRow
+        eyebrow={m.home_row_eyebrow_popular_this_week()}
+        title={m.home_row_title_films()}
+        entries={$movies ?? []}
+        viewAllHref="/films"
+        viewAllLabel={m.home_row_view_all()}
+      />
+    {/if}
 
-    <HomeRow
-      eyebrow={m.home_row_eyebrow_popular_this_week()}
-      title={m.home_row_title_shows()}
-      entries={$shows ?? []}
-      viewAllHref="/tv"
-      viewAllLabel={m.home_row_view_all()}
-    />
-
-    {#if $moviesLoading && (!$movies || $movies.length === 0) && $showsLoading && (!$shows || $shows.length === 0)}
-      <div class="home__loading" aria-live="polite"></div>
+    {#if $showsLoading && (!$shows || $shows.length === 0)}
+      <section class="home__skeleton-row">
+        <header class="home__skeleton-header">
+          <div class="home__skeleton-eyebrow"></div>
+          <div class="home__skeleton-title"></div>
+        </header>
+        <PosterGridSkeleton count={7} columns={7} />
+      </section>
+    {:else}
+      <HomeRow
+        eyebrow={m.home_row_eyebrow_popular_this_week()}
+        title={m.home_row_title_shows()}
+        entries={$shows ?? []}
+        viewAllHref="/tv"
+        viewAllLabel={m.home_row_view_all()}
+      />
     {/if}
   </div>
 </div>
@@ -66,8 +83,33 @@
       padding: 0 clamp(16px, 3vw, 32px) clamp(40px, 6vw, 80px);
     }
 
-    &__loading {
-      min-height: 30vh;
+    &__skeleton-row {
+      padding-top: var(--gap-l);
+    }
+
+    &__skeleton-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: var(--gap-s);
+      border-bottom: 1px solid color-mix(in srgb, var(--shade-10) 8%, transparent);
+      margin-bottom: var(--gap-m);
+    }
+
+    &__skeleton-eyebrow {
+      width: 160px;
+      height: 0.7rem;
+      min-height: 0.7rem;
+      border-radius: 2px;
+      background: var(--shade-900);
+    }
+
+    &__skeleton-title {
+      width: 220px;
+      height: 1.6rem;
+      min-height: 1.6rem;
+      border-radius: 3px;
+      background: var(--shade-900);
     }
   }
 </style>

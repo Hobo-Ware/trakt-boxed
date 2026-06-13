@@ -7,6 +7,6 @@
   const { params }: PageProps = $props();
 </script>
 
-<TraktPage audience="all" image={DEFAULT_SHARE_MOVIE_COVER} title="Lists" mode="content-only">
-  <EntityFacetPage kind="movie" slug={params.slug} facet="lists" />
+<TraktPage audience="all" image={DEFAULT_SHARE_MOVIE_COVER} title="Reviews" mode="content-only">
+  <EntityFacetPage kind="movie" slug={params.slug} facet="reviews" />
 </TraktPage>

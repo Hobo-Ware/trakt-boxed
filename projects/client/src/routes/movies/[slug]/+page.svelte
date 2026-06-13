@@ -1,6 +1,7 @@
 <script lang="ts">
-  import RenderFor from "$lib/guards/RenderFor.svelte";
   import FilmSummary from "$lib/sections/film/FilmSummary.svelte";
+  import FilmSummarySkeleton from "$lib/sections/film/FilmSummarySkeleton.svelte";
+  import RenderFor from "$lib/guards/RenderFor.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
   import type { PageProps } from "./$types";
@@ -36,8 +37,6 @@
       sentiment={$sentiment}
     />
   {:else}
-    <RenderFor audience="all" device={["tablet-sm", "tablet-lg", "desktop"]}>
-      <div style="height: 100dvh; display:flex"></div>
-    </RenderFor>
+    <FilmSummarySkeleton />
   {/if}
 </TraktPage>

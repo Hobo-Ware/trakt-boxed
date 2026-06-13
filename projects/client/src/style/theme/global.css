@@ -4,6 +4,16 @@
    */
 
   /**
+   * Letterboxd-style accent tokens. The rebuild surfaces use these for
+   * rating glyphs, liked-heart fills, and 3-state poster outlines.
+   */
+  --color-rating-star: #ff8000;
+  --color-like-active: #00c030;
+  --color-poster-outline-watched: #00c030;
+  --color-poster-outline-watchlist: #40bcf4;
+  --color-poster-outline-default: rgba(255, 255, 255, 0.08);
+
+  /**
    * Badge
    */
   --color-background-vip-border: var(--red-500);

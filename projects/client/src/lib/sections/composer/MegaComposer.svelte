@@ -483,7 +483,7 @@
 
       &:hover,
       &[data-filled="true"] {
-        color: var(--color-background-green, var(--green-500));
+        color: var(--color-rating-star);
       }
     }
 
@@ -509,7 +509,7 @@
       color: var(--color-text-secondary);
 
       &[data-active="true"] {
-        color: var(--orange-500, #ff9010);
+        color: var(--color-like-active);
       }
     }
 

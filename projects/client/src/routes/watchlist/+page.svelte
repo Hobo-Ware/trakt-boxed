@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as m from "$lib/features/i18n/messages.ts";
   import PosterGrid from "$lib/sections/film/PosterGrid.svelte";
+  import PosterGridSkeleton from "$lib/sections/film/PosterGridSkeleton.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { usePaginatedListQuery } from "$lib/sections/lists/stores/usePaginatedListQuery.ts";
   import { watchlistQuery } from "$lib/requests/queries/users/watchlistQuery.ts";
@@ -39,7 +40,7 @@
     </header>
 
     {#if $isLoading && (!$entries || $entries.length === 0)}
-      <div class="watchlist__loading" aria-live="polite"></div>
+      <PosterGridSkeleton count={35} columns={7} showTitle />
     {:else if !$entries || $entries.length === 0}
       <p class="watchlist__empty">{m.watchlist_empty()}</p>
     {:else}

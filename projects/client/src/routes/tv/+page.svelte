@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as m from "$lib/features/i18n/messages";
   import PosterGrid from "$lib/sections/film/PosterGrid.svelte";
+  import PosterGridSkeleton from "$lib/sections/film/PosterGridSkeleton.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { usePopularList } from "$lib/sections/lists/popular/usePopularList";
   import { DEFAULT_SHARE_MOVIE_COVER } from "$lib/utils/assets";
@@ -22,7 +23,7 @@
     </header>
 
     {#if $isLoading && $list.length === 0}
-      <div class="tv-page__loading" aria-live="polite"></div>
+      <PosterGridSkeleton count={35} columns={7} />
     {:else}
       <PosterGrid entries={$list} />
     {/if}
