@@ -105,8 +105,13 @@
             aria-label={label}
           >
             <span class="film-where-to-watch__source">
-              {#if meta?.logoUrl}
-                <img class="film-where-to-watch__logo" src={meta.logoUrl} alt={label} loading="lazy" />
+              {#if meta?.channelLogoUrl ?? meta?.logoUrl}
+                <img
+                  class="film-where-to-watch__logo"
+                  src={meta.channelLogoUrl ?? meta.logoUrl}
+                  alt={label}
+                  loading="lazy"
+                />
               {:else}
                 <span class="film-where-to-watch__logo film-where-to-watch__logo--placeholder" aria-hidden="true">
                   {label.charAt(0).toUpperCase()}
@@ -162,6 +167,8 @@
       text-decoration: none;
       color: var(--color-text-primary);
       border-bottom: 1px solid color-mix(in srgb, var(--shade-10) 4%, transparent);
+      min-width: 0;
+      flex-wrap: wrap;
 
       &:hover {
         background: color-mix(in srgb, var(--shade-10) 4%, transparent);
@@ -182,9 +189,11 @@
       width: 28px;
       height: 28px;
       border-radius: 4px;
-      object-fit: cover;
+      object-fit: contain;
       background: color-mix(in srgb, var(--shade-10) 4%, transparent);
       flex-shrink: 0;
+      padding: 2px;
+      box-sizing: border-box;
     }
 
     &__logo--placeholder {
