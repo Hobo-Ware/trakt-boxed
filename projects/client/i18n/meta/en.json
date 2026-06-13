@@ -305,6 +305,94 @@
       "default": "Watchlist",
       "description": "Text for the button that allows users to add/remove a movie or show to/from their watchlist."
     },
+    "button_text_sign_in": {
+      "default": "Sign in",
+      "description": "Sign in CTA on the Letterboxd-style action card."
+    },
+    "button_text_watch": {
+      "default": "Watch",
+      "description": "Short label for the watched toggle on the film action card."
+    },
+    "button_text_like": {
+      "default": "Like",
+      "description": "Label for the heart/like toggle on the film action card."
+    },
+    "button_text_review": {
+      "default": "Review or log…",
+      "description": "Label for the link that opens the review composer."
+    },
+    "button_text_add_to_lists": {
+      "default": "Add to lists…",
+      "description": "Label for the link that adds the film to user lists."
+    },
+    "text_label_rate": {
+      "default": "Rate",
+      "description": "Caption above the star-row on the film action card."
+    },
+    "text_unauthenticated_action_prompt": {
+      "default": "Sign in to log, rate or review.",
+      "description": "Prompt shown to logged-out users in the action card."
+    },
+    "tab_label_cast": {
+      "default": "Cast",
+      "description": "Tab label for the cast section on the film page."
+    },
+    "tab_label_crew": {
+      "default": "Crew",
+      "description": "Tab label for the crew section on the film page."
+    },
+    "tab_label_details": {
+      "default": "Details",
+      "description": "Tab label for the details section on the film page."
+    },
+    "tab_label_genres": {
+      "default": "Genres",
+      "description": "Tab label for the genres section on the film page."
+    },
+    "tab_label_releases": {
+      "default": "Releases",
+      "description": "Tab label for the releases section on the film page."
+    },
+    "list_title_directors": {
+      "default": "Directors",
+      "description": "Heading for the directors group in the crew panel."
+    },
+    "list_title_creators": {
+      "default": "Creators",
+      "description": "Heading for the creators group in the crew panel."
+    },
+    "list_title_writers": {
+      "default": "Writers",
+      "description": "Heading for the writers group in the crew panel."
+    },
+    "list_title_studios": {
+      "default": "Studios",
+      "description": "Heading for the studios row in the details panel."
+    },
+    "list_title_country": {
+      "default": "Country",
+      "description": "Heading for the country row in the details panel."
+    },
+    "list_title_languages": {
+      "default": "Languages",
+      "description": "Heading for the languages row in the details panel."
+    },
+    "list_title_runtime": {
+      "default": "Runtime",
+      "description": "Heading for the runtime row in the details panel."
+    },
+    "list_title_certification": {
+      "default": "Certification",
+      "description": "Heading for the certification row in the details panel."
+    },
+    "list_title_release_date": {
+      "default": "Release",
+      "description": "Heading for the release date row in the details panel."
+    },
+    "list_title_status": {
+      "default": "Status",
+      "description": "Heading for the status row in the details panel."
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."
@@ -4013,6 +4101,10 @@
     "text_directed_by_short": {
       "default": "Directed by",
       "description": "Text to indicate the director of a movie."
+    },
+    "text_created_by_short": {
+      "default": "Created by",
+      "description": "Plain 'Created by' label for show credits (no name interpolation)."
     },
     "text_created_by": {
       "default": "Created by <a>{name}</a>",
