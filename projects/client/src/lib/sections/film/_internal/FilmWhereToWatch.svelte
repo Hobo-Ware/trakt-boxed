@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Tooltip from '$lib/components/tooltip/Tooltip.svelte';
   import * as m from '$lib/features/i18n/messages.ts';
   import { useQuery } from '$lib/features/query/useQuery.ts';
   import { streamingSourcesQuery } from '$lib/requests/queries/services/streamingSourcesQuery.ts';
@@ -101,24 +102,25 @@
             href={row.link}
             target="_blank"
             rel="noreferrer noopener"
-            title={label}
             aria-label={label}
           >
-            <span class="film-where-to-watch__source">
-              {#if meta?.channelLogoUrl ?? meta?.logoUrl}
-                <img
-                  class="film-where-to-watch__logo"
-                  src={meta.channelLogoUrl ?? meta.logoUrl}
-                  alt={label}
-                  loading="lazy"
-                />
-              {:else}
-                <span class="film-where-to-watch__logo film-where-to-watch__logo--placeholder" aria-hidden="true">
-                  {label.charAt(0).toUpperCase()}
-                </span>
-              {/if}
-              {#if row.is4k}<span class="film-where-to-watch__hd">4K</span>{/if}
-            </span>
+            <Tooltip content={label} variant="compact" side="right">
+              <span class="film-where-to-watch__source">
+                {#if meta?.channelLogoUrl ?? meta?.logoUrl}
+                  <img
+                    class="film-where-to-watch__logo"
+                    src={meta.channelLogoUrl ?? meta.logoUrl}
+                    alt={label}
+                    loading="lazy"
+                  />
+                {:else}
+                  <span class="film-where-to-watch__logo film-where-to-watch__logo--placeholder" aria-hidden="true">
+                    {label.charAt(0).toUpperCase()}
+                  </span>
+                {/if}
+                {#if row.is4k}<span class="film-where-to-watch__hd">4K</span>{/if}
+              </span>
+            </Tooltip>
             <span class="film-where-to-watch__badges">
               {#each row.badges as badge (badge)}
                 <span class="film-where-to-watch__badge" data-kind={badge}>{badgeLabel(badge)}</span>
