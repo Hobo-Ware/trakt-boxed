@@ -51,7 +51,7 @@
 
 <style lang="scss">
   .watchlist {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);
 

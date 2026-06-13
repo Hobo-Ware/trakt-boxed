@@ -83,7 +83,7 @@
       position: absolute;
       inset: auto 0 0 0;
       z-index: 2;
-      max-width: 1200px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: clamp(20px, 4vw, 48px);
       display: flex;

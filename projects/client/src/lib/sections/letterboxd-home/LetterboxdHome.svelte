@@ -78,7 +78,7 @@
     }
 
     &__shell {
-      max-width: 1280px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 0 clamp(16px, 3vw, 32px) clamp(40px, 6vw, 80px);
     }

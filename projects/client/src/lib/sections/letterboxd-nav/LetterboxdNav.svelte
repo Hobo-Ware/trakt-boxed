@@ -87,7 +87,7 @@
     border-bottom: 1px solid color-mix(in srgb, var(--shade-10) 6%, transparent);
 
     &__inner {
-      max-width: 1280px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 0 clamp(16px, 3vw, 32px);
       height: 56px;

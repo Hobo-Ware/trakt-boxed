@@ -36,7 +36,7 @@
     min-height: 100dvh;
 
     &__shell {
-      max-width: 1200px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: clamp(40px, 6vw, 80px) clamp(16px, 3vw, 32px);
     }

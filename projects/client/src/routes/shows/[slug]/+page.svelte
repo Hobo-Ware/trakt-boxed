@@ -91,7 +91,7 @@
 
 <style lang="scss">
   .show-extras {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 clamp(16px, 3vw, 32px);
   }
