@@ -10,7 +10,8 @@
     onToggleWatched: () => void;
     onToggleLike: () => void;
     onToggleWatchlist: () => void;
-    onOpenRate: () => void;
+    onRate: (rating: number) => void;
+    onClearRating: () => void;
     onOpenReview: () => void;
     onOpenLists: () => void;
   };
@@ -24,10 +25,14 @@
     onToggleWatched,
     onToggleLike,
     onToggleWatchlist,
-    onOpenRate,
+    onRate,
+    onClearRating,
     onOpenReview,
     onOpenLists,
   }: Props = $props();
+
+  let hoverRating = $state<number | null>(null);
+  const displayRating = $derived(hoverRating ?? userRating ?? 0);
 </script>
 
 <aside class="film-action-card" aria-label="Actions">
@@ -76,20 +81,49 @@
 
     <div class="film-action-card__rate">
       <span class="film-action-card__rate-label">{m.text_label_rate()}</span>
-      <button type="button" class="film-action-card__rate-row" onclick={onOpenRate}>
+      <div
+        class="film-action-card__rate-row"
+        role="radiogroup"
+        aria-label={m.text_label_rate()}
+        onmouseleave={() => (hoverRating = null)}
+      >
         {#each Array.from({ length: 5 }) as _, i (i)}
-          {@const filled = (userRating ?? 0) / 2 > i}
-          {@const half = (userRating ?? 0) / 2 > i && (userRating ?? 0) / 2 < i + 1}
-          <span
-            class="film-action-card__star"
-            data-state={filled ? (half ? "half" : "full") : "empty"}
-            aria-hidden="true"
-          >★</span>
+          {@const starIndex = i + 1}
+          {@const lowValue = i * 2 + 1}
+          {@const highValue = i * 2 + 2}
+          {@const fillProgress = displayRating / 2 - i}
+          {@const state =
+            fillProgress >= 1 ? "full" : fillProgress >= 0.5 ? "half" : "empty"}
+          <span class="film-action-card__star-cell">
+            <button
+              type="button"
+              class="film-action-card__star-half film-action-card__star-half--low"
+              aria-label={`${lowValue}/10`}
+              aria-checked={userRating === lowValue}
+              role="radio"
+              onmouseenter={() => (hoverRating = lowValue)}
+              onclick={() =>
+                userRating === lowValue ? onClearRating() : onRate(lowValue)}
+            ></button>
+            <button
+              type="button"
+              class="film-action-card__star-half film-action-card__star-half--high"
+              aria-label={`${highValue}/10`}
+              aria-checked={userRating === highValue}
+              role="radio"
+              onmouseenter={() => (hoverRating = highValue)}
+              onclick={() =>
+                userRating === highValue ? onClearRating() : onRate(highValue)}
+            ></button>
+            <span
+              class="film-action-card__star"
+              data-state={state}
+              data-index={starIndex}
+              aria-hidden="true"
+            >★</span>
+          </span>
         {/each}
-        <span class="visually-hidden">
-          {m.text_label_rate()}
-        </span>
-      </button>
+      </div>
     </div>
 
     <div class="film-action-card__divider" aria-hidden="true"></div>
@@ -214,15 +248,36 @@
     }
 
     &__rate-row {
-      all: unset;
-      cursor: pointer;
       display: inline-flex;
       gap: 2px;
     }
 
+    &__star-cell {
+      position: relative;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: inline-block;
+    }
+
+    &__star-half {
+      all: unset;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 2;
+
+      &--low { left: 0; }
+      &--high { right: 0; }
+    }
+
     &__star {
+      position: absolute;
+      inset: 0;
       font-size: 1.4rem;
       line-height: 1;
+      pointer-events: none;
       color: color-mix(in srgb, var(--shade-10) 15%, transparent);
 
       &[data-state="full"] { color: var(--color-rating-star); }

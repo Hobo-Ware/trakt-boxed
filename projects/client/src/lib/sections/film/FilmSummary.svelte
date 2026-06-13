@@ -1,8 +1,13 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
+  import { map } from 'rxjs';
   import { useAuth } from '$lib/features/auth/stores/useAuth.ts';
+  import { useFavorites } from '$lib/sections/media-actions/favorite/useFavorites.ts';
+  import { useMarkAsWatched } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
+  import { useWatchlist } from '$lib/sections/media-actions/watchlist/useWatchlist.ts';
   import { composerStore } from '$lib/sections/composer';
+  import { useRatings } from '$lib/sections/summary/components/rating/useRatings.ts';
   import FilmActionCard from './_internal/FilmActionCard.svelte';
   import FilmBackdrop from './_internal/FilmBackdrop.svelte';
   import FilmCastGrid from './_internal/FilmCastGrid.svelte';
@@ -49,6 +54,49 @@
       effectiveReleaseDate: media.effectiveReleaseDate,
     });
   };
+
+  const markAction = $derived(
+    useMarkAsWatched({
+      type,
+      media: {
+        id: media.id,
+        effectiveReleaseDate: media.effectiveReleaseDate,
+        status: media.status,
+      },
+    }),
+  );
+  const watchlistAction = $derived(
+    useWatchlist({ type, media: { id: media.id } }),
+  );
+  const favoriteAction = $derived(
+    useFavorites({ type, id: media.id, title: media.title }),
+  );
+  const ratingAction = $derived(useRatings({ type, id: media.id }));
+
+  const isWatchedStore = $derived(markAction.isWatched);
+  const isWatchlistedStore = $derived(watchlistAction.isWatchlisted);
+  const isFavoritedStore = $derived(favoriteAction.isFavorited);
+  const currentRatingStore = $derived(
+    ratingAction.current.pipe(map(($current) => $current?.rating ?? null)),
+  );
+
+  const toggleWatched = async () => {
+    if (!$isAuthorized) return openComposer();
+    if ($isWatchedStore) await markAction.removeWatched();
+    else await markAction.markAsWatched('now');
+  };
+
+  const toggleLike = async () => {
+    if (!$isAuthorized) return openComposer();
+    if ($isFavoritedStore) await favoriteAction.removeFromFavorites();
+    else await favoriteAction.addToFavorites();
+  };
+
+  const toggleWatchlist = async () => {
+    if (!$isAuthorized) return openComposer();
+    if ($isWatchlistedStore) await watchlistAction.removeFromWatchlist();
+    else await watchlistAction.addToWatchlist();
+  };
 </script>
 
 <article class="film-summary" data-type={type}>
@@ -78,14 +126,21 @@
       <div class="film-summary__rail">
         <FilmActionCard
           isAuthenticated={$isAuthorized}
-          isWatched={false}
-          isLiked={false}
-          isOnWatchlist={false}
-          userRating={null}
-          onToggleWatched={openComposer}
-          onToggleLike={openComposer}
-          onToggleWatchlist={openComposer}
-          onOpenRate={openComposer}
+          isWatched={$isWatchedStore}
+          isLiked={$isFavoritedStore}
+          isOnWatchlist={$isWatchlistedStore}
+          userRating={$currentRatingStore}
+          onToggleWatched={toggleWatched}
+          onToggleLike={toggleLike}
+          onToggleWatchlist={toggleWatchlist}
+          onRate={(value) => {
+            if (!$isAuthorized) return openComposer();
+            ratingAction.addRating(value);
+          }}
+          onClearRating={() => {
+            if (!$isAuthorized) return;
+            void ratingAction.removeRating();
+          }}
           onOpenReview={openComposer}
           onOpenLists={openComposer}
         />
