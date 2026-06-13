@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
-  import { useQuery } from '$lib/features/query/useQuery.ts';
+  import { useInfiniteQuery } from '$lib/features/query/useQuery.ts';
   import { movieCommentsQuery } from '$lib/requests/queries/movies/movieCommentsQuery.ts';
   import { showCommentsQuery } from '$lib/requests/queries/shows/showCommentsQuery.ts';
   import { toHumanNumber } from '$lib/utils/formatting/number/toHumanNumber.ts';
@@ -15,17 +15,17 @@
   const { type, slug }: Props = $props();
 
   const popular = $derived(
-    useQuery(
+    useInfiniteQuery(
       type === 'movie'
-        ? movieCommentsQuery({ slug, sort: 'likes', page: 1, limit: 3 })
-        : showCommentsQuery({ slug, sort: 'likes', page: 1, limit: 3 }),
+        ? movieCommentsQuery({ slug, sort: 'likes', limit: 3 })
+        : showCommentsQuery({ slug, sort: 'likes', limit: 3 }),
     ),
   );
   const recent = $derived(
-    useQuery(
+    useInfiniteQuery(
       type === 'movie'
-        ? movieCommentsQuery({ slug, sort: 'newest', page: 1, limit: 3 })
-        : showCommentsQuery({ slug, sort: 'newest', page: 1, limit: 3 }),
+        ? movieCommentsQuery({ slug, sort: 'newest', limit: 3 })
+        : showCommentsQuery({ slug, sort: 'newest', limit: 3 }),
     ),
   );
 

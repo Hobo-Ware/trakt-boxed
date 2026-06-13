@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
-  import { useQuery } from '$lib/features/query/useQuery.ts';
+  import { useInfiniteQuery } from '$lib/features/query/useQuery.ts';
   import type { MovieEntry } from '$lib/requests/models/MovieEntry.ts';
   import type { ShowEntry } from '$lib/requests/models/ShowEntry.ts';
   import { movieRelatedQuery } from '$lib/requests/queries/movies/movieRelatedQuery.ts';
@@ -13,10 +13,10 @@
   const { type, slug }: Props = $props();
 
   const query = $derived(
-    useQuery(
+    useInfiniteQuery(
       type === 'movie'
-        ? movieRelatedQuery({ slug, page: 1, limit: 14 })
-        : showRelatedQuery({ slug, page: 1, limit: 14 }),
+        ? movieRelatedQuery({ slug, limit: 14 })
+        : showRelatedQuery({ slug, limit: 14 }),
     ),
   );
 

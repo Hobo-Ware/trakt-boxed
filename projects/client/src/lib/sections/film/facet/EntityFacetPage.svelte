@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
-  import { useQuery } from '$lib/features/query/useQuery.ts';
+  import { useInfiniteQuery, useQuery } from '$lib/features/query/useQuery.ts';
   import { movieCommentsQuery } from '$lib/requests/queries/movies/movieCommentsQuery.ts';
   import { movieListsQuery } from '$lib/requests/queries/movies/movieListsQuery.ts';
   import { movieStatsQuery } from '$lib/requests/queries/movies/movieStatsQuery.ts';
@@ -39,18 +39,18 @@
   );
 
   const comments = $derived(
-    useQuery(
+    useInfiniteQuery(
       kind === 'movie'
-        ? movieCommentsQuery({ slug, sort: 'newest', page: 1, limit: 20 })
-        : showCommentsQuery({ slug, sort: 'newest', page: 1, limit: 20 }),
+        ? movieCommentsQuery({ slug, sort: 'newest', limit: 20 })
+        : showCommentsQuery({ slug, sort: 'newest', limit: 20 }),
     ),
   );
 
   const lists = $derived(
-    useQuery(
+    useInfiniteQuery(
       kind === 'movie'
-        ? movieListsQuery({ slug, page: 1, limit: 20 })
-        : showListsQuery({ slug, page: 1, limit: 20 }),
+        ? movieListsQuery({ slug, limit: 20 })
+        : showListsQuery({ slug, limit: 20 }),
     ),
   );
 
