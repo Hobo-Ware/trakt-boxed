@@ -49,13 +49,20 @@
     <div class="film-action-card__triad">
       <button
         type="button"
-        class="film-action-card__triad-btn"
+        class="film-action-card__triad-btn film-action-card__triad-btn--watched"
         data-active={isWatched ? "true" : undefined}
         aria-pressed={isWatched}
         onclick={onToggleWatched}
       >
-        <span class="film-action-card__triad-glyph" aria-hidden="true">●</span>
-        <span class="film-action-card__triad-label">{m.button_text_watch()}</span>
+        <span class="film-action-card__triad-glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </span>
+        <span class="film-action-card__triad-label">
+          {isWatched ? m.button_text_watched_state() : m.button_text_watch()}
+        </span>
       </button>
       <button
         type="button"
@@ -64,17 +71,32 @@
         aria-pressed={isLiked}
         onclick={onToggleLike}
       >
-        <span class="film-action-card__triad-glyph" aria-hidden="true">♥</span>
-        <span class="film-action-card__triad-label">{m.button_text_like()}</span>
+        <span class="film-action-card__triad-glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill={isLiked ? "currentColor" : "none"} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </span>
+        <span class="film-action-card__triad-label">
+          {isLiked ? m.button_text_liked_state() : m.button_text_like()}
+        </span>
       </button>
       <button
         type="button"
-        class="film-action-card__triad-btn"
+        class="film-action-card__triad-btn film-action-card__triad-btn--watchlist"
         data-active={isOnWatchlist ? "true" : undefined}
         aria-pressed={isOnWatchlist}
         onclick={onToggleWatchlist}
       >
-        <span class="film-action-card__triad-glyph" aria-hidden="true">⊕</span>
+        <span class="film-action-card__triad-glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            {#if isOnWatchlist}
+              <path d="M8 12l3 3 5-6" />
+            {:else}
+              <path d="M12 7v5l3 2" />
+            {/if}
+          </svg>
+        </span>
         <span class="film-action-card__triad-label">{m.button_text_watchlist()}</span>
       </button>
     </div>
@@ -212,17 +234,23 @@
         background: color-mix(in srgb, var(--shade-1000) 30%, var(--shade-900));
       }
 
-      &[data-active="true"] {
-        color: var(--color-background-green, var(--green-500));
+      &--watched[data-active="true"] {
+        color: var(--color-watched);
       }
 
       &--like[data-active="true"] {
         color: var(--color-like-active);
       }
+
+      &--watchlist[data-active="true"] {
+        color: var(--color-watchlist);
+      }
     }
 
     &__triad-glyph {
-      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       line-height: 1;
     }
 

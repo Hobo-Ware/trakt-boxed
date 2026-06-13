@@ -4,11 +4,16 @@
    */
 
   /**
-   * Letterboxd-style accent tokens. The rebuild surfaces use these for
-   * rating glyphs, liked-heart fills, and 3-state poster outlines.
+   * Letterboxd-style accent tokens. Each user-state has a dedicated hue:
+   * watched = brand green, liked = orange, watchlist = blue. Rating
+   * star glyphs share the watched green; the poster outline mirrors
+   * the same triad so the surface always reads as the same color
+   * wherever the same state is reflected.
    */
-  --color-rating-star: #ff8000;
-  --color-like-active: #00c030;
+  --color-watched: #00c030;
+  --color-like-active: #ff8000;
+  --color-watchlist: #40bcf4;
+  --color-rating-star: #00c030;
   --color-poster-outline-watched: #00c030;
   --color-poster-outline-watchlist: #40bcf4;
   --color-poster-outline-default: rgba(255, 255, 255, 0.08);

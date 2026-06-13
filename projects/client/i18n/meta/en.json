@@ -317,6 +317,14 @@
       "default": "Like",
       "description": "Label for the heart/like toggle on the film action card."
     },
+    "button_text_watched_state": {
+      "default": "Watched",
+      "description": "Active-state label below the eye glyph after a film is marked watched."
+    },
+    "button_text_liked_state": {
+      "default": "Liked",
+      "description": "Active-state label below the heart glyph after a film is liked."
+    },
     "button_text_review": {
       "default": "Review or log…",
       "description": "Label for the link that opens the review composer."
