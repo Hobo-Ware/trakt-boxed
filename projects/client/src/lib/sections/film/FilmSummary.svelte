@@ -1,5 +1,6 @@
 <script lang="ts">
   import { useAuth } from '$lib/features/auth/stores/useAuth.ts';
+  import { composerStore } from '$lib/sections/composer';
   import FilmActionCard from './_internal/FilmActionCard.svelte';
   import FilmBackdrop from './_internal/FilmBackdrop.svelte';
   import FilmCastGrid from './_internal/FilmCastGrid.svelte';
@@ -26,6 +27,18 @@
   const title = $derived(intl?.title ?? media.title);
   const tagline = $derived(intl?.tagline ?? media.tagline);
   const overview = $derived(intl?.overview ?? media.overview);
+
+  const openComposer = () => {
+    composerStore.open({
+      kind: type,
+      id: media.id,
+      slug: media.slug,
+      title: media.title,
+      year: media.year,
+      posterUrl: media.poster?.url?.thumb,
+      effectiveReleaseDate: media.effectiveReleaseDate,
+    });
+  };
 </script>
 
 <article class="film-summary" data-type={type}>
@@ -59,12 +72,12 @@
           isLiked={false}
           isOnWatchlist={false}
           userRating={null}
-          onToggleWatched={() => {}}
-          onToggleLike={() => {}}
-          onToggleWatchlist={() => {}}
-          onOpenRate={() => {}}
-          onOpenReview={() => {}}
-          onOpenLists={() => {}}
+          onToggleWatched={openComposer}
+          onToggleLike={openComposer}
+          onToggleWatchlist={openComposer}
+          onOpenRate={openComposer}
+          onOpenReview={openComposer}
+          onOpenLists={openComposer}
         />
       </div>
     </div>

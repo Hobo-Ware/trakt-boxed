@@ -465,6 +465,88 @@
       "default": "View all",
       "description": "View-all link on a home page row."
     },
+    "composer_eyebrow_log": {
+      "default": "Log",
+      "description": "Eyebrow above the composer modal title."
+    },
+    "composer_close": {
+      "default": "Close",
+      "description": "Aria label for the composer close button."
+    },
+    "composer_watched_label": {
+      "default": "I watched this",
+      "description": "Toggle label for marking the film as watched."
+    },
+    "composer_date_label": {
+      "default": "When",
+      "description": "Label for the watched-on date input."
+    },
+    "composer_rewatch_label": {
+      "default": "Rewatched",
+      "description": "Toggle for marking the log as a rewatch."
+    },
+    "composer_rating_label": {
+      "default": "Rating",
+      "description": "Label for the star rating row."
+    },
+    "composer_rating_clear": {
+      "default": "Clear",
+      "description": "Clear-rating button label."
+    },
+    "composer_like_label": {
+      "default": "Like",
+      "description": "Heart/like toggle label."
+    },
+    "composer_review_label": {
+      "default": "Review",
+      "description": "Label for the review textarea."
+    },
+    "composer_review_placeholder": {
+      "default": "Add a review…",
+      "description": "Placeholder text for the composer review textarea."
+    },
+    "composer_tags_label": {
+      "default": "Tags",
+      "description": "Label for the tags input row."
+    },
+    "composer_tags_placeholder": {
+      "default": "Add a tag and press enter",
+      "description": "Placeholder for the tag input."
+    },
+    "composer_watchlist_label": {
+      "default": "Add to watchlist",
+      "description": "Toggle to add the film to the user's watchlist."
+    },
+    "composer_save": {
+      "default": "Save",
+      "description": "Composer save button."
+    },
+    "composer_saving": {
+      "default": "Saving…",
+      "description": "Composer save button label while submitting."
+    },
+    "composer_cancel": {
+      "default": "Cancel",
+      "description": "Composer cancel button."
+    },
+    "composer_target_season": {
+      "default": "Season {season}",
+      "description": "Sub-heading on the composer when targeting a show season.",
+      "variables": {
+        "season": {
+          "type": "string"
+        }
+      }
+    },
+    "composer_target_episode": {
+      "default": "Episode {episode}",
+      "description": "Sub-heading on the composer when targeting a show episode.",
+      "variables": {
+        "episode": {
+          "type": "string"
+        }
+      }
+    },
     "button_text_mark_as_watched": {
       "default": "Mark as Watched",
       "description": "Text for the button that allows users to mark a movie, episode, or show as watched."
