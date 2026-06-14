@@ -15,39 +15,33 @@ export const handle: Handle = async ({ event, resolve }) => {
     event.locals.theme = theme;
   };
 
-  setTheme(coerceTheme(event.cookies.get(THEME_COOKIE_NAME)));
+  // Letterboxd rebuild ships dark-only; ignore any persisted preference.
+  void coerceTheme;
+  setTheme(Theme.Dark);
 
   if (event.url.pathname.startsWith(ThemeEndpoint.Set)) {
-    const { theme } = await event.request.json() as { theme: Theme };
-    setTheme(theme);
-
-    return new Response(
-      JSON.stringify({ theme }),
-      {
-        headers: {
-          'Set-Cookie': event.cookies.serialize(
-            THEME_COOKIE_NAME,
-            theme,
-            {
-              path: '/',
-              maxAge: time.years(5) / time.seconds(1),
-            },
-          ),
-        },
+    // No-op: theme is locked to dark. Swallow any client write so the cookie
+    // never drifts back to light/system.
+    await event.request.json().catch(() => undefined);
+    return new Response(JSON.stringify({ theme: Theme.Dark }), {
+      headers: {
+        'Set-Cookie': event.cookies.serialize(
+          THEME_COOKIE_NAME,
+          Theme.Dark,
+          { path: '/', maxAge: time.years(5) / time.seconds(1) },
+        ),
       },
-    );
+    });
   }
 
   const response = await resolve(
     event,
     {
       transformPageChunk: ({ html }) => {
-        const theme = event.locals.theme;
         const scope = 'none';
-
         return html
-          .replace(THEME_PLACEHOLDER, `${theme}`)
-          .replace(THEME_SCOPE_PLACEHOLDER, `${scope}`);
+          .replace(THEME_PLACEHOLDER, Theme.Dark)
+          .replace(THEME_SCOPE_PLACEHOLDER, scope);
       },
     },
   );

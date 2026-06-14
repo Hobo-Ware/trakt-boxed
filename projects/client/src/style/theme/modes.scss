@@ -605,22 +605,12 @@
 }
 
 // Apply themes to selectors
-[data-theme='light'] {
-  @include light-theme();
-}
-
-[data-theme='dark'] {
-  @include dark-theme();
-}
-
+// Letterboxd rebuild ships dark-only; every data-theme variant maps to the
+// dark mixin so a stale cookie / system preference can't bleed through.
+[data-theme='light'],
+[data-theme='dark'],
 [data-theme='system'] {
-  @media (prefers-color-scheme: light) {
-    @include light-theme();
-  }
-
-  @media (prefers-color-scheme: dark) {
-    @include dark-theme();
-  }
+  @include dark-theme();
 }
 
 // For pages that are always dark mode
