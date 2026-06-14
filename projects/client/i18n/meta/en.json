@@ -888,6 +888,18 @@
       "default": "Films",
       "description": "Profile sub-tab label for the watched films grid."
     },
+    "profile_tab_shows": {
+      "default": "Shows",
+      "description": "Profile sub-tab label for the watched shows grid."
+    },
+    "profile_stat_shows": {
+      "default": "Shows",
+      "description": "Stat label above the shows-watched count on the profile hero."
+    },
+    "profile_shows_empty": {
+      "default": "No shows watched yet.",
+      "description": "Empty state for the profile shows tab."
+    },
     "profile_tab_watchlist": {
       "default": "Watchlist",
       "description": "Profile sub-tab label for the current user's watchlist."

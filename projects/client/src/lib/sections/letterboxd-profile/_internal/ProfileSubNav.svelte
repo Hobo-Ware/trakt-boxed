@@ -15,6 +15,7 @@
     const out: Tab[] = [
       { key: 'profile', label: m.profile_tab_profile() },
       { key: 'films', label: m.profile_tab_films() },
+      { key: 'shows', label: m.profile_tab_shows() },
     ];
     if (isMe) out.push({ key: 'watchlist', label: m.profile_tab_watchlist() });
     out.push({ key: 'reviews', label: m.profile_tab_reviews() });

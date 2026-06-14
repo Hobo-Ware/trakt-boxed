@@ -1,6 +1,7 @@
 export type ProfileTab =
   | 'profile'
   | 'films'
+  | 'shows'
   | 'watchlist'
   | 'reviews'
   | 'network';
@@ -8,6 +9,7 @@ export type ProfileTab =
 export const PROFILE_TABS: ReadonlyArray<ProfileTab> = [
   'profile',
   'films',
+  'shows',
   'watchlist',
   'reviews',
   'network',

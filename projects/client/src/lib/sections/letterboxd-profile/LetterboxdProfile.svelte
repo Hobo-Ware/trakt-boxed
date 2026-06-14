@@ -13,6 +13,7 @@
   import ProfileHero from './_internal/ProfileHero.svelte';
   import ProfileNetworkTab from './_internal/ProfileNetworkTab.svelte';
   import ProfileReviewsTab from './_internal/ProfileReviewsTab.svelte';
+  import ProfileShowsTab from './_internal/ProfileShowsTab.svelte';
   import ProfileStats from './_internal/ProfileStats.svelte';
   import ProfileSubNav from './_internal/ProfileSubNav.svelte';
   import {
@@ -45,6 +46,9 @@
   const watchedMovies = $derived(
     history.pipe(map(($h) => (isMe ? $h?.movies.size ?? null : null))),
   );
+  const watchedShows = $derived(
+    history.pipe(map(($h) => (isMe ? $h?.shows.size ?? null : null))),
+  );
 
   const followingQuery = useQuery(currentUserNetworkQuery());
   const followingCount = $derived(
@@ -58,6 +62,7 @@
 
   const stats = $derived([
     { key: 'films', label: m.profile_stat_films(), value: $watchedMovies },
+    { key: 'shows', label: m.profile_stat_shows(), value: $watchedShows },
     { key: 'following', label: m.profile_stat_following(), value: $followingCount },
     { key: 'followers', label: m.profile_stat_followers(), value: $followersCount },
   ]);
@@ -81,6 +86,8 @@
         {/if}
       {:else if activeTab === 'films'}
         <ProfileFilmsTab {slug} />
+      {:else if activeTab === 'shows'}
+        <ProfileShowsTab {slug} />
       {:else if activeTab === 'watchlist' && isMe}
         <ProfileWatchlistRow limit={42} />
       {:else if activeTab === 'reviews'}
