@@ -3,7 +3,7 @@
   import { useInfiniteQuery } from '$lib/features/query/useQuery.ts';
   import { activityHistoryQuery } from '$lib/requests/queries/users/activityHistoryQuery.ts';
   import { socialActivityQuery } from '$lib/requests/queries/users/socialActivityQuery.ts';
-  import MembersActivityRow from '$lib/sections/letterboxd-members/_internal/MembersActivityRow.svelte';
+  import ProfileFriendsActivityRow from './ProfileFriendsActivityRow.svelte';
   import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
   import { map } from 'rxjs';
 
@@ -135,7 +135,7 @@
     {:else}
       <ul class="profile-activity__list">
         {#each $friendsItems as activity (activity.key)}
-          <li><MembersActivityRow {activity} /></li>
+          <li><ProfileFriendsActivityRow {activity} /></li>
         {/each}
       </ul>
     {/if}

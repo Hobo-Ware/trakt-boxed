@@ -3,7 +3,7 @@
   import * as m from '$lib/features/i18n/messages.ts';
   import { useQuery } from '$lib/features/query/useQuery.ts';
   import { followersQuery } from '$lib/requests/queries/users/followersQuery.ts';
-  import MembersUserChip from '$lib/sections/letterboxd-members/_internal/MembersUserChip.svelte';
+  import ProfileUserChip from './ProfileUserChip.svelte';
   import { map } from 'rxjs';
 
   type Props = { slug: string; isMe: boolean };
@@ -30,7 +30,7 @@
       {:else}
         <ul class="profile-network__chips">
           {#each $following as user (user.id)}
-            <li><MembersUserChip {user} /></li>
+            <li><ProfileUserChip {user} /></li>
           {/each}
         </ul>
       {/if}
@@ -47,7 +47,7 @@
     {:else}
       <ul class="profile-network__chips">
         {#each $followersList as user (user.id)}
-          <li><MembersUserChip {user} /></li>
+          <li><ProfileUserChip {user} /></li>
         {/each}
       </ul>
     {/if}

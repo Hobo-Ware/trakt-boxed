@@ -49,9 +49,10 @@
     { key: 'films', label: m.nav_link_films(), href: '/films' },
     { key: 'tv', label: m.nav_link_tv(), href: '/tv' },
     { key: 'lists', label: m.nav_link_lists(), href: '/lists' },
-    { key: 'members', label: m.nav_link_members(), href: '/social/activity' },
     { key: 'calendar', label: m.nav_link_calendar(), href: '/calendar' },
   ]);
+
+  const activityHref = $derived(`${profileHref}?tab=activity`);
 </script>
 
 <header class="lb-nav">
@@ -101,7 +102,7 @@
       {#if $isAuthorized && $user}
         <a
           class="lb-nav__icon lb-nav__icon--activity"
-          href="/social/activity"
+          href={activityHref}
           aria-label={m.avatar_menu_activity()}
           title={m.avatar_menu_activity()}
         >
