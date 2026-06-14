@@ -324,8 +324,6 @@ export const UrlBuilder = {
   settings: {
     general: () => '/settings',
     data: () => '/settings/data',
-    advanced: (params: Pick<WellKnownQueryParams, 'section'> = {}) =>
-      `/settings/advanced${buildParamString(sanitizeParams(params))}`,
     preview: () => '/settings/preview',
     streamingSync: (
       params: { connection?: string; service?: string | null } = {},

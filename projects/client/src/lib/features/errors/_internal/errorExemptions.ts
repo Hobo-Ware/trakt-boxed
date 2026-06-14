@@ -17,13 +17,8 @@ const streamingSyncDetailRoute = UrlBuilder.settings.streamingSyncDetail(
 // FIXME: remove this exemption when we can do clean up natively
 const exemptions: Exemption[] = [
   {
-    errorType: WellKnownErrorType.LockedAccountError,
-    routes: new Set([UrlBuilder.settings.advanced()]),
-  },
-  {
     errorType: WellKnownErrorType.ServerError,
     routes: new Set([
-      UrlBuilder.settings.advanced(),
       streamingSyncRoute,
       streamingSyncDetailRoute,
     ]),

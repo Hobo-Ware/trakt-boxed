@@ -15,35 +15,45 @@
   } = $props();
 </script>
 
-<div class="trakt-settings-block">
-  <div class="trakt-settings-block-header">
-    <p
-      class="settings-title"
-      class:bold={boldTitle}
+<section class="lb-settings-block">
+  <header class="lb-settings-block__header">
+    <h2
+      class="lb-settings-block__title"
       class:has-prefix={Boolean(titlePrefix)}
+      data-bold={boldTitle ? 'true' : undefined}
     >
       {#if titlePrefix}{@render titlePrefix()}{/if}{title}
-    </p>
-    <p class="secondary">{description}</p>
-  </div>
-  <div class="trakt-settings-block-content">
+    </h2>
+    <p class="lb-settings-block__description">{description}</p>
+  </header>
+  <div class="lb-settings-block__content">
     {@render children()}
   </div>
-</div>
+</section>
 
 <style lang="scss">
-  @use "$style/scss/mixins/index" as *;
-
-  .trakt-settings-block-header {
+  .lb-settings-block {
     display: flex;
     flex-direction: column;
+    gap: var(--gap-l);
 
-    gap: var(--gap-xs);
+    &__header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-bottom: var(--gap-s);
+      border-bottom: 1px solid color-mix(in srgb, var(--shade-10) 6%, transparent);
+    }
 
-    p.settings-title {
-      transition: font-size var(--transition-increment) ease-in-out;
-      text-transform: capitalize;
-      font-size: var(--font-size-title);
+    &__title {
+      margin: 0;
+      font-family: var(--font-family-serif, Georgia, serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-text-primary);
+      letter-spacing: 0;
+
+      &[data-bold='true'] { font-weight: 600; }
 
       &.has-prefix {
         display: flex;
@@ -57,12 +67,18 @@
         }
       }
     }
-  }
 
-  .trakt-settings-block,
-  .trakt-settings-block-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-l);
+    &__description {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--color-text-secondary);
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-m);
+    }
   }
 </style>
