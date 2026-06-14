@@ -22,10 +22,10 @@
 
   let active = $state(today);
 
-  const startDateIso = today.toISOString();
+  const startDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   const query = useQuery(
     upcomingMediaQuery({
-      startDate: startDateIso,
+      startDate,
       days: 14,
       target: 'my',
     }),
