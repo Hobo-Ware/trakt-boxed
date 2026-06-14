@@ -24,10 +24,18 @@
 {/if}
 
 <style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .profile-stats {
     display: flex;
     gap: var(--gap-l);
     margin: 0;
+    flex-wrap: wrap;
+
+    @include for-mobile {
+      gap: var(--gap-m);
+      justify-content: flex-start;
+    }
 
     &__cell {
       display: flex;

@@ -38,14 +38,27 @@
 </div>
 
 <style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .film-crew {
     padding-top: var(--gap-m);
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: var(--gap-s) var(--gap-l);
 
+    @include for-mobile {
+      grid-template-columns: 1fr;
+      gap: var(--gap-m);
+    }
+
     &__group {
       display: contents;
+
+      @include for-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
     }
 
     &__heading {

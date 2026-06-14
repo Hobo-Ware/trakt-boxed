@@ -80,6 +80,8 @@
 </dl>
 
 <style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .film-details {
     padding-top: var(--gap-m);
     display: grid;
@@ -104,6 +106,19 @@
       margin: 0;
       font-size: 0.9rem;
       color: var(--color-text-primary);
+    }
+
+    @include for-mobile {
+      grid-template-columns: 1fr;
+      gap: var(--gap-m);
+
+      &__row {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      &__label, &__value { grid-column: auto; }
     }
   }
 </style>

@@ -47,6 +47,10 @@
     display: flex;
     gap: var(--gap-m);
     border-bottom: 1px solid color-mix(in srgb, var(--shade-10) 8%, transparent);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
   }
 
   .lb-search-modes__tab {
@@ -58,6 +62,7 @@
     text-transform: uppercase;
     color: var(--color-text-secondary);
     position: relative;
+    flex-shrink: 0;
 
     &:hover { color: var(--color-text-primary); }
 

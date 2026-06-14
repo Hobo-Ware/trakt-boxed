@@ -43,6 +43,8 @@
 {/if}
 
 <style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .profile-watchlist-row {
     padding-top: var(--gap-l);
 
@@ -82,6 +84,9 @@
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: clamp(8px, 1.2vw, 20px);
+
+      @include for-tablet-sm { grid-template-columns: repeat(4, 1fr); }
+      @include for-mobile { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     }
   }
 </style>

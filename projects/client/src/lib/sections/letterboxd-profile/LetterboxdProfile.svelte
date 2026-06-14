@@ -103,6 +103,8 @@
 </div>
 
 <style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .letterboxd-profile {
     background: var(--shade-1000);
     min-height: 100dvh;
@@ -118,6 +120,10 @@
       display: flex;
       justify-content: flex-end;
       margin: var(--gap-m) 0;
+
+      @include for-mobile {
+        justify-content: flex-start;
+      }
     }
 
     &__body { width: 100%; }

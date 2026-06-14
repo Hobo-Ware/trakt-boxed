@@ -40,6 +40,8 @@
 </div>
 
 <style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .lists-page {
     background: var(--shade-1000);
     min-height: 100dvh;
@@ -85,6 +87,9 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--gap-m);
+
+      @include for-tablet-sm { grid-template-columns: repeat(2, 1fr); }
+      @include for-mobile { grid-template-columns: 1fr; }
     }
   }
 </style>
