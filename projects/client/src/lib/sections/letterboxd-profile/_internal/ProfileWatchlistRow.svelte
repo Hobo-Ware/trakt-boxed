@@ -82,11 +82,11 @@
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: clamp(8px, 1.2vw, 20px);
-
-      @include for-tablet-sm { grid-template-columns: repeat(4, 1fr); }
-      @include for-mobile { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(var(--lb-poster-min-w), 100%), 1fr)
+      );
+      gap: var(--lb-grid-gap);
     }
   }
 </style>

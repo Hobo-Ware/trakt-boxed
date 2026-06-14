@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--gap-m);
-    padding: clamp(40px, 6vw, 80px) clamp(16px, 3vw, 32px) clamp(20px, 4vw, 40px);
+    padding: clamp(40px, 6vw, 80px) var(--lb-page-pad-x) clamp(20px, 4vw, 40px);
     text-align: center;
   }
 

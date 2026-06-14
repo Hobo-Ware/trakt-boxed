@@ -166,9 +166,9 @@
     border-bottom: 1px solid color-mix(in srgb, var(--shade-10) 6%, transparent);
 
     &__inner {
-      max-width: 1600px;
+      max-width: var(--lb-page-max-width);
       margin: 0 auto;
-      padding: 0 clamp(16px, 3vw, 32px);
+      padding: 0 var(--lb-page-pad-x);
       height: 56px;
       display: flex;
       align-items: center;

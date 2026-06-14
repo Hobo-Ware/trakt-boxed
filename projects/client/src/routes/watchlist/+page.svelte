@@ -52,9 +52,9 @@
 <style lang="scss">
   .watchlist {
     width: 100%;
-    max-width: 1600px;
+    max-width: var(--lb-page-max-width);
     margin: 0 auto;
-    padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);
+    padding: var(--lb-page-pad-y) var(--lb-page-pad-x);
 
     &__header {
       display: flex;

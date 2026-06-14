@@ -32,9 +32,9 @@
     min-height: 100dvh;
 
     &__hero {
-      padding: clamp(20px, 4vw, 64px) clamp(16px, 3vw, 32px) clamp(20px, 4vw, 48px);
+      padding: clamp(20px, 4vw, 64px) var(--lb-page-pad-x) clamp(20px, 4vw, 48px);
       width: 100%;
-      max-width: 1600px;
+      max-width: var(--lb-page-max-width);
       margin: 0 auto;
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -101,9 +101,9 @@
 
     &__shell {
       width: 100%;
-      max-width: 1600px;
+      max-width: var(--lb-page-max-width);
       margin: 0 auto;
-      padding: 0 clamp(16px, 3vw, 32px) clamp(40px, 6vw, 80px);
+      padding: 0 var(--lb-page-pad-x) clamp(40px, 6vw, 80px);
     }
 
     &__row-head {

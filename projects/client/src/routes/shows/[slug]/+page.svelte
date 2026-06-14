@@ -93,8 +93,8 @@
 <style lang="scss">
   .show-extras {
     width: 100%;
-    max-width: 1600px;
+    max-width: var(--lb-page-max-width);
     margin: 0 auto;
-    padding: 0 clamp(16px, 3vw, 32px);
+    padding: 0 var(--lb-page-pad-x);
   }
 </style>

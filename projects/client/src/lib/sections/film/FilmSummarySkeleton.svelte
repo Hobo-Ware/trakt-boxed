@@ -44,9 +44,9 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 1600px;
+      max-width: var(--lb-page-max-width);
       margin: 0 auto;
-      padding: clamp(120px, 18vw, 240px) clamp(16px, 3vw, 32px) 0;
+      padding: clamp(120px, 18vw, 240px) var(--lb-page-pad-x) 0;
       display: grid;
       grid-template-columns: 230px minmax(0, 1fr) 280px;
       gap: var(--gap-l);
@@ -157,7 +157,7 @@
 
     @include for-mobile {
       &__shell {
-        padding: clamp(80px, 30vw, 140px) var(--gap-s) 0;
+        padding: clamp(80px, 30vw, 140px) var(--lb-page-pad-x) 0;
         grid-template-columns: 120px minmax(0, 1fr);
       }
       &__left { margin-top: -20px; }

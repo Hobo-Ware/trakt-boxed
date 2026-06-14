@@ -97,9 +97,9 @@
 
   .lb-calendar {
     width: 100%;
-    max-width: 1600px;
+    max-width: var(--lb-page-max-width);
     margin: 0 auto;
-    padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);
+    padding: var(--lb-page-pad-y) var(--lb-page-pad-x);
     display: flex;
     flex-direction: column;
     gap: var(--gap-l);
@@ -162,12 +162,11 @@
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(var(--lb-calendar-card-min-w), 100%), 1fr)
+      );
       gap: var(--gap-s);
-
-      @include for-tablet-lg { grid-template-columns: repeat(4, 1fr); }
-      @include for-tablet-sm { grid-template-columns: repeat(3, 1fr); }
-      @include for-mobile { grid-template-columns: repeat(2, 1fr); }
     }
 
     &__skeleton {

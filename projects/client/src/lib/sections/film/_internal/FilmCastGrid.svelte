@@ -40,11 +40,11 @@
     margin: 0;
     padding: var(--gap-m) 0 0;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--lb-poster-min-w-sm), 100%), 1fr)
+    );
     gap: var(--gap-m);
-
-    @include for-tablet-sm { grid-template-columns: repeat(4, 1fr); }
-    @include for-mobile { grid-template-columns: repeat(3, 1fr); }
 
     &__item { margin: 0; }
 

@@ -48,9 +48,9 @@
 
     &__shell {
       width: 100%;
-      max-width: 1600px;
+      max-width: var(--lb-page-max-width);
       margin: 0 auto;
-      padding: 0 clamp(16px, 3vw, 32px) clamp(40px, 6vw, 80px);
+      padding: 0 var(--lb-page-pad-x) clamp(40px, 6vw, 80px);
     }
 
     &__empty {
@@ -85,11 +85,11 @@
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(var(--lb-card-min-w), 100%), 1fr)
+      );
       gap: var(--gap-m);
-
-      @include for-tablet-sm { grid-template-columns: repeat(2, 1fr); }
-      @include for-mobile { grid-template-columns: 1fr; }
     }
   }
 </style>

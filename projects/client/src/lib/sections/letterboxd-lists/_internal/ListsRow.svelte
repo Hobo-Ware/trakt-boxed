@@ -86,11 +86,11 @@
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(var(--lb-card-min-w), 100%), 1fr)
+      );
       gap: var(--gap-m);
-
-      @include for-tablet-sm { grid-template-columns: repeat(2, 1fr); }
-      @include for-mobile { grid-template-columns: 1fr; }
     }
   }
 </style>

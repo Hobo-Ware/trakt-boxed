@@ -32,9 +32,9 @@
 
     &__shell {
       width: 100%;
-      max-width: 1600px;
+      max-width: var(--lb-page-max-width);
       margin: 0 auto;
-      padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px) clamp(40px, 6vw, 80px);
+      padding: var(--lb-page-pad-y) var(--lb-page-pad-x) clamp(40px, 6vw, 80px);
       display: flex;
       flex-direction: column;
       gap: var(--gap-l);

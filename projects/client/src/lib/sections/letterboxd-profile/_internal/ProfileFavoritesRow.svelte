@@ -90,12 +90,11 @@
       padding: 0;
       margin: 0;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: clamp(8px, 1.2vw, 20px);
-
-      @include for-mobile {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(var(--lb-poster-min-w), 100%), 1fr)
+      );
+      gap: var(--lb-grid-gap);
     }
 
     &__empty {

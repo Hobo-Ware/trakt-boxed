@@ -94,9 +94,9 @@
 
     &__inner {
       width: 100%;
-      max-width: 1600px;
+      max-width: var(--lb-page-max-width);
       margin: 0 auto;
-      padding: 0 clamp(16px, 3vw, 32px);
+      padding: 0 var(--lb-page-pad-x);
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: var(--gap-l);

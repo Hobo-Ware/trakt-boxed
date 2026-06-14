@@ -120,4 +120,32 @@
    */
   --color-input-focus: var(--purple-500);
   --color-input-error: var(--red-600);
+
+  /**
+   * Letterboxd layout tokens. One source of truth for page chrome — every
+   * top-level shell pulls from these so side gutters, max widths, and grid
+   * minimums never drift across pages.
+   */
+  --lb-page-max-width: 1600px;
+  --lb-page-pad-x: clamp(16px, 4vw, 48px);
+  --lb-page-pad-y: clamp(24px, 4vw, 48px);
+
+  /* Fluid grid card minimums — `auto-fill, minmax(<min>, 1fr)` collapses */
+  /* gracefully at narrow widths without hand-tuned col-count breakpoints. */
+  --lb-poster-min-w: 140px;
+  --lb-poster-min-w-sm: 112px;
+  --lb-card-min-w: 260px;
+  --lb-calendar-card-min-w: 180px;
+  --lb-activity-card-min-w: 280px;
+
+  --lb-grid-gap: clamp(10px, 1.6vw, 20px);
+}
+
+@media (max-width: 480px) {
+  :root {
+    --lb-poster-min-w: 100px;
+    --lb-card-min-w: 100%;
+    --lb-calendar-card-min-w: 140px;
+    --lb-grid-gap: 8px;
+  }
 }
