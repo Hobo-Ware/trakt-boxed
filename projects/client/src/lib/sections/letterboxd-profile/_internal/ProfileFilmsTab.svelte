@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
   import { useInfiniteQuery } from '$lib/features/query/useQuery.ts';
+  import type { MovieEntry } from '$lib/requests/models/MovieEntry.ts';
   import { movieActivityHistoryQuery } from '$lib/requests/queries/users/movieActivityHistoryQuery.ts';
   import PosterGrid from '$lib/sections/film/PosterGrid.svelte';
   import PosterGridSkeleton from '$lib/sections/film/PosterGridSkeleton.svelte';
@@ -11,9 +12,20 @@
 
   const query = useInfiniteQuery(movieActivityHistoryQuery({ slug, limit: 35, page: 1 }));
 
+  // History returns one row per watch event; dedupe by movie id so each film
+  // appears once, ordered by most-recent watch.
   const entries = $derived(
     query.pipe(
-      map(($q) => ($q.data?.pages?.flatMap((p) => p.entries) ?? []).map((entry) => entry.movie)),
+      map(($q) => {
+        const seen = new Set<number>();
+        const out: MovieEntry[] = [];
+        for (const entry of $q.data?.pages?.flatMap((p) => p.entries) ?? []) {
+          if (seen.has(entry.movie.id)) continue;
+          seen.add(entry.movie.id);
+          out.push(entry.movie);
+        }
+        return out;
+      }),
     ),
   );
   const isLoading = $derived(
