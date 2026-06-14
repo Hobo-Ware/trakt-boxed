@@ -840,6 +840,46 @@
       "default": "This list is empty.",
       "description": "Empty state on the list view page."
     },
+    "members_eyebrow": {
+      "default": "Network",
+      "description": "Eyebrow above the members landing title."
+    },
+    "members_title": {
+      "default": "Members",
+      "description": "Title on the members landing page."
+    },
+    "members_subtitle": {
+      "default": "Activity from the people you follow.",
+      "description": "Subtitle on the members landing page."
+    },
+    "members_section_activity": {
+      "default": "Recent activity",
+      "description": "Section heading for the social activity feed."
+    },
+    "members_section_following": {
+      "default": "Following",
+      "description": "Section heading for the following list."
+    },
+    "members_section_followers": {
+      "default": "Followers",
+      "description": "Section heading for the followers list."
+    },
+    "members_activity_empty": {
+      "default": "No friend activity yet.",
+      "description": "Empty state for the social activity feed."
+    },
+    "members_following_empty": {
+      "default": "You aren't following anyone yet.",
+      "description": "Empty state when the current user follows nobody."
+    },
+    "members_followers_empty": {
+      "default": "No followers yet.",
+      "description": "Empty state when the current user has no followers."
+    },
+    "activity_verb_watched": {
+      "default": "watched",
+      "description": "Verb separator in a social activity row."
+    },
     "lists_row_more": {
       "default": "More",
       "description": "More link on a lists row."

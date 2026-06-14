@@ -12,13 +12,12 @@
   type Props = { type: 'movie' | 'show'; slug: string };
   const { type, slug }: Props = $props();
 
-  const query = $derived(
-    useInfiniteQuery(
-      type === 'movie'
-        ? movieRelatedQuery({ slug, limit: 14 })
-        : showRelatedQuery({ slug, limit: 14 }),
-    ),
-  );
+  const query = $derived.by(() => {
+    if (type === 'movie') {
+      return useInfiniteQuery(movieRelatedQuery({ slug, limit: 14 }));
+    }
+    return useInfiniteQuery(showRelatedQuery({ slug, limit: 14 }));
+  });
 
   const entries = $derived(
     query.pipe(

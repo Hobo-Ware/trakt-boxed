@@ -17,7 +17,13 @@
   mode="content-only"
 >
   {#if $user}
-    <LetterboxdProfile profile={$user} slug={$user.slug ?? $user.username} isMe={true} />
+    {@const profile = {
+      ...$user,
+      id: Number($user.id),
+      private: false,
+      isDeleted: false,
+    }}
+    <LetterboxdProfile profile={profile} slug={$user.slug ?? $user.username} isMe={true} />
   {:else}
     <ProfileSkeleton />
   {/if}

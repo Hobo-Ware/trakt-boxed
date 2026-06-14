@@ -26,32 +26,34 @@
 
   const { kind, slug, facet }: Props = $props();
 
-  const summary = $derived(
-    useQuery(kind === 'movie' ? movieSummaryQuery({ slug }) : showSummaryQuery({ slug })),
+  const summary = $derived.by(() =>
+    kind === 'movie'
+      ? useQuery(movieSummaryQuery({ slug }))
+      : useQuery(showSummaryQuery({ slug })),
   );
 
-  const watchers = $derived(
-    useQuery(kind === 'movie' ? movieWatchersQuery({ slug }) : showWatchersQuery({ slug })),
+  const watchers = $derived.by(() =>
+    kind === 'movie'
+      ? useQuery(movieWatchersQuery({ slug }))
+      : useQuery(showWatchersQuery({ slug })),
   );
 
-  const stats = $derived(
-    useQuery(kind === 'movie' ? movieStatsQuery({ slug }) : showStatsQuery({ slug })),
+  const stats = $derived.by(() =>
+    kind === 'movie'
+      ? useQuery(movieStatsQuery({ slug }))
+      : useQuery(showStatsQuery({ slug })),
   );
 
-  const comments = $derived(
-    useInfiniteQuery(
-      kind === 'movie'
-        ? movieCommentsQuery({ slug, sort: 'newest', limit: 20 })
-        : showCommentsQuery({ slug, sort: 'newest', limit: 20 }),
-    ),
+  const comments = $derived.by(() =>
+    kind === 'movie'
+      ? useInfiniteQuery(movieCommentsQuery({ slug, sort: 'newest', limit: 20 }))
+      : useInfiniteQuery(showCommentsQuery({ slug, sort: 'newest', limit: 20 })),
   );
 
-  const lists = $derived(
-    useInfiniteQuery(
-      kind === 'movie'
-        ? movieListsQuery({ slug, limit: 20 })
-        : showListsQuery({ slug, limit: 20 }),
-    ),
+  const lists = $derived.by(() =>
+    kind === 'movie'
+      ? useInfiniteQuery(movieListsQuery({ slug, limit: 20 }))
+      : useInfiniteQuery(showListsQuery({ slug, limit: 20 })),
   );
 
   const titleState = $derived(
@@ -166,7 +168,7 @@
                 </a>
                 <time class="facet-reviews__date">{dateFormatter.format(review.createdAt)}</time>
               </header>
-              <p class="facet-reviews__body">{truncate(review.text)}</p>
+              <p class="facet-reviews__body">{truncate(review.comment)}</p>
             </li>
           {/each}
         </ul>
