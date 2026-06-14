@@ -13,10 +13,6 @@
   const isLoading = $derived(
     query.pipe(map(($q) => $q.isLoading || ($q.isFetching && !$q.data))),
   );
-
-  const featured = $derived(($lists ?? []).slice(0, 3));
-  const popular = $derived(($lists ?? []).slice(3, 9));
-  const recentlyLiked = $derived(($lists ?? []).slice(9, 15));
 </script>
 
 <div class="lists-page">
@@ -30,34 +26,15 @@
           <div class="lists-page__skeleton-title"></div>
         </header>
         <ul class="lists-page__skeleton-grid">
-          {#each Array.from({ length: 3 }) as _, i (i)}
+          {#each Array.from({ length: 6 }) as _, i (i)}
             <li><ListCardSkeleton /></li>
           {/each}
         </ul>
       </section>
+    {:else if $lists.length > 0}
+      <ListsRow eyebrow={m.lists_row_trending()} lists={$lists} />
     {:else}
-      {#if featured.length > 0}
-        <ListsRow
-          eyebrow={m.lists_row_featured()}
-          rightLabel={m.lists_row_more()}
-          rightHref="/lists/official"
-          lists={featured}
-        />
-      {/if}
-      {#if popular.length > 0}
-        <ListsRow
-          eyebrow={m.lists_row_popular()}
-          rightLabel={m.lists_row_more()}
-          rightHref="/search?q=lists"
-          lists={popular}
-        />
-      {/if}
-      {#if recentlyLiked.length > 0}
-        <ListsRow
-          eyebrow={m.lists_row_recently_liked()}
-          lists={recentlyLiked}
-        />
-      {/if}
+      <p class="lists-page__empty">{m.lists_empty()}</p>
     {/if}
   </div>
 </div>
@@ -72,6 +49,12 @@
       max-width: 1600px;
       margin: 0 auto;
       padding: 0 clamp(16px, 3vw, 32px) clamp(40px, 6vw, 80px);
+    }
+
+    &__empty {
+      margin: var(--gap-l) 0;
+      color: var(--color-text-secondary);
+      text-align: center;
     }
 
     &__skeleton-row { padding-top: var(--gap-l); }
