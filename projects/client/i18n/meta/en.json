@@ -473,6 +473,30 @@
       "default": "Create account",
       "description": "Top-nav create-account link."
     },
+    "nav_link_calendar": {
+      "default": "Calendar",
+      "description": "Top-nav calendar link (replaces Journal)."
+    },
+    "calendar_eyebrow": {
+      "default": "Releases",
+      "description": "Eyebrow above the calendar title."
+    },
+    "calendar_title": {
+      "default": "Calendar",
+      "description": "Page title on the calendar page."
+    },
+    "calendar_subtitle": {
+      "default": "Episodes and films landing soon from the shows + films you track.",
+      "description": "Subtitle on the calendar page."
+    },
+    "calendar_releases": {
+      "default": "releases",
+      "description": "Suffix on the release count under the active day."
+    },
+    "calendar_empty_day": {
+      "default": "Nothing landing on this day.",
+      "description": "Empty state when the active day has no scheduled releases."
+    },
     "home_hero_eyebrow": {
       "default": "Featured",
       "description": "Eyebrow above the home page hero title."
