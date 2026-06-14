@@ -1,8 +1,10 @@
 <script lang="ts">
   import * as m from '$lib/features/i18n/messages.ts';
+  import type { MovieEntry } from '$lib/requests/models/MovieEntry.ts';
+  import type { ShowEntry } from '$lib/requests/models/ShowEntry.ts';
   import PosterGridSkeleton from '$lib/sections/film/PosterGridSkeleton.svelte';
   import { usePopularList } from '$lib/sections/lists/popular/usePopularList.ts';
-  import HomeHero from './_internal/HomeHero.svelte';
+  import HomeHeroCarousel from './_internal/HomeHeroCarousel.svelte';
   import HomeRow from './_internal/HomeRow.svelte';
 
   const { list: movies, isLoading: moviesLoading } = $derived(
@@ -13,12 +15,23 @@
     usePopularList({ type: 'show', limit: 7, page: 1 }),
   );
 
-  const featured = $derived($movies?.[0] ?? $shows?.[0]);
+  // Hero waits for BOTH movie + show top picks before mounting so the
+  // backdrop never blinks from show -> movie (or vice versa) when one
+  // query resolves before the other.
+  const heroEntries = $derived.by((): ReadonlyArray<MovieEntry | ShowEntry> => {
+    if ($moviesLoading || $showsLoading) return [];
+    const top: (MovieEntry | ShowEntry)[] = [];
+    const topMovie = $movies?.[0];
+    const topShow = $shows?.[0];
+    if (topMovie) top.push(topMovie);
+    if (topShow) top.push(topShow);
+    return top;
+  });
 </script>
 
 <div class="home">
-  {#if featured}
-    <HomeHero entry={featured} />
+  {#if heroEntries.length > 0}
+    <HomeHeroCarousel entries={heroEntries} />
   {:else}
     <div class="home__hero-placeholder" aria-hidden="true"></div>
   {/if}
