@@ -8,6 +8,7 @@
   import { followersQuery } from '$lib/requests/queries/users/followersQuery.ts';
   import { map } from 'rxjs';
   import * as m from '$lib/features/i18n/messages.ts';
+  import ProfileActivityTab from './_internal/ProfileActivityTab.svelte';
   import ProfileFavoritesRow from './_internal/ProfileFavoritesRow.svelte';
   import ProfileFilmsTab from './_internal/ProfileFilmsTab.svelte';
   import ProfileHero from './_internal/ProfileHero.svelte';
@@ -84,6 +85,8 @@
         {#if isMe}
           <ProfileWatchlistRow />
         {/if}
+      {:else if activeTab === 'activity'}
+        <ProfileActivityTab {slug} />
       {:else if activeTab === 'films'}
         <ProfileFilmsTab {slug} />
       {:else if activeTab === 'shows'}

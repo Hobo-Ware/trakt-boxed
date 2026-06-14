@@ -924,6 +924,24 @@
       "default": "Profile",
       "description": "Profile sub-tab label."
     },
+    "profile_tab_activity": {
+      "default": "Activity",
+      "description": "Profile sub-tab label for the watch history feed."
+    },
+    "profile_activity_empty": {
+      "default": "No activity yet.",
+      "description": "Empty state for the profile activity tab."
+    },
+    "avatar_menu_home": { "default": "Home", "description": "Avatar dropdown link." },
+    "avatar_menu_profile": { "default": "Profile", "description": "Avatar dropdown link." },
+    "avatar_menu_films": { "default": "Films", "description": "Avatar dropdown link." },
+    "avatar_menu_shows": { "default": "Shows", "description": "Avatar dropdown link." },
+    "avatar_menu_watchlist": { "default": "Watchlist", "description": "Avatar dropdown link." },
+    "avatar_menu_reviews": { "default": "Reviews", "description": "Avatar dropdown link." },
+    "avatar_menu_network": { "default": "Network", "description": "Avatar dropdown link." },
+    "avatar_menu_settings": { "default": "Settings", "description": "Avatar dropdown link." },
+    "avatar_menu_sign_out": { "default": "Sign out", "description": "Avatar dropdown sign-out button." },
+    "avatar_menu_activity": { "default": "Your activity", "description": "Aria label + tooltip for the lightning icon link to the social activity feed." },
     "profile_tab_films": {
       "default": "Films",
       "description": "Profile sub-tab label for the watched films grid."

@@ -14,6 +14,7 @@
   const tabs = $derived.by((): Tab[] => {
     const out: Tab[] = [
       { key: 'profile', label: m.profile_tab_profile() },
+      { key: 'activity', label: m.profile_tab_activity() },
       { key: 'films', label: m.profile_tab_films() },
       { key: 'shows', label: m.profile_tab_shows() },
     ];
