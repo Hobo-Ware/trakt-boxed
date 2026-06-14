@@ -880,6 +880,70 @@
       "default": "watched",
       "description": "Verb separator in a social activity row."
     },
+    "profile_tab_profile": {
+      "default": "Profile",
+      "description": "Profile sub-tab label."
+    },
+    "profile_tab_films": {
+      "default": "Films",
+      "description": "Profile sub-tab label for the watched films grid."
+    },
+    "profile_tab_watchlist": {
+      "default": "Watchlist",
+      "description": "Profile sub-tab label for the current user's watchlist."
+    },
+    "profile_tab_reviews": {
+      "default": "Reviews",
+      "description": "Profile sub-tab label for reviews/comments."
+    },
+    "profile_tab_network": {
+      "default": "Network",
+      "description": "Profile sub-tab label for following/followers."
+    },
+    "profile_tab_following": {
+      "default": "Following",
+      "description": "Section heading for the following list inside the profile network tab."
+    },
+    "profile_tab_followers": {
+      "default": "Followers",
+      "description": "Section heading for the followers list inside the profile network tab."
+    },
+    "profile_stat_films": {
+      "default": "Films",
+      "description": "Stat label above the films-watched count on the profile hero."
+    },
+    "profile_stat_following": {
+      "default": "Following",
+      "description": "Stat label above the following count on the profile hero."
+    },
+    "profile_stat_followers": {
+      "default": "Followers",
+      "description": "Stat label above the followers count on the profile hero."
+    },
+    "profile_section_watchlist": {
+      "default": "Watchlist",
+      "description": "Eyebrow above the watchlist preview row on the profile tab."
+    },
+    "profile_view_all": {
+      "default": "View all",
+      "description": "View-all link on profile preview rows."
+    },
+    "profile_films_empty": {
+      "default": "No films watched yet.",
+      "description": "Empty state for the films tab."
+    },
+    "profile_reviews_empty": {
+      "default": "No reviews yet.",
+      "description": "Empty state for the profile reviews tab."
+    },
+    "profile_following_empty": {
+      "default": "You aren't following anyone yet.",
+      "description": "Empty state when current user follows nobody."
+    },
+    "profile_followers_empty": {
+      "default": "No followers yet.",
+      "description": "Empty state when user has no followers."
+    },
     "lists_row_more": {
       "default": "More",
       "description": "More link on a lists row."
