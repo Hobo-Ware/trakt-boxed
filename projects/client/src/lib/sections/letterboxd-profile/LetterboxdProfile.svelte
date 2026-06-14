@@ -86,7 +86,7 @@
           <ProfileWatchlistRow />
         {/if}
       {:else if activeTab === 'activity'}
-        <ProfileActivityTab {slug} />
+        <ProfileActivityTab {slug} {isMe} />
       {:else if activeTab === 'films'}
         <ProfileFilmsTab {slug} />
       {:else if activeTab === 'shows'}

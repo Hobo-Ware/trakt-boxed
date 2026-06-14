@@ -932,6 +932,18 @@
       "default": "No activity yet.",
       "description": "Empty state for the profile activity tab."
     },
+    "profile_activity_friends_empty": {
+      "default": "No friend activity yet.",
+      "description": "Empty state for the friends scope of the profile activity tab."
+    },
+    "activity_scope_you": {
+      "default": "You",
+      "description": "Activity tab scope toggle: own watch history."
+    },
+    "activity_scope_friends": {
+      "default": "Friends",
+      "description": "Activity tab scope toggle: feed from people you follow."
+    },
     "avatar_menu_home": { "default": "Home", "description": "Avatar dropdown link." },
     "avatar_menu_profile": { "default": "Profile", "description": "Avatar dropdown link." },
     "avatar_menu_films": { "default": "Films", "description": "Avatar dropdown link." },
