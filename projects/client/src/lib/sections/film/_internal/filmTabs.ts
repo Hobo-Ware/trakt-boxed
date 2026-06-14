@@ -4,6 +4,7 @@ export type FilmTab =
   | 'details'
   | 'genres'
   | 'releases'
+  | 'seasons'
   | 'related'
   | 'reviews';
 
@@ -13,6 +14,7 @@ export const FILM_TABS: ReadonlyArray<FilmTab> = [
   'details',
   'genres',
   'releases',
+  'seasons',
   'related',
   'reviews',
 ];

@@ -20,14 +20,15 @@
   import FilmRelatedPanel from './_internal/FilmRelatedPanel.svelte';
   import FilmReleasesPanel from './_internal/FilmReleasesPanel.svelte';
   import FilmReviews from './_internal/FilmReviews.svelte';
+  import FilmSeasonsPanel from './_internal/FilmSeasonsPanel.svelte';
   import FilmTabsBar from './_internal/FilmTabsBar.svelte';
   import FilmWhereToWatch from './_internal/FilmWhereToWatch.svelte';
   import FilmTagline from './_internal/FilmTagline.svelte';
   import FilmTitleBlock from './_internal/FilmTitleBlock.svelte';
   import type { FilmSummaryProps } from './models/FilmSummaryProps.ts';
 
-  const { type, media, studios, crew, intl, streamOn, videos, sentiment }: FilmSummaryProps =
-    $props();
+  const { type, media, studios, crew, intl, streamOn, videos, sentiment, seasons }:
+    FilmSummaryProps = $props();
 
   const { isAuthorized } = useAuth();
 
@@ -136,7 +137,11 @@
         <FilmOverview text={overview} />
       {/if}
 
-      <FilmTabsBar active={activeTab} onSelect={selectTab} />
+      <FilmTabsBar
+        active={activeTab}
+        onSelect={selectTab}
+        showSeasons={type === 'show' && (seasons?.length ?? 0) > 0}
+      />
 
       <div
         class="film-summary__tab-body"
@@ -155,6 +160,8 @@
           <FilmGenresPanel {media} />
         {:else if activeTab === 'releases'}
           <FilmReleasesPanel {media} />
+        {:else if activeTab === 'seasons' && type === 'show'}
+          <FilmSeasonsPanel slug={media.slug} seasons={seasons ?? []} />
         {:else if activeTab === 'related'}
           <FilmRelatedPanel {type} slug={media.slug} />
         {:else}

@@ -365,6 +365,22 @@
       "default": "Related",
       "description": "Tab label for the related media section on the film page."
     },
+    "tab_label_seasons": {
+      "default": "Seasons",
+      "description": "Tab label for the seasons + episodes section on a show page."
+    },
+    "seasons_eyebrow": {
+      "default": "Season",
+      "description": "Eyebrow above each season's heading in the seasons tab."
+    },
+    "seasons_episodes": {
+      "default": "episodes",
+      "description": "Suffix on the episode count in a season row meta line."
+    },
+    "seasons_empty": {
+      "default": "No seasons yet.",
+      "description": "Empty state in the seasons tab."
+    },
     "tab_label_reviews": {
       "default": "Reviews",
       "description": "Tab label for the reviews section on the film page."

@@ -3,6 +3,7 @@ import type { MediaEntry } from '$lib/requests/models/MediaEntry.ts';
 import type { MediaStudio } from '$lib/requests/models/MediaStudio.ts';
 import type { MediaVideo } from '$lib/requests/models/MediaVideo.ts';
 import type { MovieEntry } from '$lib/requests/models/MovieEntry.ts';
+import type { Season } from '$lib/requests/models/Season.ts';
 import type { SentimentAnalysis } from '$lib/requests/models/SentimentAnalysis.ts';
 import type { ShowEntry } from '$lib/requests/models/ShowEntry.ts';
 export type FilmKind = 'movie' | 'show';
@@ -29,4 +30,5 @@ export type FilmSummaryProps = {
   streamOn: FilmStreamingState;
   videos: MediaVideo[];
   sentiment: SentimentAnalysis | Nil;
+  seasons?: ReadonlyArray<Season>;
 };

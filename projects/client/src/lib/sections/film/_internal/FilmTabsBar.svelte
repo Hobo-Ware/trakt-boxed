@@ -5,19 +5,25 @@
   type Props = {
     active: FilmTab;
     onSelect: (tab: FilmTab) => void;
+    showSeasons?: boolean;
   };
 
-  const { active, onSelect }: Props = $props();
+  const { active, onSelect, showSeasons = false }: Props = $props();
 
-  const tabs: { key: FilmTab; label: string }[] = $derived([
-    { key: 'cast', label: m.tab_label_cast() },
-    { key: 'crew', label: m.tab_label_crew() },
-    { key: 'details', label: m.tab_label_details() },
-    { key: 'genres', label: m.tab_label_genres() },
-    { key: 'releases', label: m.tab_label_releases() },
-    { key: 'related', label: m.tab_label_related() },
-    { key: 'reviews', label: m.tab_label_reviews() },
-  ]);
+  type Tab = { key: FilmTab; label: string };
+  const tabs = $derived.by((): Tab[] => {
+    const list: Tab[] = [
+      { key: 'cast', label: m.tab_label_cast() },
+      { key: 'crew', label: m.tab_label_crew() },
+      { key: 'details', label: m.tab_label_details() },
+      { key: 'genres', label: m.tab_label_genres() },
+      { key: 'releases', label: m.tab_label_releases() },
+    ];
+    if (showSeasons) list.push({ key: 'seasons', label: m.tab_label_seasons() });
+    list.push({ key: 'related', label: m.tab_label_related() });
+    list.push({ key: 'reviews', label: m.tab_label_reviews() });
+    return list;
+  });
 
   const tabId = (key: FilmTab) => `film-tab-${key}`;
   const panelId = (key: FilmTab) => `film-tabpanel-${key}`;

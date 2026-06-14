@@ -76,6 +76,7 @@
       streamOn={$streamOn}
       videos={$videos}
       sentiment={$sentiment}
+      seasons={$seasons}
     />
     <div class="show-extras">
       <SeasonPicker
