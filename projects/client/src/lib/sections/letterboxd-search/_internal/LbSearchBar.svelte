@@ -84,7 +84,9 @@
       onclick={onClear}
     >×</button>
   {/if}
-  <span class="lb-search-bar__loading" data-active={$isSearching ? 'true' : undefined} aria-hidden="true"></span>
+  <span class="lb-search-bar__loading-track" aria-hidden="true">
+    <span class="lb-search-bar__loading" data-active={$isSearching ? 'true' : undefined}></span>
+  </span>
 </form>
 
 <style lang="scss">
@@ -141,11 +143,18 @@
       &:hover { color: var(--color-text-primary); background: color-mix(in srgb, var(--shade-10) 6%, transparent); }
     }
 
-    &__loading {
+    &__loading-track {
       position: absolute;
       inset: auto 0 -1px 0;
       height: 1px;
       pointer-events: none;
+      overflow: hidden;
+    }
+
+    &__loading {
+      display: block;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(
         90deg,
         transparent 0%,
