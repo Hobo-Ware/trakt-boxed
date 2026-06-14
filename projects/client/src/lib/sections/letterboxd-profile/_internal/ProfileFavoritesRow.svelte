@@ -90,11 +90,11 @@
       padding: 0;
       margin: 0;
       display: grid;
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax(min(var(--lb-poster-min-w), 100%), 1fr)
-      );
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: var(--lb-grid-gap);
+
+      @include for-tablet-sm { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      @include for-mobile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     &__empty {

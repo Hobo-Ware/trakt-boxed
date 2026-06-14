@@ -82,11 +82,12 @@
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax(min(var(--lb-poster-min-w), 100%), 1fr)
-      );
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: var(--lb-grid-gap);
+
+      @include for-tablet-lg { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      @include for-tablet-sm { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      @include for-mobile { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
   }
 </style>

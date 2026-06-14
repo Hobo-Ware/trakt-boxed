@@ -34,3 +34,6 @@ coverage
 # ai junk
 .todos
 .superpowers
+
+# Probe artifacts
+projects/client/scripts/probe-out

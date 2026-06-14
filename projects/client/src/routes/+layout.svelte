@@ -94,6 +94,12 @@
   <!-- Plyr JS -->
   <script src="https://cdn.plyr.io/3.8.3/plyr.js"></script>
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     html,
     body {
       margin: 0;
@@ -103,6 +109,10 @@
       height: -moz-available;
       height: -webkit-fill-available;
       height: fill-available;
+      /* Prevent any descendant from forcing a horizontal scrollbar (e.g.
+         absolutely-positioned tooltips, dropdowns, or hero backdrops
+         extending past the viewport edge). */
+      overflow-x: clip;
     }
 
     html::before {
