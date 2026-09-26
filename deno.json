@@ -1,12 +1,15 @@
 {
   "workspace": [
-    "./projects/client"
+    "./projects/client",
+    "./projects/boxed"
   ],
   "tasks": {
     "reinstall": "deno install --allow-scripts --reload",
     "install": "deno install --allow-scripts --frozen",
     "format": "deno fmt && deno lint --fix",
     "client:dev": "cd projects/client && deno task dev",
+    "boxed:dev": "cd projects/boxed && deno task dev",
+    "boxed:mirror": "cd projects/boxed && deno run -A .scripts/mirror-legacy-routes.ts",
     "client:dev:contrib": "cd projects/client && deno task dev:contrib",
     "client:i18n:resolve": "cd projects/client && deno task i18n:resolve"
   },
