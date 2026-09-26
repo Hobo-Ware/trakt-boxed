@@ -10898,6 +10898,26 @@
     "boxed_log_save_failed": {
       "default": "Couldn't save everything. Please try again.",
       "description": "Error shown in the log composer when one of the save steps (watch, rating, like, review, note) fails."
+    },
+    "boxed_home_greeting": {
+      "default": "Welcome back, {name}.",
+      "description": "Serif greeting at the top of the signed-in home page. {name} is the user's first name or username."
+    },
+    "boxed_home_subtitle": {
+      "default": "Here's what your friends have been watching.",
+      "description": "Subtitle under the home greeting."
+    },
+    "boxed_home_just_watched": {
+      "default": "Just watched",
+      "description": "Home rail of friends who watched something in the last few hours."
+    },
+    "boxed_home_new_from_friends": {
+      "default": "New from friends",
+      "description": "Home section of posters recently watched by people the user follows."
+    },
+    "boxed_home_out_this_week": {
+      "default": "Out this week",
+      "description": "Home section of new episodes and releases for the user in the coming days."
     }
   }
 }

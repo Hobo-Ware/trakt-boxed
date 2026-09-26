@@ -119,7 +119,7 @@
   </div>
 
   {#if meta}
-    {@render meta()}
+    <div class="boxed-poster-meta">{@render meta()}</div>
   {:else if showUserMeta}
     <div class="boxed-poster-meta">
       {#if $rating !== null}
@@ -249,7 +249,7 @@
   }
 
   .boxed-poster-meta {
-    height: var(--ni-16);
+    height: var(--ni-20);
 
     display: flex;
     align-items: center;
