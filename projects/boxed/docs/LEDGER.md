@@ -16,25 +16,25 @@ The anchor for every session. Read this first, then `PLAN.md`.
 ## Rules for every session
 
 1. Pick the next unchecked item below. Build it to its design board.
-2. **Presentation only.** The technical architecture is inherited from
-   trakt-web 1:1, never reinvented: models, HTTP requests (`defineQuery`,
-   mappers, Zod schemas, offline queue), authorization, theming (light / dark /
-   system + seasonal), localization (Paraglide, 28 locales, RTL), query
-   client, feature state, stores and utils are imported from `$lib` (= `projects/client/src/lib`)
-   and route hooks via `$clientRoutes`. Never fork or rewrite them in boxed;
-   never change their behaviour in `projects/client`. Additive i18n keys
-   (`boxed_*`) in `projects/client/i18n/meta/en.json` are the only allowed
-   client edit. New components use only semantic theme tokens
+2. **Presentation only.** The technical architecture is inherited from trakt-web
+   1:1, never reinvented: models, HTTP requests (`defineQuery`, mappers, Zod
+   schemas, offline queue), authorization, theming (light / dark / system +
+   seasonal), localization (Paraglide, 28 locales, RTL), query client, feature
+   state, stores and utils are imported from `$lib` (=
+   `projects/client/src/lib`) and route hooks via `$clientRoutes`. Never fork or
+   rewrite them in boxed; never change their behaviour in `projects/client`.
+   Additive i18n keys (`boxed_*`) in `projects/client/i18n/meta/en.json` are the
+   only allowed client edit. New components use only semantic theme tokens
    (`--color-*`, palette vars), never raw hex, so light, dark and seasonal
    themes all keep working.
 3. No fan-out requests, nothing slow above the fold (PLAN 2b).
 4. Every async region has a same-size skeleton. Measure CLS with the harness
-   (`~/Git/Hoboware/letterboxd-research/harness/shoot.ts`, `SLOW='/api/trakt/'`),
-   target 0.00, fail above 0.01.
+   (`~/Git/Hoboware/letterboxd-research/harness/shoot.ts`,
+   `SLOW='/api/trakt/'`), target 0.00, fail above 0.01.
 5. Verify: `deno task check` (boxed), unit tests, desktop + mobile screenshots
    compared against the board.
-6. Replace the page's `legacy-mount` wrapper folder under `src/routes` with
-   real files; run `deno task boxed:mirror` afterwards so nothing is lost.
+6. Replace the page's `legacy-mount` wrapper folder under `src/routes` with real
+   files; run `deno task boxed:mirror` afterwards so nothing is lost.
 7. One conventional commit per verified item; update this ledger in the same
    commit (status, commit sha, CLS numbers).
 
@@ -45,9 +45,11 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 ### Wave 1 - foundation
 
 - [x] Boxed app shell, legacy mounts, top bar, mobile tab bar (`35cf5361f`)
-- [ ] Tokens: state colours, Newsreader title face with metric-matched fallback
-- [ ] Poster tile: 3-state outline, show progress bar, hover drawer, long-press (board `Posters`)
-- [ ] Shared primitives: section header, poster row/grid, skeletons, stars display, page container, backdrop hero
+- [x] Tokens: state colours in `app.html` (Newsreader title face moves to wave 3, loaded only once a page uses it)
+- [ ] Poster tile: 3-state outline, show progress bar, hover drawer, long-press
+      (board `Posters`)
+- [ ] Shared primitives: section header, poster row/grid, skeletons, stars
+      display, page container, backdrop hero
 
 ### Wave 2 - logging
 
@@ -57,15 +59,17 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 3 - films
 
-- [ ] Film page `/movies/[slug]` (boards `Film`, `Film-mobile`, `Twist-A`)
+- [ ] Film page `/movies/[slug]` (boards `Film`, `Film-mobile`, `Twist-A`), incl. backdrop hero + Newsreader
 - [ ] Engagement tabs `/movies/[slug]/{reviews,members,lists}` (board `Facet`)
 - [ ] Your activity `/movies/[slug]/activity`
 
 ### Wave 4 - shows
 
-- [ ] Show page `/shows/[slug]` (boards `Show`, `Show-mobile`, `Twist-A`, `Twist-A-mobile`)
+- [ ] Show page `/shows/[slug]` (boards `Show`, `Show-mobile`, `Twist-A`,
+      `Twist-A-mobile`)
 - [ ] Season page `/shows/[slug]/seasons/[n]` (board `Season`)
-- [ ] Episode page `/shows/[slug]/seasons/[n]/episodes/[e]` (boards `Episode`, `Episode-mobile`)
+- [ ] Episode page `/shows/[slug]/seasons/[n]/episodes/[e]` (boards `Episode`,
+      `Episode-mobile`)
 - [ ] Show engagement tabs + activity
 
 ### Wave 5 - home and discovery

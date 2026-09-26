@@ -10802,6 +10802,10 @@
     "image_alt_comment_gif": {
       "default": "GIF attached to the comment",
       "description": "Alt text for the GIF rendered underneath a posted comment."
+    },
+    "boxed_label_rated_stars": {
+      "default": "Rated {stars} out of 5 stars",
+      "description": "Screen reader label for a read-only star rating shown under a poster or on a review. {stars} is a number like 4.5."
     }
   }
 }
