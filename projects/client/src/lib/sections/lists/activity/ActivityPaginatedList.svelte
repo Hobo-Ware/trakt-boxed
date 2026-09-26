@@ -7,7 +7,7 @@
   import type { SocialActivity } from "$lib/requests/models/SocialActivity";
   import { HISTORY_UPPER_LIMIT } from "$lib/utils/constants";
   import SocialActivityItem from "./_internal/SocialActivityItem.svelte";
-  import { useActivityList } from "./_internal/useActivityList";
+  import { useActivityList } from "./useActivityList";
 
   const { mode } = useDiscover();
   const { filterMap } = useFilter();
