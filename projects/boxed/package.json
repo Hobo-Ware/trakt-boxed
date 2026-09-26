@@ -4,11 +4,11 @@
   "type": "module",
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "i18n": "cd ../client && deno task i18n:web",
+    "i18n": "cd ../client && deno task i18n:prepare",
     "dev": "deno task i18n && vite dev --port 5210",
     "build": "deno task i18n && vite build",
     "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check": "svelte-kit sync && NODE_OPTIONS=--max-old-space-size=8192 svelte-check --tsconfig ./tsconfig.json --threshold error",
     "test:unit": "vitest"
   },
   "dependencies": {

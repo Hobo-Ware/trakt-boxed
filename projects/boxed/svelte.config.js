@@ -47,6 +47,7 @@ const config = {
     },
     alias: {
       '$boxed': './src/boxed',
+      '$clientRoutes': join(CLIENT, 'src/routes'),
       '$mocks': join(CLIENT, 'src/mocks'),
       '$worker': join(CLIENT, 'src/worker'),
       '$test': join(CLIENT, 'test'),

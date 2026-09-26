@@ -7,9 +7,10 @@
   import HomeIcon from "$lib/components/icons/mobile/HomeIcon.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import RenderFor from "$lib/guards/RenderFor.svelte";
-  import { useNavbarState } from "$lib/sections/navbar/useNavbarState";
+  import { useWebviewSession } from "$lib/features/webview/useWebviewSession.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import type { Component } from "svelte";
+  import { isChromelessPath } from "./_internal/isChromelessPath.ts";
 
   type Tab = {
     key: string;
@@ -53,13 +54,16 @@
     },
   ];
 
-  const { state } = useNavbarState();
+  const webview = useWebviewSession();
+  const isHidden = $derived(
+    isChromelessPath(page.url.pathname) || webview.isStandalone,
+  );
 
   const isActive = (href: string) => page.url.pathname === href;
 </script>
 
 <RenderFor audience="authenticated" device={["mobile", "tablet-sm"]}>
-  {#if $state.mode !== "hidden"}
+  {#if !isHidden}
   <div class="boxed-tabbar-spacer" aria-hidden="true"></div>
   <nav class="boxed-tabbar" aria-label={m.page_title_home()}>
     {#each tabs as tab (tab.key)}

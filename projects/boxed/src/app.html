@@ -91,6 +91,28 @@
     </noscript>
     <!-- Base styles -->
     <style>
+      html {
+        scrollbar-gutter: stable;
+      }
+
+      :root {
+        --boxed-header-height: 4rem;
+        --boxed-tabbar-height: calc(4rem + env(safe-area-inset-bottom, 0px));
+        --boxed-content-max-width: 80rem;
+        --layout-sidebar-distance: 0rem;
+
+        --boxed-color-watched: var(--green-500);
+        --boxed-color-watchlist: var(--blue-400);
+        --boxed-color-liked: var(--red-400);
+        --boxed-color-star: var(--orange-400);
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --boxed-header-height: 3.25rem;
+        }
+      }
+
       /* Arial scaled to the measured width and line metrics of each webfont,
          per weight (Tajawal for the Arabic range), so the swap does not re-wrap. */
       @font-face {
