@@ -27,6 +27,6 @@
   }
 
   .boxed-poster-skeleton-meta {
-    height: var(--ni-16);
+    height: var(--ni-20);
   }
 </style>

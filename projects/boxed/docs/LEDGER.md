@@ -76,7 +76,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 ### Wave 5 - home and discovery
 
 - [ ] Landing `/` (board `Landing`)
-- [ ] Home `/home` (boards `Home`, `Home-mobile`, `Twist-C`, `Twist-C-mobile`)
+- [x] Home `/home` (boards `Home`, `Home-mobile`, `Twist-C`, `Twist-C-mobile`): greeting + streak, Just watched rail and New from friends (both from the one friends feed request, no per-friend calls), Up next cards with one-tap mark watched, then viewport-gated Start watching, Out this week, Popular, Recommended. Popular reviews from friends is left out: no cheap endpoint (PLAN 2b). CLS 0.0000 desktop + mobile, slow and fast, scrolled
 - [ ] Films / Shows landing (board `Browse`)
 - [ ] Charts + facet grids (board `Browse-grid`)
 - [ ] Calendar (board `Calendar`)

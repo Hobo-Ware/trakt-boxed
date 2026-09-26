@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import PosterSkeleton from "./PosterSkeleton.svelte";
   import PosterTile from "./PosterTile.svelte";
   import type { PosterMedia } from "./PosterMedia.ts";
@@ -8,6 +9,7 @@
     columns?: number;
     skeletonCount?: number;
     showUserMeta?: boolean;
+    meta?: Snippet<[PosterMedia]>;
   };
 
   const {
@@ -15,6 +17,7 @@
     columns = 6,
     skeletonCount = columns * 2,
     showUserMeta = false,
+    meta,
   }: PosterGridProps = $props();
 </script>
 
@@ -25,11 +28,16 @@
 >
   {#if items}
     {#each items as media (media.key)}
-      <PosterTile {media} {showUserMeta} />
+      {#if meta}
+        {#snippet tileMeta()}{@render meta(media)}{/snippet}
+        <PosterTile {media} meta={tileMeta} />
+      {:else}
+        <PosterTile {media} {showUserMeta} />
+      {/if}
     {/each}
   {:else}
     {#each { length: skeletonCount }, index (index)}
-      <PosterSkeleton {showUserMeta} />
+      <PosterSkeleton showUserMeta={showUserMeta || Boolean(meta)} />
     {/each}
   {/if}
 </div>
