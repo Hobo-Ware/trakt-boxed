@@ -10,7 +10,7 @@
   import { getNoteValidation } from "./_internal/getNoteValidation";
   import { mapToNoteType } from "./_internal/mapToNoteType";
   import { useEditNote } from "./_internal/useEditNote";
-  import { usePostNote } from "./_internal/usePostNote";
+  import { usePostNote } from "./usePostNote";
   import type { NoteDrawerProps } from "./models/NoteDrawerProps";
 
   type PostMode = {

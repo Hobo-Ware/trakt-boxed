@@ -12,8 +12,8 @@ import { CommentError } from '$lib/sections/summary/components/comments/_interna
 import { resolve } from '$lib/utils/store/resolve.ts';
 import { isHttpError } from '@sveltejs/kit';
 import { BehaviorSubject } from 'rxjs';
-import type { CommentsProps } from '../CommentsProps.ts';
-import { mapToCommentError } from './mapToCommentError.ts';
+import type { CommentsProps } from './CommentsProps.ts';
+import { mapToCommentError } from './_internal/mapToCommentError.ts';
 
 type ReplyProps = {
   id: number;

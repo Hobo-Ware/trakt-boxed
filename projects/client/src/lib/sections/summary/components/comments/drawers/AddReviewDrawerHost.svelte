@@ -22,7 +22,7 @@
   import {
     type UseAddCommentProps,
     usePostComment,
-  } from "../_internal/usePostComment.ts";
+  } from "../usePostComment.ts";
   import type { CommentsProps } from "../CommentsProps.ts";
 
   import { gifPop } from "./_internal/gifPop.ts";
