@@ -6,7 +6,7 @@
   import CtaItem from "../components/cta/CtaItem.svelte";
   import DrillableMediaList from "../drilldown/DrillableMediaList.svelte";
   import SocialActivityItem from "./_internal/SocialActivityItem.svelte";
-  import { useActivityList } from "./_internal/useActivityList.ts";
+  import { useActivityList } from "./useActivityList.ts";
 
   /** once we have a proper social hub we should encourage people to find other users to follow, aka: empty placeholder */
 

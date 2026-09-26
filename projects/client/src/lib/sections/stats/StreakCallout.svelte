@@ -16,7 +16,7 @@
   import StreakIcon from "./_internal/icons/StreakIcon.svelte";
   import StreakAccumulator from "./_internal/StreakAccumulator.svelte";
   import { useActivityHeatmap } from "./_internal/useActivityHeatmap.ts";
-  import { useStreak } from "./_internal/useStreak";
+  import { useStreak } from "./useStreak";
 
   const { mode } = useDiscover();
 

@@ -8,7 +8,7 @@ import type { SocialActivity } from '$lib/requests/models/SocialActivity.ts';
 import { socialActivityQuery } from '$lib/requests/queries/users/socialActivityQuery.ts';
 import { usePaginatedListQuery } from '$lib/sections/lists/stores/usePaginatedListQuery.ts';
 import { map } from 'rxjs';
-import { mapToActivityCalendar } from '../../stores/_internal/mapToActivityCalendar.ts';
+import { mapToActivityCalendar } from '../stores/_internal/mapToActivityCalendar.ts';
 
 type DateRange = {
   startDate: Date;

@@ -3,7 +3,7 @@ import type { DiscoverMode } from '$lib/features/filters/models/DiscoverMode.ts'
 import { getDayKey } from '$lib/utils/date/getDayKey.ts';
 import { multicast } from '$lib/utils/store/multicast.ts';
 import { map } from 'rxjs';
-import { filterWatchedDates } from './filterWatchedDates.ts';
+import { filterWatchedDates } from './_internal/filterWatchedDates.ts';
 
 type StreakResult = {
   readonly count: number;

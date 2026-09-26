@@ -4,7 +4,7 @@
   import * as m from "$lib/features/i18n/messages";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import TraktPageCoverSetter from "$lib/sections/layout/TraktPageCoverSetter.svelte";
-  import { useActivityList } from "$lib/sections/lists/activity/_internal/useActivityList";
+  import { useActivityList } from "$lib/sections/lists/activity/useActivityList";
 
   import ActivityPaginatedList from "$lib/sections/lists/activity/ActivityPaginatedList.svelte";
   import ResponsiveNavbarStateSetter from "$lib/sections/navbar/ResponsiveNavbarStateSetter.svelte";
