@@ -12,7 +12,7 @@ import { toPercentage } from '../../../utils/formatting/number/toPercentage.ts';
 import { generateCountryOptions } from './generateCountryOptions.ts';
 import { generateRegionOptions } from './generateRegionOptions.ts';
 import { generateRuntimeOptions } from './generateRuntimeOptions.ts';
-import { GENRES } from './genres.ts';
+import { GENRES } from '../genres.ts';
 
 export const SEASONAL_STORAGE_KEY = 'trakt_seasonal_filter';
 export const DISCOVER_MODE_PARAM = 'mode';
