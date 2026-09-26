@@ -10806,6 +10806,98 @@
     "boxed_label_rated_stars": {
       "default": "Rated {stars} out of 5 stars",
       "description": "Screen reader label for a read-only star rating shown under a poster or on a review. {stars} is a number like 4.5."
+    },
+    "boxed_log_eyebrow": {
+      "default": "I watched…",
+      "description": "Small uppercase eyebrow above the title in the log composer."
+    },
+    "boxed_log_button": {
+      "default": "Log",
+      "description": "Text of the primary top bar button that opens the log composer."
+    },
+    "boxed_log_button_label": {
+      "default": "Log a movie or episode",
+      "description": "Accessible label for the button that opens the log composer."
+    },
+    "boxed_log_picker_title": {
+      "default": "What did you watch?",
+      "description": "Heading of the search step before the log composer, where the user picks a movie or show."
+    },
+    "boxed_log_add_to_diary": {
+      "default": "Add to your diary",
+      "description": "Checkbox in the log composer: record a dated watch. Unchecked means only rate, like or review."
+    },
+    "boxed_log_watched_on": {
+      "default": "Watched",
+      "description": "Label in front of the watch date options (Just now, Release date, Other date, Unknown date)."
+    },
+    "boxed_log_rewatch": {
+      "default": "Rewatch",
+      "description": "Chip shown in the log composer when the user has watched this title before."
+    },
+    "boxed_log_review_label": {
+      "default": "Review",
+      "description": "Label of the review text area in the log composer."
+    },
+    "boxed_log_review_placeholder": {
+      "default": "Add a review…",
+      "description": "Placeholder of the review text area in the log composer."
+    },
+    "boxed_log_review_too_short": {
+      "default": "Reviews need at least 5 words.",
+      "description": "Validation hint when the review is shorter than Trakt's 5 word minimum."
+    },
+    "boxed_log_contains_spoilers": {
+      "default": "Contains spoilers",
+      "description": "Checkbox marking the review as a spoiler."
+    },
+    "boxed_log_like": {
+      "default": "Like",
+      "description": "Label of the like (favorite) heart toggle in the log composer."
+    },
+    "boxed_log_note_label": {
+      "default": "Private note",
+      "description": "Label of the private note field in the log composer."
+    },
+    "boxed_log_note_hint": {
+      "default": "Only you can see this.",
+      "description": "Helper under the private note field."
+    },
+    "boxed_log_save": {
+      "default": "Save",
+      "description": "Primary button that saves everything in the log composer."
+    },
+    "boxed_log_saved": {
+      "default": "Saved to your diary",
+      "description": "Toast after the log composer saves."
+    },
+    "boxed_log_up_next": {
+      "default": "Up next",
+      "description": "Label of the suggested next episode in the log picker."
+    },
+    "boxed_log_rate_all": {
+      "default": "One rating for all",
+      "description": "Option to give every selected episode the same rating."
+    },
+    "boxed_log_rate_each": {
+      "default": "Rate each",
+      "description": "Option to rate every selected episode separately."
+    },
+    "boxed_log_rate_season": {
+      "default": "Also rate season {number}",
+      "description": "Collapsible row to rate the whole season from the episode log composer."
+    },
+    "boxed_log_select_episodes": {
+      "default": "Pick the episodes you watched",
+      "description": "Helper above the episode chips in the episode log composer."
+    },
+    "boxed_log_episode_count_one": {
+      "default": "1 episode",
+      "description": "Count of selected episodes in the episode log composer when exactly one is selected. The plural form reuses text_streaming_count_episodes."
+    },
+    "boxed_log_save_failed": {
+      "default": "Couldn't save everything. Please try again.",
+      "description": "Error shown in the log composer when one of the save steps (watch, rating, like, review, note) fails."
     }
   }
 }

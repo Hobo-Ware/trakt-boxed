@@ -2,7 +2,7 @@
   import { page } from "$app/state";
   import DiscoverIcon from "$lib/components/icons/DiscoverIcon.svelte";
   import ProfileIcon from "$lib/components/icons/ProfileIcon.svelte";
-  import SearchIcon from "$lib/components/icons/SearchIcon.svelte";
+  import PlusIcon from "$lib/components/icons/PlusIcon.svelte";
   import ShowIcon from "$lib/components/icons/ShowIcon.svelte";
   import HomeIcon from "$lib/components/icons/mobile/HomeIcon.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -10,6 +10,7 @@
   import { useWebviewSession } from "$lib/features/webview/useWebviewSession.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import type { Component } from "svelte";
+  import { logComposerStore } from "../log/logComposerStore.ts";
   import { isChromelessPath } from "./_internal/isChromelessPath.ts";
 
   type Tab = {
@@ -17,7 +18,6 @@
     href: string;
     text: string;
     icon: Component;
-    isPrimary?: boolean;
   };
 
   const tabs: ReadonlyArray<Tab> = [
@@ -32,13 +32,6 @@
       href: UrlBuilder.discover(),
       text: m.page_title_discover(),
       icon: DiscoverIcon,
-    },
-    {
-      key: "search",
-      href: UrlBuilder.search(),
-      text: m.page_title_search(),
-      icon: SearchIcon,
-      isPrimary: true,
     },
     {
       key: "watching",
@@ -66,10 +59,20 @@
   {#if !isHidden}
   <div class="boxed-tabbar-spacer" aria-hidden="true"></div>
   <nav class="boxed-tabbar" aria-label={m.page_title_home()}>
-    {#each tabs as tab (tab.key)}
+    {#each tabs as tab, index (tab.key)}
+      {#if index === 2}
+        <button
+          type="button"
+          class="boxed-tab is-primary"
+          aria-label={m.boxed_log_button_label()}
+          onclick={logComposerStore.openPicker}
+        >
+          <span class="boxed-tab-icon"><PlusIcon /></span>
+          <span class="boxed-tab-text">{m.boxed_log_button()}</span>
+        </button>
+      {/if}
       <a
         class="boxed-tab"
-        class:is-primary={tab.isPrimary}
         class:is-active={isActive(tab.href)}
         aria-current={isActive(tab.href) ? "page" : undefined}
         href={tab.href}
@@ -113,6 +116,11 @@
 
   .boxed-tab {
     height: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    cursor: pointer;
 
     display: flex;
     flex-direction: column;

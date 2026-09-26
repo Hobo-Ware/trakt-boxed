@@ -9,6 +9,8 @@
   import JoinTraktButton from "$lib/sections/navbar/components/JoinTraktButton.svelte";
   import { useWebviewSession } from "$lib/features/webview/useWebviewSession.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
+  import PlusIcon from "$lib/components/icons/PlusIcon.svelte";
+  import { logComposerStore } from "../log/logComposerStore.ts";
   import AccountMenu from "./AccountMenu.svelte";
   import { isChromelessPath } from "./_internal/isChromelessPath.ts";
   import { siteSectionFor, type SiteSection } from "./_internal/siteSectionFor.ts";
@@ -105,6 +107,15 @@
         <JoinTraktButton size="small" />
       </RenderFor>
       <RenderFor audience="authenticated">
+        <button
+          type="button"
+          class="boxed-log-button"
+          aria-label={m.boxed_log_button_label()}
+          onclick={logComposerStore.openPicker}
+        >
+          <PlusIcon />
+          <span>{m.boxed_log_button()}</span>
+        </button>
         <AccountMenu />
       </RenderFor>
     </div>
@@ -218,6 +229,42 @@
     :global(svg) {
       width: var(--ni-22);
       height: var(--ni-22);
+    }
+  }
+
+  .boxed-log-button {
+    height: var(--ni-36);
+    padding-inline: var(--ni-12) var(--ni-16);
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-xs);
+
+    border: none;
+    border-radius: var(--border-radius-m);
+    background: var(--purple-500);
+    color: var(--shade-10);
+    font: inherit;
+    font-size: var(--ni-14);
+    font-weight: 600;
+    cursor: pointer;
+
+    :global(svg) {
+      width: var(--ni-16);
+      height: var(--ni-16);
+    }
+
+    &:hover {
+      background: var(--purple-600);
+    }
+
+    &:focus-visible {
+      outline: var(--border-thickness-xs) solid var(--color-link-active);
+      outline-offset: var(--ni-2);
+    }
+
+    @include for-tablet-sm-and-below {
+      display: none;
     }
   }
 

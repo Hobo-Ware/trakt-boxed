@@ -14,6 +14,8 @@
   import { useMarkAsWatched } from "$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts";
   import { useWatchlist } from "$lib/sections/media-actions/watchlist/useWatchlist.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
+  import PlusIcon from "$lib/components/icons/PlusIcon.svelte";
+  import { logComposerStore } from "../../log/logComposerStore.ts";
   import type { PosterMedia } from "../PosterMedia.ts";
 
   const { media }: { media: PosterMedia } = $props();
@@ -110,6 +112,16 @@
     title={media.title}
   >
     {#snippet items()}
+      <DropdownItem
+        label={m.boxed_log_button_label()}
+        style="flat"
+        color="default"
+        variant="secondary"
+        onclick={() => logComposerStore.compose({ type: media.type, media })}
+      >
+        {m.boxed_log_button()}
+        {#snippet icon()}<PlusIcon />{/snippet}
+      </DropdownItem>
       <DropdownItem
         label={m.button_text_manage_lists()}
         style="flat"
