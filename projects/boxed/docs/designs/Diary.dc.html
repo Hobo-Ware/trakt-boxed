@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Diary - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@300;400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+select{font:inherit}
+</style>
+</helmet>
+<div style="width:1440px;height:1900px;box-sizing:border-box;background:#141318;overflow:hidden;display:flex;flex-direction:column">
+
+  <header style="height:64px;flex-shrink:0;box-sizing:border-box;border-bottom:1px solid #37353d;background:#141318;display:flex;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;gap:32px">
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav aria-label="Main" style="display:flex;gap:24px;font-size:13px;letter-spacing:.06em">
+        <a href="#" style="color:#a19fa8">FILMS</a>
+        <a href="#" style="color:#a19fa8">SHOWS</a>
+        <a href="#" style="color:#a19fa8">LISTS</a>
+        <a href="#" style="color:#a19fa8">MEMBERS</a>
+        <a href="#" style="color:#a19fa8">CALENDAR</a>
+      </nav>
+      <div style="flex-grow:1"></div>
+      <label style="display:flex;align-items:center;gap:8px;width:220px;height:36px;box-sizing:border-box;padding:0 12px;background:#26252b;border-radius:8px;color:#77757d">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Search" placeholder="Search films, shows, people" style="background:transparent;border:0;outline:0;color:#f6f5f8;font:inherit;font-size:13px;width:100%">
+      </label>
+      <button type="button" style="height:36px;padding:0 14px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500">+ Log</button>
+      <span style="width:32px;height:32px;border-radius:50%;background:#4a2f2f;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">A</span>
+    </div>
+  </header>
+
+  <div style="width:1200px;margin:0 auto;padding-top:28px;display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:32px;height:32px;border-radius:50%;background:#4a2f2f;display:flex;align-items:center;justify-content:center;font-family:Newsreader,Georgia,serif;font-size:15px;font-weight:600">A</span>
+        <span style="font-size:15px;font-weight:500">Ana Moreau</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.06em;background:#9b2ad0;color:#fff;padding:2px 6px;border-radius:4px">VIP</span>
+      </a>
+      <nav aria-label="Profile" style="display:flex;gap:28px;border-bottom:1px solid #37353d">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="11">
+          <a href="#" style="{{t.style}}">{{t.label}}</a>
+        </sc-for>
+      </nav>
+    </div>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:40px;letter-spacing:-0.01em">Ana's diary</h1>
+        <span style="font-size:14px;color:#a19fa8">212 entries in 2026 · 131 films · 81 show sessions</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;color:#a19fa8">YEAR
+          <select style="height:36px;padding:0 10px;border-radius:8px;border:1px solid #37353d;background:#26252b;color:#f6f5f8;font-size:14px">
+            <option>2026</option>
+            <option>2025</option>
+            <option>2024</option>
+          </select>
+        </label>
+        <div role="group" aria-label="Type" style="display:flex;padding:3px;gap:2px;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d">
+          <button type="button" aria-pressed="false" style="height:30px;padding:0 14px;border:0;border-radius:6px;background:transparent;color:#a19fa8;font-size:13px">Films</button>
+          <button type="button" aria-pressed="false" style="height:30px;padding:0 14px;border:0;border-radius:6px;background:transparent;color:#a19fa8;font-size:13px">Shows</button>
+          <button type="button" aria-pressed="true" style="height:30px;padding:0 14px;border:0;border-radius:6px;background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #9b2ad0;font-size:13px">Both</button>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#d9d7de">
+          <button type="button" role="switch" aria-checked="false" aria-label="Rated only" style="width:36px;height:20px;border-radius:999px;border:0;background:#4a4851;padding:2px;display:flex;align-items:center">
+            <span style="width:16px;height:16px;border-radius:50%;background:#d9d7de"></span>
+          </button>
+          Rated only
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;color:#a19fa8">SORT
+          <select style="height:36px;padding:0 10px;border-radius:8px;border:1px solid #37353d;background:#26252b;color:#f6f5f8;font-size:14px">
+            <option>Watched date</option>
+            <option>Rating</option>
+            <option>Release date</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div role="table" aria-label="Diary entries" style="display:flex;flex-direction:column">
+      <div role="row" style="{{headStyle}}">
+        <span role="columnheader">MONTH</span>
+        <span role="columnheader" style="text-align:end">DAY</span>
+        <span role="columnheader">TITLE</span>
+        <span role="columnheader">RELEASED</span>
+        <span role="columnheader">RATING</span>
+        <span role="columnheader" style="text-align:center">LIKE</span>
+        <span role="columnheader" style="text-align:center">REWATCH</span>
+        <span role="columnheader" style="text-align:center">REVIEW</span>
+        <span role="columnheader" style="text-align:center">EDIT</span>
+      </div>
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="19">
+        <sc-if value="{{r.isMain}}" hint-placeholder-val="{{ true }}">
+          <div role="row" style="{{r.rowStyle}}">
+            <div role="cell" style="align-self:start;padding-top:10px">
+              <sc-if value="{{r.month}}" hint-placeholder-val="{{ true }}">
+                <div style="width:64px;display:flex;flex-direction:column;align-items:center;gap:1px;padding:7px 0 6px;border-radius:4px;background:#9b2ad0;color:#fff;box-shadow:0 -3px 0 #c9a3e8 inset">
+                  <span style="font-size:14px;font-weight:700;letter-spacing:.08em">{{r.month}}</span>
+                  <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#e4cdf6">2026</span>
+                </div>
+              </sc-if>
+            </div>
+            <span role="cell" style="font-size:28px;font-weight:300;color:#a19fa8;text-align:end">{{r.day}}</span>
+            <div role="cell" style="display:flex;align-items:center;gap:14px;min-width:0">
+              <span style="{{r.thumb}}"></span>
+              <div style="display:flex;flex-direction:column;gap:3px;min-width:0">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:19px;color:#f6f5f8;white-space:nowrap">{{r.title}}</a>
+                  <sc-if value="{{r.note}}" hint-placeholder-val="{{ true }}">
+                    <span title="Private note" aria-label="Private note" style="display:flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:999px;background:#26252b;color:#a19fa8;font-size:11px">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+                      Private note
+                    </span>
+                  </sc-if>
+                </div>
+                <sc-if value="{{r.sub}}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+                    <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#c9a3e8">{{r.code}}</span>
+                    <span>{{r.sub}}</span>
+                    <sc-if value="{{r.group}}" hint-placeholder-val="{{ true }}">
+                      <button type="button" aria-label="{{r.chevLabel}}" aria-expanded="{{r.expanded}}" style="{{r.chevStyle}}">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                      </button>
+                    </sc-if>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+            <span role="cell" style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">{{r.year}}</span>
+            <span role="cell" style="color:#f59e2e;font-size:15px;letter-spacing:.02em">{{r.stars}}</span>
+            <span role="cell" style="{{r.likeStyle}}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" aria-label="{{r.likeLabel}}"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg>
+            </span>
+            <span role="cell" style="display:flex;justify-content:center;color:#a19fa8">
+              <sc-if value="{{r.rewatch}}" hint-placeholder-val="{{ true }}">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-label="Rewatch"><path d="M4 12a8 8 0 0 1 14-5.3L20 9"></path><path d="M20 4v5h-5"></path><path d="M20 12a8 8 0 0 1-14 5.3L4 15"></path><path d="M4 20v-5h5"></path></svg>
+              </sc-if>
+            </span>
+            <span role="cell" style="display:flex;justify-content:center;color:#a19fa8">
+              <sc-if value="{{r.review}}" hint-placeholder-val="{{ true }}">
+                <a href="#" aria-label="Read review" style="color:#a19fa8;display:flex">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 6h14M5 11h14M5 16h9"></path></svg>
+                </a>
+              </sc-if>
+            </span>
+            <span role="cell" style="display:flex;justify-content:center">
+              <button type="button" aria-label="Edit entry" style="width:30px;height:30px;border-radius:8px;border:0;background:transparent;color:#77757d;display:flex;align-items:center;justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"></path><path d="M13 7l4 4"></path></svg>
+              </button>
+            </span>
+          </div>
+        </sc-if>
+        <sc-if value="{{r.isEp}}" hint-placeholder-val="{{ false }}">
+          <div role="row" style="{{r.rowStyle}}">
+            <span role="cell"></span>
+            <span role="cell"></span>
+            <div role="cell" style="display:flex;align-items:center;gap:12px;padding-inline-start:48px;box-shadow:inset 2px 0 0 #4b2463;min-width:0">
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#c9a3e8;width:48px">{{r.code}}</span>
+              <a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:16px;color:#d9d7de">{{r.title}}</a>
+              <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d">{{r.time}}</span>
+            </div>
+            <span role="cell" style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{r.year}}</span>
+            <span role="cell" style="color:#f59e2e;font-size:13px">{{r.stars}}</span>
+            <span role="cell" style="{{r.likeStyle}}"></span>
+            <span role="cell"></span>
+            <span role="cell" style="display:flex;justify-content:center;color:#a19fa8">
+              <sc-if value="{{r.review}}" hint-placeholder-val="{{ false }}">
+                <a href="#" aria-label="Read episode review" style="color:#a19fa8;display:flex">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 6h14M5 11h14M5 16h9"></path></svg>
+                </a>
+              </sc-if>
+            </span>
+            <span role="cell" style="display:flex;justify-content:center">
+              <button type="button" aria-label="Edit episode play" style="width:28px;height:28px;border-radius:8px;border:0;background:transparent;color:#77757d;display:flex;align-items:center;justify-content:center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"></path><path d="M13 7l4 4"></path></svg>
+              </button>
+            </span>
+          </div>
+        </sc-if>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px">
+      <span style="font-size:13px;color:#77757d">Episodes watched on the same day are grouped into one entry.</span>
+      <nav aria-label="Pagination" style="display:flex;align-items:center;gap:6px;font-size:13px">
+        <a href="#" aria-current="page" style="width:30px;height:30px;border-radius:8px;background:#2a1737;color:#e4cdf6;display:flex;align-items:center;justify-content:center">1</a>
+        <a href="#" style="width:30px;height:30px;border-radius:8px;color:#a19fa8;display:flex;align-items:center;justify-content:center">2</a>
+        <a href="#" style="width:30px;height:30px;border-radius:8px;color:#a19fa8;display:flex;align-items:center;justify-content:center">3</a>
+        <span style="color:#77757d">...</span>
+        <a href="#" style="width:30px;height:30px;border-radius:8px;color:#a19fa8;display:flex;align-items:center;justify-content:center">14</a>
+        <a href="#" style="height:32px;padding:0 14px;border-radius:8px;background:#26252b;color:#f6f5f8;box-shadow:inset 0 0 0 1px #37353d;display:flex;align-items:center;margin-inline-start:10px">Older</a>
+      </nav>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tone = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const cols = '84px 44px minmax(0, 1fr) 90px 120px 56px 72px 64px 52px';
+    const tabNames = ['PROFILE', 'DIARY', 'FILMS', 'SHOWS', 'WATCHING', 'REVIEWS', 'WATCHLIST', 'LISTS', 'LIKES', 'NETWORK', 'STATS'];
+    const tabBase = 'font-size:13px;letter-spacing:.06em;padding:12px 0;margin-bottom:-1px;border-bottom:2px solid ';
+    const rowBase = 'display:grid;grid-template-columns:' + cols + ';gap:12px;align-items:center;';
+    const likeStyle = (on) => 'display:flex;justify-content:center;color:' + (on ? '#f0506e' : '#37353d');
+    const main = (o) => Object.assign({
+      isMain: true, isEp: false, month: '', sub: '', code: '', group: false, note: false, like: false, rewatch: false, review: false, expanded: 'false'
+    }, o, {
+      rowStyle: rowBase + 'min-height:72px;border-bottom:1px solid #26252b;' + (o.expanded === 'true' ? 'background:#1d1c22;border-bottom-color:#1d1c22;' : ''),
+      thumb: 'width:36px;height:54px;flex-shrink:0;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);background:' + tone[o.tone % 10],
+      likeStyle: likeStyle(o.like),
+      likeLabel: o.like ? 'Liked' : 'Not liked',
+      chevLabel: o.expanded === 'true' ? 'Collapse episodes' : 'Expand episodes',
+      chevStyle: 'width:24px;height:24px;border-radius:6px;border:0;background:#26252b;color:#d9d7de;display:flex;align-items:center;justify-content:center;' + (o.expanded === 'true' ? 'transform:rotate(180deg);background:#2a1737;color:#e4cdf6;' : '')
+    });
+    const ep = (code, title, stars, time, review, last) => ({
+      isMain: false, isEp: true, code, title, stars, time, review, year: '2025', likeStyle: '',
+      rowStyle: rowBase + 'height:44px;background:#1d1c22;border-bottom:1px solid ' + (last ? '#26252b' : '#1d1c22') + ';'
+    });
+    return {
+      headStyle: rowBase + 'height:32px;border-bottom:1px solid #37353d;font-size:11px;letter-spacing:.08em;color:#77757d',
+      tabs: tabNames.map((label) => ({ label, style: tabBase + (label === 'DIARY' ? '#9b2ad0;color:#f6f5f8' : 'transparent;color:#a19fa8') })),
+      rows: [
+        main({ month: 'SEP', day: '26', title: 'Sinners', year: '2025', stars: '★★★★½', tone: 2, like: true, review: true }),
+        main({ day: '24', title: 'Severance', code: 'S2 E4-E6', sub: '3 episodes', group: true, expanded: 'true', year: '2022', stars: '★★★★★', tone: 5, like: true, review: true }),
+        ep('S2 E4', 'Woe\'s Hollow', '★★★★★', '20:12', true, false),
+        ep('S2 E5', 'Trojan\'s Horse', '★★★★', '21:05', false, false),
+        ep('S2 E6', 'Attila', '★★★★½', '22:01', false, true),
+        main({ day: '21', title: 'One Battle After Another', year: '2025', stars: '★★★★½', tone: 4, like: true, review: true }),
+        main({ day: '19', title: 'Anora', year: '2024', stars: '★★★½', tone: 6, rewatch: true, note: true }),
+        main({ day: '17', title: 'The Bear', code: 'S4 E1-E2', sub: '2 episodes', group: true, year: '2022', stars: '★★★★', tone: 8 }),
+        main({ day: '14', title: 'Andor', code: 'Season 2', sub: 'rated', year: '2022', stars: '★★★★★', tone: 1, like: true, review: true }),
+        main({ day: '12', title: 'Past Lives', year: '2023', stars: '★★★★★', tone: 0, like: true, rewatch: true, review: true }),
+        main({ day: '08', title: 'The Substance', year: '2024', stars: '★★★', tone: 3 }),
+        main({ day: '03', title: 'Aftersun', year: '2022', stars: '★★★★½', tone: 7, like: true, rewatch: true }),
+        main({ month: 'AUG', day: '30', title: 'Severance', code: 'S2 E1-E3', sub: '3 episodes', group: true, year: '2022', stars: '★★★★½', tone: 5, like: true }),
+        main({ day: '27', title: 'Conclave', year: '2024', stars: '★★★★', tone: 9, review: true }),
+        main({ day: '22', title: 'Perfect Days', year: '2023', stars: '★★★★★', tone: 3, like: true, review: true }),
+        main({ day: '18', title: 'Slow Horses', code: 'S4 E5-E6', sub: '2 episodes', group: true, year: '2022', stars: '★★★★', tone: 6 }),
+        main({ day: '15', title: 'Challengers', year: '2024', stars: '★★★½', tone: 1, like: true }),
+        main({ day: '09', title: 'The Zone of Interest', year: '2023', stars: '★★★★', tone: 9, review: true }),
+        main({ day: '04', title: 'Poor Things', year: '2023', stars: '★★★½', tone: 4 })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

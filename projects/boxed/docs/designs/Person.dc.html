@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Person page - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:2000px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+
+  <header style="height:64px;flex-shrink:0;box-sizing:border-box;border-bottom:1px solid #37353d;background:#141318;display:flex;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;gap:32px">
+      <a href="#" aria-label="trakt boxed home" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700;letter-spacing:-0.01em">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav aria-label="Main" style="display:flex;gap:24px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;flex-grow:1">
+        <a href="#" style="color:#a19fa8">Films</a>
+        <a href="#" style="color:#a19fa8">Shows</a>
+        <a href="#" style="color:#a19fa8">Lists</a>
+        <a href="#" style="color:#a19fa8">Members</a>
+        <a href="#" style="color:#a19fa8">Calendar</a>
+      </nav>
+      <label style="display:flex;align-items:center;gap:8px;width:220px;height:36px;box-sizing:border-box;padding:0 12px;background:#26252b;border-radius:8px;color:#77757d">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Search" placeholder="Search films, shows, people" style="background:transparent;border:0;outline:0;color:#f6f5f8;font:inherit;font-size:13px;width:100%;min-width:0">
+      </label>
+      <button type="button" style="height:36px;padding:0 16px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>Log
+      </button>
+      <button type="button" aria-label="Account menu" style="width:32px;height:32px;border-radius:999px;border:0;padding:0;background:#3f2a3a;color:#f6f5f8;font-size:13px;font-weight:500">VJ</button>
+    </div>
+  </header>
+
+  <div style="width:1200px;margin:0 auto;padding-top:40px;display:flex;flex-direction:column;gap:28px;flex-grow:1">
+
+    <section style="display:flex;gap:36px;align-items:center">
+      <div aria-hidden="true" style="width:180px;height:180px;flex-shrink:0;border-radius:999px;background:#3f2a3a;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:64px;color:rgba(255,255,255,.35)">Z</div>
+      <div style="display:flex;flex-direction:column;gap:10px;flex-grow:1;min-width:0">
+        <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Known for Acting</span>
+        <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:56px;line-height:1;letter-spacing:-0.01em">Zendaya</h1>
+        <div style="display:flex;gap:18px;font-size:14px;color:#a19fa8">
+          <span>Born <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#d9d7de">01 SEP 1996</span> (30)</span>
+          <span>Oakland, California, USA</span>
+        </div>
+        <p style="margin:0;max-width:760px;font-size:15px;line-height:1.6;color:#d9d7de">Zendaya Maree Stoermer Coleman is an American actress and singer. She began on Disney Channel's Shake It Up, won two Emmys for Euphoria, and moved into features with Spider-Man, Dune and Challengers... <a href="#">more</a></p>
+        <div style="display:flex;gap:8px">
+          <sc-for list="{{links}}" as="l" hint-placeholder-count="5">
+            <a href="#" style="height:28px;padding:0 12px;border-radius:999px;background:#26252b;color:#d9d7de;font-size:13px;display:flex;align-items:center;gap:6px">{{l}}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#77757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <nav aria-label="Roles" style="display:flex;gap:28px;border-bottom:1px solid #37353d">
+      <sc-for list="{{roles}}" as="r" hint-placeholder-count="3">
+        <a href="#" style="{{r.style}}">{{r.label}}<span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d;letter-spacing:0">{{r.count}}</span></a>
+      </sc-for>
+    </nav>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <div role="group" aria-label="Credit type" style="display:flex;padding:3px;border-radius:999px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d">
+        <button type="button" aria-pressed="true" style="height:30px;padding:0 18px;border:0;border-radius:999px;background:#f6f5f8;color:#141318;font-size:13px;font-weight:500">Films</button>
+        <button type="button" aria-pressed="false" style="height:30px;padding:0 18px;border:0;border-radius:999px;background:none;color:#a19fa8;font-size:13px;font-weight:500">Shows</button>
+      </div>
+
+      <div style="flex-grow:1;max-width:460px;display:flex;align-items:center;gap:14px;padding:10px 16px;border-radius:999px;background:#16301f;box-shadow:inset 0 0 0 1px #2a6b40">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3cc36a" stroke-width="1.8" style="flex-shrink:0"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        <span style="font-size:15px;color:#f6f5f8;white-space:nowrap">You've seen <strong style="font-weight:700">9 of 23</strong></span>
+        <span style="flex-grow:1;height:6px;border-radius:999px;background:rgba(0,0,0,.4);overflow:hidden;display:flex">
+          <span style="width:39%;background:#3cc36a;border-radius:999px"></span>
+        </span>
+        <span style="font-family:'Roboto Mono',monospace;font-size:13px;color:#8fe3ab">39%</span>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:16px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+          <input type="checkbox" style="accent-color:#9b2ad0;width:16px;height:16px;margin:0">
+          Hide watched
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+          Sort by
+          <select style="height:32px;padding:0 10px;border-radius:8px;border:1px solid #37353d;background:#26252b;color:#f6f5f8;font:inherit;font-size:13px">
+            <option>Popularity</option>
+            <option>Newest first</option>
+            <option>Oldest first</option>
+            <option>Your rating</option>
+            <option>Average rating</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:20px 20px">
+      <sc-for list="{{films}}" as="p" hint-placeholder-count="18">
+        <a href="#" style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{p.style}}"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:15px;line-height:1.15;color:rgba(255,255,255,.85)">{{p.title}}</span></span>
+          <span style="display:flex;align-items:center;gap:6px;height:14px">
+            <span style="font-size:12px;color:#f59e2e;letter-spacing:1px">{{p.stars}}</span>
+            <sc-if value="{{p.liked}}" hint-placeholder-val="{{ false }}">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5C19 15.5 12 20 12 20z"></path></svg>
+            </sc-if>
+            <span style="margin-inline-start:auto;font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d">{{p.year}}</span>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Shows <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d;letter-spacing:0;margin-inline-start:6px">3</span></h2>
+        <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase">View as Shows</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:20px">
+        <sc-for list="{{shows}}" as="s" hint-placeholder-count="3">
+          <a href="#" style="display:flex;flex-direction:column;gap:8px">
+            <span style="{{s.style}}">
+              <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:15px;line-height:1.15;color:rgba(255,255,255,.85)">{{s.title}}</span>
+              <span style="position:absolute;bottom:0;inset-inline:0;height:3px;background:rgba(0,0,0,.5);display:flex">
+                <span style="{{s.bar}}"></span>
+              </span>
+            </span>
+            <span style="display:flex;align-items:center;gap:6px;height:14px">
+              <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#a19fa8">{{s.meta}}</span>
+              <span style="margin-inline-start:auto;font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d">{{s.years}}</span>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+
+  <footer style="height:72px;flex-shrink:0;background:#0f0e13;border-top:1px solid #26252b;display:flex;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#77757d">
+      <nav aria-label="Footer" style="display:flex;gap:20px">
+        <a href="#" style="color:#a19fa8">About</a>
+        <a href="#" style="color:#a19fa8">VIP</a>
+        <a href="#" style="color:#a19fa8">Apps</a>
+        <a href="#" style="color:#a19fa8">API</a>
+        <a href="#" style="color:#a19fa8">Privacy</a>
+      </nav>
+      <span>Person data from TMDB</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tones = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const ring = {
+      watched: 'box-shadow:0 0 0 2px #3cc36a',
+      watchlist: 'box-shadow:0 0 0 2px #4ea3e6',
+      none: 'box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)'
+    };
+    const posterStyle = (tone, state) => 'aspect-ratio:2/3;border-radius:4px;box-sizing:border-box;display:flex;align-items:flex-end;padding:12px;position:relative;overflow:hidden;background:' + tones[tone % 10] + ';' + ring[state];
+    const film = (title, year, state, stars, liked) => ({ title, year, state, stars: stars || '', liked: !!liked });
+    const roleBase = 'display:flex;align-items:center;gap:6px;padding:0 0 12px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;';
+    const role = (label, count, active) => ({ label, count, style: roleBase + (active ? 'color:#f6f5f8;box-shadow:inset 0 -2px 0 #9b2ad0' : 'color:#a19fa8') });
+    const films = [
+      film('Dune: Part Two', '2024', 'watched', '★★★★½', true),
+      film('Challengers', '2024', 'watched', '★★★★★', true),
+      film('Dune', '2021', 'watched', '★★★★'),
+      film('Spider-Man: No Way Home', '2021', 'watched', '★★★½'),
+      film('The Odyssey', '2026', 'watchlist'),
+      film('The Drama', '2026', 'watchlist'),
+      film('Malcolm & Marie', '2021', 'none'),
+      film('Spider-Man: Far From Home', '2019', 'watched', '★★★'),
+      film('The Greatest Showman', '2017', 'watched', '★★★½'),
+      film('Spider-Man: Homecoming', '2017', 'watched', '★★★★'),
+      film('Space Jam: A New Legacy', '2021', 'none'),
+      film('Dune: Part Three', '2026', 'watchlist'),
+      film('Smallfoot', '2018', 'watched', '★★★'),
+      film('Duck Duck Goose', '2018', 'none'),
+      film('Zapped', '2014', 'watched', '★★½'),
+      film('Super Buddies', '2013', 'none'),
+      film('Frenemies', '2012', 'none'),
+      film('Shake It Up: Made in Japan', '2012', 'none')
+    ].map((f, i) => ({ ...f, style: posterStyle(i * 3 + 1, f.state) }));
+    const show = (title, years, state, tone, pct, meta) => ({
+      title,
+      years,
+      meta,
+      style: posterStyle(tone, state),
+      bar: 'width:' + pct + '%;background:#3cc36a'
+    });
+    return {
+      links: ['Instagram', 'X', 'TMDB', 'IMDb', 'Wikipedia'],
+      roles: [role('Acting', '41', true), role('Directing', '1'), role('Producing', '4')],
+      films,
+      shows: [
+        show('Euphoria', '2019-', 'none', 6, 78, '14/18 EPS'),
+        show('Shake It Up', '2010-2013', 'none', 4, 0, '0/75 EPS'),
+        show('K.C. Undercover', '2015-2018', 'watchlist', 1, 0, 'WATCHLIST')
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

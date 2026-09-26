@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stats - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:2500px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+  <header style="height:64px;flex-shrink:0;border-bottom:1px solid #37353d;display:flex;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <div style="display:flex;align-items:center;gap:40px">
+        <a href="#" aria-label="trakt boxed home" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+          <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+          <span style="font-size:20px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+        </a>
+        <nav aria-label="Main" style="display:flex;gap:24px"><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">FILMS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">SHOWS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">LISTS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">MEMBERS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">CALENDAR</a></nav>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <label style="position:relative;display:flex;align-items:center">
+          <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Search</span>
+          <span style="position:absolute;inset-inline-start:10px;display:flex;color:#77757d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></span>
+          <input type="search" placeholder="Search films, shows, people" style="width:220px;height:36px;box-sizing:border-box;background:#26252b;border:1px solid #37353d;border-radius:8px;color:#f6f5f8;padding:0 12px 0 34px;font:inherit;font-size:13px">
+        </label>
+        <button type="button" style="height:36px;padding:0 14px;border-radius:8px;border:0;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500">+ Log</button>
+        <a href="#" aria-label="Your profile" style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,#9b2ad0,#4ea3e6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px">A</a>
+      </div>
+    </div>
+  </header>
+  <main style="width:1200px;margin:0 auto;padding:28px 0 48px;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:48px;height:48px;border-radius:999px;background:linear-gradient(135deg,#9b2ad0,#4ea3e6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px">A</span>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:8px"><a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:24px;color:#f6f5f8">Ana Marin</a><span style="font-size:11px;font-weight:700;letter-spacing:.06em;background:#9b2ad0;color:#fff;padding:3px 7px;border-radius:999px">VIP</span></div>
+            <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">@ana_m</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:28px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">1,248</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">FILMS</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">96</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">SHOWS</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">9,412</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">EPISODES</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">212</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">THIS YEAR</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">402</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">FOLLOWING</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">1,187</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">FOLLOWERS</span></div></div>
+      </div>
+      <nav aria-label="Profile" style="display:flex;gap:26px;border-bottom:1px solid #37353d"><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">PROFILE</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">DIARY</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">FILMS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">SHOWS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">WATCHING</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">REVIEWS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">WATCHLIST</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">LISTS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">LIKES</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">NETWORK</a><a href="#" aria-current="page" style="font-size:13px;letter-spacing:.06em;color:#f6f5f8;padding-bottom:12px;border-bottom:2px solid #9b2ad0;margin-bottom:-1px">STATS</a></nav>
+    </div>
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Ana's year in films and shows</span>
+          <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:136px;line-height:.9;letter-spacing:-0.03em">2026</h1>
+        </div>
+        <nav aria-label="Year" style="display:flex;gap:4px;padding:4px;border-radius:999px;background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31">
+          <sc-for list="{{years}}" as="y" hint-placeholder-count="4">
+            <a href="#" style="{{y.style}}">{{y.label}}</a>
+          </sc-for>
+        </nav>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:16px;border-top:1px solid #37353d;border-bottom:1px solid #37353d;padding:20px 0">
+        <sc-for list="{{totals}}" as="t" hint-placeholder-count="5">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:48px;line-height:1">{{t.value}}</span>
+            <span style="font-size:14px;color:#a19fa8">{{t.label}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Weekly</h2><span style="display:flex;gap:16px;font-size:12px;color:#a19fa8"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#c9a3e8"></span>Films</span><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#6b2a93"></span>Episodes</span></span></div>
+      <div style="display:flex;align-items:flex-end;gap:4px;height:150px;border-bottom:1px solid #37353d">
+        <sc-for list="{{weeks}}" as="w" hint-placeholder-count="52">
+          <div style="flex:1 1 0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:2px">
+            <div style="{{w.films}}"></div>
+            <div style="{{w.eps}}"></div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#77757d">
+        <sc-for list="{{months}}" as="m" hint-placeholder-count="12"><span>{{m.l}}</span></sc-for>
+      </div>
+      <div style="display:flex;gap:40px;font-size:14px;color:#a19fa8">
+        <span><strong style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:22px;color:#f6f5f8">5.6</strong> films a week</span>
+        <span><strong style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:22px;color:#f6f5f8">29</strong> episodes a week</span>
+        <span>Busiest week <strong style="color:#f6f5f8">9-15 Feb</strong>, the Severance binge</span>
+      </div>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Milestones</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:24px">
+        <sc-for list="{{milestones}}" as="m" hint-placeholder-count="3">
+          <div style="background:#1d1c22;border-radius:10px;box-shadow:inset 0 0 0 1px #2b2a31;padding:16px;display:flex;gap:16px;align-items:center">
+            <div style="{{m.poster}}"><span style="{{m.ts}}">{{m.title}}</span></div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8;font-size:11px">{{m.label}}</span>
+              <a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:21px;color:#f6f5f8">{{m.title}}</a>
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#c9a3e8">{{m.date}}</span>
+              <span style="font-size:13px;color:#a19fa8">{{m.note}}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:48px">
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Genres</h2><span style="font-size:13px;color:#77757d">Films and shows</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{genres}}" as="g" hint-placeholder-count="8">
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="width:90px;font-size:14px;color:#d9d7de">{{g.label}}</span>
+              <div style="flex-grow:1;height:18px;border-radius:4px;background:#1d1c22"><div style="{{g.bar}}"></div></div>
+              <span style="width:32px;text-align:end;font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">{{g.count}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Decades</h2><span style="font-size:13px;color:#77757d">By release year</span></div>
+        <div style="display:flex;align-items:flex-end;gap:14px;height:236px">
+          <sc-for list="{{decades}}" as="d" hint-placeholder-count="8">
+            <div style="flex:1 1 0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px">
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">{{d.count}}</span>
+              <div style="{{d.bar}}"></div>
+              <span style="font-size:12px;color:#d9d7de">{{d.label}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:48px">
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Countries</h2><span style="font-size:13px;color:#77757d">27 countries</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{countries}}" as="c" hint-placeholder-count="7">
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="width:24px;font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{c.rank}}</span>
+              <span style="width:120px;font-size:14px;color:#d9d7de">{{c.label}}</span>
+              <div style="flex-grow:1;height:8px;border-radius:999px;background:#1d1c22"><div style="{{c.bar}}"></div></div>
+              <span style="width:32px;text-align:end;font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">{{c.count}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Top people</h2><a href="#" style="font-size:13px">All people</a></div>
+        <div style="display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:12px">
+          <sc-for list="{{people}}" as="p" hint-placeholder-count="5">
+            <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;color:#f6f5f8">
+              <span style="{{p.style}}">{{p.initials}}</span>
+              <span style="font-size:14px;font-weight:500;line-height:1.25">{{p.name}}</span>
+              <span style="font-size:12px;color:#77757d">{{p.role}}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#c9a3e8">{{p.count}}</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:48px">
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Networks and studios</h2></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{networks}}" as="n" hint-placeholder-count="6">
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="width:90px;font-size:14px;color:#d9d7de">{{n.label}}</span>
+              <div style="flex-grow:1;height:18px;border-radius:4px;background:#1d1c22"><div style="{{n.bar}}"></div></div>
+              <span style="width:84px;text-align:end;font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">{{n.count}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Highest rated</h2><a href="#" style="font-size:13px">All 5-star</a></div>
+        <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:12px">
+          <sc-for list="{{top}}" as="p" hint-placeholder-count="6">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <a href="#" aria-label="{{p.title}}" style="{{p.style}}"><span style="{{p.ts}}">{{p.title}}</span></a>
+              <span style="font-size:12px;color:#f59e2e;letter-spacing:.02em">{{p.stars}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Streak</h2><span style="font-size:13px;color:#a19fa8">Current <strong style="color:#f6f5f8">12 days</strong> · Longest <strong style="color:#f6f5f8">41 days</strong> · 231 active days</span></div>
+      <div style="display:flex;gap:24px;align-items:flex-end">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:grid;grid-template-rows:repeat(7, 14px);grid-auto-flow:column;grid-auto-columns:14px;gap:3px">
+            <sc-for list="{{heat}}" as="h" hint-placeholder-count="371"><span style="{{h.s}}"></span></sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#77757d">
+            <sc-for list="{{months}}" as="m" hint-placeholder-count="12"><span>{{m.l}}</span></sc-for>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#77757d;padding-bottom:22px">
+          Less
+          <sc-for list="{{heatLegend}}" as="h" hint-placeholder-count="5"><span style="{{h.s}}"></span></sc-for>
+          More
+        </div>
+      </div>
+    </section>
+    <div style="display:grid;grid-template-columns:minmax(0, 1fr) 380px;gap:48px;align-items:stretch">
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">List progress</h2><a href="#" style="font-size:13px">Track a list</a></div>
+        <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px">
+          <sc-for list="{{rings}}" as="r" hint-placeholder-count="3">
+            <a href="#" style="background:#1d1c22;border-radius:10px;box-shadow:inset 0 0 0 1px #2b2a31;padding:18px;display:flex;align-items:center;gap:16px;color:#f6f5f8">
+              <span style="{{r.ring}}"><span style="width:62px;height:62px;border-radius:999px;background:#1d1c22;display:flex;align-items:center;justify-content:center;font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">{{r.pct}}</span></span>
+              <span style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:14px;font-weight:500">{{r.name}}</span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">{{r.count}}</span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+      <a href="#" style="border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;color:#f6f5f8;background:radial-gradient(120% 120% at 100% 0%, #6b2a93 0%, #2a1737 55%, #1d1c22 100%);box-shadow:inset 0 0 0 1px #4b2463">
+        <span style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8;color:#e4cdf6">Year in review</span>
+        <span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:30px;line-height:1.15">See your 2025 year in review</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#e4cdf6">187 films, 842 episodes, one shareable card <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
+      </a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+const TONES = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+const RINGS = { watched: '0 0 0 2px #3cc36a, ', watchlist: '0 0 0 2px #4ea3e6, ' };
+function posterStyle(i, o) {
+  const opt = o || {};
+  return 'position:relative;flex-shrink:0;box-sizing:border-box;border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;padding:' + (opt.pad || 8) + 'px;' +
+    'background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.3)), ' + TONES[i % TONES.length] + ';' +
+    'box-shadow:' + (RINGS[opt.ring] || '') + 'inset 0 0 0 1px rgba(255,255,255,.08);' +
+    (opt.size || 'aspect-ratio:2/3;width:100%;') + (opt.extra || '');
+}
+function titleStyle(px) {
+  return 'font-family:Newsreader,Georgia,serif;font-weight:600;font-size:' + px + 'px;line-height:1.15;color:rgba(255,255,255,.85)';
+}
+class Component extends DCLogic {
+  renderVals() {
+    const year = (label, active) => ({
+      label,
+      style: 'height:32px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:500;display:flex;align-items:center;' + (active ? 'background:#9b2ad0;color:#fff' : 'color:#a19fa8')
+    });
+    const seq = (n, a, b) => Array.from({ length: n }, (_, i) => Math.abs(Math.round(Math.sin(i * a + b) * 1000)) % 1000 / 1000);
+    const filmsWk = seq(52, 1.7, 0.4);
+    const epsWk = seq(52, 2.3, 1.1);
+    const pastWeeks = 39;
+    const hbar = (pct, color) => 'width:' + pct + '%;height:100%;border-radius:4px;background:' + color;
+    const rank = (rows, color) => {
+      const max = rows[0][1];
+      return rows.map((r, i) => ({ label: r[0], count: r[2] || r[1], rank: i + 1, bar: hbar(Math.round(r[1] / max * 100), color) }));
+    };
+    const person = (name, role, count, tone) => ({
+      name, role, count,
+      initials: name.split(' ').map((w) => w.charAt(0)).join(''),
+      style: 'width:84px;height:84px;border-radius:999px;background:linear-gradient(160deg, ' + tone + ', #141318);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-family:Newsreader,Georgia,serif;font-size:26px;font-weight:600;color:rgba(255,255,255,.8)'
+    });
+    const heatColors = ['#26252b', '#3b2352', '#5b2a80', '#9b2ad0', '#c9a3e8'];
+    const cell = (c) => ({ s: 'display:block;width:14px;height:14px;border-radius:3px;background:' + c });
+    const heatSeq = seq(371, 0.93, 2.2);
+    const decadeRows = [['50s', 4], ['60s', 7], ['70s', 11], ['80s', 14], ['90s', 22], ['00s', 29], ['10s', 48], ['20s', 77]];
+    const ring = (name, pct, count) => ({
+      name, count, pct: pct + '%',
+      ring: 'flex-shrink:0;width:78px;height:78px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:conic-gradient(#9b2ad0 0 ' + pct + '%, #37353d ' + pct + '% 100%)'
+    });
+    return {
+      years: [year('2024'), year('2025'), year('2026', true), year('All time')],
+      totals: [
+        { value: '212', label: 'films' }, { value: '1,104', label: 'episodes' }, { value: '38', label: 'shows' },
+        { value: '914', label: 'hours' }, { value: '64', label: 'reviews' }
+      ],
+      weeks: filmsWk.map((f, i) => {
+        const past = i < pastWeeks;
+        const fh = past ? Math.round(12 + f * 44) : 0;
+        const eh = past ? Math.round(10 + epsWk[i] * 70) + (i === 6 ? 20 : 0) : 2;
+        return {
+          films: 'height:' + fh + 'px;border-radius:3px 3px 0 0;background:#c9a3e8;' + (past ? '' : 'display:none'),
+          eps: 'height:' + eh + 'px;border-radius:' + (past ? '0' : '2px') + ';background:' + (past ? '#6b2a93' : '#26252b')
+        };
+      }),
+      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((l) => ({ l })),
+      milestones: [
+        { label: 'First film of 2026', title: 'Perfect Days', date: '1 Jan 2026', note: 'Rated ★★★★½, with a review', poster: posterStyle(3, { size: 'width:72px;height:108px;', pad: 6 }), ts: titleStyle(10) },
+        { label: '100th film', title: 'Conclave', date: '14 May 2026', note: 'Watched with jonas', poster: posterStyle(2, { size: 'width:72px;height:108px;', pad: 6 }), ts: titleStyle(10) },
+        { label: 'Most-watched day', title: 'Severance', date: 'Sat 14 Feb 2026', note: '9 episodes, S2 E1 to E9', poster: posterStyle(1, { size: 'width:72px;height:108px;', pad: 6 }), ts: titleStyle(10) }
+      ],
+      genres: rank([['Drama', 84], ['Thriller', 61], ['Comedy', 47], ['Crime', 44], ['Sci-Fi', 38], ['Horror', 31], ['Romance', 22], ['Animation', 17]], '#9b2ad0'),
+      decades: decadeRows.map((d) => ({ label: d[0], count: d[1], bar: 'width:100%;height:' + Math.round(d[1] / 77 * 170) + 'px;border-radius:4px 4px 0 0;background:#9b2ad0' })),
+      countries: rank([['United States', 118], ['United Kingdom', 41], ['France', 19], ['South Korea', 14], ['Japan', 12], ['Germany', 9], ['Denmark', 6]], '#c9a3e8'),
+      people: [
+        person('Denis Villeneuve', 'Director', '5 films', '#463a2a'),
+        person('Ayo Edebiri', 'Actor', '31 episodes', '#24394a'),
+        person('Adam Scott', 'Actor', '19 episodes', '#2f4a3b'),
+        person('Yorgos Lanthimos', 'Director', '4 films', '#4a2f2f'),
+        person('Noah Wyle', 'Actor', '15 episodes', '#3f2a3a')
+      ],
+      networks: rank([['Apple TV+', 212, '212 eps'], ['HBO', 184, '184 eps'], ['FX', 131, '131 eps'], ['Netflix', 96, '96 eps'], ['A24', 60, '18 films'], ['Neon', 34, '9 films']], '#4ea3e6'),
+      top: ['Sinners', 'Past Lives', 'Aftersun', 'Perfect Days', 'Andor', 'Anatomy of a Fall'].map((t, i) => ({
+        title: t, stars: i < 4 ? '★★★★★' : '★★★★½', style: posterStyle(i * 2 + 1, { pad: 6 }), ts: titleStyle(11)
+      })),
+      heat: heatSeq.map((v, i) => {
+        if (i > 268) return cell('#1d1c22');
+        const level = v < 0.38 ? 0 : v < 0.6 ? 1 : v < 0.8 ? 2 : v < 0.93 ? 3 : 4;
+        return cell(heatColors[level]);
+      }),
+      heatLegend: heatColors.map((c) => cell(c)),
+      rings: [ring('IMDb Top 250', 62, '155 of 250'), ring('Trakt Top 100 shows', 41, '41 of 100'), ring('Palme d\'Or winners', 28, '22 of 77')]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Season page - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:2200px;box-sizing:border-box;background:#141318;position:relative;overflow:hidden">
+
+  <div style="position:absolute;top:64px;left:0;width:1440px;height:420px;background:linear-gradient(to bottom, rgba(20,19,24,.35) 0%, #141318 100%), radial-gradient(ellipse 60% 90% at 50% 0%, #24394a 0%, #182330 55%, #141318 100%)"></div>
+
+  <header style="position:relative;height:64px;border-bottom:1px solid #37353d;background:#141318">
+    <div style="width:1200px;height:64px;margin:0 auto;display:flex;align-items:center;gap:40px">
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav style="display:flex;gap:26px;font-size:13px;letter-spacing:.06em;text-transform:uppercase">
+        <a href="#" style="color:#a19fa8">Films</a>
+        <a href="#" style="color:#f6f5f8">Shows</a>
+        <a href="#" style="color:#a19fa8">Lists</a>
+        <a href="#" style="color:#a19fa8">Members</a>
+        <a href="#" style="color:#a19fa8">Calendar</a>
+      </nav>
+      <div style="margin-inline-start:auto;display:flex;align-items:center;gap:14px">
+        <label style="width:220px;height:36px;box-sizing:border-box;background:#26252b;border-radius:8px;display:flex;align-items:center;gap:8px;padding:0 12px;color:#77757d">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+          <input type="search" placeholder="Search films, shows, people" aria-label="Search" style="background:transparent;border:0;outline:0;color:#f6f5f8;font:inherit;font-size:13px;width:100%">
+        </label>
+        <button type="button" style="height:36px;padding:0 14px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>Log
+        </button>
+        <a href="#" aria-label="Your profile" style="width:32px;height:32px;border-radius:50%;background:#3f2a3a;color:#f6f5f8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">AM</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="position:relative;width:1200px;margin:0 auto;padding-top:48px;display:flex;gap:40px;align-items:flex-start">
+
+    <aside style="width:230px;flex-shrink:0;display:flex;flex-direction:column;gap:28px">
+      <div style="position:relative;width:230px;height:345px;border-radius:4px;overflow:hidden;background:#24394a;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08), 0 18px 40px rgba(0,0,0,.45)">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,.35) 100%)"></div>
+        <div style="position:absolute;left:16px;bottom:22px;display:flex;flex-direction:column;gap:2px">
+          <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:15px;color:rgba(255,255,255,.7)">Severance</span>
+          <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:26px;color:rgba(255,255,255,.9)">Season 2</span>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(0,0,0,.5)"><div style="width:50%;height:4px;background:#3cc36a"></div></div>
+      </div>
+
+      <section aria-label="Season ratings" style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+          <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Ratings</span>
+          <span style="font-size:12px;color:#77757d">96K</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:8px">
+          <div style="flex-grow:1;height:64px;display:flex;align-items:flex-end;gap:3px">
+            <sc-for list="{{histogram}}" as="h" hint-placeholder-count="10">
+              <div style="{{h}}"></div>
+            </sc-for>
+          </div>
+          <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:32px;line-height:.9">4.5</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:#f59e2e"><span>&#9733;</span><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+        <div style="font-size:12px;color:#a19fa8">Season 1 was <span style="color:#f59e2e">4.4</span> · best episode <a href="#">E10</a></div>
+      </section>
+
+      <section aria-label="Where to watch" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+          <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Where to watch</span>
+          <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d">US</span>
+        </div>
+        <a href="#" style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:#1d1c22;color:#f6f5f8;box-shadow:inset 0 0 0 1px #2b2a31">
+          <span style="width:30px;height:30px;border-radius:7px;background:#0f0e13;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#f6f5f8;box-shadow:inset 0 0 0 1px #37353d">TV+</span>
+          <span style="display:flex;flex-direction:column;gap:2px;flex-grow:1"><span style="font-size:14px">Apple TV+</span><span style="font-size:12px;color:#3cc36a">On your services</span></span>
+          <span style="font-size:12px;color:#a19fa8">Stream</span>
+        </a>
+        <a href="#" style="font-size:12px">All options</a>
+      </section>
+
+      <section aria-label="Friends" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+          <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Friends on this season</span>
+        </div>
+        <div style="display:flex;gap:6px">
+          <sc-for list="{{friends}}" as="f" hint-placeholder-count="5">
+            <span title="{{f.title}}" style="{{f.av}}">{{f.initials}}</span>
+          </sc-for>
+        </div>
+        <div style="font-size:12px;color:#a19fa8">ana_m and priya.k finished it · theo is on E8</div>
+      </section>
+    </aside>
+
+    <div style="width:930px;flex-shrink:0;display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;gap:40px;align-items:flex-start">
+        <div style="width:590px;flex-shrink:0;display:flex;flex-direction:column;gap:14px">
+          <nav aria-label="Breadcrumb" style="display:flex;align-items:center;gap:8px;font-size:14px;color:#a19fa8">
+            <a href="#" style="color:#d9d7de">Severance</a>
+            <span aria-hidden="true">&#8250;</span>
+            <span style="color:#f6f5f8">Season 2</span>
+          </nav>
+          <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:56px;line-height:1;letter-spacing:-0.01em">Season 2</h1>
+          <div style="font-size:16px;color:#a19fa8">2025 · 10 episodes · 8h 20m · <a href="#" style="color:#d9d7de">Apple TV+</a></div>
+          <p style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:500;font-size:18px;line-height:1.55;color:#d9d7de">Mark and his fellow innies return to a Lumon that insists nothing has changed. As outie Mark chases the truth about Gemma, the team learns just how far the company will go to keep the floor severed.</p>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+            <span style="font-size:13px;color:#a19fa8;margin-inline-end:4px">Season</span>
+            <a href="#" style="height:32px;min-width:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;border-radius:999px;background:#26252b;color:#d9d7de;font-size:13px">1</a>
+            <a href="#" aria-current="page" style="height:32px;min-width:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;border-radius:999px;background:#2a1737;color:#e4cdf6;font-size:13px;box-shadow:inset 0 0 0 1px #9b2ad0">2</a>
+            <a href="#" style="height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;border-radius:999px;background:#26252b;color:#d9d7de;font-size:13px">Specials</a>
+          </div>
+        </div>
+
+        <div style="width:300px;flex-shrink:0;background:#26252b;border-radius:10px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="padding:16px 18px;border-bottom:1px solid #37353d;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline">
+              <span style="display:flex;align-items:center;gap:8px;color:#3cc36a;font-size:14px;font-weight:500">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Watching
+              </span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">5 of 10</span>
+            </div>
+            <div style="height:4px;border-radius:999px;background:#37353d"><div style="width:50%;height:4px;border-radius:999px;background:#3cc36a"></div></div>
+          </div>
+          <div style="padding:14px 0 16px;border-bottom:1px solid #37353d;display:flex;flex-direction:column;align-items:center;gap:6px">
+            <span style="font-size:13px;color:#a19fa8">Rated this season</span>
+            <div role="img" aria-label="Rated 4.5 stars" style="display:flex;gap:4px;font-size:30px;line-height:1;color:#f59e2e">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              <span style="position:relative;display:inline-block;color:#4a4851">&#9733;<span style="position:absolute;inset-inline-start:0;top:0;width:50%;overflow:hidden;color:#f59e2e">&#9733;</span></span>
+            </div>
+          </div>
+          <button type="button" style="background:none;border:0;height:44px;font-size:14px;color:#d9d7de;width:100%">Review season...</button>
+          <button type="button" style="background:none;border:0;border-top:1px solid #37353d;height:44px;font-size:14px;color:#d9d7de;width:100%">Add to lists...</button>
+          <button type="button" style="background:none;border:0;border-top:1px solid #37353d;height:44px;font-size:14px;color:#3cc36a;width:100%;display:flex;align-items:center;justify-content:center;gap:8px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5l4 4L15 8.5"></path><path d="M11 15.5l1 1L21 8"></path></svg>Mark season watched
+          </button>
+          <button type="button" style="background:none;border:0;border-top:1px solid #37353d;height:44px;font-size:14px;color:#d9d7de;width:100%">Your activity</button>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div role="tablist" style="display:flex;gap:26px;border-bottom:1px solid #37353d;font-size:13px;letter-spacing:.08em;text-transform:uppercase">
+          <button type="button" role="tab" aria-selected="true" style="background:none;border:0;padding:0 0 10px;color:#f6f5f8;box-shadow:inset 0 -2px 0 #f6f5f8">Episodes (10)</button>
+          <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;color:#c9a3e8">Reviews</button>
+          <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;color:#c9a3e8">Friends</button>
+          <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;color:#c9a3e8">Lists</button>
+          <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;color:#c9a3e8">Cast</button>
+          <span style="margin-inline-start:auto;font-size:12px;letter-spacing:0;text-transform:none;color:#77757d;padding-bottom:10px">Sorted by episode</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{episodes}}" as="e" hint-placeholder-count="10">
+            <article style="{{e.row}}">
+              <a href="#" aria-label="{{e.aria}}" style="{{e.still}}">
+                <span style="position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0))"></span>
+                <span style="position:absolute;left:8px;bottom:6px;font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(255,255,255,.8)">{{e.runtime}}</span>
+              </a>
+              <div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">{{e.code}}</span>
+                  <sc-if value="{{e.hasType}}" hint-placeholder-val="{{ false }}">
+                    <span style="height:20px;display:inline-flex;align-items:center;padding:0 8px;border-radius:999px;background:#1f3346;color:#9fcdf2;font-size:11px;font-weight:500;box-shadow:inset 0 0 0 1px #2f5577">{{e.type}}</span>
+                  </sc-if>
+                  <sc-if value="{{e.upnext}}" hint-placeholder-val="{{ false }}">
+                    <span style="height:20px;display:inline-flex;align-items:center;padding:0 8px;border-radius:999px;background:#9b2ad0;color:#fff;font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase">Up next</span>
+                  </sc-if>
+                </div>
+                <a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px;line-height:1.15;color:#f6f5f8">{{e.title}}</a>
+                <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{e.date}} · {{e.runtime}}</div>
+                <p style="margin:0;font-size:13px;line-height:1.5;color:#a19fa8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{e.blurb}}</p>
+              </div>
+              <span style="height:28px;flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:0 10px;border-radius:999px;background:#26252b;font-size:13px;color:#d9d7de"><span style="color:#f59e2e">&#9733;</span>{{e.community}}</span>
+              <div style="width:96px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px">
+                <sc-if value="{{e.watched}}" hint-placeholder-val="{{ true }}">
+                  <button type="button" aria-label="{{e.stateLabel}}" aria-pressed="true" style="width:36px;height:36px;border-radius:50%;border:0;background:#3cc36a;color:#0f1a12;display:flex;align-items:center;justify-content:center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+                  </button>
+                  <span style="font-size:12px;color:#f59e2e;letter-spacing:.02em">{{e.yours}}</span>
+                </sc-if>
+                <sc-if value="{{e.upnext}}" hint-placeholder-val="{{ false }}">
+                  <button type="button" aria-label="{{e.stateLabel}}" aria-pressed="false" style="width:36px;height:36px;border-radius:50%;background:#2a1737;border:2px solid #9b2ad0;color:#e4cdf6;display:flex;align-items:center;justify-content:center;box-sizing:border-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+                  </button>
+                  <span style="font-size:11px;color:#c9a3e8">Mark watched</span>
+                </sc-if>
+                <sc-if value="{{e.unwatched}}" hint-placeholder-val="{{ false }}">
+                  <button type="button" aria-label="{{e.stateLabel}}" aria-pressed="false" style="width:36px;height:36px;border-radius:50%;background:transparent;border:2px solid #4a4851;color:#4a4851;display:flex;align-items:center;justify-content:center;box-sizing:border-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+                  </button>
+                  <span style="font-size:11px;color:#77757d">Not watched</span>
+                </sc-if>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="position:absolute;left:0;right:0;bottom:0;height:88px;background:#0f0e13;border-top:1px solid #26252b">
+    <div style="width:1200px;height:88px;margin:0 auto;display:flex;align-items:center;gap:22px;font-size:13px;color:#77757d">
+      <a href="#" style="color:#a19fa8">About</a><a href="#" style="color:#a19fa8">VIP</a><a href="#" style="color:#a19fa8">Apps</a><a href="#" style="color:#a19fa8">API</a><a href="#" style="color:#a19fa8">Help</a>
+      <span style="margin-inline-start:auto">Data from Trakt, TMDB and JustWatch</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const avatar = (bg) => 'width:32px;height:32px;border-radius:50%;background:' + bg + ';color:#f6f5f8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;box-shadow:0 0 0 2px #141318';
+    const tones = [
+      ['#4a5a6a', '#1c2530'], ['#6a5a3f', '#2a2318'], ['#3f5a6a', '#18232a'], ['#5f6b52', '#23291d'], ['#6a4a4a', '#2a1c1c'],
+      ['#5b6e4f', '#1a2019'], ['#4e4a6a', '#1d1b2a'], ['#6a5f4a', '#29241b'], ['#3f6a64', '#172927'], ['#5a3f5f', '#221826']
+    ];
+    const hist = [1, 2, 3, 6, 10, 18, 32, 58, 84, 70];
+    const raw = [
+      ['Hello, Ms. Cobel', 'Fri 17 Jan 2025', '50m', '4.3', 'Season premiere', "Mark returns to the severed floor to find a new team and a lot of cheerful new art.", '★★★★½'],
+      ['Goodbye, Mrs. Selvig', 'Fri 24 Jan 2025', '45m', '4.1', '', "Outie Mark tries to find out what happened while the innies work out who can be trusted.", '★★★★'],
+      ['Who Is Alive?', 'Fri 31 Jan 2025', '48m', '4.4', '', "A new visitor unsettles Lumon, and Helly starts asking questions nobody wants answered.", '★★★★½'],
+      ["Woe's Hollow", 'Fri 7 Feb 2025', '52m', '4.6', '', "An outdoor retreat sends the team into the snow, far from the safety of their desks.", '★★★★★'],
+      ["Trojan's Horse", 'Fri 14 Feb 2025', '46m', '4.2', '', "Back from the retreat, the innies deal with the fallout while Milchick gets a new mandate.", '★★★★'],
+      ['Attila', 'Fri 21 Feb 2025', '48m', '4.3', '', "A dinner at the Eagans' estate gets uncomfortable as Mark and Devon compare notes.", ''],
+      ['Chikhai Bardo', 'Fri 28 Feb 2025', '51m', '4.7', '', "Who is Gemma, and what has Lumon been doing to her all this time?", ''],
+      ['Sweet Vitriol', 'Fri 7 Mar 2025', '40m', '4.5', '', "Cobel returns to a place she has not seen in decades.", ''],
+      ['The After Hours', 'Fri 14 Mar 2025', '45m', '4.4', '', "The team plots its next move as the floor empties out for the night.", ''],
+      ['Cold Harbor', 'Fri 21 Mar 2025', '75m', '4.8', 'Season finale', "Mark faces the choice the whole season has been circling.", '']
+    ];
+    return {
+      histogram: hist.map((h, i) => 'flex-grow:1;border-radius:2px 2px 0 0;height:' + Math.round(h / 84 * 64) + 'px;background:' + (i === 8 ? '#f59e2e' : '#4a4851')),
+      friends: [
+        { initials: 'AM', title: 'ana_m', av: avatar('#2b4446') },
+        { initials: 'PK', title: 'priya.k', av: avatar('#24394a') },
+        { initials: 'TH', title: 'theo', av: avatar('#4a2f2f') },
+        { initials: 'LU', title: 'lucas', av: avatar('#463a2a') },
+        { initials: 'MI', title: 'mira', av: avatar('#3f2a3a') }
+      ],
+      episodes: raw.map((r, i) => {
+        const n = i + 1;
+        const watched = n <= 5;
+        const upnext = n === 6;
+        const t = tones[i];
+        return {
+          code: 'S2 E' + n,
+          title: r[0],
+          date: r[1],
+          runtime: r[2],
+          community: r[3],
+          type: r[4],
+          hasType: Boolean(r[4]),
+          blurb: r[5],
+          yours: r[6],
+          watched,
+          upnext,
+          unwatched: !watched && !upnext,
+          aria: 'Open S2 E' + n + ' ' + r[0],
+          stateLabel: (watched ? 'Watched ' : 'Mark watched ') + 'S2 E' + n,
+          row: 'display:flex;align-items:center;gap:20px;padding:12px;border-radius:10px;' + (upnext ? 'background:#1d1c22;box-shadow:inset 0 0 0 1px #4b2463' : 'background:transparent;box-shadow:inset 0 -1px 0 #26252b'),
+          still: 'position:relative;display:block;width:190px;height:107px;flex-shrink:0;border-radius:6px;overflow:hidden;background:radial-gradient(ellipse at ' + (30 + i * 5) + '% 40%, ' + t[0] + ' 0%, ' + t[1] + ' 100%);box-shadow:' + (watched ? '0 0 0 2px #3cc36a' : 'inset 0 0 0 1px rgba(255,255,255,.08)') + (watched ? '' : ';opacity:' + (upnext ? '1' : '.8'))
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

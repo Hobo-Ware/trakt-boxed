@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reviews browse - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:1600px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+
+  <header style="height:64px;flex-shrink:0;box-sizing:border-box;border-bottom:1px solid #37353d;background:#141318;display:flex;justify-content:center;position:relative;z-index:2">
+    <div style="width:1200px;display:flex;align-items:center;gap:32px">
+      <a href="#" aria-label="trakt boxed home" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700;letter-spacing:-0.01em">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav aria-label="Main" style="display:flex;gap:24px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;flex-grow:1">
+        <a href="#" style="color:#a19fa8">Films</a>
+        <a href="#" style="color:#a19fa8">Shows</a>
+        <a href="#" style="color:#a19fa8">Lists</a>
+        <a href="#" style="color:#a19fa8">Members</a>
+        <a href="#" style="color:#a19fa8">Calendar</a>
+      </nav>
+      <label style="display:flex;align-items:center;gap:8px;width:220px;height:36px;box-sizing:border-box;padding:0 12px;background:#26252b;border-radius:8px;color:#77757d">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Search" placeholder="Search films, shows, people" style="background:transparent;border:0;outline:0;color:#f6f5f8;font:inherit;font-size:13px;width:100%;min-width:0">
+      </label>
+      <button type="button" style="height:36px;padding:0 16px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>Log
+      </button>
+      <button type="button" aria-label="Account menu" style="width:32px;height:32px;border-radius:999px;border:0;padding:0;background:#3f2a3a;color:#f6f5f8;font-size:13px;font-weight:500">VJ</button>
+    </div>
+  </header>
+
+  <div style="width:1200px;margin:0 auto;padding-top:36px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:48px;letter-spacing:-0.01em;line-height:1">Reviews</h1>
+        <span style="font-size:15px;color:#a19fa8">What people are saying about films, shows, seasons and single episodes.</span>
+      </div>
+    </div>
+
+    <nav aria-label="Review feeds" style="display:flex;gap:28px;border-bottom:1px solid #37353d">
+      <a href="#" aria-current="page" style="padding:12px 0;margin-bottom:-1px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#f6f5f8;border-bottom:2px solid #9b2ad0">Popular this week</a>
+      <a href="#" style="padding:12px 0;margin-bottom:-1px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8;border-bottom:2px solid transparent">Recent</a>
+      <a href="#" style="padding:12px 0;margin-bottom:-1px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8;border-bottom:2px solid transparent">Friends</a>
+    </nav>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+      <div role="group" aria-label="Scope" style="display:flex;gap:8px">
+        <sc-for list="{{scopes}}" as="s" hint-placeholder-count="5">
+          <button type="button" aria-pressed="{{s.pressed}}" style="{{s.style}}">{{s.label}}</button>
+        </sc-for>
+      </div>
+      <label style="display:flex;align-items:center;gap:10px;font-size:13px;color:#a19fa8">Language
+        <select style="height:32px;border-radius:8px;border:1px solid #37353d;background:#26252b;color:#f6f5f8;font:inherit;font-size:13px;padding:0 10px">
+          <option>Any language</option>
+          <option>English</option>
+          <option>Français</option>
+          <option>Deutsch</option>
+          <option>فارسی</option>
+        </select>
+      </label>
+    </div>
+
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <main style="width:860px;flex-shrink:0;display:flex;flex-direction:column">
+        <sc-for list="{{reviews}}" as="r" hint-placeholder-count="6">
+          <article style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid #37353d">
+            <div style="width:140px;flex-shrink:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+              <a href="#" aria-label="{{r.title}}" style="{{r.art}}"><span style="{{r.artTextStyle}}">{{r.artText}}</span></a>
+              <span style="{{r.codeStyle}}">{{r.code}}</span>
+            </div>
+            <div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+                <a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px;letter-spacing:-0.01em;color:#f6f5f8">{{r.title}}</a>
+                <span style="font-size:14px;color:#a19fa8">{{r.year}}</span>
+                <span style="{{r.chipStyle}}">{{r.chip}}</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+                <span style="{{r.avatar}}">{{r.initial}}</span>
+                <span>Review by <a href="#" style="color:#f6f5f8;font-weight:500">{{r.by}}</a></span>
+                <span style="font-size:13px;color:#f59e2e;letter-spacing:.02em">{{r.stars}}</span>
+                <sc-if value="{{r.liked}}" hint-placeholder-val="{{ true }}">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8" role="img" aria-label="Liked"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5C19 15.5 12 20 12 20z"></path></svg>
+                </sc-if>
+                <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{r.when}}</span>
+              </div>
+              <p style="{{r.bodyStyle}}">{{r.body}}</p>
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <sc-for list="{{r.reactions}}" as="x" hint-placeholder-count="3">
+                  <button type="button" style="height:26px;padding:0 10px;border:0;border-radius:999px;background:#26252b;color:#d9d7de;font-size:12px">{{x.label}}</button>
+                </sc-for>
+                <a href="#" style="font-size:13px;color:#a19fa8;margin-inline-start:6px;display:flex;align-items:center;gap:5px">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>{{r.replies}}
+                </a>
+                <button type="button" style="margin-inline-start:auto;height:28px;padding:0 10px;border:0;border-radius:8px;background:transparent;color:#a19fa8;font-size:13px;display:flex;align-items:center;gap:6px">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5C19 15.5 12 20 12 20z"></path></svg>Like review · {{r.likes}}
+                </button>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+        <a href="#" style="align-self:center;margin-top:20px;font-size:14px">More popular reviews</a>
+      </main>
+
+      <aside style="width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:24px">
+        <section style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Top reviewers this week</h2>
+            <a href="#" style="font-size:12px">More</a>
+          </div>
+          <sc-for list="{{reviewers}}" as="m" hint-placeholder-count="5">
+            <div style="display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid #26252b">
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d;width:14px">{{m.rank}}</span>
+              <span style="{{m.avatar}}">{{m.initial}}</span>
+              <div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+                <a href="#" style="font-size:15px;font-weight:500;color:#f6f5f8">{{m.name}}</a>
+                <span style="font-size:12px;color:#a19fa8">{{m.meta}}</span>
+              </div>
+              <button type="button" style="{{m.btnStyle}}">{{m.btn}}</button>
+            </div>
+          </sc-for>
+        </section>
+        <section style="background:#1d1c22;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:inset 0 0 0 1px #37353d">
+          <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Most reviewed this week</h2>
+          <sc-for list="{{most}}" as="t" hint-placeholder-count="4">
+            <a href="#" style="display:flex;justify-content:space-between;gap:12px;font-size:14px;color:#d9d7de">
+              <span>{{t.title}}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{t.count}}</span>
+            </a>
+          </sc-for>
+        </section>
+      </aside>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+const TONES = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+const RINGS = { watched: '0 0 0 2px #3cc36a', watchlist: '0 0 0 2px #4ea3e6', none: 'inset 0 0 0 1px rgba(255,255,255,.08)' };
+const AVATARS = { ana_m: '#5b3a78', jonas: '#2f5a6e', 'priya.k': '#6e3a4f', theo: '#3a6e4f', mira: '#6e5a34', lucas: '#3a4a6e', sevda: '#6e3a3a', noor: '#34606e', kai: '#58406e' };
+const posterBox = (tone, state, size) => 'position:relative;flex-shrink:0;box-sizing:border-box;border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;background:' + TONES[tone % 10] + ';box-shadow:' + (RINGS[state] || RINGS.none) + ';' + size;
+const posterText = (px) => 'font-family:Newsreader,Georgia,serif;font-weight:600;color:rgba(255,255,255,.85);line-height:1.1;font-size:' + px + 'px';
+const progFill = (pct) => 'display:block;height:100%;background:#3cc36a;width:' + pct + '%';
+const avatar = (name, px) => 'flex-shrink:0;width:' + px + 'px;height:' + px + 'px;border-radius:999px;background:' + (AVATARS[name] || '#4a4851') + ';color:#f6f5f8;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:' + Math.round(px * 0.42) + 'px';
+const initial = (name) => name.charAt(0).toUpperCase();
+const CHIP_TONES = { Film: 'background:#2a1737;color:#e4cdf6', Show: 'background:#1f3346;color:#9fcdf2', Season: 'background:#1c3a3a;color:#9fe0dc', Episode: 'background:#3a2f1c;color:#f2cf9f', Person: 'background:#26252b;color:#d9d7de', List: 'background:#26252b;color:#d9d7de', Member: 'background:#26252b;color:#d9d7de' };
+const typeChip = (type) => 'flex-shrink:0;height:20px;padding:0 8px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:.04em;display:inline-flex;align-items:center;' + (CHIP_TONES[type] || CHIP_TONES.List);
+const stateDot = (color) => 'width:8px;height:8px;border-radius:999px;flex-shrink:0;background:' + color;
+class Component extends DCLogic {
+  renderVals() {
+    const scope = (label, on) => ({
+      label,
+      pressed: on ? 'true' : 'false',
+      style: 'height:28px;padding:0 12px;border-radius:999px;font-size:13px;' + (on ? 'background:#2a1737;color:#e4cdf6;border:1px solid #9b2ad0' : 'background:#26252b;color:#d9d7de;border:1px solid transparent')
+    });
+    const BODY = 'margin:0;font-size:15px;line-height:1.6;color:#d9d7de;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden';
+    const SPOILER = 'margin:0;font-size:14px;line-height:1.6;color:#a19fa8;background:#26252b;border-radius:8px;padding:12px 14px;font-style:italic';
+    const review = (o) => {
+      const episode = o.chip === 'Episode';
+      return Object.assign({}, o, {
+        art: episode
+          ? posterBox(o.tone, 'none', 'width:140px;height:79px;padding:6px 8px')
+          : posterBox(o.tone, o.state || 'none', 'width:92px;height:138px;padding:8px'),
+        artText: episode ? '' : o.posterTitle,
+        artTextStyle: posterText(13),
+        code: episode ? o.code : '',
+        codeStyle: episode ? "font-family:'Roboto Mono',monospace;font-size:12px;color:#d9d7de" : 'display:none',
+        chipStyle: typeChip(o.chip),
+        avatar: avatar(o.by, 24),
+        initial: initial(o.by),
+        bodyStyle: o.spoiler ? SPOILER : BODY,
+        reactions: o.reactions.map((label) => ({ label })),
+        liked: o.liked === true
+      });
+    };
+    const reviewer = (rank, name, meta, following) => ({
+      rank: String(rank), name, meta,
+      initial: initial(name),
+      avatar: avatar(name, 40),
+      btn: following ? 'Following' : 'Follow',
+      btnStyle: 'height:30px;padding:0 12px;border-radius:8px;font-size:12px;' + (following ? 'border:1px solid #37353d;background:transparent;color:#a19fa8' : 'border:1px solid #37353d;background:#26252b;color:#f6f5f8')
+    });
+    return {
+      scopes: [scope('All', true), scope('Films', false), scope('Shows', false), scope('Seasons', false), scope('Episodes', false)],
+      reviews: [
+        review({ tone: 8, posterTitle: 'Anatomy of a Fall', title: 'Anatomy of a Fall', year: '2023', chip: 'Film', by: 'mira', stars: '★★★★½', liked: true, when: 'WATCHED 14 SEP 2026', state: 'watched', body: 'A courtroom drama where the verdict is the least interesting thing in the room. Triet films a marriage like a crime scene, and Sandra Hüller never once asks you to like her. The dog deserves its own review.', reactions: ['Loved it 214', 'Agree 88', 'Insightful 40'], replies: '18 replies', likes: '1.4K' }),
+        review({ tone: 7, title: 'Severance S2 E4 · Woe’s Hollow', year: '2025', chip: 'Episode', code: 'S2 E4', by: 'jonas', stars: '★★★★★', liked: true, when: 'WATCHED 12 SEP 2026', body: 'The show finally leaves the office and somehow it gets more claustrophobic. That cold open on the snow, the fake campfire lore, and the last five minutes that rewired everything I thought about Helly.', reactions: ['Loved it 402', 'Agree 156', 'Funny 9'], replies: '41 replies', likes: '2.1K' }),
+        review({ tone: 2, posterTitle: 'The Bear', title: 'The Bear · Season 3', year: '2024', chip: 'Season', by: 'theo', stars: '★★½', when: 'WATCHED 10 SEP 2026', state: 'watched', body: 'Beautifully shot, deeply stuck. Ten episodes of the kitchen waiting for a review and I started to feel like one of the line cooks. Still, the Tina episode alone is worth a star.', reactions: ['Agree 122', 'Disagree 64'], replies: '27 replies', likes: '860' }),
+        review({ tone: 4, posterTitle: 'Sinners', title: 'Sinners', year: '2025', chip: 'Film', by: 'ana_m', stars: '★★★★½', liked: true, when: 'REWATCHED 9 SEP 2026', state: 'watched', body: 'Second time through and the juke joint sequence still made the whole theatre go quiet. Coogler makes a vampire film that is really about who gets to own music, and it never stops being fun.', reactions: ['Loved it 318', 'Insightful 57'], replies: '22 replies', likes: '1.9K' }),
+        review({ tone: 0, posterTitle: 'Adolescence', title: 'Adolescence', year: '2025', chip: 'Show', by: 'priya.k', stars: '★★★★★', liked: true, when: 'FINISHED 8 SEP 2026', state: 'watched', body: 'Four single takes, four gut punches. Episode three is a two-person play that I will be thinking about for years. Hard to recommend and impossible not to.', reactions: ['Loved it 540', 'Agree 201'], replies: '63 replies', likes: '3.3K' }),
+        review({ tone: 6, posterTitle: 'The Substance', title: 'The Substance', year: '2024', chip: 'Film', by: 'lucas', stars: '★★★', when: 'WATCHED 7 SEP 2026', spoiler: true, body: 'This review may contain spoilers. Show anyway', reactions: ['Funny 44', 'Agree 30'], replies: '9 replies', likes: '412' })
+      ],
+      reviewers: [
+        reviewer(1, 'mira', '14 reviews · 6.2K likes this week', true),
+        reviewer(2, 'priya.k', '9 reviews · 5.1K likes', false),
+        reviewer(3, 'jonas', '22 reviews · 4.4K likes', true),
+        reviewer(4, 'noor', '11 reviews · 2.9K likes', false),
+        reviewer(5, 'kai', '17 reviews · 2.2K likes', false)
+      ],
+      most: [
+        { title: 'Severance S2 E10', count: '4.1K' },
+        { title: 'One Battle After Another', count: '3.6K' },
+        { title: 'The Pitt S2', count: '2.8K' },
+        { title: 'Sinners', count: '2.2K' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

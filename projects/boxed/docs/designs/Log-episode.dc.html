@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Log composer - episodes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:1000px;box-sizing:border-box;background:#141318;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;display:flex;flex-direction:column">
+    <div style="height:64px;border-bottom:1px solid #37353d;display:flex;align-items:center;justify-content:space-between;padding:0 120px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:28px;height:28px;border-radius:7px;background:#9b2ad0"></div>
+        <div style="width:110px;height:14px;border-radius:4px;background:#2b2a31"></div>
+      </div>
+      <div style="display:flex;gap:28px">
+        <div style="width:48px;height:10px;border-radius:3px;background:#2b2a31"></div>
+        <div style="width:48px;height:10px;border-radius:3px;background:#2b2a31"></div>
+        <div style="width:48px;height:10px;border-radius:3px;background:#2b2a31"></div>
+        <div style="width:60px;height:10px;border-radius:3px;background:#2b2a31"></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="width:220px;height:36px;border-radius:8px;background:#26252b"></div>
+        <div style="width:72px;height:36px;border-radius:8px;background:#5b2a78"></div>
+        <div style="width:32px;height:32px;border-radius:50%;background:#37353d"></div>
+      </div>
+    </div>
+    <div style="height:380px;background:linear-gradient(180deg,#22343a 0%,#1a262a 55%,#141318 100%)"></div>
+    <div style="display:flex;gap:40px;padding:0 120px;margin-top:-170px">
+      <div style="width:230px;height:345px;border-radius:4px;background:#2b4446;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)"></div>
+      <div style="flex-grow:1;display:flex;flex-direction:column;gap:14px;padding-top:120px">
+        <div style="width:340px;height:40px;border-radius:6px;background:#2b2a31"></div>
+        <div style="width:260px;height:14px;border-radius:4px;background:#26252b"></div>
+        <div style="display:flex;gap:12px;margin-top:20px">
+          <div style="width:110px;height:165px;border-radius:4px;background:#1f2a2c"></div>
+          <div style="width:110px;height:165px;border-radius:4px;background:#1f2a2c"></div>
+          <div style="width:110px;height:165px;border-radius:4px;background:#1f2a2c"></div>
+        </div>
+      </div>
+      <div style="width:300px;height:360px;border-radius:10px;background:#26252b;margin-top:120px"></div>
+    </div>
+  </div>
+  <div style="position:absolute;inset:0;background:rgba(10,9,13,.72)"></div>
+
+  <section role="dialog" aria-modal="true" aria-labelledby="log-title" style="position:absolute;top:130px;inset-inline-start:250px;width:940px;box-sizing:border-box;background:#1d1c22;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px #2b2a31;padding:28px 32px;display:flex;flex-direction:column;gap:22px">
+    <button type="button" aria-label="Close" style="position:absolute;top:18px;inset-inline-end:18px;width:36px;height:36px;border-radius:8px;border:0;background:transparent;color:#a19fa8;display:flex;align-items:center;justify-content:center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </button>
+
+    <div style="display:flex;gap:20px;align-items:center">
+      <div style="width:64px;height:96px;flex-shrink:0;border-radius:4px;background:#2b4446;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);position:relative">
+        <span style="position:absolute;inset-inline-start:6px;bottom:6px;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:10px;color:rgba(255,255,255,.85)">Severance</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">I watched...</span>
+        <h2 id="log-title" style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:36px;letter-spacing:-0.01em">Severance <span style="font-weight:500;color:#77757d;font-size:24px">2022</span></h2>
+        <span style="font-size:13px;color:#a19fa8">Apple TV+ · Returning · You're on S2 E4</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:36px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <label for="season" style="font-size:13px;color:#a19fa8">Episodes</label>
+            <div style="position:relative;display:flex;align-items:center">
+              <select id="season" style="appearance:none;height:32px;padding:0 32px 0 12px;border:0;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;color:#f6f5f8;font-size:13px">
+                <option>Season 1</option>
+                <option selected>Season 2</option>
+              </select>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a19fa8" stroke-width="1.8" stroke-linecap="round" style="position:absolute;inset-inline-end:10px;pointer-events:none"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+          </div>
+          <div role="group" aria-label="Season 2 episodes" style="display:grid;grid-template-columns:repeat(10, minmax(0, 1fr));gap:6px">
+            <sc-for list="{{episodes}}" as="e" hint-placeholder-count="10">
+              <button type="button" aria-label="{{e.aria}}" aria-pressed="{{e.pressed}}" style="{{e.style}}"><sc-if value="{{e.watched}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>{{e.label}}</button>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px">
+            <span style="color:#d9d7de"><strong style="font-weight:500">E4 to E6</strong> <span style="color:#a19fa8">· 3 episodes · 2h 38m</span></span>
+            <span style="display:flex;align-items:center;gap:6px;color:#77757d">
+              <span style="width:10px;height:10px;border-radius:3px;background:#1d3a28;box-shadow:inset 0 0 0 1px #3cc36a"></span>watched
+              <span style="width:10px;height:10px;border-radius:3px;background:#9b2ad0;margin-inline-start:8px"></span>logging now
+            </span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span id="date-label" style="font-size:13px;color:#a19fa8">Watched on</span>
+          <div role="radiogroup" aria-labelledby="date-label" style="display:flex;align-items:center;gap:2px;padding:3px;border-radius:9px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;align-self:flex-start">
+            <button type="button" role="radio" aria-checked="false" style="height:32px;padding:0 11px;border:0;border-radius:6px;background:transparent;color:#d9d7de;font-size:13px">Today</button>
+            <button type="button" role="radio" aria-checked="false" style="height:32px;padding:0 11px;border:0;border-radius:6px;background:transparent;color:#d9d7de;font-size:13px">Release date</button>
+            <div role="radio" aria-checked="true" style="height:32px;padding:0 4px 0 11px;border-radius:6px;background:#2a1737;box-shadow:inset 0 0 0 1px #9b2ad0;display:flex;align-items:center;gap:8px;font-size:13px;color:#e4cdf6">
+              <span>Other</span>
+              <label style="display:flex;align-items:center;gap:6px;height:24px;padding:0 8px;border-radius:5px;background:#141318;color:#f6f5f8">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+                <input type="text" aria-label="Watch date" value="26 Sep 2026" style="width:82px;border:0;background:transparent;color:#f6f5f8;font-family:'Roboto Mono',monospace;font-size:12px;outline:none">
+              </label>
+            </div>
+            <button type="button" role="radio" aria-checked="false" style="height:32px;padding:0 11px;border:0;border-radius:6px;background:transparent;color:#d9d7de;font-size:13px">Unknown</button>
+          </div>
+          <button type="button" style="align-self:flex-start;height:32px;padding:0 12px;border-radius:8px;border:0;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;color:#f6f5f8;font-size:13px;font-weight:500;display:flex;align-items:center;gap:8px">
+            <span style="width:8px;height:8px;border-radius:50%;background:#f0506e;box-shadow:0 0 0 3px rgba(240,80,110,.25)"></span>
+            Check in to E4 now
+          </button>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span id="rating-label" style="font-size:13px;color:#a19fa8">Rating</span>
+            <div role="radiogroup" aria-labelledby="rating-label" style="display:flex;gap:2px;padding:3px;border-radius:9px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d">
+              <button type="button" role="radio" aria-checked="false" style="height:28px;padding:0 12px;border:0;border-radius:6px;background:transparent;color:#d9d7de;font-size:12px">One rating for all</button>
+              <button type="button" role="radio" aria-checked="true" style="height:28px;padding:0 12px;border:0;border-radius:6px;background:#2a1737;box-shadow:inset 0 0 0 1px #9b2ad0;color:#e4cdf6;font-size:12px">Rate each</button>
+            </div>
+          </div>
+          <div style="border-radius:10px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;display:flex;flex-direction:column">
+            <sc-for list="{{rated}}" as="r" hint-placeholder-count="3">
+              <div style="{{r.rowStyle}}">
+                <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8;width:48px;flex-shrink:0">{{r.code}}</span>
+                <span style="flex-grow:1;min-width:0;font-size:14px;color:#f6f5f8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.title}}</span>
+                <span role="img" aria-label="{{r.aria}}" style="display:flex;font-size:20px;line-height:20px;letter-spacing:1px">
+                  <span style="color:#f59e2e">{{r.full}}</span>
+                  <sc-if value="{{r.half}}" hint-placeholder-val="{{ true }}">
+                    <span style="position:relative;display:inline-block;color:#4a4851">★<span style="position:absolute;top:0;inset-inline-start:0;width:50%;overflow:hidden;color:#f59e2e">★</span></span>
+                  </sc-if>
+                  <span style="color:#4a4851">{{r.empty}}</span>
+                </span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <label for="scope" style="font-size:13px;color:#a19fa8">Review</label>
+            <div style="position:relative;display:flex;align-items:center">
+              <select id="scope" style="appearance:none;height:32px;padding:0 32px 0 12px;border:0;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;color:#f6f5f8;font-size:13px">
+                <option>Review: the show</option>
+                <option>Review: Season 2</option>
+                <option>Review: Episode 4 · Woe's Hollow</option>
+                <option>Review: Episode 5 · Trojan's Horse</option>
+                <option selected>Review: Episode 6 · Attila</option>
+              </select>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a19fa8" stroke-width="1.8" stroke-linecap="round" style="position:absolute;inset-inline-end:10px;pointer-events:none"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;gap:4px" role="toolbar" aria-label="Formatting">
+            <button type="button" aria-label="Bold" style="width:30px;height:28px;border:0;border-radius:6px;background:#26252b;color:#d9d7de;font-weight:700;font-size:14px">B</button>
+            <button type="button" aria-label="Italic" style="width:30px;height:28px;border:0;border-radius:6px;background:#26252b;color:#d9d7de;font-style:italic;font-family:Newsreader,Georgia,serif;font-size:15px">I</button>
+            <button type="button" aria-label="Quote" style="width:30px;height:28px;border:0;border-radius:6px;background:#26252b;color:#d9d7de;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 7h4v4c0 3-2 5-4 6M15 7h4v4c0 3-2 5-4 6"></path></svg></button>
+            <button type="button" aria-label="Link" style="width:30px;height:28px;border:0;border-radius:6px;background:#26252b;color:#d9d7de;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg></button>
+            <button type="button" aria-label="Spoiler" style="height:28px;padding:0 8px;border:0;border-radius:6px;background:#26252b;color:#d9d7de;display:flex;align-items:center;gap:5px;font-size:12px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3 3.9M6.6 6.6C3.9 8.4 2 12 2 12s3.5 7 10 7c1.8 0 3.4-.5 4.8-1.3"></path></svg>Spoiler</button>
+          </div>
+          <textarea aria-label="Review of Episode 6, Attila" style="height:200px;box-sizing:border-box;resize:none;border:0;border-radius:10px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;padding:14px 16px;color:#e6e4ea;font:15px/1.6 Roboto,sans-serif">The dinner scene is the best twenty minutes of the season. Every line is doing two jobs, and Tramell Tillman plays Milchick like a man who knows exactly which one you missed.
+
+Also: the painting. I paused it.</textarea>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:#f6f5f8">
+              <input type="checkbox" checked style="width:18px;height:18px;margin:0;accent-color:#9b2ad0">
+              Contains spoilers
+            </label>
+            <span style="font-size:12px;color:#77757d;padding-inline-start:28px">Episode reviews are hidden from people who haven't watched it</span>
+          </div>
+        </div>
+
+        <details open style="border-radius:10px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d">
+          <summary style="list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;cursor:pointer">
+            <span style="display:flex;align-items:center;gap:10px;font-size:14px;color:#f6f5f8">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a19fa8" stroke-width="1.8" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+              Also rate Season 2
+            </span>
+            <span style="font-size:12px;color:#77757d">6 of 10 watched</span>
+          </summary>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 14px 14px 40px">
+            <span role="img" aria-label="Season 2 rating, 4 out of 5" style="display:flex;font-size:24px;line-height:24px;letter-spacing:2px">
+              <span style="color:#f59e2e">★★★★</span><span style="color:#4a4851">★</span>
+            </span>
+            <span style="font-size:12px;color:#77757d">1-10 on Trakt: <span style="font-family:'Roboto Mono',monospace;color:#a19fa8">8</span></span>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #37353d;padding-top:18px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <button type="button" role="switch" aria-checked="true" aria-labelledby="share-label" style="width:40px;height:22px;border:0;border-radius:999px;background:#9b2ad0;padding:2px;display:flex;justify-content:flex-end">
+          <span style="width:18px;height:18px;border-radius:50%;background:#fff"></span>
+        </button>
+        <span id="share-label" style="font-size:14px;color:#d9d7de">Share to activity</span>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button type="button" style="height:40px;padding:0 18px;border:0;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;color:#f6f5f8;font-size:14px;font-weight:500">Cancel</button>
+        <button type="button" style="height:40px;padding:0 22px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500">Save 3 episodes</button>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const chip = 'height:36px;padding:0;border:0;border-radius:6px;font-family:"Roboto Mono",monospace;font-size:12px;display:flex;align-items:center;justify-content:center;gap:2px;';
+    const styles = {
+      watched: chip + 'background:#1d3a28;color:#3cc36a;box-shadow:inset 0 0 0 1px #2d6b42;cursor:not-allowed',
+      selected: chip + 'background:#9b2ad0;color:#fff',
+      none: chip + 'background:#26252b;color:#d9d7de;box-shadow:inset 0 0 0 1px #37353d'
+    };
+    const stateFor = (n) => (n <= 3 ? 'watched' : n <= 6 ? 'selected' : 'none');
+    const episodes = Array.from({ length: 10 }, (_, i) => {
+      const n = i + 1;
+      const state = stateFor(n);
+      return {
+        label: state === 'watched' ? String(n) : 'E' + n,
+        watched: state === 'watched',
+        aria: 'Episode ' + n + (state === 'watched' ? ', already watched' : ''),
+        pressed: state === 'selected' ? 'true' : 'false',
+        style: styles[state]
+      };
+    });
+    const row = 'display:flex;align-items:center;gap:12px;padding:0 14px;height:46px;';
+    const rate = (code, title, stars, i) => {
+      const full = Math.floor(stars);
+      const half = stars % 1 !== 0;
+      return {
+        code, title,
+        full: '★'.repeat(full),
+        half,
+        empty: '★'.repeat(5 - full - (half ? 1 : 0)),
+        aria: title + ', ' + stars + ' out of 5',
+        rowStyle: row + (i > 0 ? 'border-top:1px solid #37353d' : '')
+      };
+    };
+    return {
+      episodes,
+      rated: [
+        rate('S2 E4', "Woe's Hollow", 5, 0),
+        rate('S2 E5', "Trojan's Horse", 3.5, 1),
+        rate('S2 E6', 'Attila', 4.5, 2)
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

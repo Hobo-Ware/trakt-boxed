@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Episode page - mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:390px;height:2100px;box-sizing:border-box;background:#141318;position:relative;overflow:hidden">
+
+  <header style="position:relative;z-index:2;height:52px;padding:0 16px;display:flex;align-items:center;gap:10px;background:#141318;border-bottom:1px solid #26252b">
+    <a href="#" style="display:flex;align-items:center;gap:8px;color:#f6f5f8">
+      <span style="width:26px;height:26px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#fff">t</span>
+      <span style="font-size:18px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+    </a>
+    <button type="button" aria-label="Search" style="margin-inline-start:auto;width:36px;height:36px;border:0;background:none;color:#d9d7de;display:flex;align-items:center;justify-content:center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+    </button>
+    <a href="#" aria-label="Your profile" style="width:30px;height:30px;border-radius:50%;background:#3f2a3a;color:#f6f5f8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500">AM</a>
+  </header>
+
+  <div style="position:relative;height:200px;background:linear-gradient(to bottom, rgba(20,19,24,0) 40%, #141318 100%), radial-gradient(ellipse 80% 90% at 35% 35%, #5b6e4f 0%, #2f3a2a 55%, #1a2019 100%)">
+    <span style="position:absolute;top:12px;left:16px;height:22px;display:inline-flex;align-items:center;padding:0 8px;border-radius:999px;background:#9b2ad0;color:#fff;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase">Up next for you</span>
+  </div>
+
+  <main style="position:relative;margin-top:-28px;padding:0 16px;display:flex;flex-direction:column;gap:22px">
+
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <nav aria-label="Breadcrumb" style="display:flex;align-items:center;gap:6px;font-size:13px;color:#a19fa8">
+        <a href="#" style="color:#d9d7de">Severance</a>
+        <span aria-hidden="true">&#8250;</span>
+        <a href="#" style="color:#d9d7de">Season 2</a>
+        <span aria-hidden="true">&#8250;</span>
+        <span style="color:#f6f5f8">Episode 6</span>
+      </nav>
+      <span style="font-family:'Roboto Mono',monospace;font-size:13px;color:#c9a3e8;margin-top:4px">S2 E6</span>
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:40px;line-height:1;letter-spacing:-0.01em">Attila</h1>
+      <span style="font-size:13px;color:#a19fa8;line-height:1.45">Aired 21 Feb 2025 · 48m · Directed by <a href="#" style="color:#d9d7de">Uta Briesewitz</a></span>
+      <p style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:500;font-size:16px;line-height:1.5;color:#d9d7de">A dinner invitation from an unexpected host puts Mark and Devon in a room with more questions than answers.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button type="button" aria-pressed="false" style="height:50px;border:0;border-radius:8px;background:#3cc36a;color:#0f1a12;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Mark watched
+      </button>
+      <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px">
+        <button type="button" style="height:42px;border-radius:8px;background:#26252b;color:#f6f5f8;border:1px solid #37353d;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="2"></circle><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19 5a10 10 0 0 1 0 14M5 19A10 10 0 0 1 5 5"></path></svg>Check in
+        </button>
+        <button type="button" style="height:42px;border-radius:8px;background:#26252b;color:#f6f5f8;border:1px solid #37353d;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h11M4 12h11M4 18h7M18 14v6M15 17h6"></path></svg>Add to list
+        </button>
+        <button type="button" style="height:42px;border-radius:8px;background:#26252b;color:#f6f5f8;border:1px solid #37353d;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M8 21h8"></path></svg>Watch
+        </button>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:10px;background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31">
+        <span style="font-size:13px;color:#a19fa8">Rate</span>
+        <div role="group" aria-label="Rate this episode" style="display:flex;gap:4px">
+          <button type="button" aria-label="1 star" style="background:none;border:0;padding:0;font-size:26px;line-height:1;color:#4a4851">&#9733;</button>
+          <button type="button" aria-label="2 stars" style="background:none;border:0;padding:0;font-size:26px;line-height:1;color:#4a4851">&#9733;</button>
+          <button type="button" aria-label="3 stars" style="background:none;border:0;padding:0;font-size:26px;line-height:1;color:#4a4851">&#9733;</button>
+          <button type="button" aria-label="4 stars" style="background:none;border:0;padding:0;font-size:26px;line-height:1;color:#4a4851">&#9733;</button>
+          <button type="button" aria-label="5 stars" style="background:none;border:0;padding:0;font-size:26px;line-height:1;color:#4a4851">&#9733;</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px">
+      <a href="#" style="display:flex;align-items:center;gap:8px;padding:10px;border-radius:10px;background:#1d1c22;color:#f6f5f8;box-shadow:inset 0 0 0 1px #2b2a31">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a19fa8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>
+        <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+          <span style="font-family:'Roboto Mono',monospace;font-size:10px;color:#a19fa8">S2 E5</span>
+          <span style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Trojan's Horse</span>
+        </span>
+      </a>
+      <a href="#" style="display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:10px;border-radius:10px;background:#1d1c22;color:#f6f5f8;box-shadow:inset 0 0 0 1px #2b2a31;text-align:end">
+        <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+          <span style="font-family:'Roboto Mono',monospace;font-size:10px;color:#a19fa8">S2 E7</span>
+          <span style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Chikhai Bardo</span>
+        </span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a19fa8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+
+    <section aria-label="Ratings" style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Ratings</span>
+        <span style="font-size:12px;color:#77757d">Rated 4.3 by 35K</span>
+      </div>
+      <div style="display:flex;align-items:flex-end;gap:10px">
+        <div style="flex-grow:1;height:56px;display:flex;align-items:flex-end;gap:3px">
+          <sc-for list="{{histogram}}" as="h" hint-placeholder-count="10">
+            <div style="{{h}}"></div>
+          </sc-for>
+        </div>
+        <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:32px;line-height:.9">4.3</span>
+      </div>
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#a19fa8;font-size:13px">
+        <span style="display:flex">
+          <sc-for list="{{friends}}" as="f" hint-placeholder-count="4">
+            <span style="{{f}}"></span>
+          </sc-for>
+        </span>
+        <span><span style="color:#f6f5f8">ana_m, theo</span> and 2 friends watched</span>
+      </a>
+    </section>
+
+    <section aria-label="Episode reviews" style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Episode reviews · 1,106</span>
+      </div>
+      <div role="status" style="display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:10px;background:#2a1737;box-shadow:inset 0 0 0 1px #4b2463">
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e4cdf6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+          <span style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:14px;font-weight:500;color:#f6f5f8">Reviews are hidden until you've watched this episode</span>
+            <span style="font-size:12px;color:#c9a3e8">Watch it first, or show anyway.</span>
+          </span>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button type="button" style="flex-grow:1;height:36px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:13px;font-weight:500">I've watched it</button>
+          <button type="button" style="flex-grow:1;height:36px;border-radius:8px;background:transparent;color:#e4cdf6;border:1px solid #9b2ad0;font-size:13px;font-weight:500">Show anyway</button>
+        </div>
+      </div>
+      <sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+        <article aria-label="Hidden review" style="display:flex;flex-direction:column;gap:8px;padding-bottom:12px;border-bottom:1px solid #26252b">
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+            <span style="{{r.av}}">{{r.initials}}</span>
+            <strong style="color:#f6f5f8;font-weight:500">{{r.name}}</strong>
+            <span style="color:#f59e2e">{{r.stars}}</span>
+            <span style="margin-inline-start:auto;font-size:11px;color:#77757d">{{r.likes}}</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;flex-direction:column;gap:7px;filter:blur(3px);opacity:.75">
+            <span style="{{r.l1}}"></span>
+            <span style="{{r.l2}}"></span>
+            <span style="{{r.l3}}"></span>
+          </div>
+        </article>
+      </sc-for>
+    </section>
+
+    <section aria-label="Guest cast" style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Guest cast</span>
+        <a href="#" style="font-size:12px">All</a>
+      </div>
+      <div style="display:flex;gap:14px;margin-inline-end:-16px;overflow:hidden">
+        <sc-for list="{{guests}}" as="g" hint-placeholder-count="5">
+          <a href="#" style="width:72px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;color:#f6f5f8">
+            <span style="{{g.av}}">{{g.initials}}</span>
+            <span style="font-size:12px;line-height:1.25">{{g.name}}</span>
+            <span style="font-size:11px;color:#77757d">{{g.role}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-label="More from Season 2" style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">More from Season 2</span>
+        <a href="#" style="font-size:12px">All 10</a>
+      </div>
+      <div style="display:flex;gap:10px;margin-inline-end:-16px;overflow:hidden">
+        <sc-for list="{{more}}" as="m" hint-placeholder-count="4">
+          <a href="#" style="width:150px;flex-shrink:0;display:flex;flex-direction:column;gap:6px;color:#f6f5f8">
+            <span style="{{m.still}}"><span style="{{m.badge}}">{{m.badgeText}}</span></span>
+            <span style="font-family:'Roboto Mono',monospace;font-size:10px;color:#a19fa8">{{m.code}}</span>
+            <span style="font-size:13px;font-weight:500">{{m.title}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+
+  <nav aria-label="Primary" style="position:absolute;left:0;right:0;bottom:0;height:64px;background:#1d1c22;border-top:1px solid #37353d;display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));align-items:center">
+    <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#a19fa8;font-size:10px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z"></path></svg>Home
+    </a>
+    <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#a19fa8;font-size:10px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1"></rect><rect x="13" y="4" width="7" height="7" rx="1"></rect><rect x="4" y="13" width="7" height="7" rx="1"></rect><rect x="13" y="13" width="7" height="7" rx="1"></rect></svg>Browse
+    </a>
+    <div style="display:flex;justify-content:center">
+      <button type="button" aria-label="Log" style="width:52px;height:52px;margin-top:-22px;border-radius:50%;border:0;background:#9b2ad0;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(155,42,208,.45), 0 0 0 4px #141318">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </button>
+    </div>
+    <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#f6f5f8;font-size:10px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M8 21h8"></path></svg>Watching
+    </a>
+    <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#a19fa8;font-size:10px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Profile
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const avatar = (bg, size) => 'width:' + size + 'px;height:' + size + 'px;flex-shrink:0;border-radius:50%;background:' + bg + ';color:#f6f5f8;display:flex;align-items:center;justify-content:center;font-size:' + Math.round(size * 0.36) + 'px;font-weight:500';
+    const line = (w) => 'display:block;height:10px;border-radius:4px;background:#4a4851;width:' + w + '%';
+    const hist = [1, 1, 2, 4, 7, 12, 24, 52, 88, 60];
+    const badgeBase = 'position:absolute;top:6px;left:6px;height:18px;display:inline-flex;align-items:center;padding:0 7px;border-radius:999px;font-size:9px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;';
+    const still = (a, b, ring) => 'position:relative;display:block;width:150px;height:84px;border-radius:6px;overflow:hidden;background:radial-gradient(ellipse at 40% 40%, ' + a + ' 0%, ' + b + ' 100%);box-shadow:' + ring;
+    return {
+      histogram: hist.map((h, i) => 'flex-grow:1;border-radius:2px 2px 0 0;height:' + Math.round(h / 88 * 56) + 'px;background:' + (i === 8 ? '#f59e2e' : '#4a4851')),
+      friends: ['#2b4446', '#4a2f2f', '#24394a', '#463a2a'].map((bg, i) => 'width:26px;height:26px;border-radius:50%;background:' + bg + ';box-shadow:0 0 0 2px #141318;' + (i ? 'margin-inline-start:-8px' : '')),
+      reviews: [
+        { name: 'ana_m', initials: 'AM', av: avatar('#2b4446', 26), stars: '★★★★★', likes: '1.8K likes', l1: line(96), l2: line(88), l3: line(54) },
+        { name: 'jonas', initials: 'JO', av: avatar('#4a432f', 26), stars: '★★★★', likes: '902 likes', l1: line(92), l2: line(70), l3: line(38) },
+        { name: 'priya.k', initials: 'PK', av: avatar('#24394a', 26), stars: '★★★★½', likes: '611 likes', l1: line(98), l2: line(80), l3: line(62) }
+      ],
+      guests: [
+        { name: 'Sarah Bock', role: 'Miss Huang', initials: 'SB', av: avatar('#3f2a3a', 56) },
+        { name: 'Michael Siberry', role: 'Jame Eagan', initials: 'MS', av: avatar('#24394a', 56) },
+        { name: 'Robby Benson', role: 'Dr. Mauer', initials: 'RB', av: avatar('#2f4a3b', 56) },
+        { name: 'Jane Alexander', role: 'Sissy Cobel', initials: 'JA', av: avatar('#4a2f2f', 56) },
+        { name: 'Ólafur Darri', role: 'Lorne', initials: 'OD', av: avatar('#463a2a', 56) }
+      ],
+      more: [
+        { code: 'S2 E5 · Watched', title: "Trojan's Horse", still: still('#6a4a4a', '#2a1c1c', '0 0 0 2px #3cc36a'), badge: badgeBase + 'background:rgba(15,14,19,.75);color:#3cc36a', badgeText: 'Watched' },
+        { code: 'S2 E6', title: 'Attila', still: still('#5b6e4f', '#1a2019', '0 0 0 2px #f6f5f8'), badge: badgeBase + 'background:#f6f5f8;color:#141318', badgeText: 'Now viewing' },
+        { code: 'S2 E7', title: 'Chikhai Bardo', still: still('#4e4a6a', '#1d1b2a', 'inset 0 0 0 1px rgba(255,255,255,.08)'), badge: badgeBase + 'background:rgba(15,14,19,.75);color:#a19fa8', badgeText: 'Unwatched' },
+        { code: 'S2 E8', title: 'Sweet Vitriol', still: still('#6a5f4a', '#29241b', 'inset 0 0 0 1px rgba(255,255,255,.08)'), badge: badgeBase + 'background:rgba(15,14,19,.75);color:#a19fa8', badgeText: 'Unwatched' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

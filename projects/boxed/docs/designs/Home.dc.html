@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:2600px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+
+  <header style="height:64px;flex-shrink:0;border-bottom:1px solid #37353d;display:flex;justify-content:center;background:#141318">
+    <div style="width:1200px;display:flex;align-items:center;gap:32px">
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700;letter-spacing:-0.01em">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav aria-label="Primary" style="display:flex;gap:24px;flex-grow:1">
+        <sc-for list="{{nav}}" as="n" hint-placeholder-count="5">
+          <a href="#" style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">{{n}}</a>
+        </sc-for>
+      </nav>
+      <label style="display:flex;align-items:center;gap:8px;width:220px;height:36px;box-sizing:border-box;padding:0 12px;background:#26252b;border-radius:8px;color:#77757d">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Search" placeholder="Search films, shows, people" style="background:transparent;border:0;outline:none;color:#f6f5f8;font:inherit;font-size:13px;width:100%">
+      </label>
+      <button type="button" style="height:36px;padding:0 14px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Log</button>
+      <button type="button" aria-label="Account menu" style="width:32px;height:32px;border-radius:50%;border:0;background:linear-gradient(135deg,#c9a3e8,#9b2ad0);color:#141318;font-weight:700;font-size:13px">A</button>
+    </div>
+  </header>
+
+  <main style="width:1200px;margin:0 auto;padding:28px 0 32px;display:flex;flex-direction:column;gap:26px">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:40px;letter-spacing:-0.01em">Welcome back, <a href="#" style="color:#f6f5f8;border-bottom:1px solid #4a4851">Ana</a>.</h1>
+        <p style="margin:0;font-size:17px;color:#a19fa8">Here's what your friends have been watching...</p>
+      </div>
+      <a href="#" aria-label="12-week streak, see stats" style="display:flex;align-items:center;gap:12px;height:40px;padding:0 16px 0 12px;border-radius:999px;background:#1d1c22;box-shadow:inset 0 0 0 1px #37353d;color:#f6f5f8">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e2e" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.6 2.2-4.8.3 1.6 1 2.6 2 3.1-.4-3.2.3-6 .8-8.3z"></path></svg>
+        <span style="font-size:14px;font-weight:500">12-week streak</span>
+        <span style="display:flex;gap:3px" aria-hidden="true">
+          <sc-for list="{{streak}}" as="s" hint-placeholder-count="12">
+            <span style="{{s}}"></span>
+          </sc-for>
+        </span>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0, 1fr) 296px;gap:24px">
+      <section aria-labelledby="nff-h" style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+          <h2 id="nff-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">New from friends</h2>
+          <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">All activity</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:16px">
+          <sc-for list="{{friends}}" as="p" hint-placeholder-count="6">
+            <a href="#" style="display:flex;flex-direction:column;gap:6px;color:#a19fa8">
+              <div style="{{p.style}}">
+                <sc-if value="{{p.ep}}" hint-placeholder-val="{{ false }}">
+                  <span style="position:absolute;inset-inline-start:6px;inset-block-start:6px;font-family:'Roboto Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;background:rgba(15,14,19,.8);color:#f6f5f8">{{p.ep}}</span>
+                </sc-if>
+                <span style="{{p.titleStyle}}">{{p.title}}</span>
+              </div>
+              <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:#d9d7de"><span style="{{p.avatar}}">{{p.initial}}</span>{{p.user}}</span>
+              <span style="display:flex;align-items:center;gap:5px;font-size:12px">
+                <span style="color:#f59e2e;letter-spacing:1px">{{p.stars}}</span>
+                <sc-if value="{{p.liked}}" hint-placeholder-val="{{ true }}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8" aria-label="Liked"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+                </sc-if>
+                <span style="margin-inline-start:auto;font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d">{{p.when}}</span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <aside aria-labelledby="live-h" style="display:flex;flex-direction:column;gap:12px;padding:16px;background:#1d1c22;border-radius:10px;box-shadow:inset 0 0 0 1px #2b2a31">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:8px;height:8px;border-radius:50%;background:#f0506e;box-shadow:0 0 0 3px rgba(240,80,110,.25)"></span>
+          <h2 id="live-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Watching now</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#d9d7de">
+          <span style="width:28px;height:28px;border-radius:50%;background:#f59e2e;color:#141318;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">J</span>
+          <span><strong style="color:#f6f5f8;font-weight:500">jonas</strong> is watching</span>
+        </div>
+        <a href="#" style="position:relative;height:104px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#24394a,#2b4446 60%,#1d1c22);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);color:#f6f5f8">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.6))"></span>
+          <span style="position:absolute;inset-inline-start:12px;inset-block-end:12px;display:flex;flex-direction:column;gap:2px">
+            <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:20px">The Pitt</span>
+            <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#d9d7de">S1 E9 · 3:00 P.M.</span>
+          </span>
+        </a>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="height:4px;border-radius:2px;background:#37353d;overflow:hidden"><div style="width:62%;height:100%;background:#9b2ad0"></div></div>
+          <span style="display:flex;justify-content:space-between;font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d"><span>32 of 52 min</span><span>ends 21:40</span></span>
+        </div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #37353d">
+          <span style="display:flex;align-items:center;gap:8px;padding-top:10px;font-size:13px;color:#a19fa8"><span style="width:20px;height:20px;border-radius:50%;background:#c9a3e8;color:#141318;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">P</span><span><strong style="color:#d9d7de;font-weight:500">priya.k</strong> · Andor S2 E3</span></span>
+        </div>
+      </aside>
+    </div>
+
+    <section aria-labelledby="up-h" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <h2 id="up-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Up next</h2>
+        <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">Watching</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:16px">
+        <sc-for list="{{upNext}}" as="u" hint-placeholder-count="4">
+          <article style="display:flex;flex-direction:column;gap:10px">
+            <a href="#" aria-label="{{u.label}}" style="{{u.still}}">
+              <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55))"></span>
+              <span style="position:absolute;inset-inline:0;inset-block-end:0;height:3px;background:rgba(0,0,0,.5)"><span style="{{u.bar}}"></span></span>
+            </a>
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex-grow:1">
+                <a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:18px;color:#f6f5f8">{{u.show}}</a>
+                <span style="font-size:13px;color:#d9d7de;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span style="font-family:'Roboto Mono',monospace;font-size:12px">{{u.code}}</span> · {{u.ep}}</span>
+                <span style="font-size:12px;color:#77757d">{{u.left}}</span>
+              </div>
+              <button type="button" aria-label="{{u.checkLabel}}" style="width:36px;height:36px;flex-shrink:0;border-radius:50%;border:0;background:#26252b;box-shadow:inset 0 0 0 1px #4a4851;color:#3cc36a;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="sw-h" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <h2 id="sw-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Start watching <span style="text-transform:none;letter-spacing:0;color:#77757d">· from your watchlist</span></h2>
+        <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">Watchlist</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:16px">
+        <sc-for list="{{startWatching}}" as="p" hint-placeholder-count="6">
+          <a href="#" style="display:flex;flex-direction:column;gap:6px;color:#a19fa8">
+            <div style="{{p.style}}"><span style="{{p.titleStyle}}">{{p.title}}</span></div>
+            <span style="font-size:12px">{{p.meta}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="otw-h" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <h2 id="otw-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Out this week <span style="text-transform:none;letter-spacing:0;color:#77757d">· your shows and films</span></h2>
+        <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">Calendar</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7, minmax(0, 1fr));gap:12px">
+        <sc-for list="{{week}}" as="d" hint-placeholder-count="7">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="{{d.labelStyle}}">{{d.label}}</span>
+            <sc-if value="{{d.item}}" hint-placeholder-val="{{ true }}">
+              <a href="#" style="display:flex;flex-direction:column;gap:6px;color:#a19fa8">
+                <span style="{{d.still}}"></span>
+                <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:15px;color:#f6f5f8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{d.title}}</span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px">{{d.code}}</span>
+                <span style="{{d.chipStyle}}">{{d.chip}}</span>
+              </a>
+            </sc-if>
+            <sc-if value="{{d.empty}}" hint-placeholder-val="{{ false }}">
+              <span style="height:90px;border-radius:6px;box-shadow:inset 0 0 0 1px #26252b;display:flex;align-items:center;justify-content:center;font-size:12px;color:#4a4851">Nothing new</span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="pw-h" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <div style="display:flex;align-items:center;gap:16px">
+          <h2 id="pw-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Popular this week</h2>
+          <div role="group" aria-label="Media type" style="display:flex;padding:2px;border-radius:999px;background:#26252b">
+            <button type="button" aria-pressed="true" style="height:24px;padding:0 12px;border:0;border-radius:999px;background:#2a1737;box-shadow:inset 0 0 0 1px #9b2ad0;color:#e4cdf6;font-size:12px">Films</button>
+            <button type="button" aria-pressed="false" style="height:24px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:#a19fa8;font-size:12px">Shows</button>
+          </div>
+        </div>
+        <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">More</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:16px">
+        <sc-for list="{{popular}}" as="p" hint-placeholder-count="6">
+          <a href="#" style="display:flex;flex-direction:column;gap:6px;color:#a19fa8">
+            <div style="{{p.style}}"><span style="{{p.titleStyle}}">{{p.title}}</span></div>
+            <span style="display:flex;justify-content:space-between;font-size:12px"><span style="color:#f59e2e">{{p.stars}}</span><span style="font-family:'Roboto Mono',monospace;font-size:11px">{{p.meta}}</span></span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="rv-h" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <h2 id="rv-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Popular reviews from friends</h2>
+        <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">More</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:24px">
+        <sc-for list="{{reviews}}" as="r" hint-placeholder-count="2">
+          <article style="display:flex;gap:16px;padding:18px;background:#1d1c22;border-radius:10px;box-shadow:inset 0 0 0 1px #2b2a31">
+            <div style="{{r.poster.style}}"><span style="{{r.poster.titleStyle}}">{{r.poster.title}}</span></div>
+            <div style="display:flex;flex-direction:column;gap:7px;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:8px"><a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:20px;color:#f6f5f8">{{r.title}}</a><span style="font-size:13px;color:#a19fa8">{{r.sub}}</span></div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+                <span style="{{r.avatar}}">{{r.initial}}</span>
+                <span>Review by <strong style="color:#f6f5f8;font-weight:500">{{r.user}}</strong></span>
+                <span style="color:#f59e2e;letter-spacing:1px">{{r.stars}}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8" aria-label="Liked"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+              </div>
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{r.date}}</span>
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#d9d7de">{{r.body}}</p>
+              <div style="display:flex;align-items:center;gap:8px;font-size:12px">
+                <span style="height:24px;display:flex;align-items:center;padding:0 10px;border-radius:999px;background:#26252b;color:#d9d7de">{{r.loved}}</span>
+                <span style="height:24px;display:flex;align-items:center;padding:0 10px;border-radius:999px;background:#26252b;color:#d9d7de">{{r.second}}</span>
+                <a href="#" style="color:#a19fa8;margin-inline-start:4px">{{r.replies}}</a>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="rec-h" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <h2 id="rec-h" style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Recommended for you</h2>
+        <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">More</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:16px">
+        <sc-for list="{{recommended}}" as="p" hint-placeholder-count="6">
+          <a href="#" style="display:flex;flex-direction:column;gap:6px;color:#a19fa8">
+            <div style="{{p.style}}"><span style="{{p.titleStyle}}">{{p.title}}</span></div>
+            <span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{p.meta}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tones = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const rings = { w: 'box-shadow:0 0 0 2px #3cc36a;', l: 'box-shadow:0 0 0 2px #4ea3e6;', n: 'box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);' };
+    const poster = (title, i, size, state, extra) => ({
+      title,
+      style: 'position:relative;aspect-ratio:2/3;border-radius:4px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.28)),' + tones[i % 10] + ';' + rings[state || 'n'] + (extra || ''),
+      titleStyle: 'position:absolute;inset-inline:8px;inset-block-end:8px;font-family:Newsreader,Georgia,serif;font-weight:600;line-height:1.1;color:rgba(255,255,255,.85);font-size:' + size + 'px'
+    });
+    const avatar = (bg, px) => 'width:' + px + 'px;height:' + px + 'px;border-radius:50%;background:' + bg + ';color:#141318;font-size:' + Math.round(px / 2.2) + 'px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0';
+    const people = { jonas: '#f59e2e', 'priya.k': '#c9a3e8', theo: '#4ea3e6', mira: '#3cc36a', lucas: '#f0506e', ana_m: '#e4cdf6' };
+    const friend = (title, i, user, stars, liked, when, ep) => Object.assign(poster(title, i, 13), {
+      user, stars, liked, when, ep: ep || '', initial: user.charAt(0).toUpperCase(), avatar: avatar(people[user], 18)
+    });
+    const still = (a, b) => 'position:relative;display:block;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,' + a + ',' + b + ');box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)';
+    const up = (show, code, ep, left, a, b, pct) => ({ show, code, ep, left, label: show + ' ' + code, checkLabel: 'Mark ' + show + ' ' + code + ' watched', still: still(a, b), bar: 'display:block;height:100%;background:#3cc36a;width:' + pct + '%' });
+    const chips = {
+      'New episode': 'align-self:flex-start;height:22px;display:flex;align-items:center;padding:0 8px;border-radius:999px;font-size:11px;background:#26252b;color:#d9d7de',
+      'Season premiere': 'align-self:flex-start;height:22px;display:flex;align-items:center;padding:0 8px;border-radius:999px;font-size:11px;background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #9b2ad0',
+      'Season finale': 'align-self:flex-start;height:22px;display:flex;align-items:center;padding:0 8px;border-radius:999px;font-size:11px;background:#3a1a24;color:#f7a8b8;box-shadow:inset 0 0 0 1px #7a2a3c',
+      'In theaters': 'align-self:flex-start;height:22px;display:flex;align-items:center;padding:0 8px;border-radius:999px;font-size:11px;background:#1f3346;color:#9fcdf2;box-shadow:inset 0 0 0 1px #2f5577'
+    };
+    const dayLabel = (today) => 'font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:.04em;' + (today ? 'color:#e4cdf6' : 'color:#77757d');
+    const day = (label, today, title, code, chip, a, b) => title
+      ? { label, labelStyle: dayLabel(today), item: true, empty: false, title, code, chip, chipStyle: chips[chip], still: 'display:block;height:90px;border-radius:6px;background:linear-gradient(135deg,' + a + ',' + b + ');box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)' }
+      : { label, labelStyle: dayLabel(today), item: false, empty: true };
+    const heat = [1, 2, 3, 2, 3, 3, 1, 2, 3, 3, 2, 3];
+    const heatColors = ['#26252b', '#4b2463', '#7a2aa8', '#9b2ad0'];
+    const review = (title, sub, i, user, stars, date, body, loved, second, replies) => ({
+      poster: poster(title, i, 11, 'n', 'width:64px;flex-shrink:0;align-self:flex-start'),
+      title, sub, user, stars, date, body, loved, second, replies, initial: user.charAt(0).toUpperCase(), avatar: avatar(people[user], 22)
+    });
+    return {
+      nav: ['Films', 'Shows', 'Lists', 'Members', 'Calendar'],
+      streak: heat.map((h) => 'width:8px;height:8px;border-radius:2px;background:' + heatColors[h]),
+      friends: [
+        friend('Severance', 7, 'theo', '★★★★½', true, 'Sep 25', 'S2 E6'),
+        friend('One Battle After Another', 0, 'priya.k', '★★★★★', true, 'Sep 25'),
+        friend('The Pitt', 1, 'jonas', '★★★★', false, 'Sep 24', 'S1 E8'),
+        friend('Perfect Days', 3, 'mira', '★★★★½', true, 'Sep 23'),
+        friend('Sinners', 2, 'lucas', '★★★½', false, 'Sep 23'),
+        friend('Slow Horses', 8, 'priya.k', '★★★★', false, 'Sep 22', 'S5 E3')
+      ],
+      upNext: [
+        up('Severance', 'S2 E6', 'Attila', '4 left · 3h 20m', '#2b4446', '#24394a', 50),
+        up('The Pitt', 'S1 E10', '4:00 P.M.', '6 left · 5h 10m', '#24394a', '#3b2f4a', 60),
+        up('Andor', 'S2 E4', 'Ever Been to Ghorman?', '9 left · 7h 30m', '#463a2a', '#4a2f2f', 25),
+        up('Shogun', 'S1 E6', 'Ladies of the Willow World', '5 left · 5h 5m', '#4a2f2f', '#3f2a3a', 50)
+      ],
+      startWatching: [
+        Object.assign(poster('Perfect Days', 3, 15, 'l'), { meta: 'Film · 2h 4m' }),
+        Object.assign(poster('The Bear', 4, 15, 'l'), { meta: 'Show · 4 seasons' }),
+        Object.assign(poster('Aftersun', 1, 15, 'l'), { meta: 'Film · 1h 42m' }),
+        Object.assign(poster('Adolescence', 5, 15, 'l'), { meta: 'Show · 4 episodes' }),
+        Object.assign(poster('The Zone of Interest', 9, 15, 'l'), { meta: 'Film · 1h 45m' }),
+        Object.assign(poster('Arcane', 6, 15, 'l'), { meta: 'Show · 2 seasons' })
+      ],
+      week: [
+        day('SAT 26 · TODAY', true, 'Slow Horses', 'S5 E4', 'New episode', '#463a2a', '#2f3a4a'),
+        day('SUN 27', false, 'The Last of Us', 'S3 E1', 'Season premiere', '#2f4a3b', '#24394a'),
+        day('MON 28', false),
+        day('TUE 29', false, 'The Bear', 'S5 E1', 'Season premiere', '#4a432f', '#4a2f2f'),
+        day('WED 30', false, 'Andor', 'S2 E12', 'Season finale', '#333046', '#463a2a'),
+        day('THU 1', false, 'Hamnet', 'Film · 2h 5m', 'In theaters', '#2f4a3b', '#3b2f4a'),
+        day('FRI 2', false, 'The Pitt', 'S2 E3', 'New episode', '#24394a', '#2b4446')
+      ],
+      popular: [
+        Object.assign(poster('One Battle After Another', 0, 15, 'w'), { stars: '★★★★½', meta: '412K' }),
+        Object.assign(poster('Sinners', 2, 15), { stars: '', meta: '301K' }),
+        Object.assign(poster('The Substance', 4, 15, 'l'), { stars: '', meta: '198K' }),
+        Object.assign(poster('Weapons', 9, 15), { stars: '', meta: '187K' }),
+        Object.assign(poster('Conclave', 6, 15, 'w'), { stars: '★★★★', meta: '142K' }),
+        Object.assign(poster('Bugonia', 5, 15), { stars: '', meta: '121K' })
+      ],
+      reviews: [
+        review('Severance', 'S2 E6 · Attila', 7, 'theo', '★★★★½', 'Watched 25 Sep 2026', 'The quietest episode of the season and the one that finally shows what Lumon wants. That dinner scene is unbearable in the best way.', 'Loved 48', 'Shocked 9', '6 replies'),
+        review('Perfect Days', '2023', 3, 'mira', '★★★★½', 'Watched 23 Sep 2026', 'A man cleans toilets, reads Faulkner, and looks up at trees. I want to live like Hirayama for exactly one week.', 'Loved 31', 'Cried 4', '3 replies')
+      ],
+      recommended: [
+        Object.assign(poster('The Holdovers', 8, 15), { meta: 'Because you liked Past Lives' }),
+        Object.assign(poster('Fleabag', 2, 15), { meta: 'Loved by mira' }),
+        Object.assign(poster('Anatomy of a Fall', 5, 15, 'l'), { meta: 'Loved by priya.k' }),
+        Object.assign(poster('Succession', 0, 15), { meta: 'Because you liked Severance' }),
+        Object.assign(poster('A Real Pain', 4, 15), { meta: 'Because you liked Aftersun' }),
+        Object.assign(poster('Pachinko', 3, 15), { meta: 'Trending with friends' })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

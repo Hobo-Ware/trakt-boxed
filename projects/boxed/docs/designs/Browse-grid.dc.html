@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Popular films chart - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:2000px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+
+  <header style="height:64px;flex-shrink:0;border-bottom:1px solid #37353d;display:flex;justify-content:center;background:#141318">
+    <div style="width:1200px;display:flex;align-items:center;gap:32px">
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700;letter-spacing:-0.01em">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav aria-label="Primary" style="display:flex;gap:24px;flex-grow:1">
+        <sc-for list="{{nav}}" as="n" hint-placeholder-count="5">
+          <a href="#" style="{{n.style}}">{{n.label}}</a>
+        </sc-for>
+      </nav>
+      <label style="display:flex;align-items:center;gap:8px;width:220px;height:36px;box-sizing:border-box;padding:0 12px;background:#26252b;border-radius:8px;color:#77757d">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Search" placeholder="Search films, shows, people" style="background:transparent;border:0;outline:none;color:#f6f5f8;font:inherit;font-size:13px;width:100%">
+      </label>
+      <button type="button" style="height:36px;padding:0 14px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Log</button>
+      <button type="button" aria-label="Account menu" style="width:32px;height:32px;border-radius:50%;border:0;background:linear-gradient(135deg,#c9a3e8,#9b2ad0);color:#141318;font-weight:700;font-size:13px">A</button>
+    </div>
+  </header>
+
+  <main style="width:1200px;margin:0 auto;padding:32px 0 40px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <nav aria-label="Breadcrumb" style="font-size:13px;color:#77757d"><a href="#" style="color:#a19fa8">Films</a> / Charts</nav>
+        <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:44px;letter-spacing:-0.01em">Popular films</h1>
+      </div>
+      <div role="group" aria-label="Period" style="display:flex;gap:8px">
+        <sc-for list="{{periods}}" as="p" hint-placeholder-count="4">
+          <button type="button" aria-pressed="{{p.pressed}}" style="{{p.style}}">{{p.label}}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;border-top:1px solid #37353d;border-bottom:1px solid #37353d">
+      <div style="display:flex;align-items:center;gap:8px;padding:12px 0;flex-wrap:wrap">
+        <sc-for list="{{active}}" as="a" hint-placeholder-count="2">
+          <span style="height:30px;display:flex;align-items:center;gap:6px;padding:0 6px 0 12px;border-radius:999px;background:#2a1737;box-shadow:inset 0 0 0 1px #9b2ad0;color:#e4cdf6;font-size:13px">
+            <span><span style="color:#c9a3e8">{{a.key}}:</span> {{a.value}}</span>
+            <button type="button" aria-label="{{a.remove}}" style="width:20px;height:20px;border:0;border-radius:50%;background:rgba(155,42,208,.35);color:#e4cdf6;display:flex;align-items:center;justify-content:center;padding:0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+          </span>
+        </sc-for>
+        <span style="width:1px;height:20px;background:#37353d;margin:0 4px"></span>
+        <sc-for list="{{filters}}" as="f" hint-placeholder-count="6">
+          <button type="button" aria-haspopup="listbox" style="height:30px;display:flex;align-items:center;gap:6px;padding:0 10px 0 14px;border:0;border-radius:999px;background:#26252b;color:#d9d7de;font-size:13px">{{f}}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+        </sc-for>
+        <a href="#" style="font-size:13px;margin-inline-start:4px">Clear all</a>
+        <div style="margin-inline-start:auto;display:flex;align-items:center;gap:10px;font-size:13px;color:#d9d7de">
+          <span aria-hidden="true">Hide watched</span>
+          <button type="button" role="switch" aria-checked="false" aria-label="Hide watched" style="width:36px;height:20px;padding:2px;border:0;border-radius:999px;background:#37353d;display:flex;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#a19fa8"></span></button>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid #26252b">
+        <span style="font-size:13px;color:#a19fa8">Showing <strong style="color:#f6f5f8;font-weight:500">1,204</strong> films</span>
+        <span style="display:flex;align-items:center;gap:12px;font-size:12px;color:#77757d">
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;box-shadow:0 0 0 2px #3cc36a"></span>Watched 214</span>
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;box-shadow:0 0 0 2px #4ea3e6"></span>Watchlist 38</span>
+        </span>
+        <label style="margin-inline-start:auto;display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+          Sort by
+          <select style="height:32px;padding:0 10px;border:0;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;color:#f6f5f8;font:inherit;font-size:13px">
+            <option>Popularity</option>
+            <option>Release date</option>
+            <option>Average rating</option>
+            <option>Your rating</option>
+            <option>Runtime</option>
+            <option>Title</option>
+          </select>
+        </label>
+        <div role="group" aria-label="View" style="display:flex;padding:2px;border-radius:8px;background:#26252b">
+          <button type="button" aria-label="Poster grid" aria-pressed="true" style="width:32px;height:28px;border:0;border-radius:6px;background:#37353d;color:#f6f5f8;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"></rect><rect x="13" y="4" width="7" height="7" rx="1"></rect><rect x="4" y="13" width="7" height="7" rx="1"></rect><rect x="13" y="13" width="7" height="7" rx="1"></rect></svg></button>
+          <button type="button" aria-label="List view" aria-pressed="false" style="width:32px;height:28px;border:0;border-radius:6px;background:transparent;color:#77757d;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"></path></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(8, minmax(0, 1fr));gap:18px 16px;padding-top:4px">
+      <sc-for list="{{grid}}" as="p" hint-placeholder-count="40">
+        <a href="#" style="display:flex;flex-direction:column;gap:6px;color:#a19fa8">
+          <div style="{{p.style}}">
+            <span style="position:absolute;inset-inline-start:6px;inset-block-start:6px;font-family:'Roboto Mono',monospace;font-size:10px;color:rgba(255,255,255,.55)">{{p.rank}}</span>
+            <span style="{{p.titleStyle}}">{{p.title}}</span>
+          </div>
+          <span style="height:16px;display:flex;align-items:center;gap:4px;font-size:12px">
+            <span style="color:#f59e2e;letter-spacing:1px">{{p.stars}}</span>
+            <sc-if value="{{p.liked}}" hint-placeholder-val="{{ false }}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8" aria-label="Liked"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            </sc-if>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+
+    <nav aria-label="Pagination" style="display:flex;align-items:center;justify-content:center;gap:6px;padding-top:16px;border-top:1px solid #26252b">
+      <button type="button" disabled style="height:34px;padding:0 14px;border:0;border-radius:8px;background:#1d1c22;color:#4a4851;font-size:13px">Previous</button>
+      <sc-for list="{{pages}}" as="pg" hint-placeholder-count="7">
+        <a href="#" aria-current="{{pg.current}}" style="{{pg.style}}">{{pg.label}}</a>
+      </sc-for>
+      <button type="button" style="height:34px;padding:0 14px;border:0;border-radius:8px;background:#26252b;color:#f6f5f8;font-size:13px">Next</button>
+    </nav>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tones = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const rings = { w: 'box-shadow:0 0 0 2px #3cc36a;', l: 'box-shadow:0 0 0 2px #4ea3e6;', n: 'box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);' };
+    const navStyle = (on) => 'font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:' + (on ? '#f6f5f8' : '#a19fa8');
+    const chip = (on) => 'height:30px;padding:0 14px;border:0;border-radius:999px;font-size:13px;' + (on ? 'background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #9b2ad0' : 'background:#26252b;color:#d9d7de');
+    const titles = [
+      'One Battle After Another', 'Sinners', 'The Brutalist', 'Anora', 'Conclave', 'Hamnet', 'The Substance', 'Past Lives',
+      'Oppenheimer', 'Anatomy of a Fall', 'Poor Things', 'Aftersun', 'The Zone of Interest', 'Perfect Days', 'Challengers', 'The Holdovers',
+      'Killers of the Flower Moon', 'Bugonia', 'Marty Supreme', 'Frankenstein', 'A Real Pain', 'I\'m Still Here', 'Nickel Boys', 'The Room Next Door',
+      'Dune: Part Two', 'Babygirl', 'Emilia Perez', 'Kinds of Kindness', 'Civil War', 'Sing Sing', 'Queer', 'Hit Man',
+      'The Worst Person in the World', 'Drive My Car', 'The Banshees of Inisherin', 'Tar', 'Close', 'Decision to Leave', 'Triangle of Sadness', 'The Fabelmans'
+    ];
+    const states = 'wlnwnlwwwwnwlwwnnlnnwnnlwnnnwnlwwwnwnnwl';
+    const ratings = ['★★★★½', '★★★★', '★★★★★', '★★★½', '★★★★', '★★★', '★★★★½', '★★★★★'];
+    const grid = titles.map((title, i) => {
+      const state = states.charAt(i);
+      const watched = state === 'w';
+      return {
+        title,
+        rank: String(i + 1),
+        stars: watched ? ratings[i % ratings.length] : '',
+        liked: watched && i % 3 === 0,
+        style: 'position:relative;aspect-ratio:2/3;border-radius:4px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.28)),' + tones[(i * 3 + 1) % 10] + ';' + rings[state],
+        titleStyle: 'position:absolute;inset-inline:7px;inset-block-end:7px;font-family:Newsreader,Georgia,serif;font-weight:600;line-height:1.1;color:rgba(255,255,255,.85);font-size:12px'
+      };
+    });
+    const pageStyle = (on) => 'min-width:34px;height:34px;box-sizing:border-box;padding:0 8px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;' + (on ? 'background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #9b2ad0' : 'background:transparent;color:#a19fa8');
+    const page = (label, on) => ({ label, style: pageStyle(on), current: on ? 'page' : 'false' });
+    return {
+      nav: [
+        { label: 'Films', style: navStyle(true) },
+        { label: 'Shows', style: navStyle(false) },
+        { label: 'Lists', style: navStyle(false) },
+        { label: 'Members', style: navStyle(false) },
+        { label: 'Calendar', style: navStyle(false) }
+      ],
+      periods: [
+        { label: 'This week', pressed: 'true', style: chip(true) },
+        { label: 'This month', pressed: 'false', style: chip(false) },
+        { label: 'This year', pressed: 'false', style: chip(false) },
+        { label: 'All time', pressed: 'false', style: chip(false) }
+      ],
+      active: [
+        { key: 'Genre', value: 'Drama', remove: 'Remove genre filter Drama' },
+        { key: 'Decade', value: '2020s', remove: 'Remove decade filter 2020s' }
+      ],
+      filters: ['Service', 'Country', 'Language', 'Runtime', 'Certification', 'Rating'],
+      grid,
+      pages: [page('1', true), page('2', false), page('3', false), page('4', false), page('...', false), page('30', false), page('31', false)]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Film page - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:2600px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+
+  <header style="height:64px;flex-shrink:0;box-sizing:border-box;border-bottom:1px solid #37353d;background:#141318;display:flex;justify-content:center;position:relative;z-index:2">
+    <div style="width:1200px;display:flex;align-items:center;gap:32px">
+      <a href="#" aria-label="trakt boxed home" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700;letter-spacing:-0.01em">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav aria-label="Main" style="display:flex;gap:24px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;flex-grow:1">
+        <a href="#" style="color:#f6f5f8">Films</a>
+        <a href="#" style="color:#a19fa8">Shows</a>
+        <a href="#" style="color:#a19fa8">Lists</a>
+        <a href="#" style="color:#a19fa8">Members</a>
+        <a href="#" style="color:#a19fa8">Calendar</a>
+      </nav>
+      <label style="display:flex;align-items:center;gap:8px;width:220px;height:36px;box-sizing:border-box;padding:0 12px;background:#26252b;border-radius:8px;color:#77757d">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Search" placeholder="Search films, shows, people" style="background:transparent;border:0;outline:0;color:#f6f5f8;font:inherit;font-size:13px;width:100%;min-width:0">
+      </label>
+      <button type="button" style="height:36px;padding:0 16px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>Log
+      </button>
+      <button type="button" aria-label="Account menu" style="width:32px;height:32px;border-radius:999px;border:0;padding:0;background:#3f2a3a;color:#f6f5f8;font-size:13px;font-weight:500">VJ</button>
+    </div>
+  </header>
+
+  <div style="position:relative;flex-grow:1">
+    <div style="position:absolute;top:0;inset-inline:0;height:460px;background:#3a2a1c;overflow:hidden">
+      <div style="position:absolute;width:760px;height:760px;border-radius:999px;background:#6b4526;opacity:.55;top:90px;left:340px"></div>
+      <div style="position:absolute;width:420px;height:420px;border-radius:999px;background:#8a5a2c;opacity:.35;top:170px;left:510px"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,#141318 0%,rgba(20,19,24,0) 22%,rgba(20,19,24,0) 78%,#141318 100%)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,24,.25) 0%,rgba(20,19,24,0) 35%,#141318 100%)"></div>
+    </div>
+
+    <div style="position:relative;width:1200px;margin:0 auto;padding-top:250px;display:flex;gap:40px;align-items:flex-start">
+
+      <main style="width:860px;flex-shrink:0;display:flex;flex-direction:column;gap:40px">
+
+        <section style="display:flex;gap:40px;align-items:flex-start">
+          <div style="width:230px;flex-shrink:0;display:flex;flex-direction:column;gap:12px;align-items:center">
+            <div style="width:230px;height:345px;box-sizing:border-box;border-radius:4px;background:#4a3524;box-shadow:0 0 0 2px #3cc36a;display:flex;align-items:flex-end;padding:16px;position:relative">
+              <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px;line-height:1.1;color:rgba(255,255,255,.85)">Dune: Part Two</span>
+            </div>
+            <span style="height:28px;padding:0 12px;border-radius:999px;background:#16301f;color:#8fe3ab;font-size:13px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 0 0 1px #2a6b40">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Watched 2x
+            </span>
+            <div style="display:flex;gap:14px;font-size:12px;color:#a19fa8">
+              <span style="display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3cc36a" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>2.1M</span>
+              <span style="display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ea3e6" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>335K</span>
+              <span style="display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f0506e" stroke-width="1.8"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5C19 15.5 12 20 12 20z"></path></svg>930K</span>
+            </div>
+          </div>
+
+          <div style="width:590px;display:flex;flex-direction:column;gap:18px;padding-top:40px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:52px;line-height:1.05;letter-spacing:-0.01em">Dune: Part Two</h1>
+              <div style="display:flex;align-items:baseline;gap:10px;font-size:16px;color:#a19fa8;flex-wrap:wrap">
+                <a href="#" style="color:#f6f5f8">2024</a>
+                <span>Directed by <a href="#" style="color:#f6f5f8">Denis Villeneuve</a></span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">166 MIN · PG-13</span>
+              </div>
+            </div>
+            <p style="margin:0;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Long live the fighters.</p>
+            <p style="margin:0;font-size:16px;line-height:1.6;color:#d9d7de">Paul Atreides unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.</p>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div role="tablist" style="display:flex;gap:22px;border-bottom:1px solid #37353d">
+                <button type="button" role="tab" aria-selected="true" style="background:none;border:0;padding:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.08em;color:#f6f5f8;box-shadow:inset 0 -2px 0 #9b2ad0">CAST</button>
+                <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.08em;color:#a19fa8">CREW</button>
+                <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.08em;color:#a19fa8">DETAILS</button>
+                <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.08em;color:#a19fa8">GENRES</button>
+                <button type="button" role="tab" style="background:none;border:0;padding:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.08em;color:#a19fa8">RELEASES</button>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{cast}}" as="c" hint-placeholder-count="12">
+                  <a href="#" style="height:28px;padding:0 12px;border-radius:999px;background:#26252b;color:#d9d7de;font-size:13px;display:flex;align-items:center">{{c}}</a>
+                </sc-for>
+                <a href="#" style="height:28px;padding:0 12px;border-radius:999px;background:transparent;box-shadow:inset 0 0 0 1px #37353d;color:#c9a3e8;font-size:13px;display:flex;align-items:center">Show all 64</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style="background:#1d1c22;border-radius:10px;padding:22px 24px;display:flex;flex-direction:column;gap:16px;box-shadow:inset 0 0 0 1px #2b2a31">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:24px">What people think</h2>
+              <span style="font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 7px;border-radius:999px;background:#9b2ad0;color:#fff">VIP</span>
+            </div>
+            <span style="font-size:12px;color:#77757d">Summary from 12K reviews</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:32px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#3cc36a">Pros</span>
+              <sc-for list="{{pros}}" as="p" hint-placeholder-count="3">
+                <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:#d9d7de">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cc36a" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px"><path d="m5 12 5 5 9-10"></path></svg>
+                  <span>{{p}}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#f0506e">Cons</span>
+              <sc-for list="{{cons}}" as="p" hint-placeholder-count="3">
+                <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:#d9d7de">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0506e" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px"><path d="M5 12h14"></path></svg>
+                  <span>{{p}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </section>
+
+        <section style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Popular reviews</h2>
+            <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase">More</a>
+          </div>
+          <sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+            <article style="display:flex;gap:14px;padding-bottom:16px;border-bottom:1px solid #26252b">
+              <span style="{{r.avatar}}">{{r.initials}}</span>
+              <div style="display:flex;flex-direction:column;gap:8px;flex-grow:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#a19fa8">
+                  <span>Review by <strong style="color:#f6f5f8;font-weight:500">{{r.name}}</strong></span>
+                  <span style="color:#f59e2e;font-size:14px;letter-spacing:1px">{{r.stars}}</span>
+                  <sc-if value="{{r.liked}}" hint-placeholder-val="{{ true }}">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5C19 15.5 12 20 12 20z"></path></svg>
+                  </sc-if>
+                  <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{r.date}}</span>
+                </div>
+                <sc-if value="{{r.plain}}" hint-placeholder-val="{{ true }}">
+                  <p style="margin:0;font-size:15px;line-height:1.6;color:#d9d7de">{{r.body}}</p>
+                </sc-if>
+                <sc-if value="{{r.spoiler}}" hint-placeholder-val="{{ false }}">
+                  <div style="background:#26252b;border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#a19fa8">
+                    <span>This review may contain spoilers.</span>
+                    <button type="button" style="background:none;border:0;padding:0;color:#c9a3e8;font-size:14px">Show anyway</button>
+                  </div>
+                </sc-if>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <sc-for list="{{r.reactions}}" as="x" hint-placeholder-count="2">
+                    <button type="button" style="height:26px;padding:0 10px;border-radius:999px;border:0;background:#26252b;color:#d9d7de;font-size:12px">{{x}}</button>
+                  </sc-for>
+                  <a href="#" style="font-size:12px;color:#a19fa8;margin-inline-start:6px">{{r.replies}}</a>
+                </div>
+              </div>
+            </article>
+          </sc-for>
+          <a href="#" style="display:flex;align-items:center;justify-content:space-between;height:40px;padding:0 14px;border-radius:8px;background:#1d1c22;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">
+            <span>Recent reviews</span>
+            <span style="display:flex;align-items:center;gap:6px;color:#c9a3e8;text-transform:none;letter-spacing:0;font-size:13px">48.2K reviews<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m9 6 6 6-6 6"></path></svg></span>
+          </a>
+        </section>
+
+        <section style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Did you know</h2>
+            <a href="#" style="font-size:12px">3 of 24 · all with VIP</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px">
+            <sc-for list="{{trivia}}" as="t" hint-placeholder-count="3">
+              <div style="background:#1d1c22;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:inset 0 0 0 1px #2b2a31">
+                <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px;color:#c9a3e8">{{t.n}}</span>
+                <p style="margin:0;font-size:14px;line-height:1.5;color:#d9d7de">{{t.text}}</p>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Extras</h2>
+            <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase">All 11</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px">
+            <sc-for list="{{extras}}" as="e" hint-placeholder-count="3">
+              <a href="#" style="display:flex;flex-direction:column;gap:8px;color:#f6f5f8">
+                <span style="{{e.style}}">
+                  <span style="width:44px;height:44px;border-radius:999px;background:rgba(20,19,24,.7);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#f6f5f8" stroke="none"><path d="M8 5v14l11-7z"></path></svg>
+                  </span>
+                  <span style="position:absolute;bottom:8px;inset-inline-end:8px;font-family:'Roboto Mono',monospace;font-size:11px;padding:2px 6px;border-radius:4px;background:rgba(20,19,24,.8);color:#f6f5f8">{{e.dur}}</span>
+                </span>
+                <span style="font-size:14px">{{e.title}}</span>
+              </a>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Similar films</h2>
+            <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase">More</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:16px">
+            <sc-for list="{{similar}}" as="p" hint-placeholder-count="6">
+              <a href="#" style="display:flex;flex-direction:column;gap:8px">
+                <span style="{{p.style}}"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:13px;line-height:1.15;color:rgba(255,255,255,.85)">{{p.title}}</span></span>
+                <span style="display:flex;align-items:center;gap:4px;height:14px;font-size:12px;color:#f59e2e">{{p.stars}}
+                  <sc-if value="{{p.liked}}" hint-placeholder-val="{{ false }}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5C19 15.5 12 20 12 20z"></path></svg>
+                  </sc-if>
+                </span>
+              </a>
+            </sc-for>
+          </div>
+        </section>
+      </main>
+
+      <aside style="width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:28px;padding-top:40px">
+        <div style="background:#26252b;border-radius:10px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));padding:14px 8px;border-bottom:1px solid #37353d">
+            <button type="button" aria-pressed="true" style="background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#3cc36a;font-size:13px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Watched
+            </button>
+            <button type="button" aria-pressed="true" style="background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#f0506e;font-size:13px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5C19 15.5 12 20 12 20z"></path></svg>Liked
+            </button>
+            <button type="button" aria-pressed="false" style="background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#a19fa8;font-size:13px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="13" r="8"></circle><path d="M11 9v4l3 2M19 2v5M16.5 4.5h5"></path></svg>Watchlist
+            </button>
+          </div>
+          <div style="padding:14px 16px;border-bottom:1px solid #37353d;display:flex;flex-direction:column;align-items:center;gap:4px">
+            <span style="font-size:13px;color:#a19fa8">Rated</span>
+            <span style="font-size:30px;line-height:1;letter-spacing:3px;color:#f59e2e">★★★★½</span>
+          </div>
+          <button type="button" style="height:44px;background:none;border:0;border-bottom:1px solid #37353d;color:#d9d7de;font-size:14px">Log or review again...</button>
+          <button type="button" style="height:44px;background:none;border:0;border-bottom:1px solid #37353d;color:#d9d7de;font-size:14px">Add to lists...</button>
+          <div style="padding:12px 16px 14px;border-bottom:1px solid #37353d;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:14px;color:#d9d7de">Where to watch</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d">US</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{services}}" as="s" hint-placeholder-count="3">
+                <a href="#" style="{{s.style}}">{{s.name}}<span style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#a19fa8">{{s.kind}}</span></a>
+              </sc-for>
+            </div>
+          </div>
+          <button type="button" style="height:44px;background:none;border:0;border-bottom:1px solid #37353d;color:#d9d7de;font-size:14px">Share</button>
+          <button type="button" style="height:44px;background:none;border:0;color:#d9d7de;font-size:14px">Your activity</button>
+        </div>
+
+        <section style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Ratings</h2>
+            <a href="#" style="font-size:12px;color:#a19fa8">412K fans</a>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:12px">
+            <span style="font-size:11px;color:#f59e2e;padding-bottom:2px">★</span>
+            <div style="display:flex;align-items:flex-end;gap:3px;height:72px;flex-grow:1">
+              <sc-for list="{{histogram}}" as="h" hint-placeholder-count="10">
+                <span title="{{h.label}}" style="{{h.style}}"></span>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+              <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:36px;line-height:1">4.3</span>
+              <span style="font-size:10px;color:#f59e2e;letter-spacing:1px">★★★★★</span>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:#77757d">
+            <span>1.2M ratings</span>
+            <span>Your <span style="color:#f59e2e">4.5</span> · 22% agree</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px">
+            <sc-for list="{{external}}" as="x" hint-placeholder-count="4">
+              <a href="#" style="height:34px;padding:0 10px;border-radius:8px;background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31;display:flex;align-items:center;justify-content:space-between;gap:6px">
+                <span style="font-size:12px;color:#a19fa8">{{x.name}}</span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#f6f5f8">{{x.value}}</span>
+              </a>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Friends who watched</h2>
+            <a href="#" style="font-size:12px;color:#a19fa8">14</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:6px">
+            <sc-for list="{{friends}}" as="f" hint-placeholder-count="6">
+              <a href="#" aria-label="{{f.name}}" style="display:flex;flex-direction:column;align-items:center;gap:5px">
+                <span style="{{f.avatar}}">{{f.initials}}</span>
+                <span style="font-size:10px;color:#f59e2e;white-space:nowrap">{{f.stars}}</span>
+              </a>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Soundtrack</h2>
+              <span style="font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:999px;background:#9b2ad0;color:#fff">VIP</span>
+            </div>
+            <a href="#" style="font-size:12px;color:#a19fa8">Hans Zimmer · 26</a>
+          </div>
+          <sc-for list="{{tracks}}" as="t" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:10px">
+              <button type="button" aria-label="{{t.aria}}" style="width:30px;height:30px;flex-shrink:0;border-radius:999px;border:0;background:#26252b;color:#f6f5f8;display:flex;align-items:center;justify-content:center;padding:0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7z"></path></svg>
+              </button>
+              <span style="flex-grow:1;min-width:0;font-size:13px;color:#d9d7de;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{t.title}}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{t.dur}}</span>
+            </div>
+          </sc-for>
+        </section>
+
+        <section style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Popular lists</h2>
+            <a href="#" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase">More</a>
+          </div>
+          <sc-for list="{{lists}}" as="l" hint-placeholder-count="3">
+            <a href="#" style="display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:10px;background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31;color:#f6f5f8">
+              <span style="display:flex">
+                <sc-for list="{{l.fan}}" as="f" hint-placeholder-count="5">
+                  <span style="{{f.style}}"></span>
+                </sc-for>
+              </span>
+              <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:17px">{{l.title}}</span>
+              <span style="font-size:12px;color:#a19fa8">{{l.meta}}</span>
+            </a>
+          </sc-for>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <footer style="height:72px;flex-shrink:0;background:#0f0e13;border-top:1px solid #26252b;display:flex;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#77757d">
+      <nav aria-label="Footer" style="display:flex;gap:20px">
+        <a href="#" style="color:#a19fa8">About</a>
+        <a href="#" style="color:#a19fa8">VIP</a>
+        <a href="#" style="color:#a19fa8">Apps</a>
+        <a href="#" style="color:#a19fa8">API</a>
+        <a href="#" style="color:#a19fa8">Privacy</a>
+      </nav>
+      <span>Film data from TMDB</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tones = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const ring = {
+      watched: 'box-shadow:0 0 0 2px #3cc36a',
+      watchlist: 'box-shadow:0 0 0 2px #4ea3e6',
+      none: 'box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)'
+    };
+    const poster = (title, tone, state, stars, liked) => ({
+      title,
+      stars: stars || '',
+      liked: !!liked,
+      style: 'aspect-ratio:2/3;border-radius:4px;box-sizing:border-box;display:flex;align-items:flex-end;padding:9px;background:' + tones[tone] + ';' + ring[state]
+    });
+    const avatar = (tone, size) => 'width:' + size + 'px;height:' + size + 'px;flex-shrink:0;border-radius:999px;background:' + tones[tone] + ';display:flex;align-items:center;justify-content:center;font-size:' + Math.round(size / 2.6) + 'px;font-weight:500;color:#f6f5f8;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)';
+    const hist = [2, 1, 1, 3, 4, 9, 16, 34, 30, 28];
+    const max = Math.max(...hist);
+    const labels = ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'];
+    const serviceBase = 'height:28px;padding:0 10px;border-radius:999px;background:#1d1c22;color:#f6f5f8;font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px;';
+    const fan = (start) => [0, 1, 2, 3, 4].map((i) => ({
+      style: 'width:46px;height:69px;flex-shrink:0;border-radius:4px;background:' + tones[(start + i) % 10] + ';box-shadow:0 0 0 1px #1d1c22, inset 0 0 0 1px rgba(255,255,255,.08);position:relative;z-index:' + (5 - i) + ';' + (i ? 'margin-inline-start:-14px' : '')
+    }));
+    return {
+      cast: ['Timothée Chalamet', 'Zendaya', 'Rebecca Ferguson', 'Javier Bardem', 'Josh Brolin', 'Austin Butler', 'Florence Pugh', 'Dave Bautista', 'Christopher Walken', 'Léa Seydoux', 'Stellan Skarsgård', 'Charlotte Rampling'],
+      pros: [
+        'Staggering scale: the worm ride and the black-sun arena are praised as career-best images.',
+        'Hans Zimmer\'s score and the sound design are called the loudest argument for seeing it in IMAX.',
+        'Zendaya and Austin Butler give the story its sharpest edges.'
+      ],
+      cons: [
+        'The final act compresses years of the book into minutes and feels rushed.',
+        'Chani and Paul\'s romance lands for some, drags for others.',
+        'At 166 minutes, the middle hour tests viewers who are not already invested.'
+      ],
+      reviews: [
+        { name: 'mira', initials: 'MI', avatar: avatar(6, 36), stars: '★★★★★', liked: true, date: 'Watched 02 Mar 2024', plain: true, spoiler: false, body: 'Villeneuve shoots sand like it owes him money. The black-sun arena on Giedi Prime is the most alien thing a blockbuster has put on screen in a decade.', reactions: ['Loved 2.4K', 'Laughed 312'], replies: '86 replies' },
+        { name: 'jonas', initials: 'JO', avatar: avatar(1, 36), stars: '★★★★', liked: false, date: 'Watched 11 Mar 2024', plain: false, spoiler: true, body: '', reactions: ['Loved 904', 'Wow 77'], replies: '42 replies' },
+        { name: 'priya.k', initials: 'PK', avatar: avatar(3, 36), stars: '★★★★½', liked: true, date: 'Rewatched 14 Mar 2026', plain: true, spoiler: false, body: 'Second time through, the ending reads less like a victory and more like a warning. Everything rests on Zendaya\'s last look, and she carries it.', reactions: ['Loved 1.1K', 'Laughed 18'], replies: '41 replies' }
+      ],
+      trivia: [
+        { n: '01', text: 'The Giedi Prime scenes were shot with infrared cameras, which turned skin chalk-white in camera with no grading.' },
+        { n: '02', text: 'Austin Butler studied Stellan Skarsgård\'s voice so Feyd-Rautha would sound like the Baron\'s nephew.' },
+        { n: '03', text: 'The worm-riding shots used a sectioned rig in Budapest, with real sand blasted by industrial fans.' }
+      ],
+      extras: [
+        { title: 'Official Trailer 3', dur: '2:38', style: 'aspect-ratio:16/9;border-radius:8px;background:#3a2a1c;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)' },
+        { title: 'Behind the scenes: riding the worm', dur: '4:12', style: 'aspect-ratio:16/9;border-radius:8px;background:#2b4446;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)' },
+        { title: 'Zendaya on Chani', dur: '3:05', style: 'aspect-ratio:16/9;border-radius:8px;background:#3f2a3a;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)' }
+      ],
+      similar: [
+        poster('Dune', 8, 'watched', '★★★★'),
+        poster('Blade Runner 2049', 1, 'watched', '★★★★½', true),
+        poster('Arrival', 5, 'watched', '★★★★★', true),
+        poster('Lawrence of Arabia', 4, 'watchlist'),
+        poster('Furiosa', 2, 'none'),
+        poster('Oppenheimer', 9, 'watched', '★★★★')
+      ],
+      services: [
+        { name: 'Max', kind: 'stream', style: serviceBase + 'box-shadow:inset 0 0 0 1px #3cc36a' },
+        { name: 'Apple TV', kind: 'rent', style: serviceBase + 'box-shadow:inset 0 0 0 1px #37353d' },
+        { name: 'Prime Video', kind: 'rent', style: serviceBase + 'box-shadow:inset 0 0 0 1px #37353d' }
+      ],
+      histogram: hist.map((v, i) => ({
+        label: labels[i] + ' stars',
+        style: 'flex-grow:1;border-radius:2px 2px 0 0;height:' + Math.max(3, Math.round((v / max) * 72)) + 'px;background:' + (i === 8 ? '#f59e2e' : '#4a4851')
+      })),
+      external: [
+        { name: 'IMDb', value: '8.5' },
+        { name: 'RT', value: '92%' },
+        { name: 'RT Audience', value: '95%' },
+        { name: 'TMDB', value: '8.2' }
+      ],
+      friends: [
+        { name: 'ana_m', initials: 'AM', avatar: avatar(0, 38), stars: '★★★★★' },
+        { name: 'jonas', initials: 'JO', avatar: avatar(1, 38), stars: '★★★★' },
+        { name: 'priya.k', initials: 'PK', avatar: avatar(3, 38), stars: '★★★★½' },
+        { name: 'theo', initials: 'TH', avatar: avatar(4, 38), stars: '★★★½' },
+        { name: 'mira', initials: 'MI', avatar: avatar(6, 38), stars: '★★★★★' },
+        { name: 'lucas', initials: 'LU', avatar: avatar(7, 38), stars: '★★★' }
+      ],
+      tracks: [
+        { title: 'Beginnings Are Such Delicate Times', dur: '3:58' },
+        { title: 'Harvester Attack', dur: '5:08' },
+        { title: 'A Time of Quiet Between the Storms', dur: '4:10' },
+        { title: 'Kiss the Ring', dur: '5:25' }
+      ].map((t) => ({ ...t, aria: 'Play ' + t.title })),
+      lists: [
+        { title: 'Best of 2024', meta: 'ana_m · 48 films · 3.2K likes', fan: fan(0) },
+        { title: 'Desert epics', meta: 'theo · 31 films · 812 likes', fan: fan(4) },
+        { title: 'Villeneuve, ranked', meta: 'priya.k · 12 films · 1.9K likes', fan: fan(7) }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
