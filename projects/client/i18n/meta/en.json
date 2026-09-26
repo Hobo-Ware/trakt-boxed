@@ -10918,6 +10918,10 @@
     "boxed_home_out_this_week": {
       "default": "Out this week",
       "description": "Home section of new episodes and releases for the user in the coming days."
+    },
+    "boxed_browse_by_genre": {
+      "default": "Browse by genre",
+      "description": "Heading above the genre chips on the boxed Movies / Shows browse page."
     }
   }
 }

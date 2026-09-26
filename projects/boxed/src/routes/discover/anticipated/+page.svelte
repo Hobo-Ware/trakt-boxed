@@ -1,8 +1,7 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../client/src/routes/discover/anticipated/+page.svelte";
-
-  const props = $props();
+  import ChartPage from "$boxed/browse/ChartPage.svelte";
+  import * as m from "$lib/features/i18n/messages.ts";
+  import { useAnticipatedList } from "$lib/sections/lists/anticipated/useAnticipatedList.ts";
 </script>
 
-<Legacy {...props} />
+<ChartPage title={m.list_title_most_anticipated()} useList={useAnticipatedList} />
