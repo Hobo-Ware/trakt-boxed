@@ -23,8 +23,9 @@ The anchor for every session. Read this first, then `PLAN.md`.
    state, stores and utils are imported from `$lib` (=
    `projects/client/src/lib`) and route hooks via `$clientRoutes`. Never fork or
    rewrite them in boxed; never change their behaviour in `projects/client`.
-   Additive i18n keys (`boxed_*`) in `projects/client/i18n/meta/en.json` are the
-   only allowed client edit. New components use only semantic theme tokens
+   Two client edits are allowed: additive i18n keys (`boxed_*`) in
+   `projects/client/i18n/meta/en.json`, and uplifting an `_internal` file one
+   folder up unchanged so boxed may import it. New components use only semantic theme tokens
    (`--color-*`, palette vars), never raw hex, so light, dark and seasonal
    themes all keep working.
 3. No fan-out requests, nothing slow above the fold (PLAN 2b).

@@ -12,7 +12,7 @@
   import type { ActiveComment } from "../models/ActiveComment";
   import type { CommentDraftGif } from "../models/CommentDraftGif.ts";
   import { reportGifShare } from "../reportGifShare.ts";
-  import { usePostComment, type UseAddCommentProps } from "../usePostComment";
+  import { usePostComment, type UseAddCommentProps } from "../../usePostComment";
   import { autoResizeArea as autoResizeAreaFn } from "./autoResizeArea";
   import SelectedGif from "./SelectedGif.svelte";
   import SpoilerSwitch from "./SpoilerSwitch.svelte";
