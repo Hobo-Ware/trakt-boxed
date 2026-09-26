@@ -179,17 +179,6 @@
 <style lang="scss">
   @use "$style/scss/mixins/index" as *;
 
-  :global(:root) {
-    --boxed-header-height: var(--ni-64);
-    --boxed-tabbar-height: calc(var(--ni-64) + env(safe-area-inset-bottom, 0));
-    --boxed-content-max-width: 1200px;
-    --layout-sidebar-distance: var(--ni-0);
-
-    @include for-tablet-sm-and-below {
-      --boxed-header-height: var(--ni-52);
-    }
-  }
-
   :global(.tsqd-open-btn-container) {
     opacity: 0.25;
   }

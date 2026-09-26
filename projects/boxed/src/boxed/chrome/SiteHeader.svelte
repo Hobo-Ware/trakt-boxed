@@ -7,9 +7,10 @@
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import GetVIPLink from "$lib/sections/navbar/components/GetVIPLink.svelte";
   import JoinTraktButton from "$lib/sections/navbar/components/JoinTraktButton.svelte";
-  import { useNavbarState } from "$lib/sections/navbar/useNavbarState";
+  import { useWebviewSession } from "$lib/features/webview/useWebviewSession.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import AccountMenu from "./AccountMenu.svelte";
+  import { isChromelessPath } from "./_internal/isChromelessPath.ts";
   import { siteSectionFor, type SiteSection } from "./_internal/siteSectionFor.ts";
 
   type NavLink = {
@@ -51,7 +52,10 @@
     },
   ];
 
-  const { state } = useNavbarState();
+  const webview = useWebviewSession();
+  const isHidden = $derived(
+    isChromelessPath(page.url.pathname) || webview.isStandalone,
+  );
 
   const activeSection = $derived(
     siteSectionFor({
@@ -61,7 +65,7 @@
   );
 </script>
 
-{#if $state.mode !== "hidden"}
+{#if !isHidden}
 <header class="boxed-site-header">
   <div class="boxed-site-header-inner">
     <Link href={UrlBuilder.home()} label={m.button_label_home()}>
