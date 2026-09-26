@@ -9,6 +9,7 @@
     columns?: number;
     skeletonCount?: number;
     showUserMeta?: boolean;
+    loadingMore?: boolean;
     meta?: Snippet<[PosterMedia]>;
   };
 
@@ -17,6 +18,7 @@
     columns = 6,
     skeletonCount = columns * 2,
     showUserMeta = false,
+    loadingMore = false,
     meta,
   }: PosterGridProps = $props();
 </script>
@@ -35,6 +37,11 @@
         <PosterTile {media} {showUserMeta} />
       {/if}
     {/each}
+    {#if loadingMore}
+      {#each { length: columns }, index (index)}
+        <PosterSkeleton showUserMeta={showUserMeta || Boolean(meta)} />
+      {/each}
+    {/if}
   {:else}
     {#each { length: skeletonCount }, index (index)}
       <PosterSkeleton showUserMeta={showUserMeta || Boolean(meta)} />
