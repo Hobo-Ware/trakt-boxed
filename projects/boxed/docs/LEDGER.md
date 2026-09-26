@@ -16,9 +16,17 @@ The anchor for every session. Read this first, then `PLAN.md`.
 ## Rules for every session
 
 1. Pick the next unchecked item below. Build it to its design board.
-2. Data comes from `$lib` (shared with `projects/client`) and route hooks via
-   `$clientRoutes`. Never change `projects/client` business logic; additive
-   i18n keys (`boxed_*`) in `projects/client/i18n/meta/en.json` are allowed.
+2. **Presentation only.** The technical architecture is inherited from
+   trakt-web 1:1, never reinvented: models, HTTP requests (`defineQuery`,
+   mappers, Zod schemas, offline queue), authorization, theming (light / dark /
+   system + seasonal), localization (Paraglide, 28 locales, RTL), query
+   client, feature state, stores and utils are imported from `$lib` (= `projects/client/src/lib`)
+   and route hooks via `$clientRoutes`. Never fork or rewrite them in boxed;
+   never change their behaviour in `projects/client`. Additive i18n keys
+   (`boxed_*`) in `projects/client/i18n/meta/en.json` are the only allowed
+   client edit. New components use only semantic theme tokens
+   (`--color-*`, palette vars), never raw hex, so light, dark and seasonal
+   themes all keep working.
 3. No fan-out requests, nothing slow above the fold (PLAN 2b).
 4. Every async region has a same-size skeleton. Measure CLS with the harness
    (`~/Git/Hoboware/letterboxd-research/harness/shoot.ts`, `SLOW='/api/trakt/'`),
@@ -108,3 +116,8 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 - [ ] Accessibility pass (keyboard, contrast, labels)
 - [ ] i18n: every `boxed_*` key has translations
 - [ ] Remove all remaining legacy mounts
+- [ ] Port the shared layer into boxed 1:1: `git mv` the non-UI parts of
+      `projects/client/src/lib` (requests, models, features state, stores,
+      utils, i18n, paraglide) plus hooks, worker and static into
+      `projects/boxed`, unchanged; point `$lib` at the new location; delete
+      `projects/client`
