@@ -1,0 +1,2 @@
+// legacy-mount
+export * from '../../../../../client/src/routes/movies/recommended/+page.ts';
