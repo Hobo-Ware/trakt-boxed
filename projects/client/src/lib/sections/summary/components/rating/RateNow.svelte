@@ -5,10 +5,10 @@
   import { writable } from "$lib/utils/store/WritableSubject.ts";
   import { slideFade } from "$lib/utils/transitions/slideFade";
   import { fade, slide } from "svelte/transition";
-  import PopcornBurst from "./_internal/PopcornBurst.svelte";
-  import { ratingDelight } from "./_internal/ratingDelight.ts";
-  import RatingStars from "./_internal/RatingStars.svelte";
-  import RottenTomato from "./_internal/RottenTomato.svelte";
+  import PopcornBurst from "./PopcornBurst.svelte";
+  import { ratingDelight } from "./ratingDelight.ts";
+  import RatingStars from "./RatingStars.svelte";
+  import RottenTomato from "./RottenTomato.svelte";
   import { useIsRateable } from "./_internal/useIsRateable";
   import type { RatingDelight } from "./models/RatingDelight.ts";
   import type { RateNowProps } from "./models/RateNowProps";

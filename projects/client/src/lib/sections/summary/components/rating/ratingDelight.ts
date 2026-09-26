@@ -1,4 +1,4 @@
-import type { RatingDelight } from '../models/RatingDelight.ts';
+import type { RatingDelight } from './models/RatingDelight.ts';
 
 const MAX_RATING = 10;
 const LOWEST_RATINGS_CEILING = 2;

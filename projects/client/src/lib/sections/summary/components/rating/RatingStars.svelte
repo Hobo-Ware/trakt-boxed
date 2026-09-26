@@ -4,9 +4,9 @@
   import { RatingGroup } from "bits-ui";
   import { fromEvent, merge, Subject } from "rxjs";
   import { takeUntil, tap } from "rxjs/operators";
-  import { createScrubInteraction } from "./createScrubInteraction.ts";
-  import { starFill } from "./starFill.ts";
-  import { starsFromRects } from "./starsFromRects.ts";
+  import { createScrubInteraction } from "./_internal/createScrubInteraction.ts";
+  import { starFill } from "./_internal/starFill.ts";
+  import { starsFromRects } from "./_internal/starsFromRects.ts";
 
   const {
     rating,
