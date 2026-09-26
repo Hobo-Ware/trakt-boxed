@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Films watched grid</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+select{font:inherit}
+</style>
+</helmet>
+<div style="width:1440px;height:1800px;box-sizing:border-box;background:#141318;overflow:hidden;display:flex;flex-direction:column">
+
+  <header style="height:64px;flex-shrink:0;box-sizing:border-box;border-bottom:1px solid #37353d;background:#141318;display:flex;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;gap:32px">
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <nav aria-label="Main" style="display:flex;gap:24px;font-size:13px;letter-spacing:.06em">
+        <a href="#" style="color:#a19fa8">FILMS</a>
+        <a href="#" style="color:#a19fa8">SHOWS</a>
+        <a href="#" style="color:#a19fa8">LISTS</a>
+        <a href="#" style="color:#f6f5f8">MEMBERS</a>
+        <a href="#" style="color:#a19fa8">CALENDAR</a>
+      </nav>
+      <div style="flex-grow:1"></div>
+      <label style="display:flex;align-items:center;gap:8px;width:220px;height:36px;box-sizing:border-box;padding:0 12px;background:#26252b;border-radius:8px;color:#77757d">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Search" placeholder="Search films, shows, people" style="background:transparent;border:0;outline:0;color:#f6f5f8;font:inherit;font-size:13px;width:100%">
+      </label>
+      <button type="button" style="height:36px;padding:0 14px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500">+ Log</button>
+      <span style="width:32px;height:32px;border-radius:50%;background:#3f2a3a;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">J</span>
+    </div>
+  </header>
+
+  <div style="width:1200px;margin:0 auto;padding-top:20px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #37353d">
+      <a href="#" style="display:flex;align-items:center;gap:8px;color:#f6f5f8;flex-shrink:0">
+        <span style="width:26px;height:26px;border-radius:50%;background:#4a2f2f;display:flex;align-items:center;justify-content:center;font-family:Newsreader,Georgia,serif;font-size:13px;font-weight:600">A</span>
+        <span style="font-size:14px;font-weight:500">Ana Moreau</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.06em;background:#9b2ad0;color:#fff;padding:2px 5px;border-radius:4px">VIP</span>
+      </a>
+      <nav aria-label="Profile" style="display:flex;gap:22px;margin-inline-start:auto">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="11">
+          <a href="#" style="{{t.style}}">{{t.label}}</a>
+        </sc-for>
+      </nav>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:-6px">
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:36px;letter-spacing:-0.01em">Ana has watched 1,284 films</h1>
+      <div role="group" aria-label="Media type" style="display:flex;padding:3px;gap:2px;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d">
+        <button type="button" aria-pressed="true" style="height:32px;padding:0 18px;border:0;border-radius:6px;background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #9b2ad0;font-size:14px">Films 1,284</button>
+        <button type="button" aria-pressed="false" style="height:32px;padding:0 18px;border:0;border-radius:6px;background:transparent;color:#a19fa8;font-size:14px">Shows 146</button>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;margin-top:-6px">
+      <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+        <label style="display:flex;align-items:center;gap:8px;height:36px;padding:0 4px 0 12px;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;font-size:11px;letter-spacing:.08em;color:#77757d">{{f.label}}
+          <select style="height:34px;border:0;background:transparent;color:#f6f5f8;font-size:13px">
+            <option>{{f.value}}</option>
+          </select>
+        </label>
+      </sc-for>
+      <div style="flex-grow:1"></div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.08em;color:#77757d">SORT BY
+        <select style="height:36px;padding:0 10px;border-radius:8px;border:1px solid #37353d;background:#26252b;color:#f6f5f8;font-size:13px">
+          <option>When watched</option>
+          <option>Your rating</option>
+          <option>Release date</option>
+          <option>Film length</option>
+        </select>
+      </label>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(8, minmax(0, 1fr));column-gap:14px;row-gap:14px">
+      <sc-for list="{{films}}" as="p" hint-placeholder-count="40">
+        <a href="#" style="display:flex;flex-direction:column;gap:6px;color:#f6f5f8">
+          <span style="{{p.style}}"><span style="{{p.ts}}">{{p.title}}</span></span>
+          <span style="display:flex;align-items:center;gap:5px;height:14px;font-size:12px;color:#f59e2e">
+            {{p.stars}}
+            <sc-if value="{{p.liked}}" hint-placeholder-val="{{ true }}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="#f0506e" stroke="#f0506e" stroke-width="1.8" aria-label="Liked"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg>
+            </sc-if>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+
+    <section style="margin-top:8px;padding:18px 20px 20px;border-radius:10px;background:#0f0e13;box-shadow:inset 0 0 0 1px #37353d;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+        <h2 style="margin:0;font-size:12px;font-weight:500;letter-spacing:.08em;color:#a19fa8">SHOWS VIEW (SAME PAGE, SHOWS TOGGLE)</h2>
+        <span style="font-size:12px;color:#77757d">Ana has watched 146 shows · 4,902 episodes</span>
+      </div>
+      <div style="display:flex;gap:20px">
+        <sc-for list="{{shows}}" as="s" hint-placeholder-count="6">
+          <a href="#" style="display:flex;flex-direction:column;gap:8px;width:124px;color:#f6f5f8">
+            <span style="{{s.style}}">
+              <span style="{{s.ts}}">{{s.title}}</span>
+              <sc-if value="{{s.pct}}" hint-placeholder-val="{{ true }}">
+                <span style="position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(0,0,0,.5)"><span style="{{s.bar}}"></span></span>
+              </sc-if>
+            </span>
+            <span style="{{s.badgeStyle}}">
+              <sc-if value="{{s.done}}" hint-placeholder-val="{{ false }}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>
+              </sc-if>
+              {{s.badge}}
+            </span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tone = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const poster = (title, i, extra) => ({
+      title,
+      style: 'position:relative;display:flex;align-items:flex-end;box-sizing:border-box;overflow:hidden;aspect-ratio:2/3;border-radius:4px;padding:9px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);background:' + tone[i % 10] + ';' + (extra || ''),
+      ts: 'font-family:Newsreader,Georgia,serif;font-weight:600;font-size:13px;line-height:1.15;color:rgba(255,255,255,.85)'
+    });
+    const tabNames = ['PROFILE', 'DIARY', 'FILMS', 'SHOWS', 'WATCHING', 'REVIEWS', 'WATCHLIST', 'LISTS', 'LIKES', 'NETWORK', 'STATS'];
+    const tabBase = 'font-size:13px;letter-spacing:.06em;padding:13px 0;margin-bottom:-1px;border-bottom:2px solid ';
+    const titles = [
+      'Sinners', 'One Battle After Another', 'Anora', 'Past Lives', 'The Substance', 'Aftersun', 'Conclave', 'Perfect Days',
+      'Challengers', 'The Zone of Interest', 'Poor Things', 'Dune: Part Two', 'Oppenheimer', 'Anatomy of a Fall', 'The Brutalist', 'Nosferatu',
+      'Flow', 'All We Imagine as Light', 'Nickel Boys', 'A Real Pain', 'Hit Man', 'Furiosa', 'Civil War', 'Love Lies Bleeding',
+      'Fallen Leaves', 'May December', 'The Holdovers', 'Killers of the Flower Moon', 'Tár', 'Decision to Leave', 'Close', 'Petite Maman',
+      'Drive My Car', 'The Worst Person in the World', 'Portrait of a Lady on Fire', 'Parasite', 'Moonlight', 'Babygirl', 'The Room Next Door', 'Everything Everywhere All at Once'
+    ];
+    const starSet = ['★★★★½', '★★★★', '★★★½', '★★★★★', '★★★', '★★★★', '★★½', '★★★★½', ''];
+    const statusBase = 'display:inline-flex;align-self:flex-start;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;font-size:12px;font-weight:500;';
+    const status = {
+      done: statusBase + 'background:rgba(60,195,106,.14);color:#3cc36a',
+      progress: statusBase + 'background:#26252b;color:#d9d7de;font-family:"Roboto Mono",monospace',
+      dropped: statusBase + 'background:rgba(240,80,110,.12);color:#f0506e',
+      uptodate: statusBase + 'background:#1f3346;color:#9fcdf2'
+    };
+    const show = (title, i, kind, badge, pct) => Object.assign(poster(title, i), {
+      badge, pct, done: kind === 'done',
+      badgeStyle: status[kind],
+      bar: 'display:block;height:3px;width:' + pct + '%;background:#3cc36a'
+    });
+    return {
+      tabs: tabNames.map((label) => ({ label, style: tabBase + (label === 'FILMS' ? '#9b2ad0;color:#f6f5f8' : 'transparent;color:#a19fa8') })),
+      filters: [['DECADE', 'All'], ['GENRE', 'Any'], ['SERVICE', 'Any'], ['RATING', 'Any']].map(([label, value]) => ({ label, value })),
+      films: titles.map((t, k) => Object.assign(poster(t, (k * 3 + 1) % 10), {
+        stars: starSet[(k * 5) % starSet.length],
+        liked: k % 3 === 0
+      })),
+      shows: [
+        show('Succession', 9, 'done', 'Completed', 0),
+        show('Severance', 5, 'progress', '14/19', 74),
+        show('The Last of Us', 3, 'dropped', 'Dropped', 0),
+        show('The Bear', 2, 'uptodate', 'Up to date', 0),
+        show('Andor', 1, 'done', 'Completed', 0),
+        show('The Pitt', 7, 'progress', '9/15', 60)
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

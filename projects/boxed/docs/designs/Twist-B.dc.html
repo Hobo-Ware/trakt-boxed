@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Twist B - Tactile - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@300;400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:1600px;box-sizing:border-box;background:#141318;position:relative;overflow:hidden;display:flex;flex-direction:column">
+
+  <div style="position:relative;height:800px;flex-shrink:0;overflow:hidden">
+    <div style="position:absolute;top:64px;left:0;width:1440px;height:470px;background:repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 2px, transparent 2px 132px), radial-gradient(ellipse 55% 75% at 56% 30%, #4d7c79 0%, #2b4446 45%, #151f1f 100%)"></div>
+    <div style="{{heroGrain}}"></div>
+    <div style="position:absolute;top:64px;left:0;width:1440px;height:470px;background:radial-gradient(ellipse 62% 85% at 56% 35%, rgba(0,0,0,0) 45%, rgba(0,0,0,.6) 100%)"></div>
+    <div style="position:absolute;top:64px;left:0;width:1440px;height:470px;background:linear-gradient(to bottom, rgba(20,19,24,0) 30%, #141318 97%), linear-gradient(to right, #141318 0%, rgba(20,19,24,0) 16%, rgba(20,19,24,0) 84%, #141318 100%)"></div>
+
+    <header style="position:relative;height:64px;border-bottom:1px solid #37353d;background:#141318">
+      <div style="width:1200px;height:64px;margin:0 auto;display:flex;align-items:center;gap:40px">
+        <a href="#" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+          <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff">t</span>
+          <span style="font-size:20px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+        </a>
+        <nav aria-label="Main" style="display:flex;gap:26px;font-size:13px;letter-spacing:.06em;text-transform:uppercase">
+          <a href="#" style="color:#a19fa8">Films</a>
+          <a href="#" style="color:#f6f5f8">Shows</a>
+          <a href="#" style="color:#a19fa8">Lists</a>
+          <a href="#" style="color:#a19fa8">Members</a>
+          <a href="#" style="color:#a19fa8">Calendar</a>
+        </nav>
+        <div style="margin-inline-start:auto;display:flex;align-items:center;gap:14px">
+          <label style="width:220px;height:36px;box-sizing:border-box;background:#26252b;border-radius:8px;display:flex;align-items:center;gap:8px;padding:0 12px;color:#77757d">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            <input type="search" placeholder="Search films, shows, people" aria-label="Search" style="background:transparent;border:0;outline:0;color:#f6f5f8;font:inherit;font-size:13px;width:100%">
+          </label>
+          <button type="button" style="height:36px;padding:0 14px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Log
+          </button>
+          <a href="#" aria-label="Your profile" style="width:32px;height:32px;border-radius:50%;background:#3f2a3a;color:#f6f5f8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">AM</a>
+        </div>
+      </div>
+    </header>
+
+    <span style="display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(15,14,19,.72);box-shadow:inset 0 0 0 1px #37353d;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8;position:absolute;top:80px;inset-inline-end:24px">Twist B · Tactile · show hero</span>
+
+    <main style="position:relative;width:1200px;margin:0 auto;padding-top:190px;display:flex;gap:40px;align-items:flex-start">
+
+      <aside style="width:230px;flex-shrink:0;display:flex;flex-direction:column;gap:18px">
+        <div style="{{heroPoster}}">
+          <div style="position:absolute;left:16px;bottom:22px;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:26px;color:rgba(255,255,255,.88)">Severance</div>
+          <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(0,0,0,.5)"><div style="width:74%;height:4px;background:#3cc36a"></div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px;text-align:center">
+          <sc-for list="{{counts}}" as="c" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+              <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:20px;line-height:1.1;color:#f6f5f8">{{c.n}}</span>
+              <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:#a19fa8"><span style="{{c.dot}}"></span>{{c.label}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:10px;background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px">
+            <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Your progress</span>
+            <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:18px;color:#f6f5f8">14<span style="color:#77757d"> / 19</span></span>
+          </div>
+          <div style="height:4px;border-radius:999px;background:#37353d"><div style="width:74%;height:4px;border-radius:999px;background:#3cc36a"></div></div>
+          <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#3cc36a">5h 10m left</span>
+        </div>
+      </aside>
+
+      <div style="width:590px;flex-shrink:0;display:flex;flex-direction:column;gap:28px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="height:26px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border-radius:999px;background:rgba(60,195,106,.14);color:#8fe3ad;font-size:12px;font-weight:500;box-shadow:inset 0 0 0 1px rgba(60,195,106,.45)"><span style="width:6px;height:6px;border-radius:50%;background:#3cc36a"></span>Returning series</span>
+            <span style="font-size:13px;color:#a19fa8">Season 3 in production</span>
+          </div>
+          <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:56px;line-height:1;letter-spacing:-0.01em">Severance</h1>
+          <div style="font-size:16px;color:#a19fa8">2022 · <a href="#" style="color:#d9d7de">Apple TV+</a> · 2 seasons · 19 episodes · Created by <a href="#" style="color:#d9d7de">Dan Erickson</a></div>
+          <div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">There's more to work than life.</div>
+          <p style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:500;font-size:19px;line-height:1.55;color:#d9d7de">Mark leads a team at Lumon Industries, where employees have had their memories surgically split between work and home. When a mysterious colleague appears outside of work, the wall between his two lives starts to crack.</p>
+        </div>
+
+        <section aria-label="Seasons" style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Seasons</span>
+            <a href="#" style="font-size:12px">All episodes</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px">
+            <sc-for list="{{seasons}}" as="s" hint-placeholder-count="3">
+              <a href="#" style="display:flex;gap:10px;color:#f6f5f8;background:#1d1c22;border-radius:10px;padding:10px;box-shadow:inset 0 0 0 1px #2b2a31">
+                <div style="position:relative;width:84px;height:114px;flex-shrink:0">
+                  <sc-if value="{{s.hasPeek}}" hint-placeholder-val="{{ true }}">
+                    <div aria-hidden="true" style="{{s.peek}}"></div>
+                  </sc-if>
+                  <div style="{{s.poster}}">
+                    <div style="position:absolute;left:7px;bottom:9px;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:12px;line-height:1.1;color:rgba(255,255,255,.88)">{{s.posterLabel}}</div>
+                    <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(0,0,0,.5)"><div style="{{s.bar}}"></div></div>
+                  </div>
+                </div>
+                <div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:5px;padding-top:4px">
+                  <span style="font-size:15px;font-weight:500">{{s.name}}</span>
+                  <span style="display:flex;align-items:baseline;gap:4px;color:#f59e2e;font-size:12px">&#9733;<span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:17px;color:#f6f5f8">{{s.avg}}</span></span>
+                  <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#a19fa8">{{s.meta}}</span>
+                  <span style="{{s.progressStyle}}">{{s.progress}}</span>
+                  <span style="height:4px;border-radius:999px;background:#37353d;display:block"><span style="{{s.track}}"></span></span>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+        </section>
+      </div>
+
+      <aside style="width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:24px">
+        <div style="background:#26252b;border-radius:10px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));padding:14px 8px;border-bottom:1px solid #37353d">
+            <button type="button" aria-pressed="true" style="background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#3cc36a;font-size:13px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Watching
+            </button>
+            <button type="button" aria-pressed="true" style="background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#f0506e;font-size:13px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#f0506e" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>Liked
+            </button>
+            <button type="button" aria-pressed="false" style="background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#a19fa8;font-size:13px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="13" r="8"></circle><path d="M11 9v4l2.5 2"></path><path d="M19 2v5M16.5 4.5h5"></path></svg>Watchlist
+            </button>
+          </div>
+          <div style="padding:14px 0 16px;border-bottom:1px solid #37353d;display:flex;flex-direction:column;align-items:center;gap:6px">
+            <span style="font-size:13px;color:#a19fa8">Rated</span>
+            <div role="img" aria-label="Rated 4.5 stars" style="display:flex;gap:4px;font-size:30px;line-height:1;color:#f59e2e">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              <span style="position:relative;display:inline-block;color:#4a4851">&#9733;<span style="position:absolute;inset-inline-start:0;top:0;width:50%;overflow:hidden;color:#f59e2e">&#9733;</span></span>
+            </div>
+          </div>
+          <sc-for list="{{actions}}" as="a" hint-placeholder-count="3">
+            <button type="button" style="{{a.style}}">{{a.label}}</button>
+          </sc-for>
+        </div>
+
+        <section aria-label="Ratings" style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:8px">
+            <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Ratings</span>
+            <span style="font-size:12px;color:#77757d"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:14px;color:#a19fa8">412K</span> fans</span>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:10px">
+            <span style="font-size:12px;color:#f59e2e;padding-bottom:2px">&#9733;</span>
+            <div style="flex-grow:1;height:72px;display:flex;align-items:flex-end;gap:3px">
+              <sc-for list="{{histogram}}" as="h" hint-placeholder-count="10">
+                <div style="{{h}}"></div>
+              </sc-for>
+            </div>
+            <span style="font-size:12px;color:#f59e2e;padding-bottom:2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:38px;line-height:.9;color:#f6f5f8">4.4</span>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <div style="position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(to bottom, rgba(20,19,24,0), #141318)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:1px;background:#37353d"></div>
+  </div>
+
+  <div style="width:1200px;margin:0 auto;padding-top:26px;display:flex;flex-direction:column;gap:18px">
+    <span style="display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(15,14,19,.72);box-shadow:inset 0 0 0 1px #37353d;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8;align-self:flex-start">Twist B · Tactile · diary as ticket stubs</span>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:36px;letter-spacing:-0.01em">Ana's diary</h2>
+        <span style="font-size:14px;color:#a19fa8"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:16px;color:#d9d7de">212</span> entries in 2026 · <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:16px;color:#d9d7de">131</span> films · <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:16px;color:#d9d7de">81</span> show sessions</span>
+      </div>
+      <div role="group" aria-label="Type" style="display:flex;padding:3px;gap:2px;border-radius:8px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d">
+        <button type="button" aria-pressed="false" style="height:30px;padding:0 14px;border:0;border-radius:6px;background:transparent;color:#a19fa8;font-size:13px">Films</button>
+        <button type="button" aria-pressed="false" style="height:30px;padding:0 14px;border:0;border-radius:6px;background:transparent;color:#a19fa8;font-size:13px">Shows</button>
+        <button type="button" aria-pressed="true" style="height:30px;padding:0 14px;border:0;border-radius:6px;background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #9b2ad0;font-size:13px">Both</button>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="width:64px;display:flex;flex-direction:column;align-items:center;gap:1px;padding:7px 0 6px;border-radius:4px;background:#9b2ad0;color:#fff;box-shadow:0 -3px 0 #c9a3e8 inset">
+        <span style="font-size:14px;font-weight:700;letter-spacing:.08em">SEP</span>
+        <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#e4cdf6">2026</span>
+      </div>
+      <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px">September</span>
+      <span style="flex-grow:1;height:1px;background:#37353d"></span>
+      <span style="font-size:12px;color:#77757d"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:15px;color:#a19fa8">14</span> entries</span>
+    </div>
+
+    <div role="list" aria-label="September 2026 entries" style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{stubs}}" as="r" hint-placeholder-count="6">
+        <article role="listitem" style="{{r.card}}">
+          <span aria-hidden="true" style="{{notchTop}}"></span>
+          <span aria-hidden="true" style="{{notchBottom}}"></span>
+          <span aria-hidden="true" style="{{perf}}"></span>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-family:'Roboto Mono',monospace">
+            <span style="font-size:11px;letter-spacing:.14em;color:#c9a3e8">SEP</span>
+            <span style="font-size:26px;line-height:1;color:#f6f5f8">{{r.day}}</span>
+            <span style="font-size:10px;letter-spacing:.12em;color:#77757d">{{r.wd}}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;padding:12px 18px 12px 24px;min-width:0">
+            <span style="{{r.thumb}}"></span>
+            <div style="display:flex;flex-direction:column;gap:5px;min-width:0;flex-grow:1">
+              <div style="display:flex;align-items:baseline;gap:10px;min-width:0">
+                <a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;font-size:20px;color:#f6f5f8;white-space:nowrap">{{r.title}}</a>
+                <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{r.year}}</span>
+                <sc-if value="{{r.note}}" hint-placeholder-val="{{ false }}">
+                  <span style="align-self:center;display:flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:999px;background:#26252b;color:#a19fa8;font-size:11px">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+                    Private note
+                  </span>
+                </sc-if>
+              </div>
+              <sc-if value="{{r.sub}}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#a19fa8">
+                  <sc-if value="{{r.code}}" hint-placeholder-val="{{ true }}">
+                    <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#c9a3e8">{{r.code}}</span>
+                  </sc-if>
+                  <span>{{r.sub}}</span>
+                </div>
+              </sc-if>
+            </div>
+            <sc-if value="{{r.group}}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:14px;flex-shrink:0">
+                <div aria-label="3 episode stills, stacked" role="img" style="position:relative;width:156px;height:76px">
+                  <sc-for list="{{r.stills}}" as="st" hint-placeholder-count="3">
+                    <div style="{{st.style}}">
+                      <span style="{{stillGrain}}"></span>
+                      <span style="position:absolute;left:6px;bottom:5px;font-family:'Roboto Mono',monospace;font-size:10px;color:rgba(255,255,255,.9)">{{st.code}}</span>
+                    </div>
+                  </sc-for>
+                </div>
+                <button type="button" aria-expanded="false" aria-label="Fan out 3 episodes" style="display:flex;align-items:center;gap:4px;height:28px;padding:0 10px;border-radius:999px;border:0;background:#26252b;color:#d9d7de;font-size:12px">3 eps
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+              </div>
+            </sc-if>
+            <div style="width:96px;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:2px">
+              <span style="font-family:Newsreader,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-0.01em;font-size:24px;line-height:1;color:#f6f5f8">{{r.rating}}</span>
+              <span style="font-size:13px;color:#f59e2e;white-space:nowrap">{{r.stars}}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;padding-inline-start:8px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="{{r.likeFill}}" stroke="{{r.likeStroke}}" stroke-width="1.8" role="img" aria-label="{{r.likeLabel}}"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{r.rewatchStroke}}" stroke-width="1.8" role="img" aria-label="{{r.rewatchLabel}}"><path d="M4 12a8 8 0 0 1 14-5.3L20 9"></path><path d="M20 4v5h-5"></path><path d="M20 12a8 8 0 0 1-14 5.3L4 15"></path><path d="M4 20v-5h5"></path></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{r.reviewStroke}}" stroke-width="1.8" role="img" aria-label="{{r.reviewLabel}}"><path d="M5 6h14M5 11h14M5 16h9"></path></svg>
+              <button type="button" aria-label="Edit entry" style="width:32px;height:32px;border-radius:8px;border:0;background:#26252b;color:#a19fa8;display:flex;align-items:center;justify-content:center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path><path d="M13.5 6.5l4 4"></path></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tone = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const noise = 'repeating-radial-gradient(circle at 13% 27%, rgba(255,255,255,.07) 0 1px, rgba(255,255,255,0) 1px 3px), repeating-radial-gradient(circle at 71% 64%, rgba(0,0,0,.1) 0 1px, rgba(0,0,0,0) 1px 4px), repeating-radial-gradient(circle at 42% 88%, rgba(255,255,255,.05) 0 1px, rgba(255,255,255,0) 1px 5px), repeating-linear-gradient(37deg, rgba(255,255,255,.035) 0 1px, rgba(255,255,255,0) 1px 3px), repeating-linear-gradient(-53deg, rgba(0,0,0,.06) 0 1px, rgba(0,0,0,0) 1px 2px)';
+    const bevel = 'inset 1px 1px 0 rgba(255,255,255,.13), inset -1px -1px 0 rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.05)';
+    const stock = (bg) => 'background:linear-gradient(180deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.02) 14%, rgba(255,255,255,0) 30%), ' + bg + ';';
+    const cardStock = (bg, ring) => 'position:relative;overflow:hidden;border-radius:4px;' + stock(bg) + 'box-shadow:' + (ring ? ring + ', ' : '') + bevel;
+    const bar = (pct) => 'width:' + pct + '%;height:3px;background:#3cc36a';
+    const track = (pct) => 'display:block;width:' + pct + '%;height:4px;border-radius:999px;background:#3cc36a';
+    const prog = (color) => "margin-top:auto;font-family:'Roboto Mono',monospace;font-size:11px;color:" + color;
+    const seasonPoster = (bg, ring) => 'position:absolute;top:6px;inset-inline-start:0;width:72px;height:108px;' + cardStock(bg, ring);
+    const peek = (bg) => 'position:absolute;top:0;inset-inline-start:10px;width:72px;height:108px;border-radius:4px;transform:rotate(4deg);transform-origin:bottom left;background:linear-gradient(rgba(0,0,0,.32), rgba(0,0,0,.32)), ' + bg + ';box-shadow:' + bevel + ', 0 4px 10px rgba(0,0,0,.4)';
+    const dot = (c) => 'width:6px;height:6px;border-radius:50%;background:' + c;
+    const hist = [2, 3, 5, 8, 14, 22, 38, 64, 82, 58];
+    const rowBase = 'background:none;border:0;border-top:1px solid #37353d;height:44px;font-size:14px;color:#d9d7de;width:100%';
+    const on = (flag) => flag ? '#d9d7de' : '#37353d';
+    const stillBg = {
+      E4: 'radial-gradient(ellipse at 40% 35%, #8a9aa3 0%, #4b5a63 50%, #1f262b 100%)',
+      E5: 'radial-gradient(ellipse at 60% 40%, #4d7c79 0%, #2b4446 55%, #151f1f 100%)',
+      E6: 'radial-gradient(ellipse at 30% 40%, #5b6e4f 0%, #2f3a2a 55%, #1a2019 100%)'
+    };
+    const pile = [
+      { left: 0, top: 12, rot: -3 },
+      { left: 30, top: 8, rot: 0 },
+      { left: 60, top: 12, rot: 3 }
+    ];
+    const stills = ['E4', 'E5', 'E6'].map((code, i) => ({
+      code,
+      style: 'position:absolute;top:' + pile[i].top + 'px;inset-inline-start:' + pile[i].left + 'px;width:96px;height:54px;transform:rotate(' + pile[i].rot + 'deg);' + cardStock(stillBg[code]) + ', 0 6px 14px rgba(0,0,0,.5)'
+    }));
+    const stub = (o) => Object.assign({
+      code: '', sub: '', year: '', group: false, note: false, like: false, rewatch: false, review: false, stills: []
+    }, o, {
+      wd: weekdays[new Date(2026, 8, Number(o.day)).getDay()],
+      card: 'position:relative;display:grid;grid-template-columns:92px minmax(0, 1fr);min-height:' + (o.group ? 100 : 84) + 'px;border-radius:10px;background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31, inset 0 1px 0 rgba(255,255,255,.04), 0 10px 24px rgba(0,0,0,.25)',
+      thumb: 'width:40px;height:60px;flex-shrink:0;' + cardStock(tone[o.tone % 10]),
+      likeFill: o.like ? '#f0506e' : 'none',
+      likeStroke: o.like ? '#f0506e' : '#37353d',
+      likeLabel: o.like ? 'Liked' : 'Not liked',
+      rewatchStroke: on(o.rewatch),
+      rewatchLabel: o.rewatch ? 'Rewatch' : 'First watch',
+      reviewStroke: on(o.review),
+      reviewLabel: o.review ? 'Has review' : 'No review'
+    });
+    return {
+      heroGrain: 'position:absolute;top:64px;left:0;width:1440px;height:470px;opacity:.6;mix-blend-mode:overlay;background-image:' + noise,
+      stillGrain: 'position:absolute;inset:0;opacity:.55;mix-blend-mode:overlay;background-image:' + noise,
+      heroPoster: 'width:230px;height:345px;' + cardStock('#2b4446', '0 18px 40px rgba(0,0,0,.5)'),
+      notchTop: 'position:absolute;top:-8px;inset-inline-start:84px;width:16px;height:16px;border-radius:50%;background:#141318;z-index:1',
+      notchBottom: 'position:absolute;bottom:-8px;inset-inline-start:84px;width:16px;height:16px;border-radius:50%;background:#141318;z-index:1',
+      perf: 'position:absolute;top:12px;bottom:12px;inset-inline-start:91px;width:0;border-inline-start:2px dashed #37353d',
+      counts: [
+        { n: '1.4M', label: 'Watched', dot: dot('#3cc36a') },
+        { n: '212K', label: 'Watchlist', dot: dot('#4ea3e6') },
+        { n: '486K', label: 'Liked', dot: dot('#f0506e') }
+      ],
+      seasons: [
+        { name: 'Season 1', posterLabel: 'Season 1', avg: '4.4', meta: '9 eps · 2022', progress: 'Done', progressStyle: prog('#3cc36a'), hasPeek: true, peek: peek('#24394a'), poster: seasonPoster('#2f4a3b', '0 0 0 2px #3cc36a'), bar: bar(100), track: track(100) },
+        { name: 'Season 2', posterLabel: 'Season 2', avg: '4.5', meta: '10 eps · 2025', progress: '5 of 10', progressStyle: prog('#d9d7de'), hasPeek: true, peek: peek('#333046'), poster: seasonPoster('#24394a'), bar: bar(50), track: track(50) },
+        { name: 'Specials', posterLabel: 'Specials', avg: '3.9', meta: '1 ep · 2021', progress: '0 of 1', progressStyle: prog('#77757d'), hasPeek: false, peek: '', poster: seasonPoster('#333046'), bar: bar(0), track: track(0) }
+      ],
+      actions: [
+        { label: 'Log episodes...', style: rowBase.replace('border-top:1px solid #37353d;', '') },
+        { label: 'Add to lists...', style: rowBase },
+        { label: 'Where to watch', style: rowBase }
+      ],
+      histogram: hist.map((h, i) => 'flex-grow:1;border-radius:2px 2px 0 0;height:' + Math.round(h / 82 * 72) + 'px;background:' + (i === 8 ? '#f59e2e' : '#4a4851')),
+      stubs: [
+        stub({ day: '26', title: 'Sinners', year: '2025', rating: '4.5', stars: '★★★★½', tone: 2, like: true, review: true }),
+        stub({ day: '24', title: 'Severance', year: '2022', code: 'S2 E4-E6', sub: 'Binge · 3 episodes · 2h 31m', rating: '5.0', stars: '★★★★★', tone: 5, like: true, review: true, group: true, stills }),
+        stub({ day: '21', title: 'One Battle After Another', year: '2025', rating: '4.5', stars: '★★★★½', tone: 4, like: true, review: true }),
+        stub({ day: '19', title: 'Anora', year: '2024', rating: '3.5', stars: '★★★½', tone: 6, note: true }),
+        stub({ day: '14', title: 'Andor', year: '2022', code: 'Season 2', sub: 'Season rated', rating: '5.0', stars: '★★★★★', tone: 1, like: true, review: true }),
+        stub({ day: '12', title: 'Past Lives', year: '2023', sub: 'Rewatch · 3rd viewing', rating: '5.0', stars: '★★★★★', tone: 0, like: true, rewatch: true, review: true })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

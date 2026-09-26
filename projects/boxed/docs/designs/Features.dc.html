@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trakt features map</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:1600px;box-sizing:border-box;background:#141318;padding:56px 72px;display:flex;flex-direction:column;gap:36px;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#c9a3e8">Nothing is missed</span>
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:48px;letter-spacing:-0.01em">Every Trakt feature has a home</h1>
+      <p style="margin:0;font-size:16px;line-height:1.5;color:#a19fa8;max-width:820px">Every Trakt-only feature from today's client, mapped to the page that carries it in trakt boxed. Chips link to the mockup; dashed chips reuse a shared template.</p>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;font-size:13px;color:#a19fa8">
+      <span style="display:flex;align-items:center;gap:8px"><span style="{{legendBoard}}">Board</span>has a mockup</span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="{{legendTemplate}}">Template</span>shared layout</span>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:48px;align-items:start">
+    <sc-for list="{{columns}}" as="col" hint-placeholder-count="2">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <sc-for list="{{col.groups}}" as="g" hint-placeholder-count="3">
+          <section style="display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #4a4851;padding-bottom:8px">
+              <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px">{{g.title}}</h2>
+              <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{g.count}}</span>
+            </div>
+            <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="6">
+              <div style="display:grid;grid-template-columns:240px minmax(0, 1fr);gap:16px;align-items:center;min-height:32px;padding:4px 0;border-bottom:1px solid #26252b">
+                <span style="font-size:13px;color:#e6e4ea;line-height:1.35">{{r.name}}</span>
+                <span style="display:flex;flex-wrap:wrap;gap:6px">
+                  <sc-for list="{{r.chips}}" as="c" hint-placeholder-count="3">
+                    <a href="{{c.href}}" style="{{c.style}}">{{c.label}}</a>
+                  </sc-for>
+                </span>
+              </div>
+            </sc-for>
+          </section>
+        </sc-for>
+      </div>
+    </sc-for>
+  </div>
+
+  <section aria-labelledby="new-h" style="border-radius:12px;background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px">
+      <h2 id="new-h" style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px">New from unused API routes</h2>
+      <span style="font-size:13px;color:#a19fa8">Routes the API already serves that today's client never calls</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <sc-for list="{{newCaps}}" as="n" hint-placeholder-count="10">
+        <a href="{{n.href}}" style="height:32px;padding:0 12px 0 4px;border-radius:999px;background:#26252b;box-shadow:inset 0 0 0 1px #37353d;color:#e6e4ea;font-size:13px;display:flex;align-items:center;gap:8px">
+          <span style="height:22px;padding:0 8px;border-radius:999px;background:#9b2ad0;color:#fff;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center">New</span>
+          {{n.label}}
+        </a>
+      </sc-for>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const chipBase = 'height:24px;padding:0 9px;border-radius:999px;font-size:12px;display:inline-flex;align-items:center;white-space:nowrap;';
+    const boardStyle = chipBase + 'background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #4b2463';
+    const templateStyle = chipBase + 'background:transparent;color:#a19fa8;box-shadow:none;border:1px dashed #4a4851';
+    const boards = {
+      Film: 'Film', Show: 'Show', Season: 'Season', Episode: 'Episode', Home: 'Home', Watching: 'Watching',
+      'Log-film': 'Log film', 'Log-episode': 'Log episodes', 'Log-mobile': 'Log sheet', Posters: 'Poster tile',
+      Profile: 'Profile', Diary: 'Diary', Stats: 'Stats', Settings: 'Settings', Onboarding: 'Onboarding',
+      Browse: 'Films landing', 'Browse-grid': 'Chart grid', Calendar: 'Calendar', Watchlist: 'Watchlist',
+      'Profile-lists': 'Profile lists', List: 'Single list', 'Lists-browse': 'Lists browse', 'List-editor': 'List editor',
+      'Review-page': 'Review page', 'Reviews-browse': 'Reviews browse', Facet: 'Engagement tabs', Activity: 'Activity'
+    };
+    const chip = (key) => boards[key]
+      ? { label: boards[key], href: key + '.dc.html', style: boardStyle }
+      : { label: key, href: '#', style: templateStyle };
+    const row = (name, keys) => ({ name, chips: keys.map(chip) });
+    const group = (title, rows) => ({ title, rows, count: rows.length + ' features' });
+    return {
+      legendBoard: boardStyle,
+      legendTemplate: templateStyle,
+      columns: [
+        {
+          groups: [
+            group('TV tracking', [
+              row('Up next, continue watching, smart sort', ['Home', 'Watching', 'Show']),
+              row('Episode progress, watched until here, specials', ['Season', 'Log-episode', 'Posters']),
+              row('Start watching', ['Home', 'Watching']),
+              row('Drop show, dropped list', ['Show', 'Watching', 'Posters']),
+              row('Rewatching flag', ['Show', 'Watching'])
+            ]),
+            group('Logging & ratings', [
+              row('Check-in, watching now', ['Log-film', 'Profile', 'Top-bar live pill']),
+              row('Mark watched: now, release, other, unknown', ['Log-film', 'Log-episode', 'Log-mobile']),
+              row('1-10 as half stars, popcorn at 10, tomato at 1-2', ['Log-film', 'Posters', 'Every star widget']),
+              row('Ratings histogram, per-season chart', ['Film', 'Show', 'Season', 'Episode']),
+              row('External ratings: IMDb, RT, MAL, TMDB, Letterboxd', ['Film', 'Show']),
+              row('Private notes (500 chars)', ['Log-film', 'Diary', 'Your activity'])
+            ]),
+            group('Title extras', [
+              row('AI sentiment pros and cons (VIP)', ['Film', 'Show']),
+              row('Trivia, 3 free, full with VIP', ['Film', 'Show']),
+              row('Soundtrack (VIP)', ['Film', 'Show']),
+              row('Post-credits scenes', ['Posters', 'Film']),
+              row('Parental guide', ['Film']),
+              row('Friends on a title', ['Film', 'Show', 'Episode']),
+              row('Share cards (OG images)', ['Film', 'Show', 'Episode', 'Profile', 'List', 'Year in review'])
+            ])
+          ]
+        },
+        {
+          groups: [
+            group('Watching & streaming', [
+              row('Where to watch, favourite services, country', ['Film', 'Posters', 'Browse-grid']),
+              row('Plex library, streaming sync', ['Film', 'Settings', 'Library']),
+              row('YouTube specials', ['Film']),
+              row('Recommendations', ['Browse', 'Home']),
+              row('Anticipated, trending, popular, releases', ['Browse', 'Browse-grid', 'Calendar']),
+              row('Global filters: genre, decade, runtime, service', ['Browse-grid'])
+            ]),
+            group('Lists & social', [
+              row('Favourites, top 4 per type', ['Profile', 'Onboarding', 'Likes tab']),
+              row('Watchlist, reorder', ['Watchlist']),
+              row('Personal, collaborative, official, smart lists', ['Profile-lists', 'List', 'List-editor', 'Lists-browse']),
+              row('Hidden items', ['Settings', 'Posters']),
+              row('Follow, requests, block, private profiles', ['Profile', 'Network']),
+              row('Social activity feed', ['Activity', 'Home']),
+              row('Leaderboard, taste match', ['Profile', 'Members'])
+            ]),
+            group('Stats & reviews', [
+              row('Comments: reactions, replies, spoilers, GIFs', ['Review-page', 'Facet', 'Film']),
+              row('Reviewer stats', ['Facet', 'Review-page']),
+              row('Stats, streaks, heatmap', ['Stats', 'Profile', 'Home']),
+              row('Year and month in review', ['Stats', 'Profile', 'Year in review'])
+            ]),
+            group('Account & data', [
+              row('Imports: Letterboxd, TV Time, IMDb, Trakt', ['Onboarding', 'Settings']),
+              row('Exports (VIP), VIP checkout, upsells', ['Settings', 'Film', 'VIP page']),
+              row('Spoilers, plays, rating prompt, theme, language', ['Settings']),
+              row('Connected apps, preview features', ['Settings']),
+              row('Seasonal themes, 28 locales, 2 RTL', ['All pages'])
+            ])
+          ]
+        }
+      ],
+      newCaps: [
+        { label: 'List likes, comments, reactions', href: 'List.dc.html' },
+        { label: 'Trending and recent reviews', href: 'Reviews-browse.dc.html' },
+        { label: 'Popular and trending lists', href: 'Lists-browse.dc.html' },
+        { label: 'Season rating writes', href: 'Season.dc.html' },
+        { label: 'Per-play notes', href: 'Log-film.dc.html' },
+        { label: 'List item notes', href: 'List-editor.dc.html' },
+        { label: 'Favourites reorder, top 4', href: 'Onboarding.dc.html' },
+        { label: 'Box office, played, watched charts', href: 'Browse-grid.dc.html' },
+        { label: "Friends' recommendations", href: 'Home.dc.html' },
+        { label: 'Release dates per country', href: 'Film.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

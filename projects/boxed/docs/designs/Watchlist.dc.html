@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Watchlist - desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:1600px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+  <header style="height:64px;flex-shrink:0;border-bottom:1px solid #37353d;display:flex;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <div style="display:flex;align-items:center;gap:40px">
+        <a href="#" aria-label="trakt boxed home" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+          <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+          <span style="font-size:20px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+        </a>
+        <nav aria-label="Main" style="display:flex;gap:24px"><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">FILMS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">SHOWS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">LISTS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">MEMBERS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8">CALENDAR</a></nav>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <label style="position:relative;display:flex;align-items:center">
+          <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Search</span>
+          <span style="position:absolute;inset-inline-start:10px;display:flex;color:#77757d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></span>
+          <input type="search" placeholder="Search films, shows, people" style="width:220px;height:36px;box-sizing:border-box;background:#26252b;border:1px solid #37353d;border-radius:8px;color:#f6f5f8;padding:0 12px 0 34px;font:inherit;font-size:13px">
+        </label>
+        <button type="button" style="height:36px;padding:0 14px;border-radius:8px;border:0;background:#9b2ad0;color:#fff;font-size:14px;font-weight:500">+ Log</button>
+        <a href="#" aria-label="Your profile" style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,#9b2ad0,#4ea3e6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px">A</a>
+      </div>
+    </div>
+  </header>
+  <main style="width:1120px;margin:0 auto;padding:28px 0 40px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:48px;height:48px;border-radius:999px;background:linear-gradient(135deg,#9b2ad0,#4ea3e6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px">A</span>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:8px"><a href="#" style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:24px;color:#f6f5f8">Ana Marin</a><span style="font-size:11px;font-weight:700;letter-spacing:.06em;background:#9b2ad0;color:#fff;padding:3px 7px;border-radius:999px">VIP</span></div>
+            <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#a19fa8">@ana_m</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:28px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">1,248</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">FILMS</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">96</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">SHOWS</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">9,412</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">EPISODES</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">212</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">THIS YEAR</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">402</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">FOLLOWING</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:20px">1,187</span><span style="font-size:11px;letter-spacing:.08em;color:#77757d">FOLLOWERS</span></div></div>
+      </div>
+      <nav aria-label="Profile" style="display:flex;gap:26px;border-bottom:1px solid #37353d"><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">PROFILE</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">DIARY</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">FILMS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">SHOWS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">WATCHING</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">REVIEWS</a><a href="#" aria-current="page" style="font-size:13px;letter-spacing:.06em;color:#f6f5f8;padding-bottom:12px;border-bottom:2px solid #9b2ad0;margin-bottom:-1px">WATCHLIST</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">LISTS</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">LIKES</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">NETWORK</a><a href="#" style="font-size:13px;letter-spacing:.06em;color:#a19fa8;padding-bottom:12px">STATS</a></nav>
+    </div>
+    <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-0.01em;font-size:36px;color:#d9d7de">Ana wants to see <span style="color:#c9a3e8;font-weight:700">212</span> films and <span style="color:#c9a3e8;font-weight:700">38</span> shows</h1>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:16px">
+        <div role="group" aria-label="Type" style="display:flex;gap:2px;padding:2px;border-radius:8px;background:#26252b;border:1px solid #37353d">
+          <button type="button" aria-pressed="false" style="height:36px;padding:0 16px;border:0;border-radius:6px;font-size:13px;font-weight:500;background:transparent;color:#a19fa8">Films</button>
+          <button type="button" aria-pressed="false" style="height:36px;padding:0 16px;border:0;border-radius:6px;font-size:13px;font-weight:500;background:transparent;color:#a19fa8">Shows</button>
+          <button type="button" aria-pressed="true" style="height:36px;padding:0 16px;border:0;border-radius:6px;font-size:13px;font-weight:500;background:#37353d;color:#f6f5f8">Both</button>
+        </div>
+        <button type="button" role="switch" aria-checked="true" style="display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;color:#f6f5f8;font-size:14px">
+          <span style="width:36px;height:20px;border-radius:999px;background:#9b2ad0;display:flex;align-items:center;justify-content:flex-end;padding:0 2px;box-sizing:border-box"><span style="width:16px;height:16px;border-radius:999px;background:#fff"></span></span>
+          On my services
+        </button>
+        <div role="group" aria-label="Services" style="display:flex;gap:6px"><button type="button" aria-pressed="true" style="height:28px;padding:0 12px;border-radius:999px;font-size:13px;display:flex;align-items:center;background:#2a1737;color:#e4cdf6;border:1px solid #9b2ad0">Netflix</button><button type="button" aria-pressed="true" style="height:28px;padding:0 12px;border-radius:999px;font-size:13px;display:flex;align-items:center;background:#2a1737;color:#e4cdf6;border:1px solid #9b2ad0">Max</button><button type="button" aria-pressed="true" style="height:28px;padding:0 12px;border-radius:999px;font-size:13px;display:flex;align-items:center;background:#2a1737;color:#e4cdf6;border:1px solid #9b2ad0">Apple TV+</button><button type="button" aria-pressed="true" style="height:28px;padding:0 12px;border-radius:999px;font-size:13px;display:flex;align-items:center;background:#2a1737;color:#e4cdf6;border:1px solid #9b2ad0">Mubi</button></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <label for="watchlist-sort" style="font-size:13px;color:#a19fa8">Sort by</label>
+        <select id="watchlist-sort" style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #37353d;background:#26252b;color:#f6f5f8;font:inherit;font-size:13px">
+          <option>Date added</option>
+          <option>Release date</option>
+          <option>Popularity</option>
+          <option>Runtime</option>
+          <option>Shuffle</option>
+        </select>
+        <button type="button" style="height:40px;padding:0 16px;border-radius:8px;border:1px solid #37353d;background:#26252b;color:#f6f5f8;font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;height:36px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16"></path><path d="M4 8l4-4 4 4"></path><path d="M16 20V4"></path><path d="M12 16l4 4 4-4"></path></svg>Reorder</button>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p style="margin:0;font-size:13px;color:#77757d">Available on your services first. Titles not on Netflix, Max, Apple TV+ or Mubi are dimmed.</p>
+      <div style="display:grid;grid-template-columns:repeat(7, minmax(0, 1fr));gap:16px">
+        <sc-for list="{{posters}}" as="p" hint-placeholder-count="28">
+          <a href="#" aria-label="{{p.title}}" style="{{p.style}}">
+            <sc-if value="{{p.hasService}}" hint-placeholder-val="{{ true }}">
+              <span style="position:absolute;top:6px;inset-inline-end:6px;font-size:10px;font-weight:500;padding:2px 6px;border-radius:999px;background:rgba(15,14,19,.85);color:#f6f5f8;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)">{{p.service}}</span>
+            </sc-if>
+            <sc-if value="{{p.isShow}}" hint-placeholder-val="{{ false }}">
+              <span style="position:absolute;top:6px;inset-inline-start:6px;font-size:9px;font-weight:700;letter-spacing:.08em;padding:2px 5px;border-radius:3px;background:rgba(15,14,19,.85);color:#a19fa8">SHOW</span>
+            </sc-if>
+            <span style="{{p.ts}}">{{p.title}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid #37353d;padding-bottom:10px"><h2 style="margin:0;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#a19fa8">Coming soon</h2><span style="font-size:13px;color:#77757d">9 titles on your watchlist are not out yet</span></div>
+      <div style="display:grid;grid-template-columns:repeat(9, minmax(0, 1fr));gap:16px">
+        <sc-for list="{{soon}}" as="s" hint-placeholder-count="9">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <a href="#" aria-label="{{s.title}}" style="{{s.style}}"><span style="{{s.ts}}">{{s.title}}</span></a>
+            <span style="font-family:'Roboto Mono',monospace;font-size:12px;font-size:11px;color:#d9d7de">{{s.date}}</span>
+            <span style="font-size:11px;color:#77757d">{{s.note}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+const TONES = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+const RINGS = { watched: '0 0 0 2px #3cc36a, ', watchlist: '0 0 0 2px #4ea3e6, ' };
+function posterStyle(i, o) {
+  const opt = o || {};
+  return 'position:relative;flex-shrink:0;box-sizing:border-box;border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;padding:' + (opt.pad || 8) + 'px;' +
+    'background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.3)), ' + TONES[i % TONES.length] + ';' +
+    'box-shadow:' + (RINGS[opt.ring] || '') + 'inset 0 0 0 1px rgba(255,255,255,.08);' +
+    (opt.size || 'aspect-ratio:2/3;width:100%;') + (opt.extra || '');
+}
+function titleStyle(px) {
+  return 'font-family:Newsreader,Georgia,serif;font-weight:600;font-size:' + px + 'px;line-height:1.15;color:rgba(255,255,255,.85)';
+}
+class Component extends DCLogic {
+  renderVals() {
+    const list = [
+      ['Perfect Days', 'Mubi'], ['Severance', 'Apple TV+', 1], ['Aftersun', 'Mubi'], ['Conclave', ''], ['The Bear', 'Max', 1], ['Poor Things', 'Max'], ['Challengers', ''],
+      ['Anatomy of a Fall', 'Mubi'], ['Slow Horses', 'Apple TV+', 1], ['The Substance', 'Mubi'], ['Adolescence', 'Netflix', 1], ['Oppenheimer', ''], ['Past Lives', 'Max'], ['Sinners', 'Max'],
+      ['Succession', 'Max', 1], ['The Zone of Interest', 'Max'], ['Anora', ''], ['Arcane', 'Netflix', 1], ['Dune: Part Two', 'Max'], ['Shogun', ''], ['One Battle After Another', 'Max'],
+      ['The Pitt', 'Max', 1], ['Drive My Car', 'Mubi'], ['Andor', '', 1], ['Decision to Leave', 'Mubi'], ['Fallen Leaves', 'Mubi'], ['The Last of Us', 'Max', 1], ['Roma', 'Netflix']
+    ];
+    const soonList = [
+      ['Dune: Part Three', '18 Dec 2026', 'In cinemas'],
+      ['The Bear', '2 Oct 2026', 'Season 5'],
+      ['Arcane', 'Nov 2026', 'Spin-off'],
+      ['The Pitt', '8 Jan 2027', 'Season 3'],
+      ['Severance', '2027', 'Season 3'],
+      ['Frankenstein', '17 Oct 2026', 'Netflix'],
+      ['Andor', 'TBA', 'Special'],
+      ['The Odyssey', '17 Jul 2027', 'In cinemas'],
+      ['Slow Horses', '14 Oct 2026', 'Season 6']
+    ];
+    return {
+      posters: list.map((p, i) => ({
+        title: p[0], service: p[1], hasService: p[1] !== '', isShow: !!p[2],
+        style: posterStyle(i, { ring: 'watchlist', extra: p[1] ? '' : 'opacity:.4;' }),
+        ts: titleStyle(14)
+      })),
+      soon: soonList.map((s, i) => ({
+        title: s[0], date: s[1], note: s[2],
+        style: posterStyle(i + 3, { ring: 'watchlist', pad: 6 }),
+        ts: titleStyle(11)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

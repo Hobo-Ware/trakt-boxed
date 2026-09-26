@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>trakt-boxed page map</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+</style>
+</helmet>
+<div style="width:2400px;height:1600px;box-sizing:border-box;background:#141318;padding:64px 72px;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:36px;height:36px;border-radius:9px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#fff">t</div>
+        <div style="font-size:26px;font-weight:700;letter-spacing:-0.01em">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:4px">boxed</span></div>
+      </div>
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:56px;letter-spacing:-0.01em">Every page, mapped</h1>
+      <p style="margin:0;font-size:18px;color:#a19fa8;max-width:980px;line-height:1.5">Letterboxd's structure on the Trakt API, with TV shows as first-class citizens. 55 page groups. Each links to its mockup where one exists; the rest reuse a shared template.</p>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center">
+      <sc-for list="{{legend}}" as="l" hint-placeholder-count="4">
+        <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#d9d7de">
+          <span style="{{l.style}}">{{l.label}}</span>
+          <span style="color:#a19fa8">{{l.hint}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:24px;flex-grow:1">
+    <sc-for list="{{sections}}" as="s" hint-placeholder-count="10">
+      <section style="background:#1d1c22;border-radius:12px;padding:22px 22px 18px;display:flex;flex-direction:column;gap:14px;box-shadow:inset 0 0 0 1px #2b2a31">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #37353d;padding-bottom:12px">
+          <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:26px">{{s.title}}</h2>
+          <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#77757d">{{s.count}}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{s.pages}}" as="p" hint-placeholder-count="5">
+            <a href="{{p.href}}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:8px;background:#26252b;color:#f6f5f8">
+              <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+                <span style="font-size:15px;font-weight:500">{{p.name}}</span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#a19fa8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{p.path}}</span>
+              </span>
+              <span style="{{p.chip}}">{{p.status}}</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2400,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const base = 'flex-shrink:0;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:999px;';
+    const chips = {
+      New: base + 'background:#9b2ad0;color:#fff',
+      Rebuild: base + 'background:#1f3346;color:#9fcdf2;box-shadow:inset 0 0 0 1px #2f5577',
+      Reskin: base + 'background:#2b2a31;color:#b8b6be',
+      Modal: base + 'background:#2a1737;color:#e4cdf6;box-shadow:inset 0 0 0 1px #9b2ad0'
+    };
+    const pg = (name, path, status, board) => ({ name, path, status, chip: chips[status], href: board ? board + '.dc.html' : '#' });
+    const sec = (title, pages) => ({ title, pages, count: pages.length + ' pages' });
+    return {
+      legend: [
+        { label: 'New', style: chips.New, hint: 'does not exist today' },
+        { label: 'Rebuild', style: chips.Rebuild, hint: 'new layout' },
+        { label: 'Reskin', style: chips.Reskin, hint: 'new tokens only' },
+        { label: 'Modal', style: chips.Modal, hint: 'not a route' }
+      ],
+      sections: [
+        sec('Entry', [
+          pg('Landing', '/', 'Rebuild', 'Landing'),
+          pg('Onboarding', '/welcome', 'Rebuild', 'Onboarding'),
+          pg('404 + errors', '+error', 'Reskin')
+        ]),
+        sec('Home & discovery', [
+          pg('Home', '/home', 'Rebuild', 'Home'),
+          pg('Films landing', '/films', 'Rebuild', 'Browse'),
+          pg('Shows landing', '/shows', 'New', 'Browse'),
+          pg('Charts + filters', '/films/popular …', 'Rebuild', 'Browse-grid'),
+          pg('Calendar', '/calendar', 'Rebuild', 'Calendar'),
+          pg('Search', '/search', 'Rebuild', 'Search'),
+          pg('Members', '/members', 'New')
+        ]),
+        sec('Films', [
+          pg('Film page', '/movies/[slug]', 'Rebuild', 'Film'),
+          pg('Reviews · Members · Lists', '/movies/[slug]/reviews', 'New', 'Facet'),
+          pg('Your activity', '/movies/[slug]/activity', 'Rebuild'),
+          pg('Related', '/movies/[slug]/related', 'Reskin')
+        ]),
+        sec('Shows', [
+          pg('Show page', '/shows/[slug]', 'Rebuild', 'Show'),
+          pg('Season page', '/shows/[slug]/seasons/[n]', 'New', 'Season'),
+          pg('Episode page', '/…/episodes/[e]', 'New', 'Episode'),
+          pg('Reviews · Members · Lists', '/shows/[slug]/reviews', 'New', 'Facet'),
+          pg('Your activity', '/shows/[slug]/activity', 'Rebuild')
+        ]),
+        sec('People', [
+          pg('Person', '/people/[slug]', 'Rebuild', 'Person'),
+          pg('Credits by type', '/people/[slug]?type=show', 'Rebuild', 'Person')
+        ]),
+        sec('Profile', [
+          pg('Profile', '/profile/[slug]', 'Rebuild', 'Profile'),
+          pg('Diary', '/profile/[slug]/diary', 'Rebuild', 'Diary'),
+          pg('Films · Shows watched', '/profile/[slug]/films', 'New', 'Watched-grid'),
+          pg('Watching', '/profile/[slug]/watching', 'Rebuild', 'Watching'),
+          pg('Watchlist', '/profile/[slug]/watchlist', 'Rebuild', 'Watchlist'),
+          pg('Lists', '/profile/[slug]/lists', 'Rebuild', 'Profile-lists'),
+          pg('Reviews · Likes · Network', '/profile/[slug]/reviews …', 'New'),
+          pg('Stats', '/profile/[slug]/stats', 'New', 'Stats'),
+          pg('Year · Month in review', '/profile/[slug]/year/[y]', 'Reskin')
+        ]),
+        sec('Lists', [
+          pg('Lists browse', '/lists', 'New', 'Lists-browse'),
+          pg('Single list', '/lists/[user]/[list]', 'Rebuild', 'List'),
+          pg('List editor', '/lists/new', 'New', 'List-editor'),
+          pg('Smart lists', '/lists/smart/*', 'Reskin')
+        ]),
+        sec('Reviews & social', [
+          pg('Reviews browse', '/reviews', 'New', 'Reviews-browse'),
+          pg('Review page', '/reviews/[id]', 'New', 'Review-page'),
+          pg('Activity', '/activity', 'Rebuild', 'Activity')
+        ]),
+        sec('Logging', [
+          pg('Log a film', 'modal', 'Modal', 'Log-film'),
+          pg('Log episodes', 'modal', 'Modal', 'Log-episode'),
+          pg('Log sheet (mobile)', 'sheet', 'Modal', 'Log-mobile'),
+          pg('Poster states', 'every grid', 'New', 'Posters')
+        ]),
+        sec('Settings & static', [
+          pg('Settings + import', '/settings, /settings/data', 'Rebuild', 'Settings'),
+          pg('Other settings pages', '/settings/*', 'Reskin'),
+          pg('VIP', '/vip', 'Reskin'),
+          pg('About · legal · FAQ', '/about, /privacy …', 'Reskin')
+        ])
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

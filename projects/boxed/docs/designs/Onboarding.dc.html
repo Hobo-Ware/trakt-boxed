@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Onboarding - welcome</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141318;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#f6f5f8}
+a{color:#c9a3e8;text-decoration:none}a:hover{color:#e4cdf6}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1440px;height:1400px;box-sizing:border-box;background:#141318;display:flex;flex-direction:column;overflow:hidden">
+  <header style="height:64px;flex-shrink:0;border-bottom:1px solid #37353d;display:flex;align-items:center;justify-content:center">
+    <div style="width:1200px;display:flex;align-items:center;justify-content:space-between">
+      <a href="#" aria-label="trakt boxed home" style="display:flex;align-items:center;gap:10px;color:#f6f5f8">
+        <span style="width:28px;height:28px;border-radius:7px;background:#9b2ad0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff">t</span>
+        <span style="font-size:20px;font-weight:700">trakt<span style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;color:#c9a3e8;margin-inline-start:3px">boxed</span></span>
+      </a>
+      <div style="display:flex;align-items:center;gap:16px">
+        <a href="#" style="font-size:13px;color:#a19fa8">Skip setup</a>
+        <span aria-label="ana_m" style="width:32px;height:32px;border-radius:50%;background:#5a4a6e;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">A</span>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="welcome-h" style="position:relative;height:280px;flex-shrink:0;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;top:-20px;inset-inline-start:-30px;display:grid;grid-template-columns:repeat(22, 60px);gap:8px;transform:rotate(-4deg)">
+      <sc-for list="{{wall}}" as="w" hint-placeholder-count="88">
+        <span style="{{w.style}}"></span>
+      </sc-for>
+    </div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,24,.55) 0%,rgba(20,19,24,.78) 60%,#141318 100%)"></div>
+    <div style="position:relative;height:100%;display:flex;justify-content:center;align-items:flex-end;padding-bottom:40px;box-sizing:border-box">
+      <div style="width:1200px;display:flex;flex-direction:column;gap:12px">
+        <h1 id="welcome-h" style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:56px;letter-spacing:-0.01em">Welcome to trakt boxed, Ana.</h1>
+        <p style="margin:0;font-size:18px;color:#d9d7de">Three quick steps and your diary is ready. Every one of them is skippable.</p>
+      </div>
+    </div>
+  </section>
+
+  <div style="display:flex;justify-content:center;padding:8px 0 40px">
+    <div style="width:1200px;display:flex;flex-direction:column;gap:44px">
+      <ol aria-label="Setup steps" style="margin:0;padding:0;list-style:none;display:flex;align-items:center;gap:14px">
+        <sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+          <li style="display:flex;align-items:center;gap:14px">
+            <span style="display:flex;align-items:center;gap:10px">
+              <span style="{{s.dot}}">{{s.n}}</span>
+              <span style="{{s.text}}">{{s.label}}</span>
+            </span>
+            <sc-if value="{{s.line}}" hint-placeholder-val="{{ true }}">
+              <span aria-hidden="true" style="width:80px;height:1px;background:#37353d"></span>
+            </sc-if>
+          </li>
+        </sc-for>
+      </ol>
+
+      <section aria-labelledby="import-h" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h2 id="import-h" style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:32px;letter-spacing:-0.01em">Bring your history</h2>
+            <p style="margin:0;font-size:15px;color:#a19fa8">Ratings, watch dates, reviews and lists come across. Imports run in the background; we'll tell you when it's done.</p>
+          </div>
+          <a href="#" style="font-size:14px;flex-shrink:0">Skip for now</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:20px">
+          <sc-for list="{{imports}}" as="i" hint-placeholder-count="4">
+            <article style="{{i.card}}">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+                <span aria-hidden="true" style="width:44px;height:44px;border-radius:10px;background:#141318;box-shadow:inset 0 0 0 1px #37353d;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:13px;color:#d9d7de">{{i.mono}}</span>
+                <sc-if value="{{i.primary}}" hint-placeholder-val="{{ true }}">
+                  <span style="height:22px;padding:0 8px;border-radius:999px;background:#9b2ad0;color:#fff;font-size:11px;font-weight:500;letter-spacing:.04em;display:flex;align-items:center">Most popular</span>
+                </sc-if>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;flex-grow:1">
+                <h3 style="margin:0;font-size:18px;font-weight:500">{{i.name}}</h3>
+                <p style="margin:0;font-size:14px;line-height:1.5;color:#a19fa8">{{i.desc}}</p>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#77757d">{{i.format}}</span>
+              </div>
+              <button type="button" style="{{i.button}}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"></path></svg>
+                {{i.cta}}
+              </button>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+
+      <section aria-labelledby="fav-h" style="display:flex;flex-direction:column;gap:20px;border-top:1px solid #37353d;padding-top:36px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a19fa8">Step 2 preview</span>
+            <p style="margin:0;font-size:15px;color:#a19fa8">They sit at the top of your profile. Change them any time in Settings.</p>
+          </div>
+          <label style="width:380px;display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border-radius:10px;background:#26252b;box-shadow:inset 0 0 0 1px #4a4851;color:#a19fa8">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+            <input type="search" aria-label="Search films and shows to favourite" placeholder="Search films and shows" style="flex-grow:1;border:0;background:transparent;color:#f6f5f8;font-size:15px;outline:none">
+          </label>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:64px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <h2 id="fav-h" style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:28px;letter-spacing:-0.01em">Pick your four favourite films</h2>
+            <div style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:16px">
+              <sc-for list="{{favFilms}}" as="f" hint-placeholder-count="4">
+                <div style="{{f.slot}}">
+                  <sc-if value="{{f.filled}}" hint-placeholder-val="{{ true }}">
+                    <span style="position:absolute;inset-inline-start:10px;bottom:10px;inset-inline-end:10px;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.85)">{{f.title}}</span>
+                  </sc-if>
+                  <sc-if value="{{f.empty}}" hint-placeholder-val="{{ false }}">
+                    <button type="button" aria-label="Add a favourite film" style="width:40px;height:40px;border:0;border-radius:50%;background:#26252b;color:#a19fa8;display:flex;align-items:center;justify-content:center">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+                    </button>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <span style="font-size:12px;color:#77757d">2 of 4 · drag posters to reorder</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <h3 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:600;font-style:italic;font-size:28px;letter-spacing:-0.01em;color:#d9d7de">...and four favourite shows</h3>
+            <div style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:16px">
+              <sc-for list="{{favShows}}" as="f" hint-placeholder-count="4">
+                <div style="{{f.slot}}">
+                  <sc-if value="{{f.filled}}" hint-placeholder-val="{{ true }}">
+                    <span style="position:absolute;inset-inline-start:10px;bottom:10px;inset-inline-end:10px;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.85)">{{f.title}}</span>
+                  </sc-if>
+                  <sc-if value="{{f.empty}}" hint-placeholder-val="{{ false }}">
+                    <button type="button" aria-label="Add a favourite show" style="width:40px;height:40px;border:0;border-radius:50%;background:#26252b;color:#a19fa8;display:flex;align-items:center;justify-content:center">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+                    </button>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <span style="font-size:12px;color:#77757d">1 of 4 · drag posters to reorder</span>
+          </div>
+        </div>
+      </section>
+
+      <div style="display:flex;justify-content:flex-end;align-items:center;gap:20px;border-top:1px solid #37353d;padding-top:24px">
+        <a href="#" style="font-size:14px;color:#a19fa8">Skip for now</a>
+        <button type="button" style="height:44px;padding:0 28px;border:0;border-radius:8px;background:#9b2ad0;color:#fff;font-size:15px;font-weight:500">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tones = ['#3b2f4a', '#24394a', '#4a2f2f', '#2f4a3b', '#4a432f', '#2f3a4a', '#3f2a3a', '#2b4446', '#463a2a', '#333046'];
+    const wall = Array.from({ length: 88 }, (_, i) => ({ style: 'display:block;width:60px;height:90px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);background:' + tones[(i * 7 + Math.floor(i / 22)) % tones.length] }));
+    const dotBase = 'width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;';
+    const step = (n, label, active, line) => ({
+      n, label, line,
+      dot: dotBase + (active ? 'background:#9b2ad0;color:#fff' : 'background:#26252b;color:#a19fa8;box-shadow:inset 0 0 0 1px #37353d'),
+      text: 'font-size:14px;' + (active ? 'color:#f6f5f8;font-weight:500' : 'color:#a19fa8')
+    });
+    const cardBase = 'border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:16px;min-height:236px;box-sizing:border-box;';
+    const btnBase = 'height:40px;border:0;border-radius:8px;font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;';
+    const imp = (name, mono, desc, format, cta, primary) => ({
+      name, mono, desc, format, cta, primary,
+      card: cardBase + (primary ? 'background:#2a1737;box-shadow:inset 0 0 0 1px #9b2ad0' : 'background:#1d1c22;box-shadow:inset 0 0 0 1px #2b2a31'),
+      button: btnBase + (primary ? 'background:#9b2ad0;color:#fff' : 'background:#26252b;color:#f6f5f8;box-shadow:inset 0 0 0 1px #37353d')
+    });
+    const slotBase = 'position:relative;aspect-ratio:2/3;border-radius:4px;display:flex;align-items:center;justify-content:center;';
+    const slot = (title, tone) => title
+      ? { title, filled: true, empty: false, slot: slotBase + 'background:' + tone + ';box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)' }
+      : { title: '', filled: false, empty: true, slot: slotBase + 'border:1.5px dashed #4a4851;background:#1a191e' };
+    return {
+      wall,
+      steps: [step(1, 'Import', true, true), step(2, 'Favourites', false, true), step(3, 'Follow', false, false)],
+      imports: [
+        imp('Letterboxd', 'LB', 'Upload your Letterboxd export .zip. Diary, ratings, reviews, likes and lists.', 'letterboxd-export.zip', 'Upload .zip', true),
+        imp('TV Time', 'TV', 'Your episode history and shows from a TV Time data request.', '5 formats supported', 'Upload file', false),
+        imp('IMDb', 'IM', 'Ratings and watchlist from IMDb CSV exports.', 'ratings.csv, watchlist.csv', 'Upload CSV', false),
+        imp('Trakt export', 'TR', 'Restore a Trakt JSON backup from another account.', 'trakt-export.json', 'Upload JSON', false)
+      ],
+      favFilms: [slot('Past Lives', '#24394a'), slot('Perfect Days', '#2f4a3b'), slot(), slot()],
+      favShows: [slot('Severance', '#2b4446'), slot(), slot(), slot()]
+    };
+  }
+}
+</script>
+</body>
+</html>
