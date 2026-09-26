@@ -30,7 +30,7 @@
 </script>
 
 <script lang="ts">
-  import type { RatingDelight } from "../models/RatingDelight.ts";
+  import type { RatingDelight } from "./models/RatingDelight.ts";
 
   const { origin }: Pick<RatingDelight, "origin"> = $props();
 
