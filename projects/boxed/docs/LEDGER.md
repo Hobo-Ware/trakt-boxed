@@ -54,9 +54,9 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 2 - logging
 
-- [ ] Log composer - film (board `Log-film`)
-- [ ] Log composer - episodes (board `Log-episode`)
-- [ ] Log sheet - mobile + tab bar Log button (board `Log-mobile`)
+- [x] Log composer - film (board `Log-film`): diary toggle, date (now / release / other / unknown), check-in, rewatch chip, stars with popcorn and rotten tomato, like, review + spoiler (5 word minimum), private note, lists via the shared lists drawer (board shows inline chips; drawer reused instead)
+- [x] Log composer - episodes (board `Log-episode`): opens on the first unfinished season, episode chips, one rating for all or each, optional season rating, review on the last selected episode
+- [x] Log sheet - mobile + tab bar Log button + top bar `+ Log` + poster menu Log (board `Log-mobile`); search-first picker with an up next suggestion. CLS 0.0000; save flows verified end to end (request log in the wave 2 commit)
 
 ### Wave 3 - films
 

@@ -49,6 +49,7 @@
   import { WorkerMessage } from "$worker/WorkerMessage";
   import { workerRequest } from "$worker/workerRequest";
   import MobileTabBar from "$boxed/chrome/MobileTabBar.svelte";
+  import LogComposerHost from "$boxed/log/LogComposerHost.svelte";
   import SiteHeader from "$boxed/chrome/SiteHeader.svelte";
   import { onMount } from "svelte";
 
@@ -121,6 +122,7 @@
                                             {@render children()}
 
                                             <MobileTabBar />
+                                            <LogComposerHost />
 
                                             <RenderFor audience="authenticated">
                                               <NavbarToastContent />
