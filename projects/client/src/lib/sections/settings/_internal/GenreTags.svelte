@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { GENRES } from "$lib/features/filters/_internal/genres.ts";
+  import { GENRES } from "$lib/features/filters/genres.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import ToggleTag from "$lib/sections/components/ToggleTag.svelte";
   import { toTranslatedGenre } from "$lib/utils/formatting/string/toTranslatedGenre.ts";

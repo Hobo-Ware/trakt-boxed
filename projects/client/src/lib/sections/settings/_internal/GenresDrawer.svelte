@@ -6,7 +6,7 @@
   import PlusIcon from "$lib/components/icons/PlusIcon.svelte";
   import { ConfirmationType } from "$lib/features/confirmation/models/ConfirmationType.ts";
   import { useConfirm } from "$lib/features/confirmation/useConfirm.ts";
-  import { GENRES } from "$lib/features/filters/_internal/genres.ts";
+  import { GENRES } from "$lib/features/filters/genres.ts";
   import { languageTag } from "$lib/features/i18n";
   import * as m from "$lib/features/i18n/messages.ts";
   import { toTranslatedGenre } from "$lib/utils/formatting/string/toTranslatedGenre.ts";
