@@ -11,7 +11,7 @@
   import MarkAsWatchedAction from "$lib/sections/media-actions/mark-as-watched/MarkAsWatchedAction.svelte";
   import { hasAired } from "$lib/utils/media/hasAired";
   import type { Snippet } from "svelte";
-  import type { CalendarItem } from "./_internal/useCalendar";
+  import type { CalendarItem } from "./useCalendar";
   import CalendarMediaCard from "./CalendarMediaCard.svelte";
 
   type CalendarItemProps = {
