@@ -9,7 +9,7 @@
   import CommentLanguageSelect from "../_internal/CommentLanguageSelect.svelte";
   import { useCommentLanguage } from "../_internal/useCommentLanguage.svelte.ts";
   import type { ActiveComment } from "../_internal/models/ActiveComment";
-  import { useComments } from "../_internal/useComments";
+  import { useComments } from "../useComments";
   import ReviewsDrawerShell from "./_internal/ReviewsDrawerShell.svelte";
 
   type CommentsDrawerProps = {

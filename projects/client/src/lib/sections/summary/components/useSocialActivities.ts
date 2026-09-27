@@ -8,7 +8,7 @@ import {
 } from '$lib/requests/queries/media/mediaSocialQuery.ts';
 import { toLoadingState } from '$lib/utils/requests/toLoadingState.ts';
 import { map, type Observable, switchMap } from 'rxjs';
-import { sortMediaSocialEntries } from './sortMediaSocialEntries.ts';
+import { sortMediaSocialEntries } from './_internal/sortMediaSocialEntries.ts';
 
 const socialActivitiesLimit = 100;
 
