@@ -40,7 +40,7 @@
         {m.page_title_profile()}
       </DropdownItem>
       <DropdownItem
-        href={UrlBuilder.history.home()}
+        href={`${UrlBuilder.profile.me()}/diary`}
         label={m.button_label_history()}
         style="flat"
         color="default"
