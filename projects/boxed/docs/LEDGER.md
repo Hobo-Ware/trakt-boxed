@@ -85,12 +85,12 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 6 - profile
 
-- [ ] Profile (boards `Profile`, `Profile-mobile`)
-- [ ] Diary (boards `Diary`, `Diary-mobile`, `Twist-B-mobile`)
-- [ ] Films / Shows watched (board `Watched-grid`)
-- [ ] Watching (board `Watching`)
-- [ ] Watchlist (board `Watchlist`)
-- [ ] Profile lists (board `Profile-lists`)
+- [x] Profile (boards `Profile`, `Profile-mobile`): cover banner, identity (avatar, name, VIP, bio, location, member since), stat strip, profile tabs, favorites, currently watching, recent activity, ratings histogram (average / most given), this month's diary, year heatmap. Left out (no cheap data): recent reviews, popular lists, year in review card. CLS up to 0.0002 (serif swap on stat numbers)
+- [x] Diary (boards `Diary`, `Diary-mobile`, `Twist-B-mobile`): month-grouped table on desktop, ticket-stub cards and binge piles on mobile, same-day episodes grouped with expand, rewatch / review markers, edit opens the log composer. Year / rated-only / sort filters and the review column skipped. CLS 0.0000
+- [x] Films / Shows watched (board `Watched-grid`): `/profile/[slug]/films` and `/shows` poster grids with completed / progress badges. Filters skipped. CLS 0.0000
+- [x] Watching (board `Watching`): up next (reuses `UpNextCard`), in progress, dropped, completed tabs. Owner only (client hooks return the viewer's data); tab counts and now-watching banner skipped. CLS 0.0000
+- [x] Watchlist (board `Watchlist`): headline counts and poster grid. Owner only; on my services, reorder and coming soon skipped. CLS 0.0000
+- [x] Profile lists (board `Profile-lists`): personal / collaborations / liked / smart lists via the shared `ListCardGrid`. Sidebar skipped. CLS 0.0000
 
 ### Wave 7 - lists and reviews
 

@@ -11068,6 +11068,162 @@
       "default": "Browse by genre",
       "description": "Heading above the genre chips on the boxed Movies / Shows browse page."
     },
+    "boxed_profile_tab_diary": {
+      "default": "Diary",
+      "description": "Profile tab linking to the user's diary of logged movies and episodes."
+    },
+    "boxed_profile_tab_watching": {
+      "default": "Watching",
+      "description": "Profile tab linking to the shows the user is watching (up next, in progress, dropped, completed)."
+    },
+    "boxed_profile_tab_likes": {
+      "default": "Likes",
+      "description": "Profile tab linking to the user's liked movies, shows and lists."
+    },
+    "boxed_profile_tab_stats": {
+      "default": "Stats",
+      "description": "Profile tab linking to the user's statistics."
+    },
+    "boxed_profile_tab_completed": {
+      "default": "Completed",
+      "description": "Watching page tab listing shows the user has fully watched."
+    },
+    "boxed_profile_tabs_label": {
+      "default": "Profile sections",
+      "description": "Accessible label for the row of profile tabs."
+    },
+    "boxed_profile_currently_watching": {
+      "default": "Currently watching",
+      "description": "Profile section header for what the user is watching now and their shows in progress."
+    },
+    "boxed_profile_recent_activity": {
+      "default": "Recent activity",
+      "description": "Profile section header for the latest movies and episodes the user logged."
+    },
+    "boxed_profile_diary_this_month": {
+      "default": "Diary · {month}",
+      "description": "Profile sidebar header for this month's diary entries. {month} is the localized month name."
+    },
+    "boxed_profile_next_episode": {
+      "default": "Next {code}",
+      "description": "Label under a show poster naming the next episode to watch. {code} is an episode code like S2 • E6."
+    },
+    "boxed_profile_rating_average": {
+      "default": "Average",
+      "description": "Label before the user's average star rating in the ratings histogram."
+    },
+    "boxed_profile_rating_most_given": {
+      "default": "Most given",
+      "description": "Label before the star rating the user gives most often."
+    },
+    "boxed_profile_rating_bar": {
+      "default": "{stars} stars: {count}",
+      "description": "Tooltip for one bar of the ratings histogram. {stars} is a star value like 3.5, {count} the number of ratings."
+    },
+    "boxed_profile_member_since": {
+      "default": "Member since {year}",
+      "description": "Profile detail showing the year the user joined."
+    },
+    "boxed_profile_heatmap_label": {
+      "default": "Watch activity over the last year",
+      "description": "Accessible label for the profile activity heatmap."
+    },
+    "boxed_profile_heatmap_less": {
+      "default": "Less",
+      "description": "Legend label at the low end of the activity heatmap scale."
+    },
+    "boxed_profile_heatmap_more": {
+      "default": "More",
+      "description": "Legend label at the high end of the activity heatmap scale."
+    },
+    "boxed_profile_episode_range": {
+      "default": "S{season} E{first}-E{last}",
+      "description": "Compact code for a run of episodes from one season watched together, e.g. S2 E4-E6."
+    },
+    "boxed_profile_episode_span": {
+      "default": "{from} - {to}",
+      "description": "Compact range of episodes that spans seasons. {from} and {to} are episode codes."
+    },
+    "boxed_profile_diary_title": {
+      "default": "{name}'s diary",
+      "description": "Heading of the diary page. {name} is the user's display name."
+    },
+    "boxed_profile_diary_grouped_note": {
+      "default": "Episodes watched on the same day are grouped into one entry.",
+      "description": "Footnote under the diary table explaining how episode plays are grouped."
+    },
+    "boxed_profile_diary_empty": {
+      "default": "Nothing logged yet.",
+      "description": "Empty state of the diary when the user has no plays."
+    },
+    "boxed_profile_diary_col_month": {
+      "default": "Month",
+      "description": "Diary table column header for the month."
+    },
+    "boxed_profile_diary_col_day": {
+      "default": "Day",
+      "description": "Diary table column header for the day of the month."
+    },
+    "boxed_profile_diary_col_edit": {
+      "default": "Edit",
+      "description": "Diary table column header for the edit action."
+    },
+    "boxed_profile_diary_edit_label": {
+      "default": "Edit {title}",
+      "description": "Accessible label of the button that opens the log composer for a diary entry."
+    },
+    "boxed_profile_diary_toggle_label": {
+      "default": "Show episodes of {title}",
+      "description": "Accessible label of the button that expands a grouped diary entry."
+    },
+    "boxed_profile_diary_entries": {
+      "default": "{count} entries",
+      "description": "Count of diary entries under a month header."
+    },
+    "boxed_profile_diary_binge": {
+      "default": "binge",
+      "description": "Short tag on a diary entry grouping several episodes of one show watched on the same day."
+    },
+    "boxed_profile_rewatched": {
+      "default": "Rewatched",
+      "description": "Accessible label of the rewatch marker in the diary."
+    },
+    "boxed_profile_reviewed": {
+      "default": "Reviewed",
+      "description": "Accessible label of the review marker in the diary."
+    },
+    "boxed_profile_watched_films": {
+      "default": "{name} has watched {count} movies",
+      "description": "Headline of the watched movies grid. {name} is the user's display name."
+    },
+    "boxed_profile_watched_shows": {
+      "default": "{name} has watched {count} shows",
+      "description": "Headline of the watched shows grid. {name} is the user's display name."
+    },
+    "boxed_profile_badge_completed": {
+      "default": "Completed",
+      "description": "Badge under a show poster when every episode is watched."
+    },
+    "boxed_profile_badge_progress": {
+      "default": "{watched}/{total}",
+      "description": "Badge under a show poster with watched and total episode counts."
+    },
+    "boxed_profile_watchlist_headline": {
+      "default": "{name} wants to see {movies} movies and {shows} shows",
+      "description": "Headline of the watchlist page. {name} is the user's display name."
+    },
+    "boxed_profile_owner_only": {
+      "default": "Only {name} can see this.",
+      "description": "Shown on profile pages whose data is visible to the profile owner only."
+    },
+    "boxed_profile_empty": {
+      "default": "Nothing here yet.",
+      "description": "Generic empty state for a profile section."
+    },
+    "boxed_profile_list_meta": {
+      "default": "{count} items · {likes} likes",
+      "description": "Meta line of a list row: item count and like count."
+    },
     "boxed_landing_title_1": {
       "default": "Track films you've watched.",
       "description": "First line of the three-line serif headline on the signed-out landing page."
@@ -11143,6 +11299,14 @@
     "boxed_landing_import_text": {
       "default": "Bring your whole history with you. Your diary, ratings and watchlist come across in minutes.",
       "description": "Body of the import card on the landing page."
+    },
+    "boxed_profile_not_watching": {
+      "default": "Not watching anything right now.",
+      "description": "Currently watching card when the user is not watching anything."
+    },
+    "boxed_profile_watching_window": {
+      "default": "Started {start} · ends ~{end}",
+      "description": "Times of the current check-in or scrobble. {start} and {end} are clock times."
     },
     "boxed_person_known_for": {
       "default": "Known for {position}",

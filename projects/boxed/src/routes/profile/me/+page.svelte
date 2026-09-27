@@ -1,8 +1,10 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../client/src/routes/profile/me/+page.svelte";
-
-  const props = $props();
+  import ProfileOverview from "$boxed/profile/ProfileOverview.svelte";
+  import ProfileShell from "$boxed/profile/ProfileShell.svelte";
 </script>
 
-<Legacy {...props} />
+<ProfileShell slug="me" tab="profile" variant="full">
+  {#snippet children(context)}
+    <ProfileOverview {context} />
+  {/snippet}
+</ProfileShell>
