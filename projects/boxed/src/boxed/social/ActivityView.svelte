@@ -6,8 +6,8 @@
   import { languageTag } from "$lib/features/i18n";
   import * as m from "$lib/features/i18n/messages.ts";
   import { toHumanCount } from "$lib/utils/formatting/number/toHumanCount.ts";
+  import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import { of } from "rxjs";
   import type { ActivityEvent } from "./ActivityEvent.ts";
   import FriendsFeed from "./FriendsFeed.svelte";
   import YouFeed from "./YouFeed.svelte";
@@ -16,7 +16,7 @@
     parseActivityTab,
   } from "./_internal/parseActivityTab.ts";
 
-  const { stats } = useProfileStats(of("me"));
+  const { stats } = useProfileStats(fromRune(() => "me"));
 
   const active = $derived(parseActivityTab(page.url.searchParams.get("tab")));
   const following = $derived($stats?.network.following);
