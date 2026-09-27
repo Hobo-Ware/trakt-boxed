@@ -2,14 +2,20 @@
   import { page } from "$app/state";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { CommentSortType } from "$lib/requests/models/CommentSortType.ts";
-  import ReviewList from "../../title/_internal/ReviewList.svelte";
-  import { parseTitleTab } from "../../title/_internal/parseTitleTab.ts";
+  import type { CommentTypeProps } from "$lib/sections/summary/components/comments/CommentsProps.ts";
+  import ReviewList from "./_internal/ReviewList.svelte";
+  import { parseTitleTab } from "./_internal/parseTitleTab.ts";
 
   const SORT_PARAM = "sort";
   const PAGE_SIZE = 10;
 
-  const { slug, toReviewHref }: { slug: string; toReviewHref: (id: number) => string } =
-    $props();
+  type ReviewsTabProps = {
+    slug: string;
+    target: CommentTypeProps;
+    toReviewHref: (id: number) => string;
+  };
+
+  const { slug, target, toReviewHref }: ReviewsTabProps = $props();
 
   const sorts: ReadonlyArray<CommentSortType> = ["likes", "newest"];
   const labels: Record<CommentSortType, () => string> = {
@@ -47,7 +53,7 @@
 {#key sort}
   <ReviewList
     {slug}
-    target={{ type: "movie" }}
+    {target}
     {sort}
     limit={PAGE_SIZE}
     {toReviewHref}

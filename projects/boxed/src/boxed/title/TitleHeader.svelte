@@ -15,8 +15,10 @@
     tagline?: string | Nil;
     overview: string;
     credit?: Snippet;
-    tabs: ReadonlyArray<TitleTab>;
-    panel: Snippet<[T]>;
+    eyebrow?: Snippet;
+    aside?: Snippet;
+    tabs?: ReadonlyArray<TitleTab>;
+    panel?: Snippet<[T]>;
   };
 
   const {
@@ -26,7 +28,9 @@
     tagline,
     overview,
     credit,
-    tabs,
+    eyebrow,
+    aside,
+    tabs = [],
     panel,
   }: TitleHeaderProps = $props();
 
@@ -41,6 +45,9 @@
 </script>
 
 <div class="boxed-title-identity">
+  {#if eyebrow}
+    <div class="boxed-title-eyebrow">{@render eyebrow()}</div>
+  {/if}
   <h1 class="boxed-title-name">{title}</h1>
   <div class="boxed-title-byline">
     {#if year}
@@ -65,16 +72,21 @@
   >
     {overview}
   </ClampedText>
+  {#if aside}
+    <div class="boxed-title-aside">{@render aside()}</div>
+  {/if}
 </div>
 
-<div class="boxed-title-tabs">
-  <TitleTabs {tabs} active={activeTab} param={TAB_PARAM} />
-  <div class="boxed-title-tabpanel" role="tabpanel">
-    {#if activeTab}
-      {@render panel(activeTab)}
-    {/if}
+{#if panel && tabs.length > 0}
+  <div class="boxed-title-tabs">
+    <TitleTabs {tabs} active={activeTab} param={TAB_PARAM} />
+    <div class="boxed-title-tabpanel" role="tabpanel">
+      {#if activeTab}
+        {@render panel(activeTab)}
+      {/if}
+    </div>
   </div>
-</div>
+{/if}
 
 <style lang="scss">
   @use "$style/scss/mixins/index" as *;
@@ -87,6 +99,30 @@
     flex-direction: column;
     gap: var(--ni-8);
     min-width: 0;
+  }
+
+  .boxed-title-eyebrow {
+    height: var(--ni-24);
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: var(--ni-8);
+    overflow: hidden;
+    white-space: nowrap;
+
+    font-size: var(--ni-14);
+    color: var(--color-text-secondary);
+
+    :global(a) {
+      color: var(--color-text-primary);
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-link-active);
+      }
+    }
   }
 
   .boxed-title-name {
@@ -151,6 +187,11 @@
     }
   }
 
+  .boxed-title-aside {
+    padding-top: var(--ni-10);
+    min-width: 0;
+  }
+
   .boxed-title-tagline {
     margin: 0;
 
@@ -176,7 +217,31 @@
       gap: var(--ni-6);
     }
 
-    .boxed-title-name {
+    .boxed-title-eyebrow {
+    height: var(--ni-24);
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: var(--ni-8);
+    overflow: hidden;
+    white-space: nowrap;
+
+    font-size: var(--ni-14);
+    color: var(--color-text-secondary);
+
+    :global(a) {
+      color: var(--color-text-primary);
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-link-active);
+      }
+    }
+  }
+
+  .boxed-title-name {
       font-size: var(--ni-32);
     }
 
