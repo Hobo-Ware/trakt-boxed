@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toMediaTarget } from "$boxed/poster/toMediaTarget.ts";
   import SearchIcon from "$lib/components/icons/SearchIcon.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
@@ -40,12 +41,7 @@
     $upNext.find((entry) => "show" in entry) ?? null,
   );
 
-  const pickMedia = (media: MediaEntry) =>
-    onPick(
-      media.type === "movie"
-        ? { type: "movie", media }
-        : { type: "show", media },
-    );
+  const pickMedia = (media: MediaEntry) => onPick(toMediaTarget(media));
 </script>
 
 <div class="boxed-log-picker">

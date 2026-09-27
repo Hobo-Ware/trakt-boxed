@@ -1,3 +1,4 @@
+import { toMediaTarget } from './toMediaTarget.ts';
 import { useUser } from '$lib/features/auth/stores/useUser.ts';
 import { useIsWatched } from '$lib/sections/media-actions/mark-as-watched/useIsWatched.ts';
 import { useIsWatchlisted } from '$lib/stores/useIsWatchlisted.ts';
@@ -8,9 +9,7 @@ import { toShowProgress } from './_internal/toShowProgress.ts';
 import type { PosterMedia } from './PosterMedia.ts';
 
 export function usePosterState(media: PosterMedia) {
-  const target = media.type === 'movie'
-    ? { type: 'movie' as const, media }
-    : { type: 'show' as const, media };
+  const target = toMediaTarget(media);
 
   const { isWatched } = useIsWatched(target);
   const { isWatchlisted } = useIsWatchlisted(target);

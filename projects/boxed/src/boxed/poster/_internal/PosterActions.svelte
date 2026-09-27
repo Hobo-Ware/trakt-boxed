@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toMediaTarget } from "../toMediaTarget.ts";
   import PopupMenu from "$lib/components/buttons/popup/PopupMenu.svelte";
   import DropdownItem from "$lib/components/dropdown/DropdownItem.svelte";
   import BookmarkIcon from "$lib/components/icons/BookmarkIcon.svelte";
@@ -20,11 +21,7 @@
 
   const { media }: { media: PosterMedia } = $props();
 
-  const target = $derived(
-    media.type === "movie"
-      ? { type: "movie" as const, media }
-      : { type: "show" as const, media },
-  );
+  const target = $derived(toMediaTarget(media));
 
   const { isWatched, isMarkingAsWatched, markAsWatched, removeWatched } =
     $derived(useMarkAsWatched(target));
