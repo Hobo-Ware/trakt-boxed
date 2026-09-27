@@ -10,12 +10,12 @@ applyTo: '**'
 ## Tech Stack
 
 SvelteKit + TypeScript app (Svelte 5, runes mode) deployed to Cloudflare
-Workers. Monorepo using Deno workspaces with app at `projects/client/`.
+Workers. Monorepo using Deno workspaces with app at `projects/boxed/`.
 
 ## Project Structure
 
 ```
-projects/client/src/
+projects/boxed/src/
   routes/          # SvelteKit file-based routing
   lib/
     components/    # Reusable UI components (buttons, forms, dialogs, media, etc.)
@@ -127,4 +127,4 @@ Always use aliases over deep relative paths (`../../../`).
   `eslint.config.js`.
 - **Build**: Vite + SvelteKit adapter-cloudflare. Paraglide generates i18n
   before build.
-- **Dev**: `deno task client:dev` starts the dev server.
+- **Dev**: `deno task boxed:dev` starts the dev server.

@@ -49,7 +49,7 @@ jobs:
         uses: ./.github/actions/setup-deno
 
       - name: Forge i18n Artifacts Once
-        working-directory: projects/client
+        working-directory: projects/boxed
         run: deno task i18n:prepare
 
       - name: Decide Major Cadence
@@ -69,7 +69,7 @@ jobs:
 
       - name: Enumerate Minor Candidates
         id: enum_minor
-        working-directory: projects/client
+        working-directory: projects/boxed
         run: |
           set -euo pipefail
           deno run -A npm:npm-check-updates@latest \
@@ -94,7 +94,7 @@ jobs:
       - name: Enumerate Major-Only Candidates
         id: enum_major
         if: steps.cadence.outputs.major == 'true'
-        working-directory: projects/client
+        working-directory: projects/boxed
         run: |
           set -euo pipefail
           deno run -A npm:npm-check-updates@latest \

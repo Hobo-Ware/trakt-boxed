@@ -1,8 +1,8 @@
 ---
 trigger: glob
-globs: 'projects/client/src/lib/requests/**'
+globs: 'projects/boxed/src/lib/requests/**'
 description: 'How to implement API queries and mutation requests in lib/requests.'
-applyTo: 'projects/client/src/lib/requests/**'
+applyTo: 'projects/boxed/src/lib/requests/**'
 ---
 
 # API Requests Guidelines

@@ -7,7 +7,7 @@
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
   import { fromRune } from "$lib/utils/store/fromRune.svelte";
-  import { useProfile } from "$clientRoutes/profile/[slug]/useProfile.ts";
+  import { useProfile } from "$routes/profile/[slug]/useProfile.ts";
   import type { Snippet } from "svelte";
   import PageContainer from "../components/PageContainer.svelte";
   import { toProfileStats } from "./_internal/toProfileStats.ts";

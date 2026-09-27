@@ -1,6 +1,6 @@
 # trakt-boxed: page builders' guide
 
-Generated 2026-09-26, read-only against `projects/client/src` (branch `feat/boxed-wave-1`). Every `$lib/...` / `$clientRoutes/...` path below was checked with `ls`. Verify signatures again if the client is re-synced with trakt-web.
+Generated 2026-09-26 against the then-separate client; since 2026-09-27 everything lives in `projects/boxed` (`$lib` = `src/lib`, `$routes` = `src/routes`, formerly `$routes`).
 
 ## 0. Setup (read first)
 
@@ -8,10 +8,10 @@ Generated 2026-09-26, read-only against `projects/client/src` (branch `feat/boxe
 
 | Alias | Resolves to |
 |---|---|
-| `$lib` | `projects/client/src/lib` (via `kit.files.lib`) |
-| `$clientRoutes` | `projects/client/src/routes` (route-folder hooks: `useMovie`, `useShow`, `useProfile`, ...) |
+| `$lib` | `projects/boxed/src/lib` |
+| `$routes` | `projects/boxed/src/routes` (route-folder hooks: `useMovie`, `useShow`, `useProfile`, ...) |
 | `$boxed` | `projects/boxed/src/boxed` (our new components) |
-| `$mocks`, `$test`, `$worker`, `$style`, `$static`, `$e2e` | same as client |
+| `$mocks`, `$test`, `$worker`, `$style`, `$static`, `$e2e` | `src/mocks`, `test`, `src/worker`, `src/style`, `static`, `e2e` |
 
 `hooks.server` / `hooks.client` are the client's, so auth, typesense config, theme, and the image dev fallback work unchanged.
 
@@ -45,7 +45,7 @@ Generated 2026-09-26, read-only against `projects/client/src` (branch `feat/boxe
 
 ## 1. Media pages
 
-Verified against `projects/client/src` (`$lib` = `client/src/lib`, `$clientRoutes` = `client/src/routes`, alias defined in `projects/boxed/svelte.config.js`).
+Verified against `projects/client/src` (`$lib` = `client/src/lib`, `$routes` = `client/src/routes`, alias defined in `projects/boxed/svelte.config.js`).
 
 ### 1.0 Ground rules (apply to every hook below)
 

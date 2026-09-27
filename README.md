@@ -71,15 +71,15 @@ please refer to the
   - Format & Lint: `deno task format`
 
 - Client:
-  - Development: `deno task client:dev`
-  - Contributors: `deno task client:dev:contrib`
+  - Development: `deno task boxed:dev`
+  - Contributors: `deno task boxed:dev:contrib`
 
 ## Client Environment - Development Setup
 
 ### Web Development
 
 For web development, run `deno task dev` or `deno task dev:contrib` (for
-external contributors) in the `projects/client` directory. Then open your
+external contributors) in the `projects/boxed` directory. Then open your
 browser to see your work.
 
 ### Android Development
@@ -114,7 +114,7 @@ adb reverse tcp:5173 tcp:5173
 To build the Trakt Web client, run:
 
 ```sh
-cd projects/client/
+cd projects/boxed/
 [deno|npm|bun] run build
 ```
 
@@ -197,7 +197,7 @@ deno install -g --allow-all -n ncu npm:npm-check-updates
 
 NOTE: For the client project pass `-p npm` on every invocation since the svelte
 project is defined via `package.json` (the workspace itself uses deno). Run the
-commands below from `projects/client/`.
+commands below from `projects/boxed/`.
 
 #### Minor
 
@@ -231,10 +231,10 @@ To resolve these conflicts:
 2. **Run the resolution command** from the project root:
 
    ```bash
-   deno task client:i18n:resolve
+   deno task boxed:i18n:resolve
    ```
 
-   Or if you're in the `projects/client` directory:
+   Or if you're in the `projects/boxed` directory:
 
    ```bash
    deno task i18n:resolve

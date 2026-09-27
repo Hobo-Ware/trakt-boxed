@@ -37,7 +37,7 @@ only be previewed using `npm` or `bun`.
 
 #### Production Preview
 
-Navigate to the `projects/client/` directory and run:
+Navigate to the `projects/boxed/` directory and run:
 
 ```sh
 # This is required if the secrets are not already set or have changed

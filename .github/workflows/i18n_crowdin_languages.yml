@@ -6,7 +6,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'projects/client/i18n/project.inlang/settings.json'
+      - 'projects/boxed/i18n/project.inlang/settings.json'
   workflow_dispatch:
 
 permissions:
@@ -31,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           BASE="https://api.crowdin.com/api/v2"
-          SETTINGS="projects/client/i18n/project.inlang/settings.json"
+          SETTINGS="projects/boxed/i18n/project.inlang/settings.json"
 
           BASE_LOCALE=$(jq -r '.baseLocale' "$SETTINGS")
 

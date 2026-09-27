@@ -1,7 +1,7 @@
 <script lang="ts">
   import FilmSummary from "$boxed/film/FilmSummary.svelte";
   import TitleSkeleton from "$boxed/title/TitleSkeleton.svelte";
-  import { useMovie } from "$clientRoutes/movies/[slug]/useMovie.ts";
+  import { useMovie } from "$routes/movies/[slug]/useMovie.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import type { PageProps } from "./$types";

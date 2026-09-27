@@ -1,8 +1,8 @@
 ---
 trigger: glob
-globs: 'projects/client/src/lib/{components,features,sections,guards}/**'
+globs: 'projects/boxed/src/lib/{components,features,sections,guards}/**'
 description: 'Architecture, patterns, and conventions for lib/components, lib/features, lib/sections, and lib/guards.'
-applyTo: 'projects/client/src/lib/{components,features,sections,guards}/**'
+applyTo: 'projects/boxed/src/lib/{components,features,sections,guards}/**'
 ---
 
 # Components, Features & Sections Guidelines

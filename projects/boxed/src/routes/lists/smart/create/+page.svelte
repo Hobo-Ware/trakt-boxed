@@ -1,8 +1,27 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../../client/src/routes/lists/smart/create/+page.svelte";
+  import { useUser } from "$lib/features/auth/stores/useUser";
+  import { useDiscover } from "$lib/features/filters/useDiscover";
+  import * as m from "$lib/features/i18n/messages.ts";
+  import TraktPage from "$lib/sections/layout/TraktPage.svelte";
+  import TraktPageCoverSetter from "$lib/sections/layout/TraktPageCoverSetter.svelte";
+  import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
+  import SmartListCreator from "$lib/sections/smart-lists/SmartListCreator.svelte";
+  import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
 
-  const props = $props();
+  const { mode } = useDiscover();
+
+  const { limits } = useUser();
 </script>
 
-<Legacy {...props} />
+<TraktPage
+  audience="authenticated"
+  image={DEFAULT_SHARE_COVER}
+  title={m.page_title_create_smart_list()}
+>
+  <TraktPageCoverSetter />
+  <NavbarStateSetter mode="minimal" hasFilters />
+
+  {#if $limits}
+    <SmartListCreator mode={$mode} limits={$limits} />
+  {/if}
+</TraktPage>

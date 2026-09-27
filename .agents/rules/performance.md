@@ -1,8 +1,8 @@
 ---
 trigger: glob
-globs: 'projects/client/src/**'
+globs: 'projects/boxed/src/**'
 description: 'Performance principles for animations, scroll/resize handlers, IntersectionObservers, rxjs plumbing, bundle/boot, and viewport gating.'
-applyTo: 'projects/client/src/**'
+applyTo: 'projects/boxed/src/**'
 ---
 
 # Performance Guidelines
