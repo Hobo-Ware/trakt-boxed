@@ -1,4 +1,10 @@
 <script lang="ts">
+  import { compactFacts } from "$boxed/title/compactFacts.ts";
+  import { toCastChips } from "$boxed/title/toCastChips.ts";
+  import { toCommonFacts } from "$boxed/title/toCommonFacts.ts";
+  import { toCrewChips } from "$boxed/title/toCrewChips.ts";
+  import { toGenreChips } from "$boxed/title/toGenreChips.ts";
+  import { toRuntimeMeta } from "$boxed/title/toRuntimeMeta.ts";
   import { toReviewsHref } from "$boxed/utils/toReviewsHref.ts";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
@@ -19,11 +25,6 @@
   import { useWatchCount } from "$lib/stores/useWatchCount.ts";
   import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
-  import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
-  import { toCountryName } from "$lib/utils/formatting/intl/toCountryName.ts";
-  import { toLanguageName } from "$lib/utils/formatting/intl/toLanguageName.ts";
-  import { toTranslatedGenre } from "$lib/utils/formatting/string/toTranslatedGenre.ts";
-  import { toTranslatedJob } from "$lib/utils/formatting/string/toTranslatedJob.ts";
   import { toTranslatedStatus } from "$lib/utils/formatting/string/toTranslatedStatus.ts";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
@@ -39,9 +40,7 @@
   import SimilarTitles from "../title/SimilarTitles.svelte";
   import Soundtrack from "../title/Soundtrack.svelte";
   import TitleChips from "../title/TitleChips.svelte";
-  import type { TitleChip } from "../title/TitleChip.ts";
   import TitleFacts from "../title/TitleFacts.svelte";
-  import type { TitleFact } from "../title/TitleFact.ts";
   import TitleHeader from "../title/TitleHeader.svelte";
   import TitleLayout from "../title/TitleLayout.svelte";
   import TitlePoster from "../title/TitlePoster.svelte";
@@ -100,12 +99,11 @@
   const directors = $derived(crew.directors.slice(0, DIRECTOR_PREVIEW));
 
   const meta = $derived(
-    [
-      Number.isFinite(movie.runtime)
-        ? toHumanDuration({ minutes: movie.runtime }, languageTag())
-        : null,
-      movie.certification,
-    ].filter(Boolean).join(" · "),
+    toRuntimeMeta({
+      runtime: movie.runtime,
+      certification: movie.certification,
+      locale: languageTag(),
+    }),
   );
 
   const tabs: ReadonlyArray<{ id: FilmTab; label: string }> = [
@@ -116,54 +114,28 @@
     { id: "releases", label: m.list_title_releases() },
   ];
 
-  const castChips = $derived<ReadonlyArray<TitleChip>>(
-    crew.cast.slice(0, CAST_PREVIEW).map((member) => ({
-      key: member.key,
-      label: member.name,
-      href: UrlBuilder.people(member.key),
-    })),
-  );
+  const castChips = $derived(toCastChips(crew.cast, CAST_PREVIEW));
 
-  const crewChips = $derived<ReadonlyArray<TitleChip>>(
-    [...crew.directors, ...crew.writers].map((member) => ({
-      key: `${member.key}-${member.jobs.join("-")}`,
-      label: member.name,
-      detail: member.jobs.map((job) => toTranslatedJob(job)).join(", "),
-      href: UrlBuilder.people(member.key),
-    })),
-  );
+  const crewChips = $derived(toCrewChips([...crew.directors, ...crew.writers]));
 
-  const genreChips = $derived<ReadonlyArray<TitleChip>>(
-    movie.genres.map((genre) => ({ key: genre, label: toTranslatedGenre(genre) })),
-  );
+  const genreChips = $derived(toGenreChips(movie.genres));
 
-  const compact = (facts: ReadonlyArray<TitleFact | null>) =>
-    facts.filter((fact): fact is TitleFact => fact !== null);
+  const common = $derived(
+    toCommonFacts({ media: movie, studios, locale: languageTag() }),
+  );
 
   const details = $derived(
-    compact([
-      movie.originalTitle && movie.originalTitle !== movie.title
-        ? { key: "original", label: m.header_original_title(), value: movie.originalTitle }
-        : null,
-      studios.length > 0
-        ? { key: "studio", label: m.header_studio(), value: studios.map((studio) => studio.name).join(", ") }
-        : null,
-      movie.country
-        ? { key: "country", label: m.header_country(), value: toCountryName(movie.country, languageTag()) }
-        : null,
-      movie.languages?.length
-        ? {
-          key: "language",
-          label: m.header_language(),
-          value: movie.languages.map((code) => toLanguageName(code, languageTag())).join(", "),
-        }
-        : null,
+    compactFacts([
+      common.original,
+      common.studio,
+      common.country,
+      common.language,
       meta ? { key: "runtime", label: m.header_runtime(), value: meta } : null,
     ]),
   );
 
   const releases = $derived(
-    compact([
+    compactFacts([
       !isMaxDate(movie.releaseDate)
         ? {
           key: "released",

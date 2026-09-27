@@ -1,4 +1,10 @@
 <script lang="ts">
+  import { compactFacts } from "$boxed/title/compactFacts.ts";
+  import { toCastChips } from "$boxed/title/toCastChips.ts";
+  import { toCommonFacts } from "$boxed/title/toCommonFacts.ts";
+  import { toCrewChips } from "$boxed/title/toCrewChips.ts";
+  import { toGenreChips } from "$boxed/title/toGenreChips.ts";
+  import { toRuntimeMeta } from "$boxed/title/toRuntimeMeta.ts";
   import { toReviewsHref } from "$boxed/utils/toReviewsHref.ts";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
@@ -21,10 +27,6 @@
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toHumanDayTime } from "$lib/utils/formatting/date/toHumanDayTime.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
-  import { toCountryName } from "$lib/utils/formatting/intl/toCountryName.ts";
-  import { toLanguageName } from "$lib/utils/formatting/intl/toLanguageName.ts";
-  import { toTranslatedGenre } from "$lib/utils/formatting/string/toTranslatedGenre.ts";
-  import { toTranslatedJob } from "$lib/utils/formatting/string/toTranslatedJob.ts";
   import { toTranslatedStatus } from "$lib/utils/formatting/string/toTranslatedStatus.ts";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
@@ -42,7 +44,6 @@
   import TitleChips from "../title/TitleChips.svelte";
   import type { TitleChip } from "../title/TitleChip.ts";
   import TitleFacts from "../title/TitleFacts.svelte";
-  import type { TitleFact } from "../title/TitleFact.ts";
   import TitleHeader from "../title/TitleHeader.svelte";
   import TitleLayout from "../title/TitleLayout.svelte";
   import TitlePoster from "../title/TitlePoster.svelte";
@@ -109,12 +110,11 @@
   ]);
 
   const meta = $derived(
-    [
-      Number.isFinite(show.runtime)
-        ? toHumanDuration({ minutes: show.runtime }, languageTag())
-        : null,
-      show.certification,
-    ].filter(Boolean).join(" · "),
+    toRuntimeMeta({
+      runtime: show.runtime,
+      certification: show.certification,
+      locale: languageTag(),
+    }),
   );
 
   const tabs: ReadonlyArray<{ id: ShowTab; label: string }> = [
@@ -125,26 +125,11 @@
     { id: "networks", label: m.header_network() },
   ];
 
-  const castChips = $derived<ReadonlyArray<TitleChip>>(
-    crew.cast.slice(0, CAST_PREVIEW).map((member) => ({
-      key: member.key,
-      label: member.name,
-      href: UrlBuilder.people(member.key),
-    })),
-  );
+  const castChips = $derived(toCastChips(crew.cast, CAST_PREVIEW));
 
-  const crewChips = $derived<ReadonlyArray<TitleChip>>(
-    [...crew.creators, ...crew.directors, ...crew.writers].map((member) => ({
-      key: `${member.key}-${member.jobs.join("-")}`,
-      label: member.name,
-      detail: member.jobs.map((job) => toTranslatedJob(job)).join(", "),
-      href: UrlBuilder.people(member.key),
-    })),
-  );
+  const crewChips = $derived(toCrewChips([...crew.creators, ...crew.directors, ...crew.writers]));
 
-  const genreChips = $derived<ReadonlyArray<TitleChip>>(
-    show.genres.map((genre) => ({ key: genre, label: toTranslatedGenre(genre) })),
-  );
+  const genreChips = $derived(toGenreChips(show.genres));
 
   const networkChips = $derived<ReadonlyArray<TitleChip>>(
     networks.map((network) => ({ key: network, label: network })),
@@ -160,14 +145,13 @@
     return local ? m.text_airs_day_time(local) : null;
   });
 
-  const compact = (facts: ReadonlyArray<TitleFact | null>) =>
-    facts.filter((fact): fact is TitleFact => fact !== null);
+  const common = $derived(
+    toCommonFacts({ media: show, studios, locale: languageTag() }),
+  );
 
   const details = $derived(
-    compact([
-      show.originalTitle && show.originalTitle !== show.title
-        ? { key: "original", label: m.header_original_title(), value: show.originalTitle }
-        : null,
+    compactFacts([
+      common.original,
       !isMaxDate(show.airDate)
         ? {
           key: "premiered",
@@ -177,19 +161,9 @@
         : null,
       { key: "status", label: m.header_status(), value: toTranslatedStatus(show.status) },
       airs ? { key: "airs", label: m.header_airs(), value: airs } : null,
-      studios.length > 0
-        ? { key: "studio", label: m.header_studio(), value: studios.map((studio) => studio.name).join(", ") }
-        : null,
-      show.country
-        ? { key: "country", label: m.header_country(), value: toCountryName(show.country, languageTag()) }
-        : null,
-      show.languages?.length
-        ? {
-          key: "language",
-          label: m.header_language(),
-          value: show.languages.map((code) => toLanguageName(code, languageTag())).join(", "),
-        }
-        : null,
+      common.studio,
+      common.country,
+      common.language,
       show.totalRuntime > 0
         ? {
           key: "total-runtime",
