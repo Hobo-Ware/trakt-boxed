@@ -1,6 +1,6 @@
 <script lang="ts">
   import Stars from "$boxed/components/Stars.svelte";
-  import { toTimeAgo } from "$boxed/home/_internal/toTimeAgo.ts";
+  import { toTimeAgo } from "$boxed/utils/toTimeAgo.ts";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
   import { languageTag } from "$lib/features/i18n";
   import * as m from "$lib/features/i18n/messages.ts";

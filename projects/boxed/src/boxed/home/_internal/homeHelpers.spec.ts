@@ -2,7 +2,6 @@ import type { SocialActivity } from '$lib/requests/models/SocialActivity.ts';
 import { describe, expect, it } from 'vitest';
 import { toFriendsPosters } from './toFriendsPosters.ts';
 import { toJustWatched } from './toJustWatched.ts';
-import { toTimeAgo } from './toTimeAgo.ts';
 
 const user = (id: number) => ({ id, username: `u${id}` });
 const movie = (id: number) => ({ id, key: `movie-${id}`, type: 'movie' });
@@ -82,18 +81,5 @@ describe('util: toJustWatched', () => {
 
     expect(entries.map((entry) => entry.friend.id)).toEqual([1, 2]);
     expect(entries[0]?.activity.type).toBe('episode');
-  });
-});
-
-describe('util: toTimeAgo', () => {
-  const now = new Date('2026-09-26T21:00:00Z');
-
-  it('should pick the largest unit', () => {
-    expect(toTimeAgo(now, new Date('2026-09-26T19:00:00Z'), 'en'))
-      .toBe('2 hours ago');
-    expect(toTimeAgo(now, new Date('2026-09-26T20:45:00Z'), 'en'))
-      .toBe('15 minutes ago');
-    expect(toTimeAgo(now, new Date('2026-09-25T21:00:00Z'), 'en'))
-      .toBe('yesterday');
   });
 });
