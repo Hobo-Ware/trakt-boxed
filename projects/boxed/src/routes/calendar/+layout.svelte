@@ -1,8 +1,9 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../client/src/routes/calendar/+layout.svelte";
+  import CalendarProvider from "$lib/features/calendar/CalendarProvider.svelte";
 
-  const props = $props();
+  const { children } = $props();
 </script>
 
-<Legacy {...props} />
+<CalendarProvider>
+  {@render children?.()}
+</CalendarProvider>

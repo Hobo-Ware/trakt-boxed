@@ -9,6 +9,7 @@
   import { toEpisodeRange } from "../diary/_internal/toEpisodeRange.ts";
   import { toEpisodeRangeLabel } from "../diary/_internal/toEpisodeRangeLabel.ts";
   import { useDiaryUserState } from "../diary/useDiaryUserState.ts";
+  import { uniqueByKey } from "../../utils/uniqueByKey.ts";
   import PosterQuad from "./PosterQuad.svelte";
 
   const {
@@ -20,12 +21,8 @@
 
   const recent = $derived(
     entries
-      ?.filter((entry, index, all) =>
-        all.findIndex((other) =>
-          toEntryMedia(other).key === toEntryMedia(entry).key
-        ) === index
-      )
-      .slice(0, 4) ?? null,
+      ? uniqueByKey(entries, (entry) => toEntryMedia(entry).key).slice(0, 4)
+      : null,
   );
   const byKey = $derived(
     new Map(recent?.map((entry) => [toEntryMedia(entry).key, entry])),
