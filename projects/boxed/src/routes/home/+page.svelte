@@ -1,5 +1,5 @@
 <script lang="ts">
-  import InView from "$boxed/components/InView.svelte";
+  import LazySection from "$boxed/components/LazySection.svelte";
   import PageContainer from "$boxed/components/PageContainer.svelte";
   import SectionHeader from "$boxed/components/SectionHeader.svelte";
   import Stars from "$boxed/components/Stars.svelte";
@@ -74,11 +74,6 @@
   {/if}
 {/snippet}
 
-{#snippet lazyRow(title: string, href?: string, showMeta = false)}
-  <SectionHeader {title} {href} />
-  <PosterRow label={title} items={null} showUserMeta={showMeta} />
-{/snippet}
-
 <TraktPage
   audience="authenticated"
   type="home"
@@ -142,62 +137,48 @@
     </section>
 
     <section>
-      <InView>
-        <SectionHeader
-          title={m.list_title_start_watching()}
-          href={`${UrlBuilder.profile.me()}/watchlist`}
-        />
+      <LazySection
+        title={m.list_title_start_watching()}
+        href={`${UrlBuilder.profile.me()}/watchlist`}
+      >
         <StartWatchingRow />
-        {#snippet placeholder()}
-          {@render lazyRow(
-            m.list_title_start_watching(),
-            `${UrlBuilder.profile.me()}/watchlist`,
-          )}
+        {#snippet skeleton()}
+          <PosterRow label={m.list_title_start_watching()} items={null} />
         {/snippet}
-      </InView>
+      </LazySection>
     </section>
 
     <section>
-      <InView>
-        <SectionHeader
-          title={m.boxed_home_out_this_week()}
-          href={UrlBuilder.calendar()}
-        />
+      <LazySection
+        title={m.boxed_home_out_this_week()}
+        href={UrlBuilder.calendar()}
+      >
         <OutThisWeekRow />
-        {#snippet placeholder()}
-          {@render lazyRow(
-            m.boxed_home_out_this_week(),
-            UrlBuilder.calendar(),
-            true,
-          )}
+        {#snippet skeleton()}
+          <PosterRow label={m.boxed_home_out_this_week()} items={null} showUserMeta />
         {/snippet}
-      </InView>
+      </LazySection>
     </section>
 
     <section>
-      <InView>
-        <SectionHeader
-          title={m.list_title_most_popular()}
-          href={UrlBuilder.popular()}
-        />
+      <LazySection title={m.list_title_most_popular()} href={UrlBuilder.popular()}>
         <PopularRow />
-        {#snippet placeholder()}
-          {@render lazyRow(m.list_title_most_popular(), UrlBuilder.popular())}
+        {#snippet skeleton()}
+          <PosterRow label={m.list_title_most_popular()} items={null} />
         {/snippet}
-      </InView>
+      </LazySection>
     </section>
 
     <section>
-      <InView>
-        <SectionHeader
-          title={m.list_title_recommended()}
-          href={UrlBuilder.recommended()}
-        />
+      <LazySection
+        title={m.list_title_recommended()}
+        href={UrlBuilder.recommended()}
+      >
         <RecommendedRow />
-        {#snippet placeholder()}
-          {@render lazyRow(m.list_title_recommended(), UrlBuilder.recommended())}
+        {#snippet skeleton()}
+          <PosterRow label={m.list_title_recommended()} items={null} />
         {/snippet}
-      </InView>
+      </LazySection>
     </section>
   </PageContainer>
 </TraktPage>

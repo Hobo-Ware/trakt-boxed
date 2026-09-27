@@ -1,5 +1,5 @@
 <script lang="ts">
-  import InView from "$boxed/components/InView.svelte";
+  import LazySection from "$boxed/components/LazySection.svelte";
   import PageContainer from "$boxed/components/PageContainer.svelte";
   import SectionHeader from "$boxed/components/SectionHeader.svelte";
   import ListCardGrid from "$boxed/lists/ListCardGrid.svelte";
@@ -11,11 +11,6 @@
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
 </script>
-
-{#snippet lazyGrid(title: string, href: string)}
-  <SectionHeader {title} {href} />
-  <ListCardGrid lists={null} emptyText="" reserveItems={4} />
-{/snippet}
 
 <TraktPage audience="all" image={DEFAULT_SHARE_COVER} title={m.page_title_lists()}>
   <PageContainer>
@@ -35,35 +30,27 @@
 
     <RenderFor audience="authenticated">
       <section>
-        <InView>
-          <SectionHeader
-            title={m.list_title_personal_lists()}
-            href={`${UrlBuilder.profile.me()}/lists?tab=personal`}
-          />
+        <LazySection
+          title={m.list_title_personal_lists()}
+          href={`${UrlBuilder.profile.me()}/lists?tab=personal`}
+        >
           <MyLists type="personal" />
-          {#snippet placeholder()}
-            {@render lazyGrid(
-              m.list_title_personal_lists(),
-              `${UrlBuilder.profile.me()}/lists?tab=personal`,
-            )}
+          {#snippet skeleton()}
+            <ListCardGrid lists={null} emptyText="" reserveItems={4} />
           {/snippet}
-        </InView>
+        </LazySection>
       </section>
 
       <section>
-        <InView>
-          <SectionHeader
-            title={m.list_title_liked_lists()}
-            href={`${UrlBuilder.profile.me()}/lists?tab=liked`}
-          />
+        <LazySection
+          title={m.list_title_liked_lists()}
+          href={`${UrlBuilder.profile.me()}/lists?tab=liked`}
+        >
           <MyLists type="liked" />
-          {#snippet placeholder()}
-            {@render lazyGrid(
-              m.list_title_liked_lists(),
-              `${UrlBuilder.profile.me()}/lists?tab=liked`,
-            )}
+          {#snippet skeleton()}
+            <ListCardGrid lists={null} emptyText="" reserveItems={4} />
           {/snippet}
-        </InView>
+        </LazySection>
       </section>
     </RenderFor>
   </PageContainer>

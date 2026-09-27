@@ -1,7 +1,7 @@
 <script lang="ts">
   import BrowseHeader from "$boxed/browse/BrowseHeader.svelte";
   import DiscoverRow from "$boxed/browse/DiscoverRow.svelte";
-  import InView from "$boxed/components/InView.svelte";
+  import LazySection from "$boxed/components/LazySection.svelte";
   import PageContainer from "$boxed/components/PageContainer.svelte";
   import SectionHeader from "$boxed/components/SectionHeader.svelte";
   import PosterRow from "$boxed/poster/PosterRow.svelte";
@@ -55,11 +55,6 @@
   ) => build({ mode: $mode });
 </script>
 
-{#snippet lazyRow(label: string, href: string)}
-  <SectionHeader title={label} {href} />
-  <PosterRow {label} items={null} showUserMeta />
-{/snippet}
-
 <TraktPage
   audience="all"
   image={DEFAULT_SHARE_SHOW_COVER}
@@ -85,55 +80,46 @@
     </section>
 
     <section>
-      <InView>
-        <SectionHeader
-          title={m.list_title_most_popular()}
-          href={chartHref(UrlBuilder.popular)}
-        />
+      <LazySection
+        title={m.list_title_most_popular()}
+        href={chartHref(UrlBuilder.popular)}
+      >
         <DiscoverRow label={m.list_title_most_popular()} useList={usePopularList} />
-        {#snippet placeholder()}
-          {@render lazyRow(m.list_title_most_popular(), chartHref(UrlBuilder.popular))}
+        {#snippet skeleton()}
+          <PosterRow label={m.list_title_most_popular()} items={null} showUserMeta />
         {/snippet}
-      </InView>
+      </LazySection>
     </section>
 
     <section>
-      <InView>
-        <SectionHeader
-          title={m.list_title_most_anticipated()}
-          href={chartHref(UrlBuilder.anticipated)}
-        />
+      <LazySection
+        title={m.list_title_most_anticipated()}
+        href={chartHref(UrlBuilder.anticipated)}
+      >
         <DiscoverRow
           label={m.list_title_most_anticipated()}
           useList={useAnticipatedList}
         />
-        {#snippet placeholder()}
-          {@render lazyRow(
-            m.list_title_most_anticipated(),
-            chartHref(UrlBuilder.anticipated),
-          )}
+        {#snippet skeleton()}
+          <PosterRow label={m.list_title_most_anticipated()} items={null} showUserMeta />
         {/snippet}
-      </InView>
+      </LazySection>
     </section>
 
     <RenderFor audience="authenticated">
       <section>
-        <InView>
-          <SectionHeader
-            title={m.list_title_recommended()}
-            href={chartHref(UrlBuilder.recommended)}
-          />
+        <LazySection
+          title={m.list_title_recommended()}
+          href={chartHref(UrlBuilder.recommended)}
+        >
           <DiscoverRow
             label={m.list_title_recommended()}
             useList={useRecommendedList}
           />
-          {#snippet placeholder()}
-            {@render lazyRow(
-              m.list_title_recommended(),
-              chartHref(UrlBuilder.recommended),
-            )}
+          {#snippet skeleton()}
+            <PosterRow label={m.list_title_recommended()} items={null} showUserMeta />
           {/snippet}
-        </InView>
+        </LazySection>
       </section>
     </RenderFor>
 
