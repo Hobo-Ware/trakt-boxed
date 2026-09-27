@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Observable } from "rxjs";
+  import type { Snippet } from "svelte";
   import PosterGrid from "../poster/PosterGrid.svelte";
   import type { PosterMedia } from "../poster/PosterMedia.ts";
   import { whileVisible } from "../utils/whileVisible.ts";
@@ -10,9 +11,10 @@
     hasNextPage: Observable<boolean>;
     fetchNextPage: () => Promise<unknown>;
     emptyText: string;
+    meta?: Snippet<[PosterMedia]>;
   };
 
-  const { list, isLoading, hasNextPage, fetchNextPage, emptyText }:
+  const { list, isLoading, hasNextPage, fetchNextPage, emptyText, meta }:
     ChartGridProps = $props();
 
   const isFirstLoad = $derived($isLoading && $list.length === 0);
@@ -26,7 +28,8 @@
   items={isFirstLoad ? null : $list}
   columns={8}
   skeletonCount={24}
-  showUserMeta
+  showUserMeta={!meta}
+  {meta}
   loadingMore={$isLoading && !isFirstLoad}
 />
 

@@ -94,8 +94,8 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 7 - lists and reviews
 
-- [ ] Lists browse (board `Lists-browse`)
-- [ ] Single list (board `List`)
+- [x] Lists browse (board `Lists-browse`): your lists (4, signed in) and popular lists as poster-fan cards with owner, count, likes, two-line description; grid reserves its rows while loading. CLS 0.0000
+- [x] Single list (board `List`): owner, title (one line), two-line description slot, count, list actions, media/shows/movies switch, poster grid with rank numbers for ranked lists, infinite scroll. Progress ring dropped (needs every page); comments not shown (no read hook). CLS 0.0000
 - [ ] List editor (board `List-editor`)
 - [ ] Reviews browse (board `Reviews-browse`)
 - [ ] Review page (board `Review-page`)
