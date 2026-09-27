@@ -10922,6 +10922,82 @@
     "boxed_browse_by_genre": {
       "default": "Browse by genre",
       "description": "Heading above the genre chips on the boxed Movies / Shows browse page."
+    },
+    "boxed_landing_title_1": {
+      "default": "Track films you've watched.",
+      "description": "First line of the three-line serif headline on the signed-out landing page."
+    },
+    "boxed_landing_title_2": {
+      "default": "Keep up with every episode.",
+      "description": "Second line of the landing headline."
+    },
+    "boxed_landing_title_3": {
+      "default": "Tell your friends what's good.",
+      "description": "Third line of the landing headline."
+    },
+    "boxed_landing_subtitle": {
+      "default": "The social diary for film and TV lovers, powered by Trakt.",
+      "description": "Subtitle under the landing headline."
+    },
+    "boxed_landing_features_title": {
+      "default": "Everything you watch, in one diary",
+      "description": "Heading above the six feature tiles on the landing page."
+    },
+    "boxed_landing_feature_diary": {
+      "default": "Keep a diary",
+      "description": "Feature tile title: log every film and episode with a date."
+    },
+    "boxed_landing_feature_diary_text": {
+      "default": "Log every film and episode with the date you watched it, and rewatch as often as you like.",
+      "description": "Feature tile description."
+    },
+    "boxed_landing_feature_episodes": {
+      "default": "Rate every episode",
+      "description": "Feature tile title: rate and review seasons and episodes, not just shows."
+    },
+    "boxed_landing_feature_episodes_text": {
+      "default": "Rate and review shows, seasons and single episodes. Episode reviews stay hidden until you've watched.",
+      "description": "Feature tile description."
+    },
+    "boxed_landing_feature_up_next": {
+      "default": "Up next, without spoilers",
+      "description": "Feature tile title: continue watching shows."
+    },
+    "boxed_landing_feature_up_next_text": {
+      "default": "Pick up every show where you left off and tick episodes off in one tap.",
+      "description": "Feature tile description."
+    },
+    "boxed_landing_feature_lists": {
+      "default": "Make lists",
+      "description": "Feature tile title: curated lists."
+    },
+    "boxed_landing_feature_lists_text": {
+      "default": "Rank your favourites, build watchlists with friends and share them with the world.",
+      "description": "Feature tile description."
+    },
+    "boxed_landing_feature_stream": {
+      "default": "Find where to stream",
+      "description": "Feature tile title: where to watch."
+    },
+    "boxed_landing_feature_stream_text": {
+      "default": "See which of your services has it right now, in your country.",
+      "description": "Feature tile description."
+    },
+    "boxed_landing_feature_year": {
+      "default": "See your year",
+      "description": "Feature tile title: stats and year in review."
+    },
+    "boxed_landing_feature_year_text": {
+      "default": "Stats, streaks and a year in review that covers films and TV together.",
+      "description": "Feature tile description."
+    },
+    "boxed_landing_import_title": {
+      "default": "Coming from Letterboxd or TV Time?",
+      "description": "Heading of the import card on the landing page."
+    },
+    "boxed_landing_import_text": {
+      "default": "Bring your whole history with you. Your diary, ratings and watchlist come across in minutes.",
+      "description": "Body of the import card on the landing page."
     }
   }
 }
