@@ -24,6 +24,8 @@
 
   const reviews = $derived(paginate ? $list : $list.slice(0, limit));
   const isFirstLoad = $derived($isLoading && $list.length === 0);
+  const reservedCount = $derived(paginate ? 0 : Math.min(limit, 3));
+  const paddingCount = $derived(Math.max(reservedCount - reviews.length, 0));
 </script>
 
 <div class="boxed-review-list">
@@ -32,10 +34,18 @@
       <ReviewSkeleton />
     {/each}
   {:else if reviews.length === 0}
-    <p class="boxed-review-empty">{m.list_placeholder_comments()}</p>
+    <div class="boxed-review-empty-slot">
+      {#each { length: Math.max(paddingCount, 1) }, index (index)}
+        <div class="boxed-review-padding"><ReviewSkeleton /></div>
+      {/each}
+      <p class="boxed-review-empty">{m.list_placeholder_comments()}</p>
+    </div>
   {:else}
     {#each reviews as comment (comment.key)}
       <ReviewCard {comment} href={toReviewHref(comment.id)} />
+    {/each}
+    {#each { length: paddingCount }, index (index)}
+      <div class="boxed-review-padding"><ReviewSkeleton /></div>
     {/each}
     {#if paginate && $hasNextPage}
       <button
@@ -57,7 +67,21 @@
     gap: var(--ni-16);
   }
 
+  .boxed-review-padding {
+    visibility: hidden;
+  }
+
+  .boxed-review-empty-slot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ni-16);
+  }
+
   .boxed-review-empty {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
     margin: 0;
     font-size: var(--ni-14);
     color: var(--color-text-secondary);
