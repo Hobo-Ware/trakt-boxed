@@ -79,7 +79,7 @@ Type:
 ## Components (draw them consistently)
 
 **Top bar (desktop)** height 64, bg #141318 with bottom hairline, content max-width 1200 centered:
-left: logo = a 28px rounded-square purple (#9b2ad0) mark with white bold "t" + wordmark "trakt" (Roboto 700, 20px) followed by thin "boxed" (Newsreader italic 20px, #c9a3e8).
+left: logo = the "trakt boxed" mark (three rounded boxes: green, purple with the check, blue; `src/boxed/brand/BoxedLogo.svelte`) + wordmark "trakt" (Roboto 700, 20px) followed by thin "boxed" (Newsreader italic 20px). Superseded the single purple "t" square on 2026-09-27.
 middle nav links (uppercase 13px, letter-spacing .06em, #a19fa8, active #f6f5f8): FILMS SHOWS LISTS MEMBERS CALENDAR.
 right: search input (220px, bg #26252b, radius 8, placeholder "Search films, shows, people"), a purple button "+ Log" (height 36), avatar circle 32px.
 Signed-out variant: "Sign in" text link + "Create account" purple button instead of Log/avatar.

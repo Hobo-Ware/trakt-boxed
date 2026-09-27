@@ -31,7 +31,7 @@ spoiler-safe episode reviews.
 ## 2. Visual direction ("Night screening")
 
 Borrow Letterboxd's page structure and interaction ideas, not its brand.
-No green/orange/blue logo dots, no Graphik/Tiempos.
+No Graphik/Tiempos. The one colour exception is the brand mark itself: three boxes in watched green, brand purple and watchlist blue (amended 2026-09-27, see D3).
 
 | Token | Value | Source |
 |---|---|---|
@@ -333,7 +333,7 @@ collapse into one diary entry ("S2 E4-E6"), expandable.
 |---|---|---|
 | D1 | Season and episode become real pages (today: drawers + redirects) | Yes. This is the TV advantage and it's great for SEO |
 | D2 | Title extras (reviews, members, lists) become sub-routes | Yes for the engagement tabs; trivia / soundtrack / sentiment / where-to-watch stay as drawers (mobile) or a side panel (desktop) |
-| D3 | Brand colour | Trakt purple for brand + primary; green / blue / red only for watched / watchlist / like states |
+| D3 | Brand colour | Trakt purple for brand + primary; green / blue / red only for watched / watchlist / like states. Amended 2026-09-27: the "trakt boxed" mark (three boxes: green, purple, blue) and the landing's matching three-box section may use the state colours as brand |
 | D4 | What "like" means | Like = Trakt favourite. Top 4 favourites per type = profile shelf (favourites reorder API) |
 | D5 | Review attached to a watch | Public review = comment on the title. Short private text = note on the play (500 chars). Diary shows the review icon when the user has a comment on that title |
 | D6 | Rewatch flag | Derived from play order; "Watched before" is ticked automatically when earlier plays exist |
