@@ -123,18 +123,11 @@
 
     h1 {
       min-height: 1.2em;
-      margin: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      font-family: var(--boxed-font-title);
-      font-size: var(--ni-40);
-      font-weight: 600;
-      line-height: 1.2;
 
-      @include for-mobile {
-        font-size: var(--ni-28);
-      }
+      @include boxed-page-title;
     }
   }
 

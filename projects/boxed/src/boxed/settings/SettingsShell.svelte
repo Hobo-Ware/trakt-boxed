@@ -29,12 +29,9 @@
   }
 
   .boxed-settings-title {
-    margin: 0;
-    font-family: var(--boxed-font-title);
-    font-size: var(--ni-40);
-    font-weight: 600;
-    line-height: 1.2;
     letter-spacing: -0.01em;
+
+    @include boxed-page-title;
 
     @include for-mobile {
       font-size: var(--ni-32);

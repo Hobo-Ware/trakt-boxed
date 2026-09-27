@@ -224,16 +224,9 @@
 
     h1 {
       min-height: 1.2em;
-      margin: 0;
-      font-family: var(--boxed-font-title);
-      font-size: var(--ni-40);
-      font-weight: 600;
-      line-height: 1.2;
       letter-spacing: -0.01em;
 
-      @include for-mobile {
-        font-size: var(--ni-28);
-      }
+      @include boxed-page-title;
     }
 
     p {

@@ -199,15 +199,7 @@
     gap: var(--gap-m);
 
     h1 {
-      margin: 0;
-      font-family: var(--boxed-font-title);
-      font-size: var(--ni-40);
-      font-weight: 600;
-      line-height: 1.2;
-
-      @include for-mobile {
-        font-size: var(--ni-28);
-      }
+      @include boxed-page-title;
     }
   }
 
