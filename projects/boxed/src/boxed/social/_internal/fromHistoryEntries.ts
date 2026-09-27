@@ -1,3 +1,5 @@
+import type { RatingsLookup } from '$boxed/utils/RatingsLookup.ts';
+import { toPlaysRating } from '$boxed/utils/toPlaysRating.ts';
 import type { EpisodeEntry } from '$lib/requests/models/EpisodeEntry.ts';
 import type { EpisodeActivityHistory } from '$lib/requests/queries/users/episodeActivityHistoryQuery.ts';
 import type { HistoryEntry } from '$lib/sections/lists/stores/models/HistoryEntry.ts';
@@ -7,18 +9,10 @@ import { multiEpisodeLabel } from '$lib/utils/intl/multiEpisodeLabel.ts';
 import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
 import type { ActivityActor, ActivityEvent } from '../ActivityEvent.ts';
 
-type RatingMap = ReadonlyMap<number, { rating: number }>;
-
-export type HistoryRatings = {
-  movies: RatingMap;
-  shows: RatingMap;
-  episodes: RatingMap;
-};
-
 type FromHistoryEntriesParams = {
   entries: ReadonlyArray<HistoryEntry>;
   actor: ActivityActor;
-  ratings: HistoryRatings | Nil;
+  ratings: RatingsLookup | Nil;
 };
 
 type Session =
@@ -67,16 +61,13 @@ function toEpisodeCode(plays: ReadonlyArray<EpisodeActivityHistory>) {
 
 function toEpisodeRating(
   plays: ReadonlyArray<EpisodeActivityHistory>,
-  ratings: HistoryRatings | Nil,
+  ratings: RatingsLookup | Nil,
 ) {
-  const [only, ...rest] = plays;
-  if (!only || !ratings) return null;
-
-  const episodeRating = rest.length === 0
-    ? ratings.episodes.get(only.episode.id)?.rating
-    : undefined;
-
-  return episodeRating ?? ratings.shows.get(only.show.id)?.rating ?? null;
+  return toPlaysRating({
+    episodeIds: plays.map((play) => play.episode.id),
+    showId: plays.at(0)?.show.id,
+    ratings,
+  });
 }
 
 export function fromHistoryEntries(
