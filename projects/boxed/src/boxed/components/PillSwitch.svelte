@@ -4,15 +4,16 @@
   type PillSwitchProps = {
     options: ReadonlyArray<PillOption>;
     value: T;
+    label: string;
     disabled?: boolean;
     onChange: (value: T) => void;
   };
 
-  const { options, value, disabled = false, onChange }: PillSwitchProps =
+  const { options, value, label, disabled = false, onChange }: PillSwitchProps =
     $props();
 </script>
 
-<div class="boxed-pill-switch" role="radiogroup">
+<div class="boxed-pill-switch" role="radiogroup" aria-label={label}>
   {#each options as option (option.value)}
     <button
       type="button"

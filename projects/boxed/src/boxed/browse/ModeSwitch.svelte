@@ -3,6 +3,7 @@
   import { page } from "$app/state";
   import { useDiscover } from "$lib/features/filters/useDiscover.ts";
   import type { DiscoverMode } from "$lib/features/filters/models/DiscoverMode.ts";
+  import * as m from "$lib/features/i18n/messages.ts";
 
   const { options, mode, onModeChange } = useDiscover();
 
@@ -14,7 +15,11 @@
   };
 </script>
 
-<div class="boxed-mode-switch" role="radiogroup">
+<div
+  class="boxed-mode-switch"
+  role="radiogroup"
+  aria-label={m.boxed_browse_mode_label()}
+>
   {#each options as option (option.value)}
     <button
       type="button"

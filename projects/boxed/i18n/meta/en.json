@@ -11417,6 +11417,18 @@
       "default": "Member since {year}",
       "description": "Profile detail showing the year the user joined."
     },
+    "boxed_list_privacy_label": {
+      "default": "List privacy",
+      "description": "Accessible name for the privacy switch in the list editor."
+    },
+    "boxed_person_credit_type_label": {
+      "default": "Credit type",
+      "description": "Accessible name for the movies / shows switch on a person's credits."
+    },
+    "boxed_browse_mode_label": {
+      "default": "Media type",
+      "description": "Accessible name for the movies / shows / all switch on browse pages."
+    },
     "boxed_profile_heatmap_label": {
       "default": "Watch activity over the last year",
       "description": "Accessible label for the profile activity heatmap."

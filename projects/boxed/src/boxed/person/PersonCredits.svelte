@@ -151,6 +151,7 @@
           },
         ]}
         value={type}
+        label={m.boxed_person_credit_type_label()}
         onChange={(next) => setParam("credits", next === "movie" ? "movies" : "shows")}
       />
     </div>

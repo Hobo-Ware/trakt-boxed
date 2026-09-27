@@ -93,6 +93,7 @@
         label: option.label(),
       }))}
       value={privacy}
+      label={m.boxed_list_privacy_label()}
       disabled={$isSaving}
       onChange={(next) => (privacy = next)}
     />
