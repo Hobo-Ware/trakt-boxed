@@ -28,10 +28,6 @@
   trakt-get-vip-link {
     :global(.trakt-link) {
       text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
     }
   }
 </style>

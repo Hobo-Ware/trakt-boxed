@@ -17,21 +17,21 @@
     padding: var(--ni-8) var(--ni-12);
     height: var(--ni-28);
     box-sizing: border-box;
-    border-radius: var(--border-radius-xl);
+    border-radius: var(--border-radius-s);
+    background: var(--boxed-color-accent-soft);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs)
+      color-mix(in srgb, var(--purple-500) 55%, transparent);
+    color: var(--boxed-color-accent-text);
+    transition: background var(--transition-increment) ease-in-out;
 
-    // Inviting purple gradient + soft glow instead of the flat red - the upsell
-    // should feel aspirational, not like a paywall.
-    background: linear-gradient(
-      135deg,
-      var(--purple-400),
-      var(--purple-600)
-    );
-    color: var(--color-foreground-vip-badge);
-    box-shadow: 0 var(--ni-2) var(--ni-12)
-      color-mix(in srgb, var(--purple-500) 45%, transparent);
+    :global(.trakt-link:hover) & {
+      background: color-mix(in srgb, var(--purple-500) 24%, transparent);
+    }
 
     p {
-      font-weight: 700;
+      font-size: var(--ni-12);
+      font-weight: 600;
+      letter-spacing: 0.06em;
       white-space: nowrap;
     }
   }
