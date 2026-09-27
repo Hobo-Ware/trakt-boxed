@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toStreakLabel } from "$boxed/utils/toStreakLabel.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { languageTag } from "$lib/features/i18n";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -31,7 +32,7 @@
   );
   const streakText = $derived(
     $streakCount > 0
-      ? `${m.text_stats_days_count({ count: String($streakCount) })} ${m.text_stats_watching_streak()}`
+      ? toStreakLabel($streakCount)
       : "",
   );
 </script>

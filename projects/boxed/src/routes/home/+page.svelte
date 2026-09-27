@@ -14,6 +14,7 @@
   import RecommendedRow from "$boxed/home/sections/RecommendedRow.svelte";
   import StartWatchingRow from "$boxed/home/sections/StartWatchingRow.svelte";
   import PosterRow from "$boxed/poster/PosterRow.svelte";
+  import { toStreakLabel } from "$boxed/utils/toStreakLabel.ts";
   import type { PosterMedia } from "$boxed/poster/PosterMedia.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -92,10 +93,7 @@
       </div>
       <span class="boxed-home-streak" aria-live="polite">
         {#if $streakCount > 0}
-          {$streakCount === 1
-            ? m.text_stats_day_count({ count: String($streakCount) })
-            : m.text_stats_days_count({ count: String($streakCount) })}
-          {m.text_stats_watching_streak()}
+          {toStreakLabel($streakCount)}
         {/if}
       </span>
     </header>
