@@ -5,16 +5,21 @@
   import { map } from "rxjs";
   import ListCardGrid from "./ListCardGrid.svelte";
 
+  const POPULAR_COUNT = 6;
+
   const { list, isLoading } = useTrendingSearchesList("lists");
   const lists = list.pipe(
     map(($list) =>
-      $list.filter((item): item is MediaListSummary => "posters" in item)
+      $list
+        .filter((item): item is MediaListSummary => "posters" in item)
+        .slice(0, POPULAR_COUNT)
     ),
   );
 </script>
 
 <ListCardGrid
   lists={$isLoading ? null : $lists}
-  skeletonCount={6}
+  skeletonCount={POPULAR_COUNT}
+  reserveItems={POPULAR_COUNT}
   emptyText={m.text_placeholder_generic()}
 />
