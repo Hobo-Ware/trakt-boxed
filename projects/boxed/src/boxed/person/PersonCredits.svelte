@@ -11,6 +11,7 @@
   import { resolveSelectedPosition } from "$lib/sections/lists/utils/resolveSelectedPosition.ts";
   import { toTranslatedPosition } from "$lib/utils/formatting/string/toTranslatedPosition.ts";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
+  import PillSwitch from "../components/PillSwitch.svelte";
   import PosterGrid from "../poster/PosterGrid.svelte";
   import TitleTabs from "../title/TitleTabs.svelte";
   import { whileVisible } from "../utils/whileVisible.ts";
@@ -135,27 +136,23 @@
   </div>
 
   <div class="boxed-person-toolbar">
-    <div class="boxed-person-type" role="radiogroup">
-      <button
-        type="button"
-        role="radio"
-        aria-checked={type === "movie"}
-        class:is-active={type === "movie"}
-        onclick={() => setParam("credits", "movies")}
-      >
-        {m.button_text_movies()}
-        <span class="boxed-person-type-count">{isLoading ? "" : movieCount}</span>
-      </button>
-      <button
-        type="button"
-        role="radio"
-        aria-checked={type === "show"}
-        class:is-active={type === "show"}
-        onclick={() => setParam("credits", "shows")}
-      >
-        {m.button_text_shows()}
-        <span class="boxed-person-type-count">{isLoading ? "" : showCount}</span>
-      </button>
+    <div class="boxed-person-type">
+      <PillSwitch
+        options={[
+          {
+            value: "movie",
+            label: m.button_text_movies(),
+            count: isLoading ? "" : String(movieCount),
+          },
+          {
+            value: "show",
+            label: m.button_text_shows(),
+            count: isLoading ? "" : String(showCount),
+          },
+        ]}
+        value={type}
+        onChange={(next) => setParam("credits", next === "movie" ? "movies" : "shows")}
+      />
     </div>
 
     <RenderFor audience="authenticated">
@@ -278,50 +275,6 @@
         justify-self: end;
       }
     }
-  }
-
-  .boxed-person-type {
-    display: inline-flex;
-    gap: var(--ni-2);
-    padding: var(--ni-4);
-    border-radius: var(--border-radius-xxl);
-    background: var(--color-input-background);
-    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
-
-    button {
-      height: var(--ni-32);
-      padding-inline: var(--ni-16);
-      display: inline-flex;
-      align-items: center;
-      gap: var(--ni-6);
-      border: none;
-      border-radius: var(--border-radius-xxl);
-      background: transparent;
-      color: var(--color-text-secondary);
-      font: inherit;
-      font-size: var(--ni-14);
-      font-weight: 600;
-      cursor: pointer;
-
-      &.is-active {
-        background: var(--color-text-primary);
-        color: var(--color-background);
-      }
-
-      &:focus-visible {
-        outline: var(--border-thickness-xs) solid var(--color-link-active);
-        outline-offset: var(--ni-2);
-      }
-    }
-  }
-
-  .boxed-person-type-count {
-    min-width: 2.8em;
-    font-family: "Roboto Mono", monospace;
-    font-size: var(--ni-11);
-    font-weight: 500;
-    text-align: start;
-    opacity: 0.7;
   }
 
   .boxed-person-seen {

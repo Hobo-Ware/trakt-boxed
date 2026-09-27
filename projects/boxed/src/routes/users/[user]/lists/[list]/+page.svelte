@@ -6,6 +6,7 @@
   import PosterGrid from "$boxed/poster/PosterGrid.svelte";
   import type { PosterMedia } from "$boxed/poster/PosterMedia.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
+  import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { useDiscover } from "$lib/features/filters/useDiscover.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
@@ -50,6 +51,10 @@
     ) ?? null,
   );
 
+  const { user } = useUser();
+  const isOwner = $derived(Boolean($list && $user?.slug === $list.user.slug));
+  const listHref = $derived(UrlBuilder.users(params.user).lists(params.list));
+
   const isRanked = $derived($list?.sortBy === "rank");
   const isMissing = $derived(!$isLoading && $list == null);
 </script>
@@ -92,6 +97,11 @@
           {#if $list}{m.label_list_item_count({ count: $list.count })}{/if}
         </span>
         <div class="boxed-list-actions">
+          {#if $list && isOwner}
+            <a class="boxed-list-edit" href={`${listHref}/edit`}>
+              {m.button_text_edit_list()}
+            </a>
+          {/if}
           {#if $list}<ListActions list={$list} />{/if}
           <ModeSwitch />
         </div>
@@ -171,24 +181,65 @@
   }
 
   .boxed-list-bar {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "bar";
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: var(--gap-m);
+
+    > * {
+      grid-area: bar;
+    }
+
+    @include for-mobile {
+      grid-template-areas:
+        "meta"
+        "actions";
+      gap: var(--gap-s);
+
+      .boxed-list-meta {
+        grid-area: meta;
+      }
+
+      .boxed-list-actions {
+        grid-area: actions;
+      }
+    }
     padding-bottom: var(--ni-12);
     border-bottom: var(--border-thickness-xxs) solid var(--color-border);
   }
 
   .boxed-list-meta {
+    justify-self: start;
+    min-height: 1.4em;
+    line-height: 1.4;
     font-size: var(--ni-14);
     color: var(--color-text-secondary);
   }
 
   .boxed-list-actions {
+    justify-self: stretch;
+    min-height: var(--ni-44);
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: var(--gap-s);
+  }
+
+  .boxed-list-edit {
+    @include for-mobile {
+      display: none;
+    }
+
+    height: var(--ni-32);
+    padding-inline: var(--ni-14);
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--border-radius-s);
+    background: var(--color-input-background);
+    color: var(--color-text-primary);
+    font-size: var(--ni-14);
+    font-weight: 600;
+    text-decoration: none;
   }
 
   .boxed-list-rank {
