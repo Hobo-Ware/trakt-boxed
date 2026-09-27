@@ -131,61 +131,7 @@ Run the following command:
 ## Dependency Updates
 
 We use [`npm-check-updates`](https://github.com/raineorshine/npm-check-updates)
-(`ncu`) to drive package bumps. Two GitHub workflows automate the recurring
-work; the manual recipes below stay around for ad-hoc runs.
-
-### Automated Flows
-
-Both workflows live under `.github/workflows/` and can be triggered from the
-Actions tab via `workflow_dispatch`.
-
-Both flows enumerate candidates with `ncu --jsonUpgraded`, then run
-`.github/scripts/ncu-bisect.sh` to find the largest green subset.
-
-**Bisection strategy (full set first, halve on failure):**
-
-1. **Phase 1 (fast, typecheck-only):** apply the whole candidate set, run
-   `deno install --allow-scripts` + `deno task check`. If green, adopt all. If
-   red, split the set in half and recurse on each half. Singletons that fail are
-   recorded as rejected; everything green stacks on a rolling baseline. Worst
-   case for K candidates with F failures is roughly `F + log2(K)` probes (a
-   clean batch of 30 = 1 probe; F=1 = ~6-9 probes).
-2. **Phase 2 (final tests):** run `deno task test:doctor` (vitest, no coverage,
-   parallel) on the adopted set. If it fails, re-bisect the adopted set with
-   full verify (check + tests) to identify which adopted bump regressed at
-   runtime.
-3. **Phase 3 (build):** run `deno task build:doctor` (vite build with Sentry
-   plugin off, no minify, no sourcemap; validates the module graph compiles
-   end-to-end without network/auth side effects).
-
-Local dry-run on a 30-candidate minor set with 2 failures: 15 probes, ~7.5 min
-wall time (vs. ~60 min for sequential per-package).
-
-`ncu --doctor` is not used: it spawns `npm install --no-save <pkg>@<ver>` per
-candidate, which conflicts with this project's peer-dep state and would not
-actually exercise the deno-managed test runtime even if it succeeded.
-
-i18n is generated once at the start of the workflow (the per-task `pretest` /
-`prebuild` hooks are skipped by the doctor variants).
-
-#### `packages_minor.yml` - Minor & Patch Bumps
-
-- **Cadence:** every Sunday at 18:00 UTC.
-- **Scope:** minor + patch versions (`ncu --target minor`).
-- **On any green:** opens `chore(deps): bump minor & patch versions` PR with
-  reviewers `seferturan` and `vladjerca`. PR body lists adopted + reverted.
-- **On nothing green:** no PR; reverted set surfaces in the workflow log.
-
-#### `packages_major.yml` - Major Bumps
-
-- **Cadence:** first Sunday of each month at 19:00 UTC (cron gates by
-  day-of-month).
-- **Scope:** major-version diffs only (`ncu --target latest` minus the
-  `--target minor` set).
-- **On any green:** opens `chore(deps): bump major versions` PR, listing
-  adopted + skipped.
-- **On any red:** opens a companion issue assigned to `seferturan` with the
-  reverted packages and the last 80 log lines per package.
+(`ncu`) to drive package bumps.
 
 ### Manual Recipes
 

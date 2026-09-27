@@ -1,4 +1,4 @@
-name: The Grand Inquisition and Divine Deployment aka CI/CD
+name: The Grand Inquisition aka CI
 
 on:
   push:
@@ -68,21 +68,6 @@ jobs:
       - name: Verifying the Scribe's Precision aka Format Check
         working-directory: projects/boxed
         run: deno fmt --check src i18n/meta i18n/messages/en.json
-
-  localize:
-    needs: files-changed
-    if: ${{
-      github.ref == 'refs/heads/main' &&
-      github.head_ref != 'i18n_crowdin_updates' &&
-      needs.files-changed.outputs.i18n_source == 'true'
-      }}
-    name: Release the Translation Fiends (Localize)
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger Localize Workflow
-        run: gh workflow run i18n_translate.yml --ref main --repo ${{ github.repository }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   i18n-check:
     needs: files-changed
@@ -226,14 +211,6 @@ jobs:
         working-directory: projects/boxed
         run: 'deno run -A npm:vitest --merge-reports .vitest-reports --coverage'
 
-      - name: Trial by Deep Source
-        uses: deepsourcelabs/test-coverage-action@master
-        continue-on-error: true
-        with:
-          key: javascript
-          coverage-file: ${{github.workspace}}/projects/boxed/coverage/lcov.info
-          dsn: ${{ secrets.DEEPSOURCE_DSN }}
-
   e2e:
     needs: files-changed
     if: ${{
@@ -301,17 +278,15 @@ jobs:
     name: The Forge (Build)
     runs-on: ubuntu-latest
     concurrency:
-      group: ci-${{ github.ref }}
+      group: build-${{ github.ref }}
       cancel-in-progress: true
     needs: [test-gate, typecheck]
     permissions:
       contents: read
-      deployments: write
     if: |
       always() &&
       needs.test-gate.result == 'success' &&
-      needs.typecheck.result == 'success' &&
-      github.ref == 'refs/heads/main'
+      needs.typecheck.result == 'success'
 
     steps:
       - name: Secure the Evidence aka Checkout Code
@@ -323,54 +298,3 @@ jobs:
       - name: Weaving the Digital Tapestry aka Build
         working-directory: projects/boxed
         run: 'deno task build'
-        env:
-          TRAKT_CLIENT_ID: ${{ secrets.TRAKT_CLIENT_ID }}
-          KLIPY_API_KEY: ${{ secrets.KLIPY_API_KEY }}
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-
-      # Add this new step to copy the .npmrc file
-      - name: The Ancient Scroll of JSR aka Copy .npmrc
-        run: |
-          cp .npmrc projects/boxed/
-          echo "THE SCROLL OF KNOWLEDGE HAS BEEN TRANSCRIBED:"
-          cat projects/boxed/.npmrc
-
-      - name: Awaken the Node Ancient (Setup Node 22 for Wrangler)
-        uses: actions/setup-node@v6
-        with:
-          node-version: '22'
-
-      - name: Divining the Commit Runes aka Extract Short SHA
-        id: vars
-        run: echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
-      - name: Sync Immutable Chunks to R2 (deploy-retention pool)
-        working-directory: projects/boxed
-        run: 'deno task sync:immutable'
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          RELEASE_SHA: ${{ steps.vars.outputs.short_sha }}
-        continue-on-error: true
-
-      - name: Prune Old Releases from R2 (last 10 or last 24h, whichever is larger)
-        working-directory: projects/boxed
-        run: 'deno task prune:immutable'
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          KEEP_RELEASES: '10'
-          MIN_AGE_HOURS: '24'
-        continue-on-error: true
-
-      - name: Invoking the Cloudflare Spirits
-        if: github.ref == 'refs/heads/main'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: projects/boxed
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          command: deploy --message "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" --tag "${{ steps.vars.outputs.short_sha }}"
