@@ -2,7 +2,6 @@ import type { YirDetail } from '$lib/requests/models/YirDetail.ts';
 import type { UserStats } from '$lib/requests/models/UserStats.ts';
 import { describe, expect, it } from 'vitest';
 import { parseStatsYear } from './parseStatsYear.ts';
-import { toCountryName } from './toCountryName.ts';
 import { toDecades } from './toDecades.ts';
 import { toHighestRated } from './toHighestRated.ts';
 import { toMilestones } from './toMilestones.ts';
@@ -197,12 +196,5 @@ describe('util: toMilestones', () => {
       'show',
     ]);
     expect(milestones.at(0)?.detail).toBe('2026');
-  });
-});
-
-describe('util: toCountryName', () => {
-  it('should resolve region names and fall back to the code', () => {
-    expect(toCountryName('us', 'en')).toBe('United States');
-    expect(toCountryName('', 'en')).toBe('');
   });
 });

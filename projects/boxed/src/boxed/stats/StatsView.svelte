@@ -15,6 +15,7 @@
   import { useYirDetail } from "$lib/sections/yir/useYirDetail.ts";
   import { formatDecimal } from "$lib/utils/format/formatDecimal";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
+  import { toCountryName } from "$lib/utils/formatting/intl/toCountryName.ts";
   import { toTranslatedGenre } from "$lib/utils/formatting/string/toTranslatedGenre.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import { of } from "rxjs";
@@ -26,7 +27,6 @@
   import StatsTotals from "./StatsTotals.svelte";
   import TopPeople from "./TopPeople.svelte";
   import { parseStatsYear } from "./_internal/parseStatsYear.ts";
-  import { toCountryName } from "./_internal/toCountryName.ts";
   import { toDecades } from "./_internal/toDecades.ts";
   import { toHighestRated } from "./_internal/toHighestRated.ts";
   import { toMilestones } from "./_internal/toMilestones.ts";
