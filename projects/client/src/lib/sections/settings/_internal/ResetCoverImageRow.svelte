@@ -4,7 +4,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
   import SettingsRowControl from "./SettingsRowControl.svelte";
-  import { useResetCoverImage } from "./useResetCoverImage.ts";
+  import { useResetCoverImage } from "../useResetCoverImage.ts";
 
   const { resetCoverImage, hasCoverImage, isResettingCoverImage } =
     useResetCoverImage();

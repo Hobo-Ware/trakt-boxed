@@ -16,7 +16,7 @@
   import SettingInputDrawer from "./_internal/SettingInputDrawer.svelte";
   import SettingsGroupCard from "./_internal/SettingsGroupCard.svelte";
   import SettingsGroupRow from "./_internal/SettingsGroupRow.svelte";
-  import { useSettings } from "./_internal/useSettings.ts";
+  import { useSettings } from "./useSettings.ts";
 
   const { profile, email, isSavingSettings } = useSettings();
 
