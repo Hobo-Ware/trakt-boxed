@@ -52,7 +52,7 @@
     }
 
     &[data-state="airing"] {
-      --status-color: var(--boxed-color-watched);
+      --status-color: var(--boxed-color-watched-text);
     }
   }
 </style>

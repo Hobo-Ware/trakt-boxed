@@ -438,7 +438,7 @@
     }
 
     &.is-watched {
-      color: var(--boxed-color-watched);
+      color: var(--boxed-color-watched-text);
     }
 
     &.is-selected {
@@ -467,6 +467,7 @@
 
     border-radius: var(--border-radius-m);
     background: var(--color-input-background);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
 
     button {
       height: var(--ni-32);
@@ -482,6 +483,7 @@
       &.is-active {
         background: var(--color-card-background);
         color: var(--color-text-primary);
+        box-shadow: 0 0 0 var(--border-thickness-xxs) var(--color-border);
       }
     }
   }

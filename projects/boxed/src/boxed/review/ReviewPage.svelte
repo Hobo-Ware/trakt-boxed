@@ -449,7 +449,7 @@
     :global(svg) {
       width: var(--ni-16);
       height: var(--ni-16);
-      color: var(--boxed-color-liked);
+      color: var(--boxed-color-liked-text);
     }
   }
 

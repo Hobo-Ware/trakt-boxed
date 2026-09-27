@@ -205,6 +205,6 @@
     display: inline-flex;
     align-items: center;
     gap: var(--ni-4);
-    color: var(--boxed-color-liked);
+    color: var(--boxed-color-liked-text);
   }
 </style>

@@ -123,15 +123,15 @@
     }
 
     &[data-state="watched"] {
-      color: var(--boxed-color-watched);
+      color: var(--boxed-color-watched-text);
     }
 
     &[data-state="liked"] {
-      color: var(--boxed-color-liked);
+      color: var(--boxed-color-liked-text);
     }
 
     &[data-state="watchlist"] {
-      color: var(--boxed-color-watchlist);
+      color: var(--boxed-color-watchlist-text);
     }
 
     &:disabled {

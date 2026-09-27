@@ -98,7 +98,7 @@
     text-overflow: ellipsis;
   }
 
-  .nav-vip {
+  .boxed-settings-nav .nav-vip {
     padding: var(--ni-2) var(--ni-6);
     border-radius: var(--border-radius-xxl);
     background: var(--purple-500);

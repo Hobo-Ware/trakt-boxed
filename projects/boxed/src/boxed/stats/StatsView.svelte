@@ -475,7 +475,7 @@
     }
 
     .legend-episodes::before {
-      background: var(--purple-600);
+      background: var(--boxed-color-accent-fill-alt);
     }
   }
 
@@ -515,6 +515,7 @@
 
       &.is-active {
         background: var(--color-input-background);
+        box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
         color: var(--color-text-primary);
       }
     }
@@ -549,7 +550,7 @@
     background: radial-gradient(
       120% 120% at 100% 0%,
       color-mix(in srgb, var(--purple-500) 55%, var(--color-card-background)),
-      color-mix(in srgb, var(--purple-900) 60%, var(--color-card-background))
+      color-mix(in srgb, var(--boxed-color-accent-wash) 60%, var(--color-card-background))
         55%,
       var(--color-card-background) 100%
     );

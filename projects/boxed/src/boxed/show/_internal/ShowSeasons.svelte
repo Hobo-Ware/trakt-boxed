@@ -183,7 +183,7 @@
     height: var(--ni-16);
 
     font-size: var(--ni-12);
-    color: var(--boxed-color-star);
+    color: var(--boxed-color-star-text);
   }
 
   .boxed-show-season-meta,
@@ -200,7 +200,7 @@
     margin-top: auto;
 
     .is-complete & {
-      color: var(--boxed-color-watched);
+      color: var(--boxed-color-watched-text);
     }
 
     &.is-hidden {

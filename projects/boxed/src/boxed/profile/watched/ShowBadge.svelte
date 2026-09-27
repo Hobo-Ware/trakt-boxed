@@ -55,13 +55,13 @@
 
     &[data-type="completed"] {
       background: color-mix(in srgb, var(--boxed-color-watched) 16%, transparent);
-      color: var(--boxed-color-watched);
+      color: var(--boxed-color-watched-text);
       font-family: inherit;
     }
 
     &[data-type="dropped"] {
       background: color-mix(in srgb, var(--boxed-color-liked) 16%, transparent);
-      color: var(--boxed-color-liked);
+      color: var(--boxed-color-liked-text);
       font-family: inherit;
     }
   }

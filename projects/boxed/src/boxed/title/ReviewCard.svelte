@@ -225,7 +225,7 @@
     :global(svg) {
       width: var(--ni-12);
       height: var(--ni-12);
-      color: var(--boxed-color-liked);
+      color: var(--boxed-color-liked-text);
     }
   }
 

@@ -157,7 +157,7 @@
 
   .boxed-show-progress-left {
     font-size: inherit;
-    color: var(--boxed-color-watched);
+    color: var(--boxed-color-watched-text);
   }
 
   .boxed-show-progress-bar {

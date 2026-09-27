@@ -31,7 +31,7 @@
 
   .entry-liked {
     display: flex;
-    color: var(--boxed-color-liked);
+    color: var(--boxed-color-liked-text);
 
     :global(svg) {
       width: var(--ni-12);
