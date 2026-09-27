@@ -29,9 +29,33 @@ projects/boxed/src/
     pages/         # Page-specific logic and error pages
     paraglide/     # Generated i18n messages (do not edit - auto-generated)
     pwa/           # PWA manifest and service worker config
+  boxed/           # trakt boxed UI layer (presentation only, built on lib/)
   style/           # Global SCSS - design tokens, theme, animations
   mocks/           # MSW request mocking (handlers + test data)
 ```
+
+## Boxed shared pieces
+
+`src/lib` is the upstream trakt-web layer and stays unchanged; boxed UI lives in
+`src/boxed`. Before hand-writing one of these idioms in a boxed module, reach
+for the shared piece:
+
+| Need                                       | Use                                                                                |
+| ------------------------------------------ | ---------------------------------------------------------------------------------- |
+| "Nothing here" block on a tab or grid      | `$boxed/components/EmptyState.svelte`                                              |
+| Section that loads when scrolled into view | `$boxed/components/LazySection.svelte` / `InView`                                  |
+| Infinite "load more" trigger               | `$boxed/components/LoadMore.svelte`                                                |
+| Poster grid with first load, empty, paging | `$boxed/poster/PagedPosterGrid.svelte`                                             |
+| Movie or show media action target          | `$boxed/poster/toMediaTarget.ts`                                                   |
+| Title or season poster frame               | `$boxed/title/PosterFrame.svelte`                                                  |
+| Film and show summary chips and facts      | `$boxed/title/to{Cast,Crew,Genre}Chips.ts`, `toCommonFacts.ts`, `toRuntimeMeta.ts` |
+| Link with one search param changed         | `$boxed/utils/withSearchParams.ts`                                                 |
+| Profile, reviews page, season links        | `$boxed/utils/to{Profile,Reviews,Season}Href.ts`                                   |
+| 0 to 1 community rating as a 5 star score  | `$boxed/utils/toStarAverage.ts`                                                    |
+| Rating of a session of episode plays       | `$boxed/utils/toPlaysRating.ts`                                                    |
+| "3 hours ago" labels                       | `$boxed/utils/toTimeAgo.ts`                                                        |
+| Serif page `h1`                            | `@include boxed-page-title` from `$style` mixins                                   |
+| Monospace text                             | `var(--boxed-font-mono)`                                                           |
 
 ## Commit Standards
 
