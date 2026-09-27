@@ -4,6 +4,7 @@
   import { useShare } from "$lib/components/buttons/share/useShare.ts";
   import { useActionToast } from "$lib/features/action-toast/useActionToast.ts";
   import * as m from "$lib/features/i18n/messages.ts";
+  import { copyToClipboard } from "$lib/utils/clipboard/copyToClipboard.ts";
   import { PREFETCH_SHARE_PARAM } from "$lib/utils/requests/shouldPrefetch.ts";
   import ActionRow from "./ActionRow.svelte";
 
@@ -25,7 +26,11 @@
       return;
     }
 
-    await navigator.clipboard?.writeText(data.url);
+    const copied = await copyToClipboard(data.url)
+      .then(() => true)
+      .catch(() => false);
+    if (!copied) return;
+
     notify({ message: m.button_label_copied() });
   };
 </script>
