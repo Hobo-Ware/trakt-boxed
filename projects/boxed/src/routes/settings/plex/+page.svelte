@@ -1,8 +1,5 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../client/src/routes/settings/plex/+page.svelte";
-
-  const props = $props();
+  import PlexSettings from "$lib/sections/settings/PlexSettings.svelte";
 </script>
 
-<Legacy {...props} />
+<PlexSettings />

@@ -1,8 +1,5 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../../client/src/routes/settings/apps/connected/+page.svelte";
-
-  const props = $props();
+  import ConnectedAppsSettings from "$lib/sections/settings/ConnectedAppsSettings.svelte";
 </script>
 
-<Legacy {...props} />
+<ConnectedAppsSettings />

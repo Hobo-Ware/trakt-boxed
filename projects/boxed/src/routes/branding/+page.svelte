@@ -1,8 +1,17 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../client/src/routes/branding/+page.svelte";
-
-  const props = $props();
+  import SerifHeadings from "$boxed/static/SerifHeadings.svelte";
+  import * as m from "$lib/features/i18n/messages.ts";
+  import Branding from "$lib/sections/branding/Branding.svelte";
+  import TraktPage from "$lib/sections/layout/TraktPage.svelte";
+  import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
 </script>
 
-<Legacy {...props} />
+<TraktPage
+  audience="all"
+  image={DEFAULT_SHARE_COVER}
+  title={m.page_title_branding()}
+>
+  <SerifHeadings>
+    <Branding />
+  </SerifHeadings>
+</TraktPage>

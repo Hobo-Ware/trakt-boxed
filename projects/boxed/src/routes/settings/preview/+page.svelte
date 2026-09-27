@@ -1,8 +1,5 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../client/src/routes/settings/preview/+page.svelte";
-
-  const props = $props();
+  import PreviewFeatures from "$lib/sections/settings/PreviewFeatures.svelte";
 </script>
 
-<Legacy {...props} />
+<PreviewFeatures />

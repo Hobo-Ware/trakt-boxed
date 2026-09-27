@@ -1,8 +1,5 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../client/src/routes/settings/+page.svelte";
-
-  const props = $props();
+  import ProfileForm from "$boxed/settings/ProfileForm.svelte";
 </script>
 
-<Legacy {...props} />
+<ProfileForm />
