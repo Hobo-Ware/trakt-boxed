@@ -5,7 +5,7 @@ import { map, type Observable } from 'rxjs';
 import { assertDefined } from '../../../../utils/assert/assertDefined.ts';
 import {
   getListUrl,
-} from '../../components/list-summary/_internal/getListUrl.ts';
+} from '../../components/list-summary/getListUrl.ts';
 import {
   LIST_SORT_OPTIONS,
   WATCHLIST_SORT_OPTIONS,

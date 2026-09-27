@@ -6,7 +6,7 @@
   import ListMeta from "$lib/sections/lists/components/ListMeta.svelte";
   import { useListItems } from "$lib/sections/lists/user/useListItems";
   import type { Snippet } from "svelte";
-  import { getListUrl } from "../components/list-summary/_internal/getListUrl";
+  import { getListUrl } from "../components/list-summary/getListUrl";
   import DrillableMediaList from "../drilldown/DrillableMediaList.svelte";
   import UserListItem from "./_internal/UserListItem.svelte";
   import ListActions from "./ListActions.svelte";
