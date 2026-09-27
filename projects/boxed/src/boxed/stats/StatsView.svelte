@@ -565,7 +565,6 @@
   }
 
   .stats-review-title {
-    font-family: var(--boxed-font-title);
     font-size: var(--ni-30);
     font-weight: 600;
     line-height: 1.15;
@@ -588,7 +587,6 @@
   }
 
   .stats-upsell-title {
-    font-family: var(--boxed-font-title);
     font-size: var(--ni-22);
     font-weight: 600;
     color: var(--color-text-primary);

@@ -427,7 +427,6 @@
     h1,
     :global(.shadow-list-title) {
       margin: 0;
-      font-family: var(--boxed-font-title);
       font-size: var(--ni-24);
       font-weight: 600;
       line-height: 1.2;

@@ -61,7 +61,6 @@
     border-inline-start: var(--border-thickness-xs) solid
       var(--boxed-color-accent-fill);
 
-    font-family: var(--boxed-font-title);
     font-size: var(--ni-18);
     font-style: italic;
     line-height: 1.45;
