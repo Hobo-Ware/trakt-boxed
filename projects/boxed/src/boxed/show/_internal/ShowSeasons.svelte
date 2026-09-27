@@ -9,7 +9,7 @@
   import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
   import SectionHeader from "../../components/SectionHeader.svelte";
-  import { toSeasonHref } from "./toSeasonHref.ts";
+  import { toSeasonHref } from "$boxed/utils/toSeasonHref.ts";
   import { toSeasonStrip } from "./toSeasonStrip.ts";
 
   const STAR_SCALE = 5;

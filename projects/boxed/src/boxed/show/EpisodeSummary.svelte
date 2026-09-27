@@ -36,7 +36,7 @@
   import SeasonEpisodeStrip from "./_internal/SeasonEpisodeStrip.svelte";
   import { toAdjacentEpisodes } from "./_internal/toAdjacentEpisodes.ts";
   import { toEpisodeTypeLabel } from "./_internal/toEpisodeTypeLabel.ts";
-  import { toSeasonHref } from "./_internal/toSeasonHref.ts";
+  import { toSeasonHref } from "$boxed/utils/toSeasonHref.ts";
 
   const DIRECTOR_PREVIEW = 2;
 

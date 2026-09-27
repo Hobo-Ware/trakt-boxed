@@ -23,4 +23,13 @@ describe('util: toReviewHrefs', () => {
     expect(hrefs.title).toBe('/shows/severance/seasons/1/episodes/2');
     expect(hrefs.reviews).toBeNull();
   });
+
+  it('should link a season review to the season page', () => {
+    const hrefs = toReviewHrefs({
+      commentId: 9,
+      target: { type: 'season', slug: 'severance', season: 2 },
+    });
+
+    expect(hrefs.title).toBe('/shows/severance/seasons/2');
+  });
 });

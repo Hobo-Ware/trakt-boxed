@@ -2,7 +2,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import type { Season } from "$lib/requests/models/Season.ts";
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
-  import { toSeasonHref } from "./toSeasonHref.ts";
+  import { toSeasonHref } from "$boxed/utils/toSeasonHref.ts";
   import { toSeasonStrip } from "./toSeasonStrip.ts";
 
   type SeasonSwitcherProps = {

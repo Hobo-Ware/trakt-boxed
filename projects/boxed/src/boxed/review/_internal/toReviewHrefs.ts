@@ -1,3 +1,4 @@
+import { toSeasonHref } from '$boxed/utils/toSeasonHref.ts';
 import { directCommentTargetUrl } from '$lib/sections/summary/directCommentTargetUrl.ts';
 import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
 import type { ReviewTarget } from '../ReviewTarget.ts';
@@ -15,7 +16,7 @@ const toTitleHref = (target: ReviewTarget) => {
     case 'show':
       return UrlBuilder.show(target.slug);
     case 'season':
-      return UrlBuilder.show(target.slug, { season: target.season });
+      return toSeasonHref(target.slug, target.season);
     case 'episode':
       return UrlBuilder.episode(target.slug, target.season, target.episode);
   }
