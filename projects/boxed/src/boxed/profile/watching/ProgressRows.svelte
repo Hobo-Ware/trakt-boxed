@@ -135,6 +135,7 @@
       font-family: var(--boxed-font-title);
       font-size: var(--ni-18);
       font-weight: 600;
+      line-height: var(--ni-24);
       color: var(--color-text-primary);
       text-decoration: none;
       overflow: hidden;
@@ -146,6 +147,7 @@
   .progress-sub,
   .progress-date {
     font-size: var(--ni-12);
+    line-height: var(--ni-16);
     color: var(--color-text-secondary);
   }
 
@@ -180,6 +182,7 @@
   .progress-count {
     font-family: "Roboto Mono", monospace;
     font-size: var(--ni-12);
+    line-height: var(--ni-16);
     color: var(--color-text-secondary);
   }
 
