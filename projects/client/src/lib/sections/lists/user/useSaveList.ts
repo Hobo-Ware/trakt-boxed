@@ -5,7 +5,7 @@ import { useMutation } from '$lib/features/query/useMutation.ts';
 import { InvalidateAction } from '$lib/requests/models/InvalidateAction.ts';
 import type { ListPrivacy } from '$lib/requests/models/ListPrivacy.ts';
 import { createListRequest } from '$lib/requests/queries/users/createListRequest.ts';
-import { updateListRequest } from '../../../../requests/queries/users/updateListRequest.ts';
+import { updateListRequest } from '../../../requests/queries/users/updateListRequest.ts';
 
 type SaveListProps = {
   name: string;
