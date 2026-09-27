@@ -66,8 +66,7 @@
     display: inline;
     position: relative;
 
-    :global(p),
-    :global(span) {
+    :global(:where(p, span)) {
       color: inherit;
     }
 
