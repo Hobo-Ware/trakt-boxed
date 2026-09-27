@@ -1,18 +1,18 @@
 <script lang="ts">
   import Link from "$lib/components/link/Link.svelte";
-  import Logo from "$lib/components/logo/Logo.svelte";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
+  import BoxedLogo from "../brand/BoxedLogo.svelte";
   import PosterWall from "../static/PosterWall.svelte";
 
   const { user } = useUser();
 
   const heading = $derived(
     $user?.username
-      ? m.welcome_greeting({ name: toDisplayableName($user) })
-      : m.welcome_greeting_generic(),
+      ? m.boxed_welcome_greeting({ name: toDisplayableName($user) })
+      : m.boxed_welcome_greeting_generic(),
   );
 </script>
 
@@ -21,7 +21,7 @@
 
   <header class="hero-bar">
     <Link href={UrlBuilder.home()} label={m.page_title_home()} color="inherit">
-      <Logo />
+      <BoxedLogo />
     </Link>
     <a class="hero-skip" href={UrlBuilder.home()}>{m.boxed_welcome_skip()}</a>
   </header>
@@ -74,11 +74,7 @@
       text-decoration: none;
     }
 
-    :global(svg) {
-      display: block;
-      height: var(--ni-28);
-      width: auto;
-    }
+    --boxed-logo-size: var(--ni-24);
 
     @include for-mobile {
       height: var(--ni-56);

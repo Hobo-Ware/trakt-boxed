@@ -1,15 +1,66 @@
 <script lang="ts">
   import PopupMenu from "$lib/components/buttons/popup/PopupMenu.svelte";
+  import LogoutButton from "$lib/components/buttons/logout/LogoutButton.svelte";
   import DropdownItem from "$lib/components/dropdown/DropdownItem.svelte";
-  import ClockIcon from "$lib/components/icons/ClockIcon.svelte";
-  import GearIcon from "$lib/components/icons/GearIcon.svelte";
-  import LibraryIcon from "$lib/components/icons/LibraryIcon.svelte";
   import { useUser } from "$lib/features/auth/stores/useUser";
   import * as m from "$lib/features/i18n/messages.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import ProfileImage from "$lib/sections/profile-banner/ProfileImage.svelte";
 
+  type MenuLink = {
+    key: string;
+    href: string;
+    text: string;
+  };
+
   const { user } = useUser();
+
+  const profileHref = UrlBuilder.profile.me();
+
+  const links: ReadonlyArray<MenuLink> = [
+    { key: "profile", href: profileHref, text: m.page_title_profile() },
+    {
+      key: "diary",
+      href: `${profileHref}/diary`,
+      text: m.boxed_profile_tab_diary(),
+    },
+    {
+      key: "watching",
+      href: `${profileHref}/watching`,
+      text: m.boxed_profile_tab_watching(),
+    },
+    {
+      key: "watchlist",
+      href: `${profileHref}/watchlist`,
+      text: m.page_title_watchlist(),
+    },
+    {
+      key: "lists",
+      href: `${profileHref}/lists`,
+      text: m.page_title_lists(),
+    },
+    {
+      key: "likes",
+      href: UrlBuilder.profile.favorites("me"),
+      text: m.boxed_profile_tab_likes(),
+    },
+    {
+      key: "network",
+      href: UrlBuilder.profile.social("me"),
+      text: m.header_network(),
+    },
+    {
+      key: "stats",
+      href: `${profileHref}/stats`,
+      text: m.boxed_profile_tab_stats(),
+    },
+    {
+      key: "settings",
+      href: UrlBuilder.settings.general(),
+      text: m.button_text_settings(),
+    },
+    { key: "vip", href: UrlBuilder.vip(), text: m.boxed_menu_vip() },
+  ];
 </script>
 
 {#snippet avatar()}
@@ -30,45 +81,18 @@
     size="normal"
   >
     {#snippet items()}
-      <DropdownItem
-        href={UrlBuilder.profile.me()}
-        label={m.button_label_user_profile()}
-        style="flat"
-        color="default"
-        variant="secondary"
-      >
-        {m.page_title_profile()}
-      </DropdownItem>
-      <DropdownItem
-        href={`${UrlBuilder.profile.me()}/diary`}
-        label={m.button_label_history()}
-        style="flat"
-        color="default"
-        variant="secondary"
-      >
-        {m.page_title_history()}
-        {#snippet icon()}<ClockIcon />{/snippet}
-      </DropdownItem>
-      <DropdownItem
-        href={UrlBuilder.library.home()}
-        label={m.button_label_library()}
-        style="flat"
-        color="default"
-        variant="secondary"
-      >
-        {m.page_title_library()}
-        {#snippet icon()}<LibraryIcon />{/snippet}
-      </DropdownItem>
-      <DropdownItem
-        href={UrlBuilder.settings.general()}
-        label={m.button_label_settings()}
-        style="flat"
-        color="default"
-        variant="secondary"
-      >
-        {m.button_label_settings()}
-        {#snippet icon()}<GearIcon />{/snippet}
-      </DropdownItem>
+      {#each links as link (link.key)}
+        <DropdownItem
+          href={link.href}
+          label={link.text}
+          style="flat"
+          color="default"
+          variant="secondary"
+        >
+          {link.text}
+        </DropdownItem>
+      {/each}
+      <LogoutButton style="dropdown-item" />
     {/snippet}
   </PopupMenu>
 </div>

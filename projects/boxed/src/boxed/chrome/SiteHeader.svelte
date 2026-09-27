@@ -11,6 +11,8 @@
   import PlusIcon from "$lib/components/icons/PlusIcon.svelte";
   import { logComposerStore } from "../log/logComposerStore.ts";
   import AccountMenu from "./AccountMenu.svelte";
+  import HeaderSearch from "./HeaderSearch.svelte";
+  import WatchingNowPill from "./WatchingNowPill.svelte";
   import { isChromelessPath } from "./_internal/isChromelessPath.ts";
   import { siteSectionFor, type SiteSection } from "./_internal/siteSectionFor.ts";
 
@@ -42,6 +44,13 @@
       href: "/lists",
       text: m.page_title_lists(),
       label: m.button_label_browse_lists(),
+      audience: "authenticated",
+    },
+    {
+      section: "members",
+      href: "/members",
+      text: m.boxed_nav_members(),
+      label: m.boxed_nav_members_label(),
       audience: "authenticated",
     },
     {
@@ -93,10 +102,17 @@
       {/each}
     </nav>
 
+    <div class="boxed-site-live">
+      <RenderFor audience="authenticated">
+        <WatchingNowPill />
+      </RenderFor>
+    </div>
+
     <div class="boxed-site-actions">
       <RenderFor audience="authenticated">
+        <span class="boxed-wide-only"><HeaderSearch /></span>
         <a
-          class="boxed-icon-link"
+          class="boxed-icon-link boxed-narrow-only"
           href={UrlBuilder.search()}
           aria-label={m.button_label_search()}
         >
@@ -150,9 +166,15 @@
     margin-inline: auto;
     padding-inline: var(--layout-distance-side);
 
+    --boxed-header-gap: var(--gap-xl);
+
     display: flex;
     align-items: center;
-    gap: var(--gap-xl);
+    gap: var(--boxed-header-gap);
+
+    @include for-tablet-sm-and-below {
+      --boxed-header-gap: var(--gap-s);
+    }
   }
 
   .boxed-site-logo {
@@ -202,8 +224,24 @@
     }
   }
 
+  .boxed-site-live {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 0;
+    margin-inline-start: calc(-1 * var(--boxed-header-gap));
+    container-type: inline-size;
+
+    :global(.boxed-watching-pill) {
+      position: absolute;
+      inset-block-start: calc(-1 * var(--ni-14));
+      inset-inline-end: 0;
+      max-width: calc(100% - var(--boxed-header-gap));
+    }
+  }
+
   .boxed-site-actions {
-    margin-inline-start: auto;
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
@@ -234,7 +272,9 @@
   }
 
   .boxed-log-button {
+    min-width: var(--ni-80);
     height: var(--ni-36);
+    justify-content: center;
     padding-inline: var(--ni-12) var(--ni-16);
 
     display: inline-flex;
@@ -265,6 +305,20 @@
     }
 
     @include for-tablet-sm-and-below {
+      display: none;
+    }
+  }
+
+  .boxed-wide-only {
+    display: contents;
+
+    @include for-tablet-lg-and-below {
+      display: none;
+    }
+  }
+
+  .boxed-narrow-only {
+    @include for-desktop {
       display: none;
     }
   }
