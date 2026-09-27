@@ -20,13 +20,13 @@
   import Stars from "../components/Stars.svelte";
   import { toReviewHref } from "../review/toReviewHref.ts";
   import PopularReviews from "../title/PopularReviews.svelte";
+  import PosterFrame from "../title/PosterFrame.svelte";
   import TitleHeader from "../title/TitleHeader.svelte";
   import TitleLayout from "../title/TitleLayout.svelte";
   import TitleSlot from "../title/TitleSlot.svelte";
   import { toAmbientColors } from "$boxed/title/toAmbientColors.ts";
   import SeasonActionCard from "./_internal/SeasonActionCard.svelte";
   import SeasonEpisodes from "./_internal/SeasonEpisodes.svelte";
-  import SeasonPoster from "./_internal/SeasonPoster.svelte";
   import SeasonSwitcher from "./_internal/SeasonSwitcher.svelte";
   import { toSeasonProgress } from "./_internal/toSeasonProgress.ts";
 
@@ -76,12 +76,12 @@
 
 <TitleLayout cover={show.cover.url.medium} ambient={toAmbientColors(show.colors)}>
   {#snippet poster()}
-    <SeasonPoster
+    <PosterFrame
       src={season.poster?.url.medium ?? show.poster.url.medium}
-      title={`${show.title} ${title}`}
+      alt={m.image_alt_media_poster({ title: `${show.title} ${title}` })}
       href={UrlBuilder.show(show.slug)}
-      progress={progress.ratio}
-      isComplete={progress.isComplete}
+      outline={progress.isComplete ? "watched" : "none"}
+      progress={progress.ratio > 0 ? progress.ratio : null}
     />
   {/snippet}
 

@@ -1,38 +1,37 @@
 <script lang="ts">
-  import * as m from "$lib/features/i18n/messages.ts";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
 
-  type SeasonPosterProps = {
+  type PosterFrameProps = {
     src: string;
-    title: string;
-    href: string;
-    progress: number;
-    isComplete: boolean;
+    alt: string;
+    href?: string;
+    outline: "watched" | "watchlist" | "none";
+    progress: number | null;
   };
 
-  const { src, title, href, progress, isComplete }: SeasonPosterProps =
-    $props();
+  const { src, alt, href, outline, progress }: PosterFrameProps = $props();
 </script>
 
-<a class="boxed-season-poster" class:is-complete={isComplete} {href}>
-  <CrossOriginImage
-    {src}
-    alt={m.image_alt_media_poster({ title })}
-    loading="eager"
-  />
-  {#if progress > 0}
+<svelte:element
+  this={href ? "a" : "div"}
+  class="boxed-poster-frame"
+  data-outline={outline}
+  {href}
+>
+  <CrossOriginImage {src} {alt} loading="eager" />
+  {#if progress !== null}
     <span
-      class="boxed-season-poster-progress"
+      class="boxed-poster-frame-progress"
       style:--progress={`${Math.round(progress * 100)}%`}
       aria-hidden="true"
     ></span>
   {/if}
-</a>
+</svelte:element>
 
 <style lang="scss">
   @use "$style/scss/mixins/index" as *;
 
-  .boxed-season-poster {
+  .boxed-poster-frame {
     position: relative;
     display: block;
     width: var(--ni-232);
@@ -46,7 +45,11 @@
       inset 0 0 0 var(--border-thickness-xxs)
         color-mix(in srgb, var(--color-foreground) 8%, transparent),
       0 var(--ni-30) var(--ni-60) calc(-1 * var(--ni-20))
-        color-mix(in srgb, var(--ambient-glow, var(--shade-950)) 55%, transparent);
+        color-mix(
+          in srgb,
+          var(--ambient-glow, var(--shade-950)) 55%,
+          transparent
+        );
 
     :global(img) {
       display: block;
@@ -55,8 +58,12 @@
       object-fit: cover;
     }
 
-    &.is-complete {
+    &[data-outline="watched"] {
       outline: var(--border-thickness-xs) solid var(--boxed-color-watched);
+    }
+
+    &[data-outline="watchlist"] {
+      outline: var(--border-thickness-xs) solid var(--boxed-color-watchlist);
     }
 
     @include for-tablet-lg-and-below {
@@ -64,7 +71,7 @@
     }
   }
 
-  .boxed-season-poster-progress {
+  .boxed-poster-frame-progress {
     position: absolute;
     inset-inline: 0;
     bottom: 0;

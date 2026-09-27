@@ -2,13 +2,13 @@
   import EyeIcon from "$lib/components/icons/EyeIcon.svelte";
   import FavoriteIcon from "$lib/components/icons/FavoriteIcon.svelte";
   import ListIcon from "$lib/components/icons/mobile/ListIcon.svelte";
-  import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
   import { languageTag } from "$lib/features/i18n/index.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { MediaStats } from "$lib/requests/models/MediaStats.ts";
   import { toHumanNumber } from "$lib/utils/formatting/number/toHumanNumber.ts";
   import type { PosterMedia } from "../poster/PosterMedia.ts";
   import { usePosterState } from "../poster/usePosterState.ts";
+  import PosterFrame from "./PosterFrame.svelte";
 
   type TitlePosterProps = {
     media: PosterMedia;
@@ -52,25 +52,13 @@
 </script>
 
 <div class="boxed-title-poster">
-  <svelte:element
-    this={href ? "a" : "div"}
-    class="boxed-title-poster-frame"
-    data-outline={$outline}
+  <PosterFrame
+    src={media.poster.url.medium}
+    alt={m.image_alt_media_poster({ title: media.title })}
     {href}
-  >
-    <CrossOriginImage
-      src={media.poster.url.medium}
-      alt={m.image_alt_media_poster({ title: media.title })}
-      loading="eager"
-    />
-    {#if $progress !== null}
-      <span
-        class="boxed-title-poster-progress"
-        style:--progress={`${Math.round($progress * 100)}%`}
-        aria-hidden="true"
-      ></span>
-    {/if}
-  </svelte:element>
+    outline={$outline}
+    progress={$progress}
+  />
 
   <span class="boxed-title-watched" class:is-visible={watchCount > 0}>
     <EyeIcon />
@@ -98,58 +86,6 @@
     flex-direction: column;
     align-items: center;
     gap: var(--ni-12);
-  }
-
-  .boxed-title-poster-frame {
-    position: relative;
-    display: block;
-    width: var(--ni-232);
-    aspect-ratio: 2 / 3;
-
-    border-radius: var(--border-radius-s);
-    overflow: hidden;
-    background: var(--color-card-background);
-    box-shadow:
-      inset 0 0 0 var(--border-thickness-xxs)
-        color-mix(in srgb, var(--color-foreground) 8%, transparent),
-      0 var(--ni-30) var(--ni-60) calc(-1 * var(--ni-20))
-        color-mix(
-          in srgb,
-          var(--ambient-glow, var(--shade-950)) 55%,
-          transparent
-        );
-
-    :global(img) {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    &[data-outline="watched"] {
-      outline: var(--border-thickness-xs) solid var(--boxed-color-watched);
-    }
-
-    &[data-outline="watchlist"] {
-      outline: var(--border-thickness-xs) solid var(--boxed-color-watchlist);
-    }
-  }
-
-  .boxed-title-poster-progress {
-    position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    height: var(--ni-4);
-    background: color-mix(in srgb, var(--shade-950) 60%, transparent);
-
-    &::after {
-      content: "";
-      position: absolute;
-      inset-block: 0;
-      inset-inline-start: 0;
-      width: var(--progress);
-      background: var(--boxed-color-watched);
-    }
   }
 
   .boxed-title-watched {
@@ -229,10 +165,6 @@
   @include for-tablet-lg-and-below {
     .boxed-title-poster {
       gap: var(--ni-8);
-    }
-
-    .boxed-title-poster-frame {
-      width: var(--ni-104);
     }
 
     .boxed-title-watched {
