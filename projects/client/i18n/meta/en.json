@@ -11143,6 +11143,27 @@
     "boxed_landing_import_text": {
       "default": "Bring your whole history with you. Your diary, ratings and watchlist come across in minutes.",
       "description": "Body of the import card on the landing page."
+    },
+    "boxed_person_known_for": {
+      "default": "Known for {position}",
+      "description": "Eyebrow above a person's name on their page. {position} is a translated department like Acting or Directing.",
+      "variables": {
+        "position": {
+          "type": "string"
+        }
+      }
+    },
+    "boxed_person_seen": {
+      "default": "You've seen {seen} of {total}",
+      "description": "Progress line on a person's page: how many of their credits in the selected department the user has watched.",
+      "variables": {
+        "seen": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
     }
   }
 }
