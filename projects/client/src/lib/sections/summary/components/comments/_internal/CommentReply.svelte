@@ -3,7 +3,7 @@
   import type { MediaEntry } from "$lib/requests/models/MediaEntry";
   import type { CommentTypeProps } from "../CommentsProps";
   import ReactAction from "./comment-actions/ReactAction.svelte";
-  import CommentBody from "./CommentBody.svelte";
+  import CommentBody from "../CommentBody.svelte";
   import CommentFooter from "./CommentFooter.svelte";
   import CommentHeader from "./CommentHeader.svelte";
 
