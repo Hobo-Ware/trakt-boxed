@@ -4,6 +4,7 @@
   import { page } from "$app/state";
   import CoverImage from "$lib/components/background/CoverImage.svelte";
   import CoverProvider from "$lib/components/background/CoverProvider.svelte";
+  import DrawerLinkNavigation from "$lib/components/drawer/DrawerLinkNavigation.svelte";
   import ListScrollHistoryProvider from "$lib/components/lists/section-list/ListScrollHistoryProvider.svelte";
   import ActionToastHost from "$lib/features/action-toast/ActionToastHost.svelte";
   import AnalyticsProvider from "$lib/features/analytics/AnalyticsProvider.svelte";
@@ -106,6 +107,7 @@
                               <CoverProvider>
                                 <ToastProvider>
                                   <ConfirmationProvider>
+                                    <DrawerLinkNavigation />
                                     <MarkAsWatchedDrawerProvider />
                                     <ManageListsDrawerProvider />
                                     <ActionToastHost />
