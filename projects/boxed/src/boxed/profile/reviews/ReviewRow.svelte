@@ -1,5 +1,6 @@
 <script lang="ts">
   import { toReviewHref } from "$boxed/review/toReviewHref.ts";
+  import { toReviewPreview } from "$boxed/review/toReviewPreview.ts";
   import Stars from "$boxed/components/Stars.svelte";
   import FavoriteIcon from "$lib/components/icons/FavoriteIcon.svelte";
   import { getLocale, languageTag } from "$lib/features/i18n/index.ts";
@@ -52,7 +53,7 @@
         </button>
       </p>
     {:else}
-      <a class="review-body" {href}>{comment.comment}</a>
+      <a class="review-body" {href}>{toReviewPreview(comment.comment, "…")}</a>
     {/if}
 
     <p class="review-footer">

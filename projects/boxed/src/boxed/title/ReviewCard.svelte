@@ -10,7 +10,7 @@
   import { toHumanNumber } from "$lib/utils/formatting/number/toHumanNumber.ts";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
   import Stars from "../components/Stars.svelte";
-  import { toReviewPreview } from "./_internal/toReviewPreview.ts";
+  import { toReviewPreview } from "$boxed/review/toReviewPreview.ts";
 
   type ReviewCardProps = {
     comment: MediaComment;
