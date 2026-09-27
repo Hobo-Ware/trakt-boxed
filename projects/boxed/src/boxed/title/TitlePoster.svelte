@@ -14,11 +14,19 @@
     media: PosterMedia;
     watchCount: number;
     stats: MediaStats | Nil;
+    href?: string;
+    hasStats?: boolean;
   };
 
-  const { media, watchCount, stats }: TitlePosterProps = $props();
+  const {
+    media,
+    watchCount,
+    stats,
+    href,
+    hasStats = true,
+  }: TitlePosterProps = $props();
 
-  const { outline } = $derived(usePosterState(media));
+  const { outline, progress } = $derived(usePosterState(media));
 
   const watchedLabel = $derived(
     watchCount > 1
@@ -44,28 +52,42 @@
 </script>
 
 <div class="boxed-title-poster">
-  <div class="boxed-title-poster-frame" data-outline={$outline}>
+  <svelte:element
+    this={href ? "a" : "div"}
+    class="boxed-title-poster-frame"
+    data-outline={$outline}
+    {href}
+  >
     <CrossOriginImage
       src={media.poster.url.medium}
       alt={m.image_alt_media_poster({ title: media.title })}
       loading="eager"
     />
-  </div>
+    {#if $progress !== null}
+      <span
+        class="boxed-title-poster-progress"
+        style:--progress={`${Math.round($progress * 100)}%`}
+        aria-hidden="true"
+      ></span>
+    {/if}
+  </svelte:element>
 
   <span class="boxed-title-watched" class:is-visible={watchCount > 0}>
     <EyeIcon />
     {watchedLabel}
   </span>
 
-  <dl class="boxed-title-stats">
-    {#each statItems as item (item.key)}
-      {@const Icon = item.icon}
-      <div class="boxed-title-stat" data-stat={item.key}>
-        <dt aria-label={item.label}><Icon /></dt>
-        <dd>{item.value == null ? "" : toHumanNumber(item.value, languageTag())}</dd>
-      </div>
-    {/each}
-  </dl>
+  {#if hasStats}
+    <dl class="boxed-title-stats">
+      {#each statItems as item (item.key)}
+        {@const Icon = item.icon}
+        <div class="boxed-title-stat" data-stat={item.key}>
+          <dt aria-label={item.label}><Icon /></dt>
+          <dd>{item.value == null ? "" : toHumanNumber(item.value, languageTag())}</dd>
+        </div>
+      {/each}
+    </dl>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -79,6 +101,8 @@
   }
 
   .boxed-title-poster-frame {
+    position: relative;
+    display: block;
     width: var(--ni-232);
     aspect-ratio: 2 / 3;
 
@@ -108,6 +132,23 @@
 
     &[data-outline="watchlist"] {
       outline: var(--border-thickness-xs) solid var(--boxed-color-watchlist);
+    }
+  }
+
+  .boxed-title-poster-progress {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: var(--ni-4);
+    background: color-mix(in srgb, var(--shade-950) 60%, transparent);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: var(--progress);
+      background: var(--boxed-color-watched);
     }
   }
 
@@ -194,7 +235,24 @@
       width: var(--ni-104);
     }
 
-    .boxed-title-watched {
+    .boxed-title-poster-progress {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: var(--ni-4);
+    background: color-mix(in srgb, var(--shade-950) 60%, transparent);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: var(--progress);
+      background: var(--boxed-color-watched);
+    }
+  }
+
+  .boxed-title-watched {
       height: var(--ni-22);
       padding: 0 var(--ni-8);
       font-size: var(--ni-11);
