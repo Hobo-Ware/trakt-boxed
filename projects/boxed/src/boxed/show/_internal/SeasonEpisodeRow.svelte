@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toStarAverage } from "$boxed/utils/toStarAverage.ts";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
   import { getLocale, languageTag } from "$lib/features/i18n/index.ts";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -9,14 +10,12 @@
   import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
-  import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import Stars from "../../components/Stars.svelte";
   import EpisodeWatchToggle from "./EpisodeWatchToggle.svelte";
   import { toEpisodeTypeLabel } from "./toEpisodeTypeLabel.ts";
 
-  const STAR_SCALE = 5;
 
   type SeasonEpisodeRowProps = {
     show: ShowEntry;
@@ -91,7 +90,7 @@
   <span class="boxed-episode-rating">
     {#if episode.rating}
       <span class="boxed-episode-star" aria-hidden="true">★</span>
-      {toIMDBRating(episode.rating * STAR_SCALE, languageTag())}
+      {toStarAverage(episode.rating, languageTag())}
     {/if}
   </span>
 

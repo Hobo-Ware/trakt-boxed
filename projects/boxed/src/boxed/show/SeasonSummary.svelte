@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toStarAverage } from "$boxed/utils/toStarAverage.ts";
   import { toReviewsHref } from "$boxed/utils/toReviewsHref.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { languageTag } from "$lib/features/i18n/index.ts";
@@ -12,7 +13,6 @@
   import { summaryDrawerNavigation } from "$lib/sections/summary/summaryDrawerNavigation.ts";
   import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
-  import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import { untrack } from "svelte";
@@ -29,7 +29,6 @@
   import SeasonPoster from "./_internal/SeasonPoster.svelte";
   import SeasonSwitcher from "./_internal/SeasonSwitcher.svelte";
 
-  const STAR_SCALE = 5;
 
   type SeasonSummaryProps = {
     show: ShowEntry;
@@ -71,7 +70,7 @@
     toReviewsHref({ type: "show", slug: show.slug }),
   );
   const average = $derived(
-    season.rating ? toIMDBRating(season.rating * STAR_SCALE, languageTag()) : "-",
+    season.rating ? toStarAverage(season.rating, languageTag()) : "-",
   );
 </script>
 

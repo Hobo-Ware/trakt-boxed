@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toStarAverage } from "$boxed/utils/toStarAverage.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { languageTag } from "$lib/features/i18n/index.ts";
@@ -6,12 +7,10 @@
   import type { EpisodeEntry } from "$lib/requests/models/EpisodeEntry.ts";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry.ts";
   import { EPISODE_COVER_PLACEHOLDER } from "$lib/utils/assets.ts";
-  import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import SectionHeader from "../../components/SectionHeader.svelte";
 
-  const STAR_SCALE = 5;
   const SKELETON_COUNT = 6;
 
   type SeasonEpisodeStripProps = {
@@ -63,7 +62,7 @@
             <span class="boxed-strip-code">
               {episodeNumberLabel({ seasonNumber: episode.season, episodeNumber: episode.number })}
               {#if episode.rating}
-                · ★ {toIMDBRating(episode.rating * STAR_SCALE, languageTag())}
+                · ★ {toStarAverage(episode.rating, languageTag())}
               {/if}
             </span>
             <span class="boxed-strip-title">{episode.title}</span>

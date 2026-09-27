@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toStarAverage } from "$boxed/utils/toStarAverage.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { languageTag } from "$lib/features/i18n/index.ts";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -6,13 +7,11 @@
   import type { Season } from "$lib/requests/models/Season.ts";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry.ts";
   import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
-  import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
   import SectionHeader from "../../components/SectionHeader.svelte";
   import { toSeasonHref } from "$boxed/utils/toSeasonHref.ts";
   import { toSeasonStrip } from "./toSeasonStrip.ts";
 
-  const STAR_SCALE = 5;
 
   const { show, seasons }: { show: ShowEntry; seasons: ReadonlyArray<Season> } =
     $props();
@@ -60,7 +59,7 @@
             <span class="boxed-show-season-name">{label}</span>
             <span class="boxed-show-season-rating">
               {#if item.season.rating}
-                ★ {toIMDBRating(item.season.rating * STAR_SCALE, languageTag())}
+                ★ {toStarAverage(item.season.rating, languageTag())}
               {/if}
             </span>
             <span class="boxed-show-season-meta">
