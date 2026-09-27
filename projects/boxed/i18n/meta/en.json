@@ -244,6 +244,10 @@
       "default": "Nothing left to watch. New episodes will show up here.",
       "description": "Empty state of the up next card on the show page when the user has watched every aired episode."
     },
+    "boxed_show_episode_reviews_hidden": {
+      "default": "Reviews are hidden until you've watched this episode.",
+      "description": "Cover shown over episode reviews for people who have not watched the episode yet, next to a button that reveals them anyway."
+    },
     "text_clear_source_custom_library": {
       "default": "Custom Library",
       "description": "Clear data source containing only non-Plex library items."
@@ -11296,6 +11300,10 @@
     "boxed_home_out_this_week": {
       "default": "Out this week",
       "description": "Home section of new episodes and releases for the user in the coming days."
+    },
+    "boxed_home_up_next_marked": {
+      "default": "Marked {code}",
+      "description": "Shown on an up next card for a few seconds after the user marks an episode watched, next to an Undo button. {code} is the episode code, e.g. S2 E6."
     },
     "boxed_browse_by_genre": {
       "default": "Browse by genre",

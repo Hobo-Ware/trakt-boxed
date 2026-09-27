@@ -10,6 +10,7 @@
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import Stars from "../../components/Stars.svelte";
+  import BingePile from "./BingePile.svelte";
   import DiaryEntryActions from "./DiaryEntryActions.svelte";
   import type { DiaryEntry } from "./DiaryEntry.ts";
   import type { DiaryViewProps } from "./DiaryViewProps.ts";
@@ -64,9 +65,15 @@
       {/if}
     </span>
     <span class="diary-day" role="cell">{pad(entry.watchedAt.getDate())}</span>
-    <a class="diary-thumb" href={UrlBuilder.media(media.type, media.slug)} tabindex="-1" aria-hidden="true">
-      <CrossOriginImage src={media.poster.url.thumb} alt="" />
-    </a>
+    {#if entry.type === "episodes" && isGroup}
+      <span class="diary-pile" role="cell">
+        <BingePile {entry} {isOpen} size="compact" onToggle={() => toggle(entry.key)} />
+      </span>
+    {:else}
+      <a class="diary-thumb" href={UrlBuilder.media(media.type, media.slug)} tabindex="-1" aria-hidden="true">
+        <CrossOriginImage src={media.poster.url.thumb} alt="" />
+      </a>
+    {/if}
     <span class="diary-title" role="cell">
       <a class="diary-title-link" href={UrlBuilder.media(media.type, media.slug)}>
         {toEntryTitle(entry)}
@@ -243,6 +250,10 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  .diary-pile {
+    display: flex;
   }
 
   .diary-title {

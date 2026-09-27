@@ -5,6 +5,7 @@
   import type { CommentTypeProps } from "$lib/sections/summary/components/comments/CommentsProps.ts";
   import { whenInViewport } from "$lib/utils/actions/whenInViewport.ts";
   import { toHumanNumber } from "$lib/utils/formatting/number/toHumanNumber.ts";
+  import type { Snippet } from "svelte";
   import SectionHeader from "../components/SectionHeader.svelte";
   import ReviewList from "./_internal/ReviewList.svelte";
   import ReviewSkeleton from "./_internal/ReviewSkeleton.svelte";
@@ -18,6 +19,7 @@
     recentHref: string;
     totalCount: number | Nil;
     toReviewHref: (id: number) => string;
+    cover?: Snippet;
   };
 
   const {
@@ -27,6 +29,7 @@
     recentHref,
     totalCount,
     toReviewHref,
+    cover,
   }: PopularReviewsProps = $props();
 
   let isVisible = $state(false);
@@ -35,7 +38,12 @@
 <section class="boxed-popular-reviews" use:whenInViewport={() => (isVisible = true)}>
   <SectionHeader title={m.boxed_title_popular_reviews()} href={moreHref} />
 
-  <div class="boxed-popular-reviews-body">
+  <div class="boxed-popular-reviews-frame">
+  <div
+    class="boxed-popular-reviews-body"
+    class:is-covered={cover !== undefined}
+    inert={cover !== undefined}
+  >
   {#if isVisible}
     <ReviewList {slug} {target} sort="likes" limit={PREVIEW_COUNT} {toReviewHref} />
   {:else}
@@ -56,9 +64,27 @@
     </span>
   </a>
   </div>
+  {#if cover}
+    <div class="boxed-popular-reviews-cover">{@render cover()}</div>
+  {/if}
+  </div>
 </section>
 
 <style>
+  .boxed-popular-reviews-frame {
+    position: relative;
+  }
+
+  .is-covered {
+    filter: blur(var(--ni-8));
+    user-select: none;
+  }
+
+  .boxed-popular-reviews-cover {
+    position: absolute;
+    inset: 0;
+  }
+
   .boxed-popular-reviews-body,
   .boxed-popular-reviews-skeleton {
     display: flex;

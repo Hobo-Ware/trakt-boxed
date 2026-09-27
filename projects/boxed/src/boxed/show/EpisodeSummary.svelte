@@ -8,6 +8,7 @@
   import type { Season } from "$lib/requests/models/Season.ts";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry.ts";
   import { useSeasonEpisodes } from "$lib/sections/lists/stores/useSeasonEpisodes.ts";
+  import { useIsWatched } from "$lib/sections/media-actions/mark-as-watched/useIsWatched.ts";
   import SummaryDrawer from "$lib/sections/summary/SummaryDrawer.svelte";
   import { SummaryDrawers } from "$lib/sections/summary/SummaryDrawers.ts";
   import { summaryDrawerNavigation } from "$lib/sections/summary/summaryDrawerNavigation.ts";
@@ -30,6 +31,7 @@
   import { toAmbientColors } from "../title/_internal/toAmbientColors.ts";
   import EpisodeActionCard from "./_internal/EpisodeActionCard.svelte";
   import EpisodeNav from "./_internal/EpisodeNav.svelte";
+  import EpisodeReviewsCover from "./_internal/EpisodeReviewsCover.svelte";
   import GuestCast from "./_internal/GuestCast.svelte";
   import SeasonEpisodeStrip from "./_internal/SeasonEpisodeStrip.svelte";
   import { toAdjacentEpisodes } from "./_internal/toAdjacentEpisodes.ts";
@@ -63,6 +65,15 @@
   );
   const { isAuthorized } = useAuth();
   const { ratings } = useUser();
+  const { isWatched } = $derived(
+    useIsWatched({
+      type: "episode",
+      media: episode,
+      show: { id: show.id, title: show.title },
+    }),
+  );
+  let revealedEpisodeId: number | null = $state(null);
+  const isReviewsCovered = $derived(!$isWatched && revealedEpisodeId !== episode.id);
 
   const { buildDrawerLink } = summaryDrawerNavigation();
   const drawerHref = (drawer: SummaryDrawers) => buildDrawerLink(drawer).href;
@@ -111,6 +122,10 @@
   );
 </script>
 
+{#snippet reviewsCover()}
+  <EpisodeReviewsCover onReveal={() => (revealedEpisodeId = episode.id)} />
+{/snippet}
+
 <SummaryDrawer type="episode" {show} {episode} {crew} />
 
 <TitleLayout cover={still} ambient={toAmbientColors(show.colors)}>
@@ -132,11 +147,14 @@
         <a href={toSeasonHref(show.slug, episode.season)}>{season}</a>
         <span class="boxed-episode-code">{code}</span>
         {#if typeLabel}
-          <span class="boxed-episode-type">{typeLabel}</span>
+          <span class="boxed-episode-type" data-placement="eyebrow">{typeLabel}</span>
         {/if}
       {/snippet}
 
       {#snippet credit()}
+        {#if typeLabel}
+          <span class="boxed-episode-type" data-placement="credit">{typeLabel}</span>
+        {/if}
         {#if aired}
           <span class="boxed-episode-byline-item">{aired}</span>
         {/if}
@@ -192,6 +210,7 @@
         recentHref={drawerHref(SummaryDrawers.Comments)}
         totalCount={undefined}
         {toReviewHref}
+        cover={isReviewsCovered ? reviewsCover : undefined}
       />
     </TitleSlot>
 
@@ -254,9 +273,22 @@
 
     font-size: var(--ni-11);
     font-weight: 500;
+    white-space: nowrap;
+
+    &[data-placement="credit"] {
+      display: none;
+      margin-inline-end: var(--ni-8);
+      vertical-align: middle;
+    }
 
     @include for-mobile {
-      display: none;
+      &[data-placement="eyebrow"] {
+        display: none;
+      }
+
+      &[data-placement="credit"] {
+        display: inline-block;
+      }
     }
   }
 
