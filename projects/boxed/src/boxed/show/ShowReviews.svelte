@@ -11,9 +11,9 @@
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import { map } from "rxjs";
   import { logComposerStore } from "../log/logComposerStore.ts";
+  import ReviewsRail from "../title/ReviewsRail.svelte";
   import TitleReviewsFacet from "../title/TitleReviewsFacet.svelte";
-  import ShowReviewsRail from "./_internal/ShowReviewsRail.svelte";
-  import ShowWatchingNow from "./_internal/ShowWatchingNow.svelte";
+  import WatchingNowLoader from "../title/WatchingNowLoader.svelte";
 
   const { slug }: { slug: string } = $props();
 
@@ -46,14 +46,14 @@
   stats={$stats}
 >
   {#snippet watching()}
-    <ShowWatchingNow {slug} />
+    <WatchingNowLoader {slug} type="show" />
   {/snippet}
 
   {#snippet rail()}
     {#if $show}
       {@const media = $show}
-      <ShowReviewsRail
-        show={media}
+      <ReviewsRail
+        target={{ type: "show", media }}
         {userRating}
         isAuthorized={$isAuthorized}
         onWrite={() => logComposerStore.compose({ type: "show", media })}

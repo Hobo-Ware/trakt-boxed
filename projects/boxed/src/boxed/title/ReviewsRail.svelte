@@ -1,34 +1,35 @@
 <script lang="ts">
-  import type { MetaInfoProps } from "$lib/sections/summary/components/media/useMediaMetaInfo.ts";
+  import type { MovieEntry } from "$lib/requests/models/MovieEntry.ts";
+  import type { ShowEntry } from "$lib/requests/models/ShowEntry.ts";
+  import { useWatchCount } from "$lib/stores/useWatchCount.ts";
   import RatingsBlock from "./RatingsBlock.svelte";
   import YourReviewCard from "./YourReviewCard.svelte";
 
   type ReviewsRailProps = {
-    metaInfo: MetaInfoProps;
-    average: number | Nil;
-    votes: number;
+    target:
+      | { type: "movie"; media: MovieEntry }
+      | { type: "show"; media: ShowEntry };
     userRating: number | null;
-    watchCount: number;
     isAuthorized: boolean;
     onWrite: () => void;
   };
 
-  const {
-    metaInfo,
-    average,
-    votes,
-    userRating,
-    watchCount,
-    isAuthorized,
-    onWrite,
-  }: ReviewsRailProps = $props();
+  const { target, userRating, isAuthorized, onWrite }: ReviewsRailProps =
+    $props();
+
+  const { watchCount } = $derived(useWatchCount(target));
 </script>
 
 {#if isAuthorized}
-  <YourReviewCard rating={userRating} {watchCount} {onWrite} />
+  <YourReviewCard rating={userRating} watchCount={$watchCount} {onWrite} />
 {/if}
 <div class="boxed-facet-ratings">
-  <RatingsBlock {metaInfo} {average} {votes} {userRating} />
+  <RatingsBlock
+    metaInfo={target}
+    average={target.media.rating}
+    votes={target.media.votes}
+    {userRating}
+  />
 </div>
 
 <style>
