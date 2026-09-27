@@ -1,8 +1,20 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../../client/src/routes/profile/[slug]/favorites/+page.svelte";
+  import LikesView from "$boxed/profile/likes/LikesView.svelte";
+  import ProfileShell from "$boxed/profile/ProfileShell.svelte";
+  import * as m from "$lib/features/i18n/messages.ts";
+  import type { PageProps } from "./$types";
 
-  const props = $props();
+  const { params }: PageProps = $props();
 </script>
 
-<Legacy {...props} />
+{#key params.slug}
+  <ProfileShell
+    slug={params.slug}
+    tab="likes"
+    title={(name) => m.boxed_profile_likes_title({ name })}
+  >
+    {#snippet children(context)}
+      <LikesView {context} />
+    {/snippet}
+  </ProfileShell>
+{/key}

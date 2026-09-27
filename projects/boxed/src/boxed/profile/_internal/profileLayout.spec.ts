@@ -29,7 +29,6 @@ describe('util: toProfileTabs', () => {
 
     expect(ids).not.toContain('watching');
     expect(ids).not.toContain('watchlist');
-    expect(ids).not.toContain('reviews');
   });
 
   it('should link new pages under the profile and the rest to legacy routes', () => {
@@ -43,7 +42,8 @@ describe('util: toProfileTabs', () => {
     expect(tabs.get('diary')).toBe('/profile/sean/diary');
     expect(tabs.get('likes')).toBe('/profile/sean/favorites');
     expect(tabs.get('network')).toBe('/profile/sean/social');
-    expect(tabs.get('stats')).toBe('/users/sean/year/all');
+    expect(tabs.get('stats')).toBe('/profile/sean/stats');
+    expect(tabs.get('reviews')).toBe('/profile/sean/reviews');
   });
 });
 

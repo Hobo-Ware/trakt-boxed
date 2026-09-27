@@ -3,7 +3,7 @@ import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
 import type { ProfileTab } from '../ProfileTab.ts';
 
 type ProfileTabLink = {
-  id: ProfileTab | 'reviews' | 'likes' | 'network' | 'stats';
+  id: ProfileTab;
   href: string;
   label: string;
 };
@@ -30,9 +30,8 @@ export function toProfileTabs(
     },
     {
       id: 'reviews',
-      href: `${profile}?view=activity`,
+      href: `${profile}/reviews`,
       label: m.list_title_comments(),
-      ownerOnly: true,
     },
     {
       id: 'watchlist',
@@ -57,7 +56,7 @@ export function toProfileTabs(
     },
     {
       id: 'stats',
-      href: UrlBuilder.users(slug).allTime(),
+      href: `${profile}/stats`,
       label: m.boxed_profile_tab_stats(),
     },
   ];

@@ -5,4 +5,8 @@ export type ProfileTab =
   | 'shows'
   | 'watching'
   | 'watchlist'
-  | 'lists';
+  | 'lists'
+  | 'reviews'
+  | 'likes'
+  | 'network'
+  | 'stats';
