@@ -342,7 +342,6 @@
     min-height: var(--ni-32);
 
     strong {
-      font-family: var(--boxed-font-title);
       font-size: var(--ni-16);
     }
   }

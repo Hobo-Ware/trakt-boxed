@@ -43,7 +43,6 @@
 
     h2 {
       margin: 0;
-      font-family: var(--boxed-font-title);
       font-size: var(--ni-28);
       font-weight: 600;
       line-height: 1.2;

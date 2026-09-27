@@ -233,7 +233,6 @@
   }
 
   .boxed-list-rank {
-    font-family: var(--boxed-font-title);
     font-size: var(--ni-16);
     font-weight: 600;
     color: var(--color-text-secondary);

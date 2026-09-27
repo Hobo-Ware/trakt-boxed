@@ -269,7 +269,6 @@
   }
 
   .boxed-show-next-done {
-    font-family: var(--boxed-font-title);
     font-weight: 600;
     font-size: var(--ni-24);
     color: var(--color-text-primary);

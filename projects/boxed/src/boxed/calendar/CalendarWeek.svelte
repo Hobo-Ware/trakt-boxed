@@ -312,7 +312,6 @@
       margin: 0 0 var(--ni-8);
       padding-bottom: var(--ni-8);
       border-bottom: var(--border-thickness-xxs) solid var(--color-border);
-      font-family: var(--boxed-font-title);
       font-size: var(--ni-24);
       font-weight: 600;
 

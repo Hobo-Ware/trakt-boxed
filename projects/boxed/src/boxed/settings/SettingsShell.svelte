@@ -62,7 +62,6 @@
     gap: var(--ni-28);
 
     :global(.trakt-settings-section .settings-title) {
-      font-family: var(--boxed-font-title);
       font-size: var(--ni-24);
       font-weight: 600;
       letter-spacing: -0.01em;
