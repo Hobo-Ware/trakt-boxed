@@ -5,6 +5,7 @@
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
   import type { Season } from "$lib/requests/models/Season.ts";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry.ts";
+  import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
   import SectionHeader from "../../components/SectionHeader.svelte";
@@ -64,7 +65,7 @@
             </span>
             <span class="boxed-show-season-meta">
               {m.boxed_show_episode_count({ count: item.season.episodes.count })}
-              {#if item.season.airDate.getFullYear() > 1900}
+              {#if !isMaxDate(item.season.airDate)}
                 · {item.season.airDate.getFullYear()}
               {/if}
             </span>

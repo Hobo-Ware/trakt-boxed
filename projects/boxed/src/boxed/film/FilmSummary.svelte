@@ -16,7 +16,7 @@
   import { SummaryDrawers } from "$lib/sections/summary/SummaryDrawers.ts";
   import { summaryDrawerNavigation } from "$lib/sections/summary/summaryDrawerNavigation.ts";
   import { useWatchCount } from "$lib/stores/useWatchCount.ts";
-  import { MAX_DATE } from "$lib/utils/constants.ts";
+  import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
   import { toCountryName } from "$lib/utils/formatting/intl/toCountryName.ts";
@@ -161,7 +161,7 @@
 
   const releases = $derived(
     compact([
-      movie.releaseDate.getTime() !== MAX_DATE.getTime()
+      !isMaxDate(movie.releaseDate)
         ? {
           key: "released",
           label: m.tag_text_released(),

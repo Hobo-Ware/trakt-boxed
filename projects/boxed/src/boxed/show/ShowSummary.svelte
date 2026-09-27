@@ -16,7 +16,7 @@
   import { SummaryDrawers } from "$lib/sections/summary/SummaryDrawers.ts";
   import { summaryDrawerNavigation } from "$lib/sections/summary/summaryDrawerNavigation.ts";
   import { useWatchCount } from "$lib/stores/useWatchCount.ts";
-  import { MAX_DATE } from "$lib/utils/constants.ts";
+  import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toHumanDayTime } from "$lib/utils/formatting/date/toHumanDayTime.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
@@ -167,7 +167,7 @@
       show.originalTitle && show.originalTitle !== show.title
         ? { key: "original", label: m.header_original_title(), value: show.originalTitle }
         : null,
-      show.airDate.getTime() !== MAX_DATE.getTime()
+      !isMaxDate(show.airDate)
         ? {
           key: "premiered",
           label: m.header_premiered(),

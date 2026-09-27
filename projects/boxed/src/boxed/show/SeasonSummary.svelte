@@ -9,6 +9,7 @@
   import SummaryDrawer from "$lib/sections/summary/SummaryDrawer.svelte";
   import { SummaryDrawers } from "$lib/sections/summary/SummaryDrawers.ts";
   import { summaryDrawerNavigation } from "$lib/sections/summary/summaryDrawerNavigation.ts";
+  import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
   import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
@@ -58,7 +59,7 @@
   );
 
   const year = $derived(
-    season.airDate.getFullYear() > 1900 ? season.airDate.getFullYear() : null,
+    isMaxDate(season.airDate) ? null : season.airDate.getFullYear(),
   );
   const runtime = $derived(
     season.totalRuntime > 0

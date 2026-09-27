@@ -6,11 +6,11 @@
   import type { EpisodeEntry } from "$lib/requests/models/EpisodeEntry.ts";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry.ts";
   import { EPISODE_COVER_PLACEHOLDER, PLACEHOLDERS } from "$lib/utils/assets.ts";
+  import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
   import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
-  import { MAX_DATE } from "$lib/utils/constants.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import Stars from "../../components/Stars.svelte";
   import EpisodeWatchToggle from "./EpisodeWatchToggle.svelte";
@@ -37,7 +37,7 @@
   );
   const href = $derived(UrlBuilder.episode(show.slug, episode.season, episode.number));
   const typeLabel = $derived(toEpisodeTypeLabel(episode.type));
-  const hasDate = $derived(episode.airDate.getTime() !== MAX_DATE.getTime());
+  const hasDate = $derived(!isMaxDate(episode.airDate));
   const hasAired = $derived(episode.effectiveReleaseDate.getTime() <= now.getTime());
   const date = $derived(
     hasDate ? toHumanDay({ date: episode.airDate, locale: getLocale(), format: "short" }) : null,

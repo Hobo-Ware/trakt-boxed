@@ -13,7 +13,7 @@
   import { SummaryDrawers } from "$lib/sections/summary/SummaryDrawers.ts";
   import { summaryDrawerNavigation } from "$lib/sections/summary/summaryDrawerNavigation.ts";
   import { PLACEHOLDERS } from "$lib/utils/assets.ts";
-  import { MAX_DATE } from "$lib/utils/constants.ts";
+  import { isMaxDate } from "$lib/utils/date/isMaxDate.ts";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
@@ -95,7 +95,7 @@
   );
 
   const aired = $derived(
-    episode.airDate.getTime() !== MAX_DATE.getTime()
+    !isMaxDate(episode.airDate)
       ? m.boxed_show_aired_on({
         date: toHumanDay({ date: episode.airDate, locale: getLocale(), format: "short" }),
       })
