@@ -11525,6 +11525,38 @@
       "default": "Stats, streaks and a year in review that covers films and TV together.",
       "description": "Feature tile description."
     },
+    "boxed_landing_boxes_title": {
+      "default": "Three boxes. Everything you watch.",
+      "description": "Heading of the landing page section that explains the three coloured boxes of the logo: watched, reviewed, watchlist."
+    },
+    "boxed_landing_box_watched_text": {
+      "default": "Log every film and every episode. Your diary keeps the dates and the rewatches.",
+      "description": "Landing page card under the green Watched box."
+    },
+    "boxed_landing_box_reviewed": {
+      "default": "Rated and reviewed",
+      "description": "Title of the landing page card for the purple box: rating and reviewing what you watched."
+    },
+    "boxed_landing_box_reviewed_text": {
+      "default": "Give it stars, write a line or an essay, and see what your friends thought.",
+      "description": "Landing page card under the purple Rated and reviewed box."
+    },
+    "boxed_landing_box_watchlist_text": {
+      "default": "Save what you want to see next and find where it is streaming tonight.",
+      "description": "Landing page card under the blue Watchlist box."
+    },
+    "boxed_landing_shows_title": {
+      "default": "TV is first-class here.",
+      "description": "Heading of the landing page section about tracking TV shows."
+    },
+    "boxed_landing_shows_text": {
+      "default": "Log a whole binge in one go, rate single episodes, and always know what is up next.",
+      "description": "Body of the landing page section about tracking TV shows."
+    },
+    "boxed_landing_more_title": {
+      "default": "And everything else you would expect",
+      "description": "Heading of the landing page grid of smaller features: diary, lists, streaming, year in review."
+    },
     "boxed_landing_import_title": {
       "default": "Coming from Letterboxd or TV Time?",
       "description": "Heading of the import card on the landing page."
