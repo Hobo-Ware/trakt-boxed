@@ -13,12 +13,12 @@ import { upcomingMoviesQuery } from '$lib/requests/queries/calendars/upcomingMov
 import { assertDefined } from '$lib/utils/assert/assertDefined.ts';
 import { toLoadingState } from '$lib/utils/requests/toLoadingState.ts';
 import { combineLatest, map, type Observable } from 'rxjs';
-import type { FilterParams } from '../../../requests/models/FilterParams.ts';
-import type { DiscoverMode } from '../../filters/models/DiscoverMode.ts';
-import { filterByEpisodeType } from '../filterByEpisodeType.ts';
-import type { Calendar } from '../models/Calendar.ts';
-import type { EpisodeTypeFilter } from '../models/EpisodeTypeFilter.ts';
-import { toCalendar } from './toCalendar.ts';
+import type { FilterParams } from '../../requests/models/FilterParams.ts';
+import type { DiscoverMode } from '../filters/models/DiscoverMode.ts';
+import { filterByEpisodeType } from './filterByEpisodeType.ts';
+import type { Calendar } from './models/Calendar.ts';
+import type { EpisodeTypeFilter } from './models/EpisodeTypeFilter.ts';
+import { toCalendar } from './_internal/toCalendar.ts';
 
 export type CalendarItem = UpcomingEpisodeEntry | MediaEntry;
 type CalendarItems = CalendarItem[];

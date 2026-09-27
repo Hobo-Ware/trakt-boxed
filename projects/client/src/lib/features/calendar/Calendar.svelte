@@ -6,7 +6,7 @@
   import {
     useCalendar,
     type CalendarItem as CalendarItemEntry,
-  } from "./_internal/useCalendar";
+  } from "./useCalendar";
   import CalendarItem from "./CalendarItem.svelte";
   import CalendarLayout from "./CalendarLayout.svelte";
   import { useCalendarPeriod } from "./context/useCalendarPeriod";
