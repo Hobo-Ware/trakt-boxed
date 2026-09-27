@@ -219,7 +219,6 @@
   .diary-ribbon-year {
     font-size: var(--ni-10);
     font-weight: 500;
-    opacity: 0.85;
   }
 
   .diary-day {
