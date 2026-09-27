@@ -3,12 +3,12 @@
   import { useRecentlyWatchedList } from "$lib/sections/lists/stores/useRecentlyWatchedList.ts";
   import PosterGrid from "../../poster/PosterGrid.svelte";
   import type { PosterMedia } from "../../poster/PosterMedia.ts";
-  import LoadMore from "../LoadMore.svelte";
   import { toWatchedTitles } from "../_internal/toWatchedTitles.ts";
   import ShowBadge from "./ShowBadge.svelte";
 
   const PAGE_SIZE = 100;
-  const MIN_TITLES = 24;
+  const BATCH = 48;
+  const COLUMNS = 8;
 
   const {
     slug,
@@ -20,11 +20,30 @@
     useRecentlyWatchedList({ type, slug, limit: PAGE_SIZE }),
   );
 
+  let shownCount = $state(BATCH);
+
   const watched = $derived(toWatchedTitles($list));
-  const isFirstLoad = $derived(
-    watched.length < MIN_TITLES && ($isLoading || $hasNextPage),
+  const isNextBatchReady = $derived(
+    watched.length >= shownCount + BATCH || !$hasNextPage,
   );
-  const titles = $derived(isFirstLoad ? null : watched);
+  const hasMore = $derived(watched.length > shownCount || $hasNextPage);
+  const isFirstLoad = $derived(watched.length < BATCH && $hasNextPage);
+  const titles = $derived(
+    isFirstLoad || ($isLoading && watched.length === 0)
+      ? null
+      : watched.slice(0, shownCount),
+  );
+
+  $effect(() => {
+    if ($isLoading || !$hasNextPage) return;
+    if (watched.length >= shownCount + BATCH) return;
+
+    fetchNextPage();
+  });
+
+  const reveal = () => {
+    if (isNextBatchReady) shownCount += BATCH;
+  };
 </script>
 
 {#snippet showMeta(media: PosterMedia)}
@@ -34,24 +53,60 @@
 {#if titles && titles.length === 0}
   <p class="boxed-watched-empty">{m.boxed_profile_empty()}</p>
 {:else}
-  <PosterGrid
-    items={titles}
-    columns={8}
-    skeletonCount={MIN_TITLES}
-    showUserMeta={isMe && type === "movie"}
-    meta={isMe && type === "show" ? showMeta : undefined}
-    loadingMore={$isLoading && !isFirstLoad}
-  />
+  <div class="boxed-watched-grid">
+    <PosterGrid
+      items={titles}
+      columns={COLUMNS}
+      skeletonCount={BATCH}
+      showUserMeta={isMe && type === "movie"}
+      meta={isMe && type === "show" ? showMeta : undefined}
+    />
+    {#if titles && hasMore}
+      <button
+        type="button"
+        class="boxed-watched-more"
+        disabled={!isNextBatchReady}
+        aria-busy={!isNextBatchReady}
+        onclick={reveal}
+      >
+        {m.button_text_load_more()}
+      </button>
+    {/if}
+  </div>
 {/if}
 
-<LoadMore
-  hasNextPage={$hasNextPage}
-  isLoading={$isLoading}
-  loadedCount={$list.length}
-  onLoad={fetchNextPage}
-/>
+<style lang="scss">
+  @use "$style/scss/mixins/index" as *;
 
-<style>
+  .boxed-watched-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+
+    @include for-mobile {
+      gap: var(--gap-s);
+    }
+  }
+
+  .boxed-watched-more {
+    align-self: center;
+    height: var(--ni-40);
+    padding-inline: var(--ni-20);
+    border: var(--border-thickness-xxs) solid var(--color-border);
+    border-radius: var(--border-radius-m);
+    background: var(--color-card-background);
+    color: var(--color-text-primary);
+    font: inherit;
+    font-size: var(--ni-14);
+    font-weight: 600;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: progress;
+    }
+  }
+
   .boxed-watched-empty {
     min-height: var(--ni-240);
     margin: 0;
