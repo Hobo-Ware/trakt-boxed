@@ -1,4 +1,6 @@
+import type { AvailableLocale } from '$lib/features/i18n/index.ts';
 import { getDayKey } from '$lib/utils/date/getDayKey.ts';
+import { getStartOfWeek } from '$lib/utils/date/getStartOfWeek.ts';
 
 const DAYS_PER_WEEK = 7;
 const LEVEL_THRESHOLDS = [1, 2, 4, 6];
@@ -15,6 +17,7 @@ type YearHeatmapParams = {
   dates: ReadonlyArray<Date>;
   now: Date;
   weeks: number;
+  locale: AvailableLocale;
 };
 
 function toLevel(count: number): HeatmapCell['level'] {
@@ -23,7 +26,7 @@ function toLevel(count: number): HeatmapCell['level'] {
 }
 
 export function toYearHeatmap(
-  { dates, now, weeks }: YearHeatmapParams,
+  { dates, now, weeks, locale }: YearHeatmapParams,
 ): HeatmapCell[] {
   const counts = dates.map(getDayKey).reduce(
     (acc, key) => acc.set(key, (acc.get(key) ?? 0) + 1),
@@ -31,8 +34,7 @@ export function toYearHeatmap(
   );
 
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const weekStart = new Date(today);
-  weekStart.setDate(today.getDate() - today.getDay());
+  const weekStart = getStartOfWeek(today, locale);
   const firstDay = new Date(weekStart);
   firstDay.setDate(weekStart.getDate() - (weeks - 1) * DAYS_PER_WEEK);
 

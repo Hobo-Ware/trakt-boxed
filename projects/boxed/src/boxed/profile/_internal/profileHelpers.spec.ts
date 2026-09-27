@@ -54,12 +54,19 @@ describe('util: toYearHeatmap', () => {
   const now = new Date(2026, 8, 23, 12);
 
   it('should build whole weeks ending with the current week', () => {
-    const cells = toYearHeatmap({ dates: [], now, weeks: 2 });
+    const cells = toYearHeatmap({ dates: [], now, weeks: 2, locale: 'en' });
 
     expect(cells).toHaveLength(14);
     expect(cells.at(0)?.date.getDay()).toBe(0);
     expect(cells.at(-1)?.date.getDay()).toBe(6);
     expect(cells.some((cell) => cell.key === '2026-9-23')).toBe(true);
+  });
+
+  it('should start weeks on the locale first weekday', () => {
+    const cells = toYearHeatmap({ dates: [], now, weeks: 1, locale: 'de-DE' });
+
+    expect(cells.at(0)?.date.getDay()).toBe(1);
+    expect(cells.at(-1)?.date.getDay()).toBe(0);
   });
 
   it('should count plays per day and map them to levels', () => {
@@ -72,6 +79,7 @@ describe('util: toYearHeatmap', () => {
       ],
       now,
       weeks: 1,
+      locale: 'en',
     });
     const byKey = new Map(cells.map((cell) => [cell.key, cell]));
 
@@ -82,7 +90,7 @@ describe('util: toYearHeatmap', () => {
   });
 
   it('should mark days after today as future', () => {
-    const cells = toYearHeatmap({ dates: [], now, weeks: 1 });
+    const cells = toYearHeatmap({ dates: [], now, weeks: 1, locale: 'en' });
 
     expect(cells.filter((cell) => cell.isFuture).map((cell) => cell.key))
       .toEqual(['2026-9-24', '2026-9-25', '2026-9-26']);
@@ -93,6 +101,7 @@ describe('util: toYearHeatmap', () => {
       dates: [new Date(2020, 0, 1)],
       now,
       weeks: 1,
+      locale: 'en',
     });
 
     expect(cells.every((cell) => cell.count === 0)).toBe(true);

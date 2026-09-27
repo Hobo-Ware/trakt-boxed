@@ -1,7 +1,7 @@
 <script lang="ts">
   import { toStreakLabel } from "$boxed/utils/toStreakLabel.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
-  import { languageTag } from "$lib/features/i18n";
+  import { getLocale, languageTag } from "$lib/features/i18n";
   import * as m from "$lib/features/i18n/messages.ts";
   import { useStreak } from "$lib/sections/stats/useStreak.ts";
   import { toHumanMonth } from "$lib/utils/formatting/date/toHumanMonth.ts";
@@ -24,6 +24,7 @@
         : [],
       now,
       weeks: WEEKS,
+      locale: getLocale(),
     }),
   );
   const firstDate = $derived(cells.at(0)?.date);
