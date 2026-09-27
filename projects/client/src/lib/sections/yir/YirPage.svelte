@@ -5,7 +5,7 @@
   import { of } from "rxjs";
   import ReviewPageShell from "./_internal/ReviewPageShell.svelte";
   import YirHeader from "./_internal/YirHeader.svelte";
-  import { useYirDetail } from "./_internal/useYirDetail";
+  import { useYirDetail } from "./useYirDetail";
   import YirAllTime from "./all-time/YirAllTime.svelte";
   import { getYirTemplate } from "./getYirTemplate";
 

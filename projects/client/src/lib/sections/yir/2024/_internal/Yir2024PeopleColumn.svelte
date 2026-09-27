@@ -1,7 +1,7 @@
 <script lang="ts">
   import { m } from "$lib/paraglide/messages";
   import type { YirPeopleType } from "$lib/requests/models/YirPerson.ts";
-  import { useYirPeople } from "../../_internal/useYirPeople.ts";
+  import { useYirPeople } from "../../useYirPeople.ts";
   import Yir2024PersonRow from "./Yir2024PersonRow.svelte";
 
   type Yir2024PeopleColumnProps = {
