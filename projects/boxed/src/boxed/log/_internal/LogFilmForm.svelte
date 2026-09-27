@@ -29,7 +29,7 @@
     useMarkAsWatched({ ...target, isToastEnabled: false }),
   );
   const { checkin, isCheckingIn, isWatchable } = $derived(useCheckIn(target));
-  const { addRating, removeRating } = $derived(
+  const { submitRating, removeRating } = $derived(
     useRatings({ type: "movie", id: media.id }),
   );
   const { addToFavorites, removeFromFavorites } = $derived(
@@ -78,7 +78,7 @@
       case "watch":
         return await markAsWatched(step.at);
       case "rate":
-        return addRating(step.rating);
+        return await submitRating(step.rating);
       case "unrate":
         return await removeRating();
       case "like":

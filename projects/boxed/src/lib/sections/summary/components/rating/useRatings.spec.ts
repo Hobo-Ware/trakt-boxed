@@ -102,6 +102,22 @@ describe('useRatings', () => {
     expect(invalidations).not.toContain(InvalidateAction.Favorited('movie'));
   });
 
+  it('should finish the rating write before submitRating resolves', async () => {
+    const { submitRating, pendingRating } = await renderStore(() =>
+      useRatings({
+        type: 'movie',
+        id: MovieMatrixMappedMock.id,
+      })
+    );
+
+    const invalidations = await captureInvalidations(async () => {
+      await submitRating(3);
+    });
+
+    expect(invalidations).toContain(InvalidateAction.Rated('movie'));
+    expect(await firstValueFrom(pendingRating)).toBe(null);
+  });
+
   it('should call invalidate after rating a season', async () => {
     const season = assertDefined(ShowSiloSeasonsMappedMock.at(1));
 

@@ -15,11 +15,13 @@
   const { episode, rating, isVisible, onChange, register }:
     LogEpisodeRatingRowProps = $props();
 
-  const { addRating } = $derived(useRatings({ type: "episode", id: episode.id }));
+  const { submitRating } = $derived(
+    useRatings({ type: "episode", id: episode.id }),
+  );
 
   $effect(() =>
     register(episode.id, async () => {
-      if (rating !== null) addRating(rating);
+      if (rating !== null) await submitRating(rating);
     })
   );
 </script>

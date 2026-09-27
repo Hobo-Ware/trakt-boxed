@@ -178,7 +178,7 @@
       for (const submit of ratingSubmitters.values()) {
         await submit();
       }
-      if (seasonRating !== null) seasonRatings?.addRating(seasonRating);
+      if (seasonRating !== null) await seasonRatings?.submitRating(seasonRating);
 
       const text = review.trim();
       if (reviewTarget && countWords(text) >= MIN_REVIEW_WORDS) {

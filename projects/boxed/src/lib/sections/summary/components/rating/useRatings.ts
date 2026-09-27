@@ -207,24 +207,36 @@ export function useRatings({ type, id }: WatchlistStoreProps) {
   const isSubmitting = ratingAdd.isPending;
   const ratingSubject = new Subject<number | null>();
 
+  const writeRating = async (newRating: number) => {
+    try {
+      const outcome = await ratingAdd.mutate(newRating);
+
+      if (outcome === 'executed' && type !== 'season') {
+        dismiss(id, type, 'rating');
+      }
+    } finally {
+      // Always clear: a queued rating stays flagged via isQueued, and leaving
+      // these pinned would re-disable the stars once it syncs and dequeues.
+      pendingRating.next(null);
+    }
+  };
+
   ratingSubject.pipe(
     debounceTime(postDelay),
     filter((v): v is number => v !== null),
-  ).subscribe(async (newRating) => {
-    const outcome = await ratingAdd.mutate(newRating);
-
-    if (outcome === 'executed' && type !== 'season') {
-      dismiss(id, type, 'rating');
-    }
-
-    // Always clear: a queued rating stays flagged via isQueued, and leaving
-    // these pinned would re-disable the stars once it syncs and dequeues.
-    pendingRating.next(null);
+  ).subscribe((newRating) => {
+    writeRating(newRating).catch(() => {});
   });
 
   const addRating = (newRating: number) => {
     pendingRating.next(newRating);
     ratingSubject.next(newRating);
+  };
+
+  const submitRating = (newRating: number) => {
+    ratingSubject.next(null);
+    pendingRating.next(newRating);
+    return writeRating(newRating);
   };
 
   const removeRating = async () => {
@@ -246,6 +258,7 @@ export function useRatings({ type, id }: WatchlistStoreProps) {
     isQueued,
     current,
     addRating,
+    submitRating,
     removeRating,
   };
 }
