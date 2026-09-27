@@ -16,6 +16,7 @@
   import { untrack } from "svelte";
   import SectionHeader from "../components/SectionHeader.svelte";
   import Stars from "../components/Stars.svelte";
+  import { toReviewHref } from "../review/toReviewHref.ts";
   import PopularReviews from "../title/PopularReviews.svelte";
   import TitleHeader from "../title/TitleHeader.svelte";
   import TitleLayout from "../title/TitleLayout.svelte";
@@ -41,7 +42,7 @@
   );
   const { history } = useUser();
 
-  const { buildDrawerLink, buildReviewDrawerLink } = summaryDrawerNavigation();
+  const { buildDrawerLink } = summaryDrawerNavigation();
   const drawerHref = (drawer: SummaryDrawers) => buildDrawerLink(drawer).href;
 
   const title = $derived(seasonLabel(season.number));
@@ -137,7 +138,7 @@
         moreHref={reviewsHref}
         recentHref={`${reviewsHref}?sort=newest`}
         totalCount={undefined}
-        toReviewHref={(id) => buildReviewDrawerLink(id).href}
+        {toReviewHref}
       />
     </TitleSlot>
   {/snippet}
