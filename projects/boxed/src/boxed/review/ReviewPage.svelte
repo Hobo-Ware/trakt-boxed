@@ -19,6 +19,7 @@
   import PopularReviews from "../title/PopularReviews.svelte";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { filter, map } from "rxjs";
+  import { untrack } from "svelte";
   import { toReviewHrefs } from "./_internal/toReviewHrefs.ts";
   import { toReviewHref } from "./toReviewHref.ts";
   import type { ReviewTarget } from "./ReviewTarget.ts";
@@ -35,7 +36,8 @@
   const { isAuthorized } = useAuth();
   const hrefs = $derived(target ? toReviewHrefs({ commentId, target }) : null);
 
-  const commentResult = useQuery(commentQuery({ id: commentId }));
+  const reviewId = untrack(() => commentId);
+  const commentResult = useQuery(commentQuery({ id: reviewId }));
   const target$ = fromRune(() => target).pipe(
     filter((value): value is ReviewTarget => value !== null),
   );
@@ -52,7 +54,7 @@
     ),
   );
   const { list: replies, isLoading: isLoadingReplies } = useCommentReplies({
-    id: commentId,
+    id: reviewId,
   });
 
   const comment = $derived($commentResult.data);
@@ -283,6 +285,10 @@
   }
 
   .boxed-review-media-actions {
+    > :global(* + *) {
+      border-top: var(--border-thickness-xxs) solid var(--color-border);
+    }
+
     display: flex;
     flex-direction: column;
     border-radius: var(--border-radius-m);
@@ -307,10 +313,6 @@
       text-align: start;
       text-decoration: none;
       cursor: pointer;
-
-      & + * {
-        border-top: var(--border-thickness-xxs) solid var(--color-border);
-      }
 
       &:hover,
       &:focus-visible {
