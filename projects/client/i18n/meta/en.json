@@ -10899,6 +10899,151 @@
       "default": "Couldn't save everything. Please try again.",
       "description": "Error shown in the log composer when one of the save steps (watch, rating, like, review, note) fails."
     },
+    "boxed_title_watched_times": {
+      "default": "Watched {count}×",
+      "description": "Chip under a film or show poster when the user has watched it more than once. {count} is the number of plays.",
+      "variables": {
+        "count": {
+          "type": "number"
+        }
+      }
+    },
+    "boxed_title_liked": {
+      "default": "Liked",
+      "description": "Label under the heart toggle on a title page action card once the user has liked (favorited) the title."
+    },
+    "boxed_title_rated": {
+      "default": "Rated",
+      "description": "Label above the stars on a title page action card once the user has rated the title."
+    },
+    "boxed_title_join_prompt": {
+      "default": "Join Trakt to log, rate and review what you watch.",
+      "description": "Prompt in the action card on a title page for signed-out visitors, above the join button."
+    },
+    "boxed_title_log_or_review": {
+      "default": "Log or review…",
+      "description": "Action card row on a title page that opens the log composer to log a watch, rate or review."
+    },
+    "boxed_title_your_activity": {
+      "default": "Your activity",
+      "description": "Action card row on a title page linking to the user's plays of this title."
+    },
+    "boxed_title_your_rating": {
+      "default": "Yours",
+      "description": "Label before the user's own star rating under the ratings histogram on a title page."
+    },
+    "boxed_title_ratings_agree": {
+      "default": "{percent} agree",
+      "description": "Share of members who gave the same rating as the user, shown after the user's stars under the ratings histogram. {percent} is a formatted percentage like 22%.",
+      "variables": {
+        "percent": {
+          "type": "string"
+        }
+      }
+    },
+    "boxed_title_friends_watched": {
+      "default": "Friends who watched",
+      "description": "Section heading on a title page listing people the user follows who watched it."
+    },
+    "boxed_title_what_people_think": {
+      "default": "What people think",
+      "description": "Heading of the AI summary of community reviews (pros and cons) on a title page."
+    },
+    "boxed_title_pros": {
+      "default": "Pros",
+      "description": "Label above the list of positive points in the community review summary."
+    },
+    "boxed_title_cons": {
+      "default": "Cons",
+      "description": "Label above the list of negative points in the community review summary."
+    },
+    "boxed_title_review_spoiler": {
+      "default": "This review may contain spoilers.",
+      "description": "Placeholder shown instead of a review marked as a spoiler."
+    },
+    "boxed_title_show_anyway": {
+      "default": "Show anyway",
+      "description": "Button that reveals a review marked as a spoiler."
+    },
+    "boxed_title_popular_reviews": {
+      "default": "Popular reviews",
+      "description": "Section heading for the most liked reviews on a title page."
+    },
+    "boxed_title_recent_reviews": {
+      "default": "Recent reviews",
+      "description": "Link to the newest reviews of a title."
+    },
+    "boxed_title_review_count": {
+      "default": "{count} reviews",
+      "description": "Total number of reviews of a title, shown next to the recent reviews link. {count} is a compact formatted number like 48.2K.",
+      "variables": {
+        "count": {
+          "type": "string"
+        }
+      }
+    },
+    "boxed_title_did_you_know": {
+      "default": "Did you know",
+      "description": "Section heading for trivia facts on a title page."
+    },
+    "boxed_title_trivia_count": {
+      "default": "{shown} of {total}",
+      "description": "Link to all trivia facts for VIP members, showing how many facts are shown out of the total. {shown} and {total} are numbers.",
+      "variables": {
+        "shown": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "boxed_title_trivia_upsell": {
+      "default": "All facts with VIP",
+      "description": "Link to the VIP page shown next to the trivia heading for free members."
+    },
+    "boxed_title_tab_genres": {
+      "default": "Genres",
+      "description": "Tab on a title page listing the title's genres."
+    },
+    "boxed_title_show_all_cast": {
+      "default": "Show all {count}",
+      "description": "Chip after the first cast members that opens the full cast list. {count} is the total number of cast members.",
+      "variables": {
+        "count": {
+          "type": "number"
+        }
+      }
+    },
+    "boxed_title_reviews_of": {
+      "default": "Reviews of",
+      "description": "Eyebrow above the title name on the reviews page of a film or show."
+    },
+    "boxed_title_tab_watching_now": {
+      "default": "Watching now",
+      "description": "Tab on the reviews page of a title listing members who are watching it right now."
+    },
+    "boxed_title_watching_now_empty": {
+      "default": "Nobody is watching this right now.",
+      "description": "Empty state of the watching now tab on a title's reviews page."
+    },
+    "boxed_title_your_review": {
+      "default": "Your review",
+      "description": "Heading of the card on a title's reviews page summarising the user's own rating and plays."
+    },
+    "boxed_title_write_review": {
+      "default": "Write your review",
+      "description": "Button on a title's reviews page that opens the log composer to write a review."
+    },
+    "boxed_title_watched_plays": {
+      "default": "Watched {count} times",
+      "description": "Line in the user's review card on a title's reviews page. {count} is the number of plays.",
+      "variables": {
+        "count": {
+          "type": "number"
+        }
+      }
+    },
     "boxed_home_greeting": {
       "default": "Welcome back, {name}.",
       "description": "Serif greeting at the top of the signed-in home page. {name} is the user's first name or username."
