@@ -3,7 +3,7 @@ type KeygenFunc<T> = (item: T) => KeygenValue;
 
 export function dedupe<T>(
   keygen: KeygenFunc<T>,
-  ...sourceArrays: Array<T[]>
+  ...sourceArrays: ReadonlyArray<ReadonlyArray<T>>
 ): T[] {
   const map = new Map<KeygenValue, T>();
 

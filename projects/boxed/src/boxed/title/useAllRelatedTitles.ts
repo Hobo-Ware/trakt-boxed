@@ -10,7 +10,7 @@ import type { RelatedEntry } from '$lib/sections/lists/stores/useRelatedList.ts'
 import { DEFAULT_RELATED_LIMIT } from '$lib/utils/constants.ts';
 import { toLoadingState } from '$lib/utils/requests/toLoadingState.ts';
 import { map } from 'rxjs';
-import { uniqueByKey } from '../utils/uniqueByKey.ts';
+import { dedupe } from '$lib/utils/array/dedupe.ts';
 
 type AllRelatedTitlesProps = {
   slug: string;
@@ -38,9 +38,7 @@ export function useAllRelatedTitles(props: AllRelatedTitlesProps) {
 
   return {
     list: query.pipe(
-      map(($query) =>
-        uniqueByKey(flattenQueryPages($query), (item) => item.key)
-      ),
+      map(($query) => dedupe((item) => item.key, flattenQueryPages($query))),
       overlay.operator,
     ),
     isLoading: withOverlayLoading(baseLoading, overlay.intlLoading$),

@@ -1,7 +1,7 @@
 import type { UserHistory } from '$lib/features/auth/stores/useCurrentUserHistory.ts';
 import type { MediaCredit } from '$lib/requests/models/MediaCredits.ts';
 import type { PosterMedia } from '../../poster/PosterMedia.ts';
-import { uniqueByKey } from '../../utils/uniqueByKey.ts';
+import { dedupe } from '$lib/utils/array/dedupe.ts';
 import type { CreditSort } from './CreditSort.ts';
 
 type PersonCreditsParams = {
@@ -40,9 +40,9 @@ const isWatched = (media: PosterMedia, history: UserHistory | Nil) =>
 export function toPersonCredits(
   { credits, sort, history, hideWatched }: PersonCreditsParams,
 ): PersonCredits {
-  const unique = uniqueByKey(
-    credits.map((credit): PosterMedia => credit.media),
+  const unique = dedupe(
     (media) => media.key,
+    credits.map((credit): PosterMedia => credit.media),
   );
 
   const sorter = SORTERS[sort];

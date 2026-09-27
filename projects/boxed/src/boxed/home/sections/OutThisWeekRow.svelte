@@ -9,7 +9,7 @@
   import { map, of } from "rxjs";
   import PosterRow from "../../poster/PosterRow.svelte";
   import type { PosterMedia } from "../../poster/PosterMedia.ts";
-  import { uniqueByKey } from "../../utils/uniqueByKey.ts";
+  import { dedupe } from "$lib/utils/array/dedupe.ts";
 
   type Upcoming = MediaEntry | UpcomingEpisodeEntry;
 
@@ -41,7 +41,7 @@
 
   const upcoming = list.pipe(
     map(($list) =>
-      uniqueByKey($list.map(toUpcomingPoster), (entry) => entry.media.key)
+      dedupe((entry) => entry.media.key, $list.map(toUpcomingPoster))
     ),
   );
 

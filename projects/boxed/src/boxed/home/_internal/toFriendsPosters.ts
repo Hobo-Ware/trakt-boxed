@@ -1,7 +1,7 @@
 import type { SocialActivity } from '$lib/requests/models/SocialActivity.ts';
 import type { UserProfile } from '$lib/requests/models/UserProfile.ts';
 import type { PosterMedia } from '../../poster/PosterMedia.ts';
-import { uniqueByKey } from '../../utils/uniqueByKey.ts';
+import { dedupe } from '$lib/utils/array/dedupe.ts';
 
 export type FriendsPoster = {
   media: PosterMedia;
@@ -22,9 +22,9 @@ export function toFriendsPosters(
   for (const activity of activities) {
     const media = toPosterMedia(activity);
     const existing = byKey.get(media.key);
-    const friends = uniqueByKey(
-      [...(existing?.friends ?? []), ...activity.users],
+    const friends = dedupe(
       (friend) => friend.id,
+      [...(existing?.friends ?? []), ...activity.users],
     );
 
     byKey.set(media.key, {

@@ -9,7 +9,7 @@
   import { toEpisodeRange } from "../diary/_internal/toEpisodeRange.ts";
   import { toEpisodeRangeLabel } from "../diary/_internal/toEpisodeRangeLabel.ts";
   import { useDiaryUserState } from "../diary/useDiaryUserState.ts";
-  import { uniqueByKey } from "../../utils/uniqueByKey.ts";
+  import { dedupe } from "$lib/utils/array/dedupe.ts";
   import PosterQuad from "./PosterQuad.svelte";
 
   const {
@@ -21,7 +21,7 @@
 
   const recent = $derived(
     entries
-      ? uniqueByKey(entries, (entry) => toEntryMedia(entry).key).slice(0, 4)
+      ? dedupe((entry) => toEntryMedia(entry).key, entries).slice(0, 4)
       : null,
   );
   const byKey = $derived(

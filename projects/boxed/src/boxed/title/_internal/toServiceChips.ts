@@ -1,6 +1,6 @@
 import type { StreamOn } from '$lib/requests/models/StreamOn.ts';
 import type { StreamingServiceOption } from '$lib/requests/models/StreamingServiceOptions.ts';
-import { uniqueByKey } from '../../utils/uniqueByKey.ts';
+import { dedupe } from '$lib/utils/array/dedupe.ts';
 
 export type ServiceChipModel = {
   service: StreamingServiceOption;
@@ -21,7 +21,7 @@ export function toServiceChips(
     ...services.onDemand,
   ];
 
-  const unique = uniqueByKey(ordered, (service) => service.source);
+  const unique = dedupe((service) => service.source, ordered);
 
   return unique
     .map((service) => ({ service, isPreferred: service.key === preferredKey }))
