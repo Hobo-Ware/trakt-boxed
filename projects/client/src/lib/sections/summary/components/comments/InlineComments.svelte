@@ -4,7 +4,7 @@
   import { COMMENTS_DRILL_SIZE } from "$lib/utils/constants";
   import type { CommentsProps } from "./CommentsProps.ts";
   import { commentsPlaceholder } from "./_internal/commentsPlaceholder.ts";
-  import { useComments } from "./_internal/useComments.ts";
+  import { useComments } from "./useComments.ts";
   import { useActiveComment } from "./drawers/useActiveComment.ts";
   import CommentThreadCard from "./drawers/CommentThreadCard.svelte";
 

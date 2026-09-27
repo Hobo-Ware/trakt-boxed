@@ -6,7 +6,7 @@
   import type { MediaSocialQueryTarget } from "$lib/requests/queries/media/mediaSocialQuery.ts";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { fade } from "svelte/transition";
-  import { useSocialActivities } from "../_internal/useSocialActivities.ts";
+  import { useSocialActivities } from "../useSocialActivities.ts";
   import SocialActivityRow from "./_internal/SocialActivityRow.svelte";
   import SocialActivitySummaryHeader from "./_internal/SocialActivitySummaryHeader.svelte";
 

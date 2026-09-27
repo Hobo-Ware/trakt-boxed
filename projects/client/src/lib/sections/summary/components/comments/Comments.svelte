@@ -14,7 +14,7 @@
   import { commentsPlaceholder } from "./_internal/commentsPlaceholder.ts";
   import { useCommentLanguage } from "./_internal/useCommentLanguage.svelte.ts";
   import type { ActiveComment } from "./_internal/models/ActiveComment";
-  import { useComments } from "./_internal/useComments";
+  import { useComments } from "./useComments";
   import type { CommentsProps } from "./CommentsProps";
   import AddReviewDrawerHost from "./drawers/AddReviewDrawerHost.svelte";
 
