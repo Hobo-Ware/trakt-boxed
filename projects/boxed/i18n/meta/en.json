@@ -11309,6 +11309,22 @@
       "default": "Browse by genre",
       "description": "Heading above the genre chips on the boxed Movies / Shows browse page."
     },
+    "boxed_chart_poster_size": {
+      "default": "Poster size",
+      "description": "Accessible label for the large / small poster toggle on the boxed chart pages (trending, popular, anticipated, recommended)."
+    },
+    "boxed_chart_poster_large": {
+      "default": "Large posters",
+      "description": "Accessible label for the button that shows the boxed chart grid with large posters."
+    },
+    "boxed_chart_poster_small": {
+      "default": "Small posters",
+      "description": "Accessible label for the button that shows the boxed chart grid with small posters, fitting more per row."
+    },
+    "boxed_chart_remove_filter": {
+      "default": "Remove {filter} filter",
+      "description": "Accessible label for the x button on an active filter chip in the boxed chart filter bar. {filter} is the filter name, e.g. Genre."
+    },
     "boxed_profile_tab_diary": {
       "default": "Diary",
       "description": "Profile tab linking to the user's diary of logged movies and episodes."
