@@ -4,6 +4,15 @@
   import PosterGrid from "../poster/PosterGrid.svelte";
   import type { PosterMedia } from "../poster/PosterMedia.ts";
   import { whileVisible } from "../utils/whileVisible.ts";
+  import type { PosterSize } from "./PosterSize.ts";
+
+  const GRID_COLUMNS: Record<
+    PosterSize,
+    { columns: number; compact: number; mobile: number }
+  > = {
+    large: { columns: 8, compact: 4, mobile: 3 },
+    small: { columns: 12, compact: 6, mobile: 4 },
+  };
 
   type ChartGridProps = {
     list: Observable<ReadonlyArray<PosterMedia>>;
@@ -12,10 +21,20 @@
     fetchNextPage: () => Promise<unknown>;
     emptyText: string;
     meta?: Snippet<[PosterMedia]>;
+    size?: PosterSize;
   };
 
-  const { list, isLoading, hasNextPage, fetchNextPage, emptyText, meta }:
-    ChartGridProps = $props();
+  const {
+    list,
+    isLoading,
+    hasNextPage,
+    fetchNextPage,
+    emptyText,
+    meta,
+    size = "large",
+  }: ChartGridProps = $props();
+
+  const grid = $derived(GRID_COLUMNS[size]);
 
   const isFirstLoad = $derived($isLoading && $list.length === 0);
   const loadMore = () => {
@@ -26,8 +45,10 @@
 
 <PosterGrid
   items={isFirstLoad ? null : $list}
-  columns={8}
-  skeletonCount={24}
+  columns={grid.columns}
+  compactColumns={grid.compact}
+  mobileColumns={grid.mobile}
+  skeletonCount={grid.columns * 3}
   showUserMeta={!meta}
   {meta}
   loadingMore={$isLoading && !isFirstLoad}

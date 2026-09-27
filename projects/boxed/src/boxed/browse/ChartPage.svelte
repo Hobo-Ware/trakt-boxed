@@ -10,7 +10,9 @@
   import PageContainer from "../components/PageContainer.svelte";
   import type { PosterMedia } from "../poster/PosterMedia.ts";
   import BrowseHeader from "./BrowseHeader.svelte";
+  import ChartFilterBar from "./ChartFilterBar.svelte";
   import ChartGrid from "./ChartGrid.svelte";
+  import { usePosterSize } from "./usePosterSize.ts";
 
   type ChartPageProps = {
     title: string;
@@ -21,6 +23,7 @@
 
   const { mode } = useDiscover();
   const { filterMap } = useFilter();
+  const { size } = usePosterSize();
 
   const { list, isLoading, hasNextPage, fetchNextPage } = $derived(
     useList({ type: $mode, limit: DEFAULT_DRILL_SIZE, filter: $filterMap }),
@@ -30,8 +33,12 @@
 <TraktPage audience="authenticated" {title} image={null} filterScope="global">
   <NavbarStateSetter hasFilters showFilters />
   <PageContainer>
-    <BrowseHeader {title} />
+    <div class="boxed-chart-head">
+      <BrowseHeader {title} hasFilterButton={false} />
+      <ChartFilterBar />
+    </div>
     <ChartGrid
+      size={$size}
       {list}
       {isLoading}
       {hasNextPage}
@@ -40,3 +47,11 @@
     />
   </PageContainer>
 </TraktPage>
+
+<style>
+  .boxed-chart-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+  }
+</style>

@@ -3,7 +3,14 @@
   import type { Snippet } from "svelte";
   import ModeSwitch from "./ModeSwitch.svelte";
 
-  const { title, actions }: { title: string; actions?: Snippet } = $props();
+  type BrowseHeaderProps = {
+    title: string;
+    actions?: Snippet;
+    hasFilterButton?: boolean;
+  };
+
+  const { title, actions, hasFilterButton = true }: BrowseHeaderProps =
+    $props();
 
 </script>
 
@@ -11,7 +18,9 @@
   <h1>{title}</h1>
   <div class="boxed-browse-controls">
     <ModeSwitch />
-    <FilterButton isDisabled={false} />
+    {#if hasFilterButton}
+      <FilterButton isDisabled={false} />
+    {/if}
     {@render actions?.()}
   </div>
 </header>

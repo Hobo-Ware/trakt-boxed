@@ -7,6 +7,8 @@
   type PosterGridProps = {
     items: ReadonlyArray<PosterMedia> | Nil;
     columns?: number;
+    compactColumns?: number;
+    mobileColumns?: number;
     skeletonCount?: number;
     showUserMeta?: boolean;
     loadingMore?: boolean;
@@ -16,6 +18,8 @@
   const {
     items,
     columns = 6,
+    compactColumns = Math.min(columns, 4),
+    mobileColumns = 3,
     skeletonCount = columns * 2,
     showUserMeta = false,
     loadingMore = false,
@@ -26,7 +30,8 @@
 <div
   class="boxed-poster-grid"
   style:--poster-columns={columns}
-  style:--poster-columns-compact={Math.min(columns, 4)}
+  style:--poster-columns-compact={compactColumns}
+  style:--poster-columns-mobile={mobileColumns}
 >
   {#if items}
     {#each items as media (media.key)}
@@ -65,7 +70,10 @@
     }
 
     @include for-mobile {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(
+        var(--poster-columns-mobile),
+        minmax(0, 1fr)
+      );
       gap: var(--gap-s);
     }
   }
