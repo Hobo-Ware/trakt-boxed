@@ -2,8 +2,8 @@
   import ClockIcon from "$lib/components/icons/ClockIcon.svelte";
   import ListIcon from "$lib/components/icons/mobile/ListIcon.svelte";
   import PlayIcon from "$lib/components/icons/PlayIcon.svelte";
-  import StarIcon from "$lib/components/icons/StarIcon.svelte";
-  import TrendIcon from "$lib/components/icons/TrendIcon.svelte";
+  import RatingIcon from "$lib/components/icons/RatingIcon.svelte";
+  import RatingsIcon from "$lib/components/icons/RatingsIcon.svelte";
   import WatchNowIcon from "$lib/components/icons/WatchNowIcon.svelte";
   import Logo from "$lib/components/logo/Logo.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -43,7 +43,7 @@
     },
     {
       key: "episodes",
-      icon: StarIcon,
+      icon: RatingIcon,
       title: m.boxed_landing_feature_episodes(),
       text: m.boxed_landing_feature_episodes_text(),
     },
@@ -67,7 +67,7 @@
     },
     {
       key: "year",
-      icon: TrendIcon,
+      icon: RatingsIcon,
       title: m.boxed_landing_feature_year(),
       text: m.boxed_landing_feature_year_text(),
     },
