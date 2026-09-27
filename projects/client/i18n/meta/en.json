@@ -11,6 +11,118 @@
     }
   },
   "messages": {
+    "boxed_activity_and_more": {
+      "default": "and {count} more",
+      "description": "Activity feed row, after the first member's name when several people you follow watched the same title. {count} is how many more members."
+    },
+    "boxed_activity_watched": {
+      "default": "watched",
+      "description": "Verb in an activity feed row, between the member's name and the title they watched."
+    },
+    "boxed_activity_tab_friends": {
+      "default": "Friends",
+      "description": "Activity page tab showing what the people you follow watched."
+    },
+    "boxed_activity_tab_you": {
+      "default": "You",
+      "description": "Activity page tab showing your own watch activity."
+    },
+    "boxed_activity_following_count": {
+      "default": "From the {count} people you follow",
+      "description": "Subtitle on the activity page friends tab. {count} is the number of people the user follows."
+    },
+    "boxed_activity_filter_title": {
+      "default": "Show activity",
+      "description": "Heading of the activity page filter with checkboxes for movies and episodes."
+    },
+    "boxed_profile_likes_title": {
+      "default": "{name}'s likes",
+      "description": "Page title of a profile's likes page. {name} is the user's display name."
+    },
+    "boxed_profile_network_title": {
+      "default": "{name}'s network",
+      "description": "Page title of a profile's followers and following page. {name} is the user's display name."
+    },
+    "boxed_profile_reviews_title": {
+      "default": "{name}'s reviews",
+      "description": "Page title of a profile's reviews page. {name} is the user's display name."
+    },
+    "boxed_stats_page_title": {
+      "default": "{name}'s stats",
+      "description": "Page title of a profile's stats page. {name} is the user's display name."
+    },
+    "boxed_stats_eyebrow_year": {
+      "default": "{name}'s year in movies and shows",
+      "description": "Small label above the big year number on the stats page. {name} is the user's display name."
+    },
+    "boxed_stats_eyebrow_all_time": {
+      "default": "{name}'s movies and shows, all time",
+      "description": "Small label above the big 'All time' heading on the stats page. {name} is the user's display name."
+    },
+    "boxed_stats_year_switch_label": {
+      "default": "Choose a year",
+      "description": "Accessible label of the year switcher on the stats page."
+    },
+    "boxed_stats_weekly": {
+      "default": "Weekly",
+      "description": "Stats page section title for the chart of plays per week of the year."
+    },
+    "boxed_stats_by_year": {
+      "default": "By year",
+      "description": "Stats page section title for the chart of plays per calendar year (all-time view)."
+    },
+    "boxed_stats_movies_per_week": {
+      "default": "movies a week",
+      "description": "Shown after the average number of movies watched per week on the stats page, e.g. '5.6 movies a week'."
+    },
+    "boxed_stats_episodes_per_week": {
+      "default": "episodes a week",
+      "description": "Shown after the average number of episodes watched per week on the stats page, e.g. '29 episodes a week'."
+    },
+    "boxed_stats_milestones": {
+      "default": "Milestones",
+      "description": "Stats page section title for highlight cards like first watched and most watched titles."
+    },
+    "boxed_stats_first_watched": {
+      "default": "First watched",
+      "description": "Label on the stats page milestone card for the first title watched in the chosen period."
+    },
+    "boxed_stats_genres": {
+      "default": "Genres",
+      "description": "Stats page section title for the most watched genres."
+    },
+    "boxed_stats_countries": {
+      "default": "Countries",
+      "description": "Stats page section title for the countries the watched titles come from."
+    },
+    "boxed_stats_top_people": {
+      "default": "Top people",
+      "description": "Stats page section title for the actors, directors and writers the user watched the most."
+    },
+    "boxed_stats_people_directors": {
+      "default": "Directors",
+      "description": "Stats page toggle to show the most watched directors."
+    },
+    "boxed_stats_people_actors": {
+      "default": "Actors",
+      "description": "Stats page toggle to show the most watched actors."
+    },
+    "boxed_stats_people_actresses": {
+      "default": "Actresses",
+      "description": "Stats page toggle to show the most watched actresses."
+    },
+    "boxed_stats_people_writers": {
+      "default": "Writers",
+      "description": "Stats page toggle to show the most watched writers."
+    },
+    "boxed_stats_networks_studios": {
+      "default": "Networks and studios",
+      "description": "Stats page section title for the most watched TV networks and movie studios."
+    },
+    "boxed_stats_highest_rated": {
+      "default": "Highest rated",
+      "description": "Stats page section title for the user's highest rated movies and shows."
+    },
     "boxed_show_your_progress": {
       "default": "Your progress",
       "description": "Label on the show page card that shows how many episodes the user has watched."

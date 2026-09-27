@@ -1,6 +1,6 @@
 <script lang="ts">
-  import NetworkView from "$boxed/profile/network/NetworkView.svelte";
   import ProfileShell from "$boxed/profile/ProfileShell.svelte";
+  import ReviewsView from "$boxed/profile/reviews/ReviewsView.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { PageProps } from "./$types";
 
@@ -10,11 +10,11 @@
 {#key params.slug}
   <ProfileShell
     slug={params.slug}
-    tab="network"
-    title={(name) => m.boxed_profile_network_title({ name })}
+    tab="reviews"
+    title={(name) => m.boxed_profile_reviews_title({ name })}
   >
     {#snippet children(context)}
-      <NetworkView {context} />
+      <ReviewsView {context} />
     {/snippet}
   </ProfileShell>
 {/key}

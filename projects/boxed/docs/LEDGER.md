@@ -100,10 +100,10 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 8 - social and stats
 
-- [ ] Activity (board `Activity`)
-- [ ] Network, likes, profile reviews (template)
-- [ ] Stats (board `Stats`)
-- [ ] Year / month in review reskin
+- [x] Activity (board `Activity`): `/social/activity` with Friends / You tabs, day groups, poster + who + what + stars + time ago, movies / episodes filter. The friends feed only carries watches (no review / list / like / follow events); no incoming tab (requests live on Network). CLS 0.0000 (up to 0.0008 mobile fast, font swap)
+- [x] Network, likes, profile reviews (template): `/profile/[slug]/social` (following / followers / requests, follow buttons), `/profile/[slug]/favorites` (movies / shows / liked lists), `/profile/[slug]/reviews` (rating, date, spoiler cover, likes, replies). No liked-reviews tab (no hook). CLS 0.0000
+- [x] Stats (board `Stats`): `/profile/[slug]/stats` with totals, weekly / by-year bars, genres, countries, decades, milestones, highest rated, top people (lazy, one request per role), list progress. The dev API answers 403/426 for the year-in-review data every block after the totals needs, so real data shows totals plus a notice; the full layout was checked with injected data. CLS 0.0000 (0.0003 with injected data)
+- [ ] Year / month in review reskin: left on the client pages (purple identity kept). Year pages 0.0003 to 0.0006; month in review is over the limit (0.03 desktop, 0.06 mobile) inside the client's 2024 template, which is outside the allowed edits
 
 ### Wave 9 - settings and static
 

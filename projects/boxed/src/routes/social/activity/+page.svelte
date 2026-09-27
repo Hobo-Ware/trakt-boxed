@@ -1,8 +1,17 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../client/src/routes/social/activity/+page.svelte";
-
-  const props = $props();
+  import PageContainer from "$boxed/components/PageContainer.svelte";
+  import ActivityView from "$boxed/social/ActivityView.svelte";
+  import * as m from "$lib/features/i18n/messages.ts";
+  import TraktPage from "$lib/sections/layout/TraktPage.svelte";
+  import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
 </script>
 
-<Legacy {...props} />
+<TraktPage
+  audience="authenticated"
+  image={DEFAULT_SHARE_COVER}
+  title={m.page_title_social_activity()}
+>
+  <PageContainer>
+    <ActivityView />
+  </PageContainer>
+</TraktPage>
