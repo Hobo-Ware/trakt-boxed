@@ -48,7 +48,7 @@
   import TitlePoster from "../title/TitlePoster.svelte";
   import TitleSlot from "../title/TitleSlot.svelte";
   import TriviaCards from "../title/TriviaCards.svelte";
-  import { toAmbientColors } from "../title/_internal/toAmbientColors.ts";
+  import { toAmbientColors } from "$boxed/title/toAmbientColors.ts";
   import ShowSeasons from "./_internal/ShowSeasons.svelte";
   import ShowStatus from "./_internal/ShowStatus.svelte";
   import ShowUpNext from "./_internal/ShowUpNext.svelte";

@@ -16,9 +16,9 @@
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import { logComposerStore } from "../../log/logComposerStore.ts";
   import ActionShell from "../../title/ActionShell.svelte";
-  import ActionRating from "../../title/_internal/ActionRating.svelte";
-  import ActionRow from "../../title/_internal/ActionRow.svelte";
-  import ShareAction from "../../title/_internal/ShareAction.svelte";
+  import ActionRating from "$boxed/title/ActionRating.svelte";
+  import ActionRow from "$boxed/title/ActionRow.svelte";
+  import ShareAction from "$boxed/title/ShareAction.svelte";
 
   type EpisodeActionCardProps = {
     show: ShowEntry;

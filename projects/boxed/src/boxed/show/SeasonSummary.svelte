@@ -23,7 +23,7 @@
   import TitleHeader from "../title/TitleHeader.svelte";
   import TitleLayout from "../title/TitleLayout.svelte";
   import TitleSlot from "../title/TitleSlot.svelte";
-  import { toAmbientColors } from "../title/_internal/toAmbientColors.ts";
+  import { toAmbientColors } from "$boxed/title/toAmbientColors.ts";
   import SeasonActionCard from "./_internal/SeasonActionCard.svelte";
   import SeasonEpisodes from "./_internal/SeasonEpisodes.svelte";
   import SeasonPoster from "./_internal/SeasonPoster.svelte";

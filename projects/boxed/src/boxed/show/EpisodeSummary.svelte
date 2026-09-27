@@ -28,7 +28,7 @@
   import TitleLayout from "../title/TitleLayout.svelte";
   import TitlePoster from "../title/TitlePoster.svelte";
   import TitleSlot from "../title/TitleSlot.svelte";
-  import { toAmbientColors } from "../title/_internal/toAmbientColors.ts";
+  import { toAmbientColors } from "$boxed/title/toAmbientColors.ts";
   import EpisodeActionCard from "./_internal/EpisodeActionCard.svelte";
   import EpisodeNav from "./_internal/EpisodeNav.svelte";
   import EpisodeReviewsCover from "./_internal/EpisodeReviewsCover.svelte";

@@ -47,7 +47,7 @@
   import TitlePoster from "../title/TitlePoster.svelte";
   import TitleSlot from "../title/TitleSlot.svelte";
   import TriviaCards from "../title/TriviaCards.svelte";
-  import { toAmbientColors } from "../title/_internal/toAmbientColors.ts";
+  import { toAmbientColors } from "$boxed/title/toAmbientColors.ts";
 
   const CAST_PREVIEW = 12;
   const DIRECTOR_PREVIEW = 2;

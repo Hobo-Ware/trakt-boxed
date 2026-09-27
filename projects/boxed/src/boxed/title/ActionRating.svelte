@@ -2,7 +2,7 @@
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import { useRatings } from "$lib/sections/summary/components/rating/useRatings.ts";
-  import RatingScrub from "../../components/RatingScrub.svelte";
+  import RatingScrub from "$boxed/components/RatingScrub.svelte";
 
   type ActionRatingProps = {
     type: "movie" | "show" | "season" | "episode";

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { trackImageLoaded } from "$lib/utils/actions/trackImageLoaded.ts";
   import { PLACEHOLDERS } from "$lib/utils/assets.ts";
-  import type { AmbientColors } from "./_internal/toAmbientColors.ts";
+  import type { AmbientColors } from "./toAmbientColors.ts";
 
   type TitleHeroProps = {
     cover: string | Nil;

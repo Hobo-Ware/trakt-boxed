@@ -10,7 +10,7 @@
   import { toReviewHref } from "../review/toReviewHref.ts";
   import ListsLoader from "./_internal/ListsLoader.svelte";
   import { parseTitleTab } from "./_internal/parseTitleTab.ts";
-  import { toAmbientColors } from "./_internal/toAmbientColors.ts";
+  import { toAmbientColors } from "./toAmbientColors.ts";
   import ReviewsTab from "./ReviewsTab.svelte";
   import TitleCompactHeader from "./TitleCompactHeader.svelte";
   import TitleFacetLayout from "./TitleFacetLayout.svelte";

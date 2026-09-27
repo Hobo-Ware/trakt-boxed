@@ -7,10 +7,10 @@
   import { logComposerStore } from "../log/logComposerStore.ts";
   import type { PosterMedia } from "../poster/PosterMedia.ts";
   import ActionShell from "./ActionShell.svelte";
-  import ActionRating from "./_internal/ActionRating.svelte";
-  import ActionRow from "./_internal/ActionRow.svelte";
+  import ActionRating from "./ActionRating.svelte";
+  import ActionRow from "./ActionRow.svelte";
   import ActionToggles from "./_internal/ActionToggles.svelte";
-  import ShareAction from "./_internal/ShareAction.svelte";
+  import ShareAction from "./ShareAction.svelte";
   import WhereToWatchRow from "./_internal/WhereToWatchRow.svelte";
 
   type ActionCardProps = {

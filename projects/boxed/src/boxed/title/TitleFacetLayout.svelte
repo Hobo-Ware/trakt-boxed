@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import type { AmbientColors } from "./_internal/toAmbientColors.ts";
+  import type { AmbientColors } from "./toAmbientColors.ts";
 
   type TitleFacetLayoutProps = {
     ambient: AmbientColors | null;
