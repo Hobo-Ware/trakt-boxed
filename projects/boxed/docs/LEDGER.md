@@ -79,7 +79,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 - [x] Home `/home` (boards `Home`, `Home-mobile`, `Twist-C`, `Twist-C-mobile`): greeting + streak, Just watched rail and New from friends (both from the one friends feed request, no per-friend calls), Up next cards with one-tap mark watched, then viewport-gated Start watching, Out this week, Popular, Recommended. Popular reviews from friends is left out: no cheap endpoint (PLAN 2b). CLS 0.0000 desktop + mobile, slow and fast, scrolled
 - [x] Films / Shows landing (board `Browse`): `/discover` with a Movies / Shows / Both switch (writes `?mode=`), the shared filter drawer and seasonal toggle, Trending up front, Popular / Anticipated / Recommended viewport-gated, genre chips. CLS 0.0000. Open: in the harness the Recommended row never settles when recommendations come back empty; check with a real account
 - [x] Charts grid (board `Browse-grid`): `/discover/{trending,popular,anticipated,recommended}` 8-column poster grid with infinite scroll (next page appended below). Genre facets use `?genres=` on the chart instead of `/films/genre/x` paths. CLS 0.0000
-- [ ] Calendar (board `Calendar`)
+- [x] Calendar (board `Calendar`): serif title, mode switch, episode-type toggles and filters, week strip with today highlighted and prev / next / today, day groups with time, still, episode code, premiere / finale chip and network. CLS <= 0.0002
 - [x] Search (board `Search`): big search field bound to `?q=`, mode tabs (media / shows / movies / people / lists), result rows (posters, round headshots, lists with owner + count), Top Searches for an empty query. CLS 0.0000
 - [ ] Person page (board `Person`)
 
