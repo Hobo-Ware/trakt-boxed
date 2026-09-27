@@ -4,7 +4,7 @@
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import type { ProgressEntry } from "$lib/requests/models/ProgressEntry.ts";
   import MediaItem from "$lib/sections/lists/components/MediaItem.svelte";
-  import type { ProgressListType } from "$lib/sections/profile/components/_internal/useProgressList.ts";
+  import type { ProgressListType } from "$lib/sections/profile/components/useProgressList.ts";
   import DropAction from "$lib/sections/media-actions/drop/DropAction.svelte";
   import { useIsDropped } from "$lib/sections/media-actions/drop/useIsDropped";
   import type { Snippet } from "svelte";
