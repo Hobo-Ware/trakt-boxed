@@ -19,6 +19,7 @@
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import { untrack } from "svelte";
+  import { toReviewHref } from "../review/toReviewHref.ts";
   import FriendsWatched from "../title/FriendsWatched.svelte";
   import PopularReviews from "../title/PopularReviews.svelte";
   import RatingsBlock from "../title/RatingsBlock.svelte";
@@ -63,7 +64,7 @@
   const { isAuthorized } = useAuth();
   const { ratings } = useUser();
 
-  const { buildDrawerLink, buildReviewDrawerLink } = summaryDrawerNavigation();
+  const { buildDrawerLink } = summaryDrawerNavigation();
   const drawerHref = (drawer: SummaryDrawers) => buildDrawerLink(drawer).href;
 
   const episodes = $derived($isLoading ? null : $list);
@@ -190,7 +191,7 @@
         moreHref={drawerHref(SummaryDrawers.Comments)}
         recentHref={drawerHref(SummaryDrawers.Comments)}
         totalCount={undefined}
-        toReviewHref={(id) => buildReviewDrawerLink(id).href}
+        {toReviewHref}
       />
     </TitleSlot>
 

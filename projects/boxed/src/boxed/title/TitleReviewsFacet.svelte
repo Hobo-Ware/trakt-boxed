@@ -3,11 +3,11 @@
   import { languageTag } from "$lib/features/i18n/index.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { MediaStats } from "$lib/requests/models/MediaStats.ts";
-  import { summaryDrawerNavigation } from "$lib/sections/summary/summaryDrawerNavigation.ts";
   import { toHumanNumber } from "$lib/utils/formatting/number/toHumanNumber.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import type { Snippet } from "svelte";
   import type { PosterMedia } from "../poster/PosterMedia.ts";
+  import { toReviewHref } from "../review/toReviewHref.ts";
   import ListsLoader from "./_internal/ListsLoader.svelte";
   import { parseTitleTab } from "./_internal/parseTitleTab.ts";
   import { toAmbientColors } from "./_internal/toAmbientColors.ts";
@@ -42,8 +42,6 @@
     watching,
     rail,
   }: TitleReviewsFacetProps = $props();
-
-  const { buildReviewDrawerLink } = summaryDrawerNavigation();
 
   const tabIds: ReadonlyArray<FacetTab> = ["reviews", "watching", "lists"];
   const activeTab = $derived(
@@ -85,7 +83,7 @@
       <ReviewsTab
         {slug}
         target={{ type }}
-        toReviewHref={(id) => buildReviewDrawerLink(id).href}
+        {toReviewHref}
       />
     {:else if activeTab === "watching"}
       {@render watching()}

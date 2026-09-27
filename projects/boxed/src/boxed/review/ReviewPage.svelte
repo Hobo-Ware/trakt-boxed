@@ -20,6 +20,7 @@
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { filter, map } from "rxjs";
   import { toReviewHrefs } from "./_internal/toReviewHrefs.ts";
+  import { toReviewHref } from "./toReviewHref.ts";
   import type { ReviewTarget } from "./ReviewTarget.ts";
 
   const REPLY_PLACEHOLDERS = 3;
@@ -73,8 +74,6 @@
     }
     return { type: "show" as const, media };
   });
-
-  const toReviewHref = (id: number) => `/comments/${id}`;
 
   const profileHref = (user: { slug?: string | null; username: string }) =>
     UrlBuilder.profile.user(user.slug ?? user.username);
@@ -217,7 +216,7 @@
         moreHref={hrefs.reviews}
         recentHref={`${hrefs.reviews}?sort=newest`}
         totalCount={null}
-        toReviewHref={toReviewHref}
+        {toReviewHref}
       />
     {/if}
   </aside>

@@ -28,6 +28,7 @@
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import { map } from "rxjs";
+  import { toReviewHref } from "../review/toReviewHref.ts";
   import ActionCard from "../title/ActionCard.svelte";
   import Extras from "../title/Extras.svelte";
   import FriendsWatched from "../title/FriendsWatched.svelte";
@@ -92,7 +93,7 @@
   const ambient = $derived(toAmbientColors(show.colors));
   const userRating = $derived($ratings?.shows.get(show.id)?.rating ?? null);
 
-  const { buildDrawerLink, buildReviewDrawerLink } = summaryDrawerNavigation();
+  const { buildDrawerLink } = summaryDrawerNavigation();
   const drawerHref = (drawer: SummaryDrawers) => buildDrawerLink(drawer).href;
 
   const regularSeasons = $derived(seasons.filter((season) => season.number > 0));
@@ -307,7 +308,7 @@
         moreHref={`/shows/${show.slug}/reviews`}
         recentHref={`/shows/${show.slug}/reviews?sort=newest`}
         totalCount={$stats?.comments}
-        toReviewHref={(id) => buildReviewDrawerLink(id).href}
+        {toReviewHref}
       />
     </TitleSlot>
 
