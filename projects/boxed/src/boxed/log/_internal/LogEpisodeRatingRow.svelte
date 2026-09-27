@@ -2,7 +2,7 @@
   import type { EpisodeEntry } from "$lib/requests/models/EpisodeEntry.ts";
   import { useRatings } from "$lib/sections/summary/components/rating/useRatings.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
-  import LogRating from "./LogRating.svelte";
+  import RatingScrub from "../../components/RatingScrub.svelte";
 
   type LogEpisodeRatingRowProps = {
     episode: EpisodeEntry;
@@ -26,7 +26,7 @@
 
 {#if isVisible}
   <div class="boxed-episode-rating">
-    <LogRating
+    <RatingScrub
       label={`${episodeNumberLabel({ seasonNumber: episode.season, episodeNumber: episode.number })}${episode.title ? ` · ${episode.title}` : ""}`}
       {rating}
       {onChange}

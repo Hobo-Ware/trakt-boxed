@@ -19,7 +19,7 @@
   import { untrack } from "svelte";
   import LogEpisodeRatingRow from "./LogEpisodeRatingRow.svelte";
   import LogField from "./LogField.svelte";
-  import LogRating from "./LogRating.svelte";
+  import RatingScrub from "../../components/RatingScrub.svelte";
   import LogWatchDate from "./LogWatchDate.svelte";
   import { MIN_REVIEW_WORDS, isReviewTooShort } from "./planLog.ts";
   import { countWords } from "./countWords.ts";
@@ -300,7 +300,7 @@
         </div>
 
         {#if ratingMode === "all"}
-          <LogRating
+          <RatingScrub
             rating={sharedRating}
             onChange={(rating) => (sharedRating = rating)}
           />
@@ -317,7 +317,7 @@
         {/each}
 
         {#if isSeasonRatingOpen && season}
-          <LogRating
+          <RatingScrub
             label={m.boxed_log_rate_season({ number: season.number })}
             rating={seasonRating}
             onChange={(rating) => (seasonRating = rating)}

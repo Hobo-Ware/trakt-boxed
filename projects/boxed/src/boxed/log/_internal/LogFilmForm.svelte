@@ -14,7 +14,7 @@
   import { usePostComment } from "$lib/sections/summary/components/comments/usePostComment.ts";
   import { useRatings } from "$lib/sections/summary/components/rating/useRatings.ts";
   import LogField from "./LogField.svelte";
-  import LogRating from "./LogRating.svelte";
+  import RatingScrub from "../../components/RatingScrub.svelte";
   import LogWatchDate from "./LogWatchDate.svelte";
   import type { LogStep } from "./LogStep.ts";
   import { isReviewTooShort, planLog, type LogDraft } from "./planLog.ts";
@@ -206,7 +206,7 @@
       </LogField>
 
       <div class="boxed-log-side">
-        <LogRating
+        <RatingScrub
           rating={draft.rating}
           onChange={(rating) => (draft.rating = rating)}
         />
