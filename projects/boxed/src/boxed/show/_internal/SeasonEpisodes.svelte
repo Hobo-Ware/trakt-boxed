@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toWatchedEpisodeIds } from "./toWatchedEpisodeIds.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { EpisodeEntry } from "$lib/requests/models/EpisodeEntry.ts";
@@ -20,9 +21,7 @@
   const now = new Date();
 
   const watchedIds = $derived(
-    new Set(
-      $history?.shows.get(show.id)?.episodes.map((episode) => episode.episodeId) ?? [],
-    ),
+    toWatchedEpisodeIds({ history: $history, showId: show.id }),
   );
   const upNextId = $derived(
     episodes ? findUpNextEpisode({ episodes, watchedIds, now })?.id : undefined,

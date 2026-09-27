@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toWatchedEpisodeIds } from "./toWatchedEpisodeIds.ts";
   import { toStarAverage } from "$boxed/utils/toStarAverage.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
@@ -27,9 +28,7 @@
   const { history } = useUser();
 
   const watchedIds = $derived(
-    new Set(
-      $history?.shows.get(show.id)?.episodes.map((episode) => episode.episodeId) ?? [],
-    ),
+    toWatchedEpisodeIds({ history: $history, showId: show.id }),
   );
 </script>
 
