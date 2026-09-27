@@ -78,14 +78,14 @@
     />
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..700&family=Roboto+Mono:wght@400;600&family=Tajawal:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..700&family=Roboto+Mono:wght@400;600&family=Tajawal:wght@400;500;600;700&family=Newsreader:opsz,wght@36,500;36,600&display=swap"
       rel="preload"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..700&family=Roboto+Mono:wght@400;600&family=Tajawal:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..700&family=Roboto+Mono:wght@400;600&family=Tajawal:wght@400;500;600;700&family=Newsreader:opsz,wght@36,500;36,600&display=swap"
         rel="stylesheet"
       />
     </noscript>
@@ -106,7 +106,8 @@
         --boxed-color-liked: var(--red-400);
         --boxed-color-star: var(--orange-400);
 
-        --boxed-font-title: "Newsreader", Georgia, "Times New Roman", serif;
+        --boxed-font-title:
+          "Newsreader", "Newsreader Fallback", Georgia, "Times New Roman", serif;
       }
 
       @media (max-width: 768px) {
@@ -134,6 +135,28 @@
         size-adjust: 94.42%;
         ascent-override: 98.25%;
         descent-override: 25.85%;
+        line-gap-override: 0%;
+      }
+
+      /* Georgia scaled to Newsreader (opsz 36) per weight: widths within
+         1.4% and identical line boxes, so the title swap does not re-wrap. */
+      @font-face {
+        font-family: "Newsreader Fallback";
+        src: local("Georgia");
+        font-weight: 100 550;
+        size-adjust: 98.4%;
+        ascent-override: 74.7%;
+        descent-override: 26.93%;
+        line-gap-override: 0%;
+      }
+
+      @font-face {
+        font-family: "Newsreader Fallback";
+        src: local("Georgia");
+        font-weight: 551 900;
+        size-adjust: 101.14%;
+        ascent-override: 72.67%;
+        descent-override: 26.2%;
         line-gap-override: 0%;
       }
 
