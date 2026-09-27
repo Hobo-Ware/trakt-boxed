@@ -1,10 +1,10 @@
 <script lang="ts">
+  import { toProfileHref } from "$boxed/utils/toProfileHref.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { UserProfile } from "$lib/requests/models/UserProfile.ts";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
 
   const SKELETON_ROWS = 6;
 
@@ -23,7 +23,7 @@
     {#each users as user (user.key)}
       {@const name = toDisplayableName(user)}
       <li>
-        <a class="boxed-watcher" href={UrlBuilder.profile.user(user.slug ?? user.username)}>
+        <a class="boxed-watcher" href={toProfileHref(user)}>
           <CrossOriginImage src={user.avatar.url} alt={m.image_alt_user_avatar({ username: name })} />
           <span>{name}</span>
         </a>

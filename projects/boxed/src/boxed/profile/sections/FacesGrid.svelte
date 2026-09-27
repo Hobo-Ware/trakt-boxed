@@ -1,9 +1,9 @@
 <script lang="ts">
+  import { toProfileHref } from "$boxed/utils/toProfileHref.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { UserProfile } from "$lib/requests/models/UserProfile.ts";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
 
   const FACES = 16;
 
@@ -24,7 +24,7 @@
     {#each faces as profile (profile.id)}
       <li>
         <a
-          href={UrlBuilder.profile.user(profile.slug ?? profile.username)}
+          href={toProfileHref(profile)}
           title={toDisplayableName(profile)}
           aria-label={toDisplayableName(profile)}
         >

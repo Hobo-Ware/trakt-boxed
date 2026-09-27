@@ -1,3 +1,4 @@
+import { toProfileHref } from '$boxed/utils/toProfileHref.ts';
 import type { SocialActivity } from '$lib/requests/models/SocialActivity.ts';
 import { episodeSubtitle } from '$lib/utils/intl/episodeSubtitle.ts';
 import { toDisplayableName } from '$lib/utils/profile/toDisplayableName.ts';
@@ -11,7 +12,7 @@ function toActor(
 
   return {
     name: toDisplayableName(user),
-    href: UrlBuilder.profile.user(user.slug ?? user.username),
+    href: toProfileHref(user),
     avatar: user.avatar.url,
   };
 }

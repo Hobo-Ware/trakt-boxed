@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toProfileHref } from "$boxed/utils/toProfileHref.ts";
   import FavoriteIcon from "$lib/components/icons/FavoriteIcon.svelte";
   import ReplyIcon from "$lib/components/icons/ReplyIcon.svelte";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
@@ -8,7 +9,6 @@
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toHumanNumber } from "$lib/utils/formatting/number/toHumanNumber.ts";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import Stars from "../components/Stars.svelte";
   import { toReviewPreview } from "./_internal/toReviewPreview.ts";
 
@@ -30,7 +30,7 @@
 <article class="boxed-review">
   <a
     class="boxed-review-avatar"
-    href={UrlBuilder.profile.user(comment.user.slug ?? comment.user.username)}
+    href={toProfileHref(comment.user)}
     aria-label={name}
   >
     <CrossOriginImage

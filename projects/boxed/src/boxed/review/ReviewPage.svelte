@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toProfileHref } from "$boxed/utils/toProfileHref.ts";
   import FavoriteIcon from "$lib/components/icons/FavoriteIcon.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
@@ -13,7 +14,6 @@
   import { useCommentReplies } from "$lib/sections/summary/components/comments/drawers/useCommentReplies.ts";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay.ts";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import Stars from "../components/Stars.svelte";
   import { logComposerStore } from "../log/logComposerStore.ts";
   import PopularReviews from "../title/PopularReviews.svelte";
@@ -76,9 +76,6 @@
     }
     return { type: "show" as const, media };
   });
-
-  const profileHref = (user: { slug?: string | null; username: string }) =>
-    UrlBuilder.profile.user(user.slug ?? user.username);
 </script>
 
 <div class="boxed-review-page">
@@ -116,7 +113,7 @@
   <main class="boxed-review-main">
     <header class="boxed-review-header">
       {#if comment}
-        <a class="boxed-review-author" href={profileHref(comment.user)}>
+        <a class="boxed-review-author" href={toProfileHref(comment.user)}>
           <span class="boxed-review-avatar">
             <CrossOriginImage
               src={comment.user.avatar.url}
@@ -197,7 +194,7 @@
             <article class="boxed-review-reply-row">
               <a
                 class="boxed-review-avatar is-small"
-                href={profileHref(reply.user)}
+                href={toProfileHref(reply.user)}
                 aria-label={name}
               >
                 <CrossOriginImage
@@ -207,7 +204,7 @@
               </a>
               <div class="boxed-review-reply-content">
                 <div class="boxed-review-reply-header">
-                  <a href={profileHref(reply.user)}>{name}</a>
+                  <a href={toProfileHref(reply.user)}>{name}</a>
                   <time datetime={reply.createdAt.toISOString()}>
                     {toDay(reply.createdAt)}
                   </time>

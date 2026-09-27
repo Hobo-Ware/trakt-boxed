@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toProfileHref } from "$boxed/utils/toProfileHref.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { useDiscover } from "$lib/features/filters/useDiscover.ts";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -8,7 +9,6 @@
   import type { SortDirection } from "$lib/sections/lists/user/models/SortDirection.ts";
   import { useListItems } from "$lib/sections/lists/user/useListItems.ts";
   import { DEFAULT_DRILL_SIZE } from "$lib/utils/constants.ts";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import { map } from "rxjs";
   import ChartGrid from "../browse/ChartGrid.svelte";
   import ModeSwitch from "../browse/ModeSwitch.svelte";
@@ -63,7 +63,7 @@
       {#if showOwner}
         <a
           class="boxed-list-owner"
-          href={UrlBuilder.profile.user(list.user.slug ?? list.user.username)}
+          href={toProfileHref(list.user)}
           data-hj-suppress
         >
           <img src={list.user.avatar.url} alt="" width="28" height="28" />

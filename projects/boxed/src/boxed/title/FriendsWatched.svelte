@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toProfileHref } from "$boxed/utils/toProfileHref.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -6,7 +7,6 @@
   import { useSocialActivities } from "$lib/sections/summary/components/useSocialActivities.ts";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName.ts";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import SectionHeader from "../components/SectionHeader.svelte";
   import Stars from "../components/Stars.svelte";
 
@@ -48,7 +48,7 @@
         {@const name = toDisplayableName(entry.user)}
         <a
           class="boxed-friend"
-          href={UrlBuilder.profile.user(entry.user.slug ?? entry.user.username)}
+          href={toProfileHref(entry.user)}
           aria-label={name}
           title={name}
         >
