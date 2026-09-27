@@ -4,6 +4,7 @@
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import type { ProfileSocialListType } from "$lib/sections/profile/models/ProfileSocialListType.ts";
   import { useFollowing } from "$lib/sections/profile/stores/useFollowing.ts";
+  import { clamp } from "$lib/utils/number/clamp.ts";
   import MemberRow from "./MemberRow.svelte";
 
   const MAX_SKELETON_ROWS = 24;
@@ -22,7 +23,11 @@
   const { profiles, isLoading } = $derived(useFollowing(slug, type));
 
   const skeletonRows = $derived(
-    Math.min(Math.max(expectedCount ?? MAX_SKELETON_ROWS, 1), MAX_SKELETON_ROWS),
+    clamp({
+      value: expectedCount ?? MAX_SKELETON_ROWS,
+      min: 1,
+      max: MAX_SKELETON_ROWS,
+    }),
   );
   const members = $derived(
     $isLoading && $profiles.length === 0 ? null : $profiles,

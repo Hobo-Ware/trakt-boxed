@@ -6,6 +6,8 @@
   import { userWatchingQuery } from "$lib/requests/queries/users/userWatchingQuery.ts";
   import { toHumanClockTime } from "$lib/utils/formatting/date/toHumanClockTime.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
+  import { clamp } from "$lib/utils/number/clamp.ts";
+  import { ratio } from "$lib/utils/number/ratio.ts";
   import { toLoadingState } from "$lib/utils/requests/toLoadingState.ts";
   import { fromRune } from "$lib/utils/store/fromRune.svelte";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
@@ -38,7 +40,7 @@
     if (!watching) return 0;
     const total = watching.expiresAt.getTime() - watching.startedAt.getTime();
     const elapsed = now - watching.startedAt.getTime();
-    return total > 0 ? Math.min(Math.max(elapsed / total, 0), 1) : 0;
+    return clamp({ value: ratio({ value: elapsed, total }), min: 0, max: 1 });
   });
 </script>
 
