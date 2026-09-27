@@ -22,7 +22,7 @@
     <header class="boxed-lists-header">
       <h1>{m.page_title_lists()}</h1>
       <RenderFor audience="authenticated">
-        <a class="boxed-lists-create" href={UrlBuilder.lists.all("me", "personal")}>
+        <a class="boxed-lists-create" href="/lists/new">
           {m.button_text_cta_create_list()}
         </a>
       </RenderFor>
