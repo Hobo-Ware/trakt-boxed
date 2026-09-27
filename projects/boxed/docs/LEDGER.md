@@ -81,7 +81,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 - [x] Charts grid (board `Browse-grid`): `/discover/{trending,popular,anticipated,recommended}` 8-column poster grid with infinite scroll (next page appended below). Genre facets use `?genres=` on the chart instead of `/films/genre/x` paths. CLS 0.0000
 - [x] Calendar (board `Calendar`): serif title, mode switch, episode-type toggles and filters, week strip with today highlighted and prev / next / today, day groups with time, still, episode code, premiere / finale chip and network. CLS <= 0.0002
 - [x] Search (board `Search`): big search field bound to `?q=`, mode tabs (media / shows / movies / people / lists), result rows (posters, round headshots, lists with owner + count), Top Searches for an empty query. CLS 0.0000
-- [ ] Person page (board `Person`)
+- [x] Person page (board `Person`): round headshot, known for, birthday / age / death, two-line bio with read more, IMDb / Wikipedia / social links, department tabs (known for first, then by count), Movies / Shows switch with counts, you've seen X of Y bar and hide watched (signed in), sort (popular / newest / oldest), poster grid that reserves room for every credit and reveals 48 at a time. Two credit requests, no per-item calls. CLS 0.0000, up to 0.0005 from the web font swap on tab labels. `/people/[slug]/{movies,shows,history}` are still legacy mounts
 
 ### Wave 6 - profile
 
