@@ -16,7 +16,7 @@
   import {
     useMyActivityList,
     type ActivityEntry,
-  } from "./_internal/useMyActivityList.ts";
+  } from "./useMyActivityList.ts";
 
   const { mode }: { mode: DiscoverMode } = $props();
 

@@ -12,7 +12,7 @@
   } from "$lib/utils/constants.ts";
   import ActivityCommentItem from "../ActivityCommentItem.svelte";
   import ActivityRatingItem from "../ActivityRatingItem.svelte";
-  import { useMyActivityList } from "../useMyActivityList.ts";
+  import { useMyActivityList } from "../../useMyActivityList.ts";
   import { ACTIVITY_LIST_CLASS } from "./constants.ts";
 
   type ActivityDrawerProps = {

@@ -10,7 +10,7 @@
   import { PLACEHOLDERS } from "$lib/utils/assets";
   import { DEFAULT_AVATAR } from "$lib/utils/constants";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import { useYirPeople } from "./useYirPeople.ts";
+  import { useYirPeople } from "../useYirPeople.ts";
   import { yirUnit } from "./yirUnit.ts";
   import YirSectionHeader from "./YirSectionHeader.svelte";
 

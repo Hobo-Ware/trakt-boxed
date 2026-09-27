@@ -4,7 +4,7 @@ import { yirDetailQuery } from '$lib/requests/queries/users/yirDetailQuery.ts';
 import type { YirYear } from '$lib/requests/models/YirYear.ts';
 import { toLoadingState } from '$lib/utils/requests/toLoadingState.ts';
 import { map } from 'rxjs';
-import { withYirIntlOverlay } from './withYirIntlOverlay.ts';
+import { withYirIntlOverlay } from './_internal/withYirIntlOverlay.ts';
 
 type UseYirDetailProps = {
   slug: string;
