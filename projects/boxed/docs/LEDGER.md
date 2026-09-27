@@ -66,12 +66,10 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 4 - shows
 
-- [ ] Show page `/shows/[slug]` (boards `Show`, `Show-mobile`, `Twist-A`,
-      `Twist-A-mobile`)
-- [ ] Season page `/shows/[slug]/seasons/[n]` (board `Season`)
-- [ ] Episode page `/shows/[slug]/seasons/[n]/episodes/[e]` (boards `Episode`,
-      `Episode-mobile`)
-- [ ] Show engagement tabs + activity
+- [x] Show page `/shows/[slug]` (boards `Show`, `Show-mobile`, `Twist-A`, `Twist-A-mobile`): title kit hero, action card, up next card with progress (mark watched / check in), seasons strip with per-season progress, network / status / airs info, ratings, reviews, cast. Ratings-by-episode chart and the mobile episode list left out (one request per season). CLS up to 0.0001
+- [x] Season page `/shows/[slug]/seasons/[n]` (board `Season`): season header on the show backdrop, season switcher, episode rows (still, number, title, air date, rating, watched toggle), mark season watched, season rating. No season rating chart, friends or cast (no request / internal hook). CLS 0.0000
+- [x] Episode page `/shows/[slug]/seasons/[n]/episodes/[e]` (boards `Episode`, `Episode-mobile`): real page instead of the drawer redirect, still hero, show breadcrumb, prev / next, action card logging that episode, ratings, reviews, guest cast, more from the season. No reaction chips. CLS up to 0.0001
+- [x] Show engagement tabs: `/shows/[slug]/reviews` via the shared reviews facet (reviews / watching now / lists). Show-level comments only (the request has no season / episode scope). Activity route still open (see wave 3). CLS up to 0.0004 mobile (web font swap on tab labels)
 
 ### Wave 5 - home and discovery
 

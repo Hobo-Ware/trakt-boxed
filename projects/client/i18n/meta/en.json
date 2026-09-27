@@ -11,6 +11,87 @@
     }
   },
   "messages": {
+    "boxed_show_your_progress": {
+      "default": "Your progress",
+      "description": "Label on the show page card that shows how many episodes the user has watched."
+    },
+    "boxed_show_episodes_watched": {
+      "default": "{watched} of {total}",
+      "description": "Short progress fraction on the show page, e.g. '14 of 19' episodes watched. {watched} and {total} are episode counts.",
+      "variables": {
+        "watched": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "boxed_show_episode_count": {
+      "default": "{count} episodes",
+      "description": "Number of episodes of a show or season, shown in the page byline.",
+      "variables": {
+        "count": {
+          "type": "number"
+        }
+      }
+    },
+    "boxed_show_season_count": {
+      "default": "{count} seasons",
+      "description": "Number of seasons of a show, shown in the show page byline.",
+      "variables": {
+        "count": {
+          "type": "number"
+        }
+      }
+    },
+    "boxed_show_all_episodes": {
+      "default": "All episodes",
+      "description": "Link from the seasons strip on the show page to the full episode list of a season."
+    },
+    "boxed_show_aired_on": {
+      "default": "Aired {date}",
+      "description": "Air date of an episode on the show, season and episode pages. {date} is a formatted date.",
+      "variables": {
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+    "boxed_show_airs_on": {
+      "default": "Airs {date}",
+      "description": "Upcoming air date of an episode that has not aired yet. {date} is a formatted date.",
+      "variables": {
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+    "boxed_show_log_episodes": {
+      "default": "Log episodes",
+      "description": "Action card row on the season page that opens the log composer for that season."
+    },
+    "boxed_show_mark_season_watched": {
+      "default": "Mark season watched",
+      "description": "Action card row on the season page that marks every aired episode of the season as watched."
+    },
+    "boxed_show_season_watched": {
+      "default": "Season watched",
+      "description": "Action card row on the season page when every aired episode of the season is watched; clicking removes them from history."
+    },
+    "boxed_show_more_from_season": {
+      "default": "More from {season}",
+      "description": "Section title on the episode page for the other episodes of the same season. {season} is e.g. 'Season 2'.",
+      "variables": {
+        "season": {
+          "type": "string"
+        }
+      }
+    },
+    "boxed_show_up_next_empty": {
+      "default": "Nothing left to watch. New episodes will show up here.",
+      "description": "Empty state of the up next card on the show page when the user has watched every aired episode."
+    },
     "text_clear_source_custom_library": {
       "default": "Custom Library",
       "description": "Clear data source containing only non-Plex library items."
