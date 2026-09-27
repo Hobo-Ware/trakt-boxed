@@ -10,7 +10,7 @@
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import type { MediaListSummary } from "$lib/requests/models/MediaListSummary";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import { getListUrl } from "../components/list-summary/_internal/getListUrl";
+  import { getListUrl } from "../components/list-summary/getListUrl";
   import DeleteListButton from "./_internal/DeleteListButton.svelte";
   import EditListButton from "./_internal/EditListButton.svelte";
   import LikeListAction from "./_internal/LikeListAction.svelte";

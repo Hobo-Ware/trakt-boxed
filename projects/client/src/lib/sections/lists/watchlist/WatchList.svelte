@@ -4,7 +4,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import type { Snippet } from "svelte";
   import CtaItem from "../components/cta/CtaItem.svelte";
-  import { getListUrl } from "../components/list-summary/_internal/getListUrl";
+  import { getListUrl } from "../components/list-summary/getListUrl";
   import DrillableMediaList from "../drilldown/DrillableMediaList.svelte";
   import WatchListItem from "./_internal/WatchListItem.svelte";
   import { useWatchList } from "./useWatchList";
