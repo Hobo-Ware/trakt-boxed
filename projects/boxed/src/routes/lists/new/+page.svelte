@@ -5,7 +5,6 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
-  import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
 
   const { user } = useUser();
 </script>
@@ -19,7 +18,7 @@
     <ListEditor
       list={null}
       isPrivateByDefault={Boolean($user?.isPrivate)}
-      cancelHref={UrlBuilder.lists.user("me")}
+      cancelHref="/lists"
     />
   </PageContainer>
 </TraktPage>

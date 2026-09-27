@@ -111,7 +111,7 @@
     <section>
       <SectionHeader
         title={m.list_title_up_next()}
-        href={UrlBuilder.progress("me")}
+        href={`${UrlBuilder.profile.me()}/watching`}
       />
       <div class="boxed-up-next-grid">
         {#if $isLoadingUpNext}
@@ -147,13 +147,13 @@
       <InView>
         <SectionHeader
           title={m.list_title_start_watching()}
-          href={UrlBuilder.lists.watchlist("me")}
+          href={`${UrlBuilder.profile.me()}/watchlist`}
         />
         <StartWatchingRow />
         {#snippet placeholder()}
           {@render lazyRow(
             m.list_title_start_watching(),
-            UrlBuilder.lists.watchlist("me"),
+            `${UrlBuilder.profile.me()}/watchlist`,
           )}
         {/snippet}
       </InView>

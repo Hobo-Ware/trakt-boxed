@@ -40,7 +40,7 @@
     },
     {
       section: "lists",
-      href: UrlBuilder.lists.user("me"),
+      href: "/lists",
       text: m.page_title_lists(),
       label: m.button_label_browse_lists(),
       audience: "authenticated",

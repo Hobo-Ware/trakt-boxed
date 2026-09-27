@@ -38,13 +38,13 @@
         <InView>
           <SectionHeader
             title={m.list_title_personal_lists()}
-            href={UrlBuilder.lists.all("me", "personal")}
+            href={`${UrlBuilder.profile.me()}/lists?tab=personal`}
           />
           <MyLists type="personal" />
           {#snippet placeholder()}
             {@render lazyGrid(
               m.list_title_personal_lists(),
-              UrlBuilder.lists.all("me", "personal"),
+              `${UrlBuilder.profile.me()}/lists?tab=personal`,
             )}
           {/snippet}
         </InView>
@@ -54,13 +54,13 @@
         <InView>
           <SectionHeader
             title={m.list_title_liked_lists()}
-            href={UrlBuilder.lists.all("me", "liked")}
+            href={`${UrlBuilder.profile.me()}/lists?tab=liked`}
           />
           <MyLists type="liked" />
           {#snippet placeholder()}
             {@render lazyGrid(
               m.list_title_liked_lists(),
-              UrlBuilder.lists.all("me", "liked"),
+              `${UrlBuilder.profile.me()}/lists?tab=liked`,
             )}
           {/snippet}
         </InView>

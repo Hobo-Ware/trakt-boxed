@@ -35,7 +35,7 @@
     },
     {
       key: "watching",
-      href: UrlBuilder.progress("me"),
+      href: `${UrlBuilder.profile.me()}/watching`,
       text: m.page_title_progress(),
       icon: ShowIcon,
     },
