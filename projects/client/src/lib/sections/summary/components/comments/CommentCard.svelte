@@ -4,7 +4,7 @@
   import TextCard from "../../../components/text-card/TextCard.svelte";
   import ReactAction from "./_internal/comment-actions/ReactAction.svelte";
   import ViewRepliesAction from "./_internal/comment-actions/ViewRepliesAction.svelte";
-  import CommentBody from "./_internal/CommentBody.svelte";
+  import CommentBody from "./CommentBody.svelte";
   import CommentFooter from "./_internal/CommentFooter.svelte";
   import CommentHeader from "./_internal/CommentHeader.svelte";
   import type { ActiveComment } from "./_internal/models/ActiveComment";

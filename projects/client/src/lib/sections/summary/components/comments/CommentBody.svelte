@@ -5,10 +5,10 @@
   import type { MediaComment } from "$lib/requests/models/MediaComment";
   import type { MediaEntry } from "$lib/requests/models/MediaEntry";
   import { createSafeMarked } from "$lib/utils/markdown/createSafeMarked.ts";
-  import CommentGif from "./CommentGif.svelte";
-  import { createHeadingRenderer } from "./marked/createHeadingRenderer";
-  import { createParagraphRenderer } from "./marked/createParagraphRenderer";
-  import { spoilerExtension } from "./marked/spoilerExtension";
+  import CommentGif from "./_internal/CommentGif.svelte";
+  import { createHeadingRenderer } from "./_internal/marked/createHeadingRenderer";
+  import { createParagraphRenderer } from "./_internal/marked/createParagraphRenderer";
+  import { spoilerExtension } from "./_internal/marked/spoilerExtension";
 
   const maxPreviewLines = 3;
 

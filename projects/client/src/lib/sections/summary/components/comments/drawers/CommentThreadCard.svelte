@@ -7,7 +7,7 @@
   import ReactAction from "../_internal/comment-actions/ReactAction.svelte";
   import ReplyButton from "../_internal/comment-actions/ReplyButton.svelte";
   import CommentInput from "../_internal/comment-input/CommentInput.svelte";
-  import CommentBody from "../_internal/CommentBody.svelte";
+  import CommentBody from "../CommentBody.svelte";
   import CommentFooter from "../_internal/CommentFooter.svelte";
   import CommentHeader from "../_internal/CommentHeader.svelte";
   import { toGifSuggestedQuery } from "../_internal/toGifSuggestedQuery.ts";
