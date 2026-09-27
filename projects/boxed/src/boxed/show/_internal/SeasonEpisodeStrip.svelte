@@ -3,6 +3,7 @@
   import { toStarAverage } from "$boxed/utils/toStarAverage.ts";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
+  import { useOfflineActions } from "$lib/features/offline/useOfflineActions.ts";
   import { languageTag } from "$lib/features/i18n/index.ts";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
   import type { EpisodeEntry } from "$lib/requests/models/EpisodeEntry.ts";
@@ -26,9 +27,15 @@
     $props();
 
   const { history } = useUser();
+  const { actions } = useOfflineActions();
 
   const watchedIds = $derived(
-    toWatchedEpisodeIds({ history: $history, showId: show.id }),
+    toWatchedEpisodeIds({
+      history: $history,
+      showId: show.id,
+      episodeIds: episodes?.map((episode) => episode.id) ?? [],
+      actions: $actions,
+    }),
   );
 </script>
 

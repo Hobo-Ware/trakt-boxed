@@ -1,6 +1,7 @@
 <script lang="ts">
   import { toWatchedEpisodeIds } from "./toWatchedEpisodeIds.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
+  import { useOfflineActions } from "$lib/features/offline/useOfflineActions.ts";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { EpisodeEntry } from "$lib/requests/models/EpisodeEntry.ts";
   import type { ShowEntry } from "$lib/requests/models/ShowEntry.ts";
@@ -18,10 +19,16 @@
   const { show, episodes, expectedCount }: SeasonEpisodesProps = $props();
 
   const { history, ratings } = useUser();
+  const { actions } = useOfflineActions();
   const now = new Date();
 
   const watchedIds = $derived(
-    toWatchedEpisodeIds({ history: $history, showId: show.id }),
+    toWatchedEpisodeIds({
+      history: $history,
+      showId: show.id,
+      episodeIds: episodes?.map((episode) => episode.id) ?? [],
+      actions: $actions,
+    }),
   );
   const upNextId = $derived(
     episodes ? findUpNextEpisode({ episodes, watchedIds, now })?.id : undefined,
