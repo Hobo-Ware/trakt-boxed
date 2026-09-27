@@ -102,9 +102,15 @@
     }
 
     hasSeededSelection = true;
+    const now = Date.now();
     const first = pickDefaultEpisode({
       episodeNumbers: $episodes.map((episode) => episode.number),
       watchedNumbers,
+      airedNumbers: new Set(
+        $episodes
+          .filter((episode) => episode.effectiveReleaseDate.getTime() <= now)
+          .map((episode) => episode.number),
+      ),
       preferred: seasonNumber === target.season ? target.episode : undefined,
     });
     selected = new Set(first === null ? [] : [first]);
