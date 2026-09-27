@@ -1,8 +1,8 @@
 <script lang="ts">
   import * as m from "$lib/features/i18n/messages.ts";
   import type { MarkAsWatchedAt } from "$lib/models/MarkAsWatchedAt.ts";
+  import { formatLocalDate } from "$lib/utils/date/formatLocalDate.ts";
   import { fromDateInputValue } from "./fromDateInputValue.ts";
-  import { toDateInputValue } from "./toDateInputValue.ts";
 
   type Choice = "now" | "released" | "other" | "unknown";
 
@@ -12,7 +12,7 @@
   }: { value: MarkAsWatchedAt; onChange: (at: MarkAsWatchedAt) => void } =
     $props();
 
-  const today = toDateInputValue(new Date());
+  const today = formatLocalDate(new Date());
   const choice: Choice = $derived(value instanceof Date ? "other" : value);
   let otherDate = $state(today);
 
