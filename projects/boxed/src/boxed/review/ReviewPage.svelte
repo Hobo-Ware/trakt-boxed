@@ -83,11 +83,16 @@
 
 <div class="boxed-review-page">
   <aside class="boxed-review-media">
-    <a class="boxed-review-poster" href={hrefs?.title} aria-label={media?.title}>
+    <svelte:element
+      this={hrefs ? "a" : "span"}
+      class="boxed-review-poster"
+      href={hrefs?.title}
+      aria-label={media?.title}
+    >
       {#if media}
         <CrossOriginImage src={media.poster.url.medium} alt={media.title} />
       {/if}
-    </a>
+    </svelte:element>
     <div class="boxed-review-media-actions">
       {#if $isAuthorized}
         <button
@@ -98,7 +103,13 @@
           {m.boxed_title_log_or_review()}
         </button>
       {/if}
-      <a href={hrefs?.title}>{m.button_text_where_to_watch()}</a>
+      <svelte:element
+        this={hrefs ? "a" : "span"}
+        class="boxed-review-media-link"
+        href={hrefs?.title}
+      >
+        {m.button_text_where_to_watch()}
+      </svelte:element>
     </div>
   </aside>
 
@@ -300,7 +311,7 @@
     }
 
     button,
-    a {
+    .boxed-review-media-link {
       height: var(--ni-40);
       padding-inline: var(--ni-14);
       display: flex;
