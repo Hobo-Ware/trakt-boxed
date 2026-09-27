@@ -31,6 +31,11 @@ describe('util: siteSectionFor', () => {
     ).toBe('lists');
   });
 
+  it('should map the members directory to members', () => {
+    expect(siteSectionFor({ pathname: '/members', discoverMode: null }))
+      .toBe('members');
+  });
+
   it('should map the calendar and ignore everything else', () => {
     expect(siteSectionFor({ pathname: '/calendar', discoverMode: null }))
       .toBe('calendar');

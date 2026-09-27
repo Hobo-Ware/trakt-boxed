@@ -163,6 +163,42 @@
       "default": "Skip for now",
       "description": "Link on the onboarding page that skips setup and goes to the home page."
     },
+    "boxed_welcome_greeting": {
+      "default": "Welcome to trakt boxed, {name}.",
+      "description": "Main heading on the boxed onboarding page, greeting the signed-in user by name. Keep 'trakt boxed' as the product name."
+    },
+    "boxed_welcome_greeting_generic": {
+      "default": "Welcome to trakt boxed.",
+      "description": "Main heading on the boxed onboarding page when the user's name is not available yet. Keep 'trakt boxed' as the product name."
+    },
+    "boxed_nav_members": {
+      "default": "Members",
+      "description": "Top bar navigation item and page title for the members directory."
+    },
+    "boxed_nav_members_label": {
+      "default": "Browse members",
+      "description": "Aria-label for the Members item in the top bar navigation."
+    },
+    "boxed_menu_vip": {
+      "default": "VIP",
+      "description": "Account menu item that opens the Trakt VIP page."
+    },
+    "boxed_header_search_placeholder": {
+      "default": "Search films, shows, people",
+      "description": "Placeholder of the search field in the desktop top bar."
+    },
+    "boxed_header_watching_label": {
+      "default": "Watching now: {title}",
+      "description": "Aria-label of the live pill in the top bar that links to what the signed-in user is checked in to or scrobbling right now."
+    },
+    "boxed_members_intro": {
+      "default": "The people you follow, ranked by watch time.",
+      "description": "Subtitle on the members page, which lists followed members ranked by watch time."
+    },
+    "boxed_members_empty": {
+      "default": "Follow people to see how you stack up against them.",
+      "description": "Empty state on the members page when the user follows nobody."
+    },
     "boxed_show_your_progress": {
       "default": "Your progress",
       "description": "Label on the show page card that shows how many episodes the user has watched."
