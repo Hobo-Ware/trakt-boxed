@@ -62,7 +62,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 - [x] Film page `/movies/[slug]` (boards `Film`, `Film-mobile`, `Twist-A`), incl. backdrop hero + Newsreader with a metric-matched Georgia fallback: ambient colour from the poster, action card (log / like / watchlist / rate, join prompt signed out), where to watch, share, ratings histogram with external ratings, cast / crew / details / genres / releases tabs, popular reviews with spoiler cover, sentiment pros and cons, trivia (VIP count / upsell), friends who watched, extras, soundtrack, popular lists. CLS 0.0000 desktop + mobile, slow and fast
 - [x] Engagement tabs (board `Facet`): `/movies/[slug]/reviews` with Reviews (popular / recent), Watching now and Lists tabs via `?tab=`, plus a your review card. `/movies/[slug]/lists` and `/related` are still legacy mounts. CLS 0.0000 desktop, 0.0002 mobile (web font swap on a tab label)
-- [ ] Your activity `/movies/[slug]/activity`
+- [x] Your activity (kept at the existing `/history/movies/[slug]`, `/history/shows/[slug]` and `/history/shows/[slug]/seasons/[n]/episodes/[e]` URLs the action cards link to): title header with poster, then the profile diary table / mobile cards filtered to that title (`DiaryList` gained an optional `id`). One title request plus the history request. CLS 0.0000
 
 ### Wave 4 - shows
 

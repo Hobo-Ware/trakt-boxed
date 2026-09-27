@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { RecentlyWatchedType } from "$lib/sections/lists/stores/useRecentlyWatchedList.ts";
   import { useRecentlyWatchedList } from "$lib/sections/lists/stores/useRecentlyWatchedList.ts";
+  import { of } from "rxjs";
   import { SvelteSet } from "svelte/reactivity";
   import LoadMore from "../LoadMore.svelte";
   import DiaryCards from "./DiaryCards.svelte";
@@ -11,15 +12,26 @@
 
   const PAGE_SIZE = 50;
 
-  const {
-    slug,
-    type,
-    isMe,
-  }: { slug: string; type: RecentlyWatchedType; isMe: boolean } = $props();
+  type DiaryListProps = {
+    slug: string;
+    type: RecentlyWatchedType;
+    isMe: boolean;
+    id?: number | null;
+  };
 
-  const { list, isLoading, hasNextPage, fetchNextPage } = $derived(
-    useRecentlyWatchedList({ type, slug, limit: PAGE_SIZE }),
-  );
+  const { slug, type, isMe, id }: DiaryListProps = $props();
+
+  const history = $derived.by(() => {
+    if (id === null) return null;
+    if (id !== undefined && type !== "media") {
+      return useRecentlyWatchedList({ type, id, slug, limit: PAGE_SIZE });
+    }
+    return useRecentlyWatchedList({ type, slug, limit: PAGE_SIZE });
+  });
+  const list = $derived(history?.list ?? of([]));
+  const isLoading = $derived(history?.isLoading ?? of(true));
+  const hasNextPage = $derived(history?.hasNextPage ?? of(false));
+  const fetchNextPage = () => history?.fetchNextPage();
   const { userState } = $derived(useDiaryUserState(isMe));
 
   const expanded = new SvelteSet<string>();
