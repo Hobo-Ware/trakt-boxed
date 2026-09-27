@@ -13,7 +13,7 @@
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
 
   import { writable } from "$lib/utils/store/WritableSubject.ts";
-  import { useSaveList } from "./useSaveList";
+  import { useSaveList } from "../useSaveList";
 
   // FIXME: remove when we properly deal with other privacy options
   const SUPPORTED_PRIVACY: ListPrivacy[] = ["public", "private"];
