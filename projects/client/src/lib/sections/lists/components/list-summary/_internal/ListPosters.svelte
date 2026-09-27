@@ -3,7 +3,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import CrossOriginImage from "$lib/features/image/components/CrossOriginImage.svelte";
   import type { MediaListSummary } from "$lib/requests/models/MediaListSummary.ts";
-  import { getListUrl } from "./getListUrl.ts";
+  import { getListUrl } from "../getListUrl.ts";
 
   const posterLimit = 8;
   const {

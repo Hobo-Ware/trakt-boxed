@@ -4,7 +4,7 @@
   import ListMeta from "$lib/sections/lists/components/ListMeta.svelte";
   import UserAvatar from "$lib/sections/lists/components/UserAvatar.svelte";
   import ListActions from "$lib/sections/lists/user/ListActions.svelte";
-  import { getListUrl } from "./getListUrl.ts";
+  import { getListUrl } from "../getListUrl.ts";
 
   const {
     list,
