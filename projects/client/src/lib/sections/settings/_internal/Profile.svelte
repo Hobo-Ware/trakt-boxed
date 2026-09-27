@@ -7,7 +7,7 @@
   import ProfileImage from "$lib/sections/profile-banner/ProfileImage.svelte";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import SettingsGroupCard from "./SettingsGroupCard.svelte";
-  import { useSettings } from "./useSettings";
+  import { useSettings } from "../useSettings.ts";
 
   const { user } = useUser();
   const { profile } = useSettings();

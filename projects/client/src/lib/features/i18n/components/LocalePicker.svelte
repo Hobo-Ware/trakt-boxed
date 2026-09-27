@@ -9,7 +9,7 @@
     getLocale,
   } from "$lib/features/i18n/index.ts";
   import * as m from "$lib/features/i18n/messages.ts";
-  import { useSettings } from "$lib/sections/settings/_internal/useSettings";
+  import { useSettings } from "$lib/sections/settings/useSettings";
   import { applyLocalePreference } from "../applyLocalePreference";
   import { useLocale } from "./useLocale";
 

@@ -47,7 +47,7 @@ vi.mock('$lib/features/auth/stores/useUser', () => ({
 vi.mock('$lib/features/auth/stores/useAuth', () => ({
   useAuth: () => ({ isAuthorized: authStore }),
 }));
-vi.mock('$lib/sections/settings/_internal/useSettings', () => ({
+vi.mock('$lib/sections/settings/useSettings', () => ({
   useSettings: () => ({ locale: { set: setLocaleSetting } }),
 }));
 vi.mock('./useLocale', () => ({ useLocale: () => localeStore }));

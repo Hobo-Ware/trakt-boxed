@@ -10,7 +10,7 @@
   import SingleSelect from "$lib/components/select/SingleSelect.svelte";
   import { useAuth } from "$lib/features/auth/stores/useAuth";
   import * as m from "$lib/features/i18n/messages";
-  import { useSettings } from "$lib/sections/settings/_internal/useSettings";
+  import { useSettings } from "$lib/sections/settings/useSettings";
 
   const { set, theme } = useTheme();
 

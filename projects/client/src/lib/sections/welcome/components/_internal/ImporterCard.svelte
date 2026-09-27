@@ -5,7 +5,7 @@
     IMPORT_SOURCE_CONFIGS,
     type ImportSource,
   } from "$lib/sections/settings/import/ImportTypes.ts";
-  import { importSourceHref } from "./importSourceHref.ts";
+  import { importSourceHref } from "../importSourceHref.ts";
 
   const {
     description,

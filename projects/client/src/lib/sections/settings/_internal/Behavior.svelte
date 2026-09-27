@@ -7,7 +7,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import SettingsGroupCard from "./SettingsGroupCard.svelte";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
-  import { useSettings } from "./useSettings.ts";
+  import { useSettings } from "../useSettings.ts";
 
   const { watchAgain, spoilers, ratingPrompt, isSavingSettings } =
     useSettings();

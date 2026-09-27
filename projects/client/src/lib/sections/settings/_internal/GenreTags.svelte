@@ -6,7 +6,7 @@
   import type { Genre } from "@trakt/api";
   import { GENRE_LIMIT } from "./constants.ts";
   import SettingsGroupCard from "./SettingsGroupCard.svelte";
-  import { useSettings } from "./useSettings.ts";
+  import { useSettings } from "../useSettings.ts";
 
   const { genres, isSavingSettings, setLovedGenres } = useSettings();
 

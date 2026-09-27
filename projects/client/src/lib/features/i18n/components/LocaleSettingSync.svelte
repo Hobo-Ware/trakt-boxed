@@ -1,7 +1,7 @@
 <script lang="ts">
   import { useAuth } from "$lib/features/auth/stores/useAuth";
   import { useUser } from "$lib/features/auth/stores/useUser";
-  import { useSettings } from "$lib/sections/settings/_internal/useSettings";
+  import { useSettings } from "$lib/sections/settings/useSettings";
   import { applyLocalePreference } from "../applyLocalePreference";
   import { resolveLocaleAction } from "../resolveLocaleAction";
   import { useLocale } from "./useLocale";

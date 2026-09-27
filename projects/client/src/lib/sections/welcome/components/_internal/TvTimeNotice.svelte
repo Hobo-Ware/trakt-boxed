@@ -1,7 +1,7 @@
 <script lang="ts">
   import Button from "$lib/components/buttons/Button.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
-  import { importSourceHref } from "./importSourceHref.ts";
+  import { importSourceHref } from "../importSourceHref.ts";
 
   const importHref = importSourceHref("tvtime");
 </script>
