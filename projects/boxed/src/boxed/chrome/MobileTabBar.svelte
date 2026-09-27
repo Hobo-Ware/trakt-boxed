@@ -85,7 +85,9 @@
   {/if}
 </RenderFor>
 
-<style>
+<style lang="scss">
+  @use "$style/scss/mixins/index" as *;
+
   .boxed-tabbar-spacer {
     height: var(--boxed-tabbar-height);
   }
@@ -157,11 +159,7 @@
   }
 
   .boxed-tab.is-primary .boxed-tab-text {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
+    @include visually-hidden;
   }
 
   .boxed-tab-text {

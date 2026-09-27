@@ -19,7 +19,7 @@
   <Dialog.Portal>
     <Dialog.Overlay class="boxed-log-overlay" />
     <Dialog.Content class="boxed-log-dialog" interactOutsideBehavior="close">
-      <Dialog.Title class="boxed-visually-hidden">{title}</Dialog.Title>
+      <Dialog.Title class="boxed-log-dialog-title">{title}</Dialog.Title>
       <span class="boxed-log-handle" aria-hidden="true"></span>
       <Dialog.Close class="boxed-log-close" aria-label={m.button_label_close()}>
         <CloseIcon />
@@ -120,12 +120,7 @@
     }
   }
 
-  :global(.boxed-visually-hidden) {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+  :global(.boxed-log-dialog-title) {
+    @include visually-hidden;
   }
 </style>

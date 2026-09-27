@@ -222,7 +222,7 @@
 
     <div class="boxed-log-row">
       <label class="boxed-episode-season">
-        <span class="boxed-visually-hidden">{m.text_season_number({ number: seasonNumber })}</span>
+        <span class="boxed-episode-season-label">{m.text_season_number({ number: seasonNumber })}</span>
         <select
           value={seasonNumber}
           onchange={(event) => selectSeason(Number(event.currentTarget.value))}
@@ -382,6 +382,10 @@
 <style lang="scss">
   @use "$style/scss/mixins/index" as *;
   @use "./logForm" as *;
+
+  .boxed-episode-season-label {
+    @include visually-hidden;
+  }
 
   @include log-form;
 
