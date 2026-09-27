@@ -2,7 +2,7 @@
   import PageContainer from "$boxed/components/PageContainer.svelte";
   import ReviewPage from "$boxed/review/ReviewPage.svelte";
   import type { ReviewTarget } from "$boxed/review/ReviewTarget.ts";
-  import { useCommentItem } from "$clientRoutes/comments/[id]/useCommentItem.ts";
+  import { useCommentItem } from "$routes/comments/[id]/useCommentItem.ts";
   import Redirect from "$lib/components/router/Redirect.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import Error404Page from "$lib/pages/errors/Error404Page.svelte";

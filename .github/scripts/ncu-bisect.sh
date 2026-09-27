@@ -32,7 +32,7 @@ set -euo pipefail
 
 INPUT_JSON="${1:?usage: ncu-bisect.sh <upgrades.json>}"
 ROOT="$(git rev-parse --show-toplevel)"
-CLIENT="$ROOT/projects/client"
+CLIENT="$ROOT/projects/boxed"
 LOG_DIR="${LOG_DIR:-/tmp/bisect-logs}"
 mkdir -p "$LOG_DIR"
 rm -f "$LOG_DIR"/probe-*.log "$LOG_DIR"/rejected-*.log

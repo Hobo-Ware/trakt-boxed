@@ -18,9 +18,7 @@
     "disableSizeLimit": true,
     "rootDirs": [
       ".",
-      "./.svelte-kit/types",
-      "../client",
-      "../client/.svelte-kit/types"
+      "./.svelte-kit/types"
     ]
   }
   // Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias

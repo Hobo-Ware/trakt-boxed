@@ -1,6 +1,6 @@
 <script lang="ts">
   import ListDetail from "$boxed/lists/ListDetail.svelte";
-  import { useListSummary } from "$clientRoutes/lists/official/[list]/useListSummary.ts";
+  import { useListSummary } from "$routes/lists/official/[list]/useListSummary.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
   import type { PageProps } from "./$types";

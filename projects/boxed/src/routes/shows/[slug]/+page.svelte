@@ -1,8 +1,8 @@
 <script lang="ts">
   import ShowSummary from "$boxed/show/ShowSummary.svelte";
   import TitleSkeleton from "$boxed/title/TitleSkeleton.svelte";
-  import { useShow } from "$clientRoutes/shows/[slug]/useShow.ts";
-  import { useShowVideos } from "$clientRoutes/shows/[slug]/useShowVideos.ts";
+  import { useShow } from "$routes/shows/[slug]/useShow.ts";
+  import { useShowVideos } from "$routes/shows/[slug]/useShowVideos.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import type { PageProps } from "./$types";

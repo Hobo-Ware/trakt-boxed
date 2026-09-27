@@ -1,25 +1,29 @@
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { dirname, join } from 'node:path';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const CLIENT = join(__dirname, '../client');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+  // Consult https://svelte.dev/docs/kit/integrations
+  // for more information about preprocessors
   preprocess: vitePreprocess({
     style: {
       resolve: {
         alias: {
-          $style: join(CLIENT, 'src/style'),
+          $style: join(__dirname, 'src/style'),
         },
       },
     },
   }),
 
   kit: {
+    // See https://svelte.dev/docs/kit/adapters for more information about adapters.
     adapter: adapter({
+      // See below for an explanation of these options
       routes: {
         include: ['/*'],
         exclude: ['<all>'],
@@ -37,23 +41,15 @@ const config = {
     paths: {
       relative: false,
     },
-    files: {
-      lib: join(CLIENT, 'src/lib'),
-      assets: join(CLIENT, 'static'),
-      hooks: {
-        server: join(CLIENT, 'src/hooks.server'),
-        client: join(CLIENT, 'src/hooks.client'),
-      },
-    },
     alias: {
       '$boxed': './src/boxed',
-      '$clientRoutes': join(CLIENT, 'src/routes'),
-      '$mocks': join(CLIENT, 'src/mocks'),
-      '$worker': join(CLIENT, 'src/worker'),
-      '$test': join(CLIENT, 'test'),
-      '$style': join(CLIENT, 'src/style'),
-      '$static': join(CLIENT, 'static'),
-      '$e2e': join(CLIENT, 'e2e'),
+      '$routes': './src/routes',
+      '$mocks': './src/mocks',
+      '$worker': './src/worker',
+      '$test': './test',
+      '$style': 'src/style',
+      '$static': './static',
+      '$e2e': './e2e',
       '$types': './.svelte-kit/types/src/routes',
     },
   },

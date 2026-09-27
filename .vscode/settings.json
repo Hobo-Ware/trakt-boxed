@@ -84,11 +84,11 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "cucumber.features": [
-    "projects/client/e2e/features/**/*.feature"
+    "projects/boxed/e2e/features/**/*.feature"
   ],
   "cucumber.glue": [
-    "projects/client/e2e/world.ts",
-    "projects/client/e2e/support/**/*.ts"
+    "projects/boxed/e2e/world.ts",
+    "projects/boxed/e2e/support/**/*.ts"
   ],
   "java.configuration.updateBuildConfiguration": "interactive"
 }

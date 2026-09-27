@@ -1,8 +1,8 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../../client/src/routes/lists/smart/create/+layout.svelte";
+  import SmartListFilterPreserver from "$lib/sections/smart-lists/SmartListFilterPreserver.svelte";
 
-  const props = $props();
+  const { children } = $props();
 </script>
 
-<Legacy {...props} />
+<SmartListFilterPreserver />
+{@render children?.()}

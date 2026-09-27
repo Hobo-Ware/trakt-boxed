@@ -53,7 +53,7 @@ jobs:
               | to_entries[]
               | select(.value | test("^[\\^~]"))
               | "\(.key)@\(.value)"
-            ' projects/client/package.json
+            ' projects/boxed/package.json
           )
           if [ -n "$OFFENDERS" ]; then
             echo "::error::Non-exact version ranges detected. Pin exact versions."
@@ -85,7 +85,7 @@ jobs:
         run: deno task install
 
       - name: Verify NPM Provenance aka Audit Signatures
-        working-directory: projects/client
+        working-directory: projects/boxed
         continue-on-error: true
         run: |
           set -euo pipefail

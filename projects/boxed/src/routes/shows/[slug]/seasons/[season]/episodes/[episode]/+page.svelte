@@ -1,7 +1,7 @@
 <script lang="ts">
   import EpisodeSummary from "$boxed/show/EpisodeSummary.svelte";
   import TitleSkeleton from "$boxed/title/TitleSkeleton.svelte";
-  import { useEpisode } from "$clientRoutes/shows/[slug]/seasons/[season]/episodes/[episode]/useEpisode.ts";
+  import { useEpisode } from "$routes/shows/[slug]/seasons/[season]/episodes/[episode]/useEpisode.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import type { PageProps } from "./$types";

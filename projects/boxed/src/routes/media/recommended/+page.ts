@@ -1,2 +1,5 @@
-// legacy-mount
-export * from '../../../../../client/src/routes/media/recommended/+page.ts';
+import { UrlBuilder } from '$lib/utils/url/UrlBuilder';
+import { redirect } from '@sveltejs/kit';
+
+export const load = () =>
+  redirect(301, UrlBuilder.recommended({ mode: 'media' }));

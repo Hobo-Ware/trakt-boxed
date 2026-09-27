@@ -21,8 +21,8 @@ Vitest + `@testing-library/svelte` in jsdom environment.
 ## Running Tests
 
 ```bash
-deno task test:unit    # from projects/client/
-vitest                 # from projects/client/
+deno task test:unit    # from projects/boxed/
+vitest                 # from projects/boxed/
 ```
 
 ## Testing Philosophy

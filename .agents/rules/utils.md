@@ -1,8 +1,8 @@
 ---
 trigger: glob
-globs: 'projects/client/src/lib/utils/**'
+globs: 'projects/boxed/src/lib/utils/**'
 description: 'Conventions and patterns for everything in lib/utils.'
-applyTo: 'projects/client/src/lib/utils/**'
+applyTo: 'projects/boxed/src/lib/utils/**'
 ---
 
 # Utils Guidelines

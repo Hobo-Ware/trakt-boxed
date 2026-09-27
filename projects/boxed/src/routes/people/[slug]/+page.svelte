@@ -2,7 +2,7 @@
   import PageContainer from "$boxed/components/PageContainer.svelte";
   import PersonCredits from "$boxed/person/PersonCredits.svelte";
   import PersonHeader from "$boxed/person/PersonHeader.svelte";
-  import { usePerson } from "$clientRoutes/people/[slug]/usePerson.ts";
+  import { usePerson } from "$routes/people/[slug]/usePerson.ts";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import type { PageProps } from "./$types";

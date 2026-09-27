@@ -20,12 +20,11 @@ The anchor for every session. Read this first, then `PLAN.md`.
    1:1, never reinvented: models, HTTP requests (`defineQuery`, mappers, Zod
    schemas, offline queue), authorization, theming (light / dark / system +
    seasonal), localization (Paraglide, 28 locales, RTL), query client, feature
-   state, stores and utils are imported from `$lib` (=
-   `projects/client/src/lib`) and route hooks via `$clientRoutes`. Never fork or
-   rewrite them in boxed; never change their behaviour in `projects/client`.
-   Two client edits are allowed: additive i18n keys (`boxed_*`) in
-   `projects/client/i18n/meta/en.json`, and uplifting an `_internal` file one
-   folder up unchanged so boxed may import it. New components use only semantic theme tokens
+   state, stores and utils live in `$lib` (= `projects/boxed/src/lib`, moved
+   unchanged from trakt-web) and route hooks sit next to their pages (import
+   them via `$routes`). Build UI in `src/boxed`; restyling shared components is
+   fine, changing their behaviour is not. i18n keys go in
+   `projects/boxed/i18n/meta/en.json` (prefix `boxed_*`). New components use only semantic theme tokens
    (`--color-*`, palette vars), never raw hex, so light, dark and seasonal
    themes all keep working.
 3. No fan-out requests, nothing slow above the fold (PLAN 2b).
@@ -117,11 +116,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 - [x] Skeleton + empty state audit (2026-09-27): 46 routes signed out and 33 signed in, each scrolled 2500px, desktop + mobile, fast + throttled (about 450 page loads). Fixed three failures found by it: watched shows / films grid moving the footer (now prefetched batches behind Load more), popular lists overflowing their reserve when signed in, and review previews shrinking when a title has fewer than three reviews. Everything is at or under 0.001 except the web font swap cases: terms mobile 0.0184 (open decision), faq mobile 0.0087, privacy 0.0034, film / person / show reviews tabs up to 0.0005. Harness: `scratchpad/sweep.sh`, `sweep2.sh`; `SLOTS=<selector>` logs section heights to find the element that shrank
 - [x] RTL (fa-IR, ar-SA) pass: no physical-side CSS in boxed (logical properties throughout, directional icons mirror via `trakt-icon-directional`, binge pile uses `--rtl-sign`). Home, film, show, person, review, lists, diary shot in fa-IR on both viewports: layout mirrors correctly, CLS up to 0.0013 (Persian font swap). Harness takes `LOCALE=<code>` (sets `trakt-locale`)
 - [x] Accessibility pass: axe (WCAG 2 A / AA) over 14 key pages. Fixed two contrast failures (person type counts, diary month ribbon year). One open, left for a product decision: the inherited viewport tag sets `user-scalable=no` (axe critical: zoom disabled)
-- [ ] i18n: every `boxed_*` key has translations. All keys live in `projects/client/i18n/meta/en.json` with descriptions; translations arrive through Crowdin (`crowdin.yml` reads en.json and opens a PR). Needs the source upload once this branch is the translation source; not done from here because the Crowdin project is shared with production
+- [ ] i18n: every `boxed_*` key has translations. All keys live in `projects/boxed/i18n/meta/en.json` with descriptions; translations arrive through Crowdin (`crowdin.yml` reads en.json and opens a PR). Needs the source upload once this branch is the translation source; not done from here because the Crowdin project is shared with production
 - [x] Remove remaining legacy mounts: 15 routes now redirect (307, query kept) to their boxed pages (watchlist, progress, start watching, history, user lists and list views, person credits, title lists, episode related); rebuilt related titles (movie / show, all pages loaded up front so the footer never moves), official lists and releases (sharing new `ListDetail` and `CalendarWeek` bodies with the user list and calendar pages); calendar layout is now boxed. Still mounted on purpose: smart lists, library, year / month in review, vip/renew, and `/history?sync_id` (sync banner). CLS 0.0000 to 0.0002
 - [x] Title rail list card vs `lists/ListCard`: reviewed and kept separate. The rail card is a different compact design (72px fan, card surface, own same-size skeleton); a variant would move the same CSS without removing any
-- [ ] Port the shared layer into boxed 1:1: `git mv` the non-UI parts of
-      `projects/client/src/lib` (requests, models, features state, stores,
-      utils, i18n, paraglide) plus hooks, worker and static into
-      `projects/boxed`, unchanged; point `$lib` at the new location; delete
-      `projects/client`
+- [x] Port the shared layer into boxed 1:1 (2026-09-27): `git mv` of `src/lib`, hooks, worker, mocks, style, static, i18n, test, e2e, scripts and project config into `projects/boxed` unchanged; client route hooks and the pages still in use (smart lists, library, year / month in review, vip/renew, api, sitemap, callbacks) moved next to the boxed pages; `$clientRoutes` became `$routes`; `projects/client` deleted; root tasks, 8 workflows, crowdin.yml, gemini / deepsource / vscode config and agent rules repointed. svelte-check 0 / 0 over 10,397 files, 3736 / 3737 tests (the Myanmar numeral test depends on the machine's ICU data, untouched by this branch), production build OK
