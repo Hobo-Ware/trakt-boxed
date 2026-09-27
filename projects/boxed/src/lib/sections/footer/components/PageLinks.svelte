@@ -10,30 +10,30 @@
 
 <div class="trakt-page-links">
   <div class="trakt-link-group">
-    <span class="secondary">{m.text_footer_category_platform()}</span>
+    <span class="trakt-link-group-label">{m.text_footer_category_platform()}</span>
     <Link href={UrlBuilder.about()}>
-      <span class="bold">{m.link_text_about()}</span>
+      <span>{m.link_text_about()}</span>
     </Link>
     <Link href={UrlBuilder.vip()}>
-      <span class="bold">VIP</span>
+      <span>VIP</span>
     </Link>
     <Link
       href={UrlBuilder.developer.home()}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span class="bold">{m.link_text_developer()}</span>
+      <span>{m.link_text_developer()}</span>
     </Link>
   </div>
 
   <div class="trakt-link-group">
-    <span class="secondary">{m.text_footer_category_community()}</span>
+    <span class="trakt-link-group-label">{m.text_footer_category_community()}</span>
     <Link
       href={UrlBuilder.og.forums()}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span class="bold">{m.link_text_forums()}</span>
+      <span>{m.link_text_forums()}</span>
     </Link>
     <RenderFor audience="vip">
       <Link
@@ -41,28 +41,28 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span class="bold">{m.link_text_support()}</span>
+        <span>{m.link_text_support()}</span>
       </Link>
       <Link
         href={UrlBuilder.feedback()}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span class="bold">{m.link_text_feedback()}</span>
+        <span>{m.link_text_feedback()}</span>
       </Link>
     </RenderFor>
   </div>
 
   <div class="trakt-link-group">
-    <span class="secondary">{m.text_footer_category_legal()}</span>
+    <span class="trakt-link-group-label">{m.text_footer_category_legal()}</span>
     <Link href={UrlBuilder.terms()}>
-      <span class="bold">{m.link_text_terms()}</span>
+      <span>{m.link_text_terms()}</span>
     </Link>
     <Link href={UrlBuilder.privacy()}>
-      <span class="bold">{m.link_text_privacy()}</span>
+      <span>{m.link_text_privacy()}</span>
     </Link>
     <Link href={UrlBuilder.branding()}>
-      <span class="bold">{m.link_text_branding()}</span>
+      <span>{m.link_text_branding()}</span>
     </Link>
   </div>
 </div>
@@ -82,10 +82,26 @@
   .trakt-link-group {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-m);
+    gap: var(--ni-10);
+  }
+
+  .trakt-link-group-label {
+    font-size: var(--ni-12);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
   }
 
   .trakt-link-group :global(.trakt-link) {
+    font-size: var(--ni-14);
+    color: var(--color-text-primary);
     text-decoration: none;
+  }
+
+  @include for-mouse {
+    .trakt-link-group :global(.trakt-link:hover) {
+      color: var(--boxed-color-accent-text);
+    }
   }
 </style>

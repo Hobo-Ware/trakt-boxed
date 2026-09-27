@@ -15,6 +15,12 @@
   --boxed-color-accent-text: var(--purple-700);
   --boxed-color-accent-fill: var(--purple-500);
   --boxed-color-accent-soft: color-mix(in srgb, var(--purple-500) 12%, transparent);
+  --boxed-color-accent-fill-alt: var(--purple-800);
+  --boxed-color-accent-wash: var(--purple-100);
+  --boxed-color-watched-text: var(--green-700);
+  --boxed-color-liked-text: var(--red-600);
+  --boxed-color-watchlist-text: var(--blue-700);
+  --boxed-color-star-text: var(--orange-700);
 
   --color-foreground: var(--shade-920);
   --color-background: var(--shade-10);
@@ -109,7 +115,7 @@
   /*
    * Select
    */
-  --color-background-select: var(--shade-50);
+  --color-background-select: var(--color-input-background);
   --color-select-item-hover: var(--shade-60);
   --color-select-muted-foreground: var(--shade-700);
   --color-select-raised-background: var(--shade-50);
@@ -192,16 +198,8 @@
   /*
    * Toggle
    */
-  --color-segmented-track-background: color-mix(
-    in srgb,
-    var(--shade-900) 10%,
-    transparent
-  );
-  --color-segmented-track-border: color-mix(
-    in srgb,
-    var(--shade-900) 14%,
-    transparent
-  );
+  --color-segmented-track-background: var(--color-input-background);
+  --color-segmented-track-border: var(--color-border);
 
   /*
    * Where to watch
@@ -387,12 +385,6 @@
   --color-map-chart-missing: var(--shade-200);
 
   /*
-   * Confirmation
-   */
-  --color-confirmation-destructive-background: var(--red-300);
-  --color-confirmation-destructive-foreground: var(--red-1000);
-
-  /*
    * Filters
    */
   --color-filter-tablist-background: var(--shade-100);
@@ -529,6 +521,12 @@
   --boxed-color-accent-text: var(--purple-200);
   --boxed-color-accent-fill: var(--purple-300);
   --boxed-color-accent-soft: color-mix(in srgb, var(--purple-500) 18%, transparent);
+  --boxed-color-accent-fill-alt: var(--purple-600);
+  --boxed-color-accent-wash: var(--purple-900);
+  --boxed-color-watched-text: var(--green-500);
+  --boxed-color-liked-text: var(--red-400);
+  --boxed-color-watchlist-text: var(--blue-400);
+  --boxed-color-star-text: var(--orange-400);
 
   --color-foreground: var(--shade-10);
   --color-background: color-mix(
@@ -622,7 +620,7 @@
   /*
    * Select
    */
-  --color-background-select: var(--color-background);
+  --color-background-select: var(--color-input-background);
   --color-select-item-hover: var(--shade-910);
   --color-select-muted-foreground: var(--shade-200);
   --color-select-raised-background: var(--shade-920);
@@ -710,16 +708,8 @@
   /*
    * Toggle
    */
-  --color-segmented-track-background: color-mix(
-    in srgb,
-    var(--shade-10) 6%,
-    transparent
-  );
-  --color-segmented-track-border: color-mix(
-    in srgb,
-    var(--shade-10) 8%,
-    transparent
-  );
+  --color-segmented-track-background: var(--color-input-background);
+  --color-segmented-track-border: var(--color-border);
 
   /*
    * Where to watch
@@ -919,12 +909,6 @@
   --color-map-chart-border: var(--shade-950);
   --color-map-chart-border-hover: var(--shade-10);
   --color-map-chart-missing: var(--shade-800);
-
-  /*
-   * Confirmation
-   */
-  --color-confirmation-destructive-background: var(--red-200);
-  --color-confirmation-destructive-foreground: var(--red-1000);
 
   /*
    * Filters

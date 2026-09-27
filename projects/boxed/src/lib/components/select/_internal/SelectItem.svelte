@@ -80,7 +80,7 @@
 
   .trakt-select-item {
     --color-background-item-hover: var(--color-select-item-hover);
-    --color-foreground-item: var(--color-select-muted-foreground);
+    --color-foreground-item: var(--color-text-primary);
     --select-item-height: var(--ni-40);
     --select-item-toggle-size: var(--ni-24);
 
@@ -95,6 +95,7 @@
     height: var(--select-item-height);
     padding: var(--ni-8);
     box-sizing: border-box;
+    font-size: var(--ni-14);
 
     border-radius: var(--border-radius-s);
 
@@ -117,7 +118,7 @@
     }
 
     &[data-state="included"] .trakt-select-item-label {
-      color: var(--purple-500);
+      color: var(--boxed-color-accent-text);
     }
 
     &[data-state="excluded"] .trakt-select-item-label {

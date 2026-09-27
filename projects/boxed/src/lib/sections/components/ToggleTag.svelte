@@ -49,9 +49,31 @@
 <style>
   .trakt-toggle-tag {
     :global(.trakt-button) {
-      flex-direction: row-reverse;
+      --button-height: var(--ni-28);
 
+      flex-direction: row-reverse;
       gap: var(--gap-xxs);
+      padding-inline: var(--ni-12);
+
+      border-radius: var(--border-radius-xxl);
+      background: var(--color-input-background);
+      box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
+      color: var(--color-text-primary);
+    }
+
+    :global(.trakt-button[disabled]) {
+      opacity: 0.5;
+    }
+
+    :global(.trakt-button .button-label p) {
+      font-size: var(--ni-12);
+    }
+
+    &.is-checked :global(.trakt-button) {
+      background: var(--boxed-color-accent-soft);
+      box-shadow: inset 0 0 0 var(--border-thickness-xxs)
+        var(--boxed-color-accent-fill);
+      color: var(--boxed-color-accent-text);
     }
 
     :global(.trakt-button[data-size="tag"] .button-icon svg) {

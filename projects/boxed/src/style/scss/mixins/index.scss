@@ -259,7 +259,7 @@
   :global(#{$selector}) {
     box-sizing: border-box;
     padding: var(--ni-6);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-s);
 
     cursor: pointer;
     user-select: none;
@@ -280,7 +280,7 @@
     :global(#{$selector}:hover#{$on}) {
       background-color: color-mix(
         in srgb,
-        var(--color-foreground) 10%,
+        var(--color-foreground) 8%,
         transparent
       );
     }
@@ -311,48 +311,58 @@
   $active-transform,
   $exclude: ""
 ) {
-  $on: ":not([disabled]):not([aria-disabled='true'])#{$exclude}";
+  $live: ":not([disabled]):not([aria-disabled='true'])";
+  $primary: "#{$selector}[data-style='flat'][data-variant='primary']#{$exclude}";
+  $secondary: "#{$selector}[data-style='flat'][data-variant='secondary']#{$exclude}";
+  $neutral: "#{$selector}[data-style='flat'][data-color='default']#{$exclude}";
+  $plain: "#{$selector}[data-style='flat'][data-variant='secondary'][data-color='purple']";
 
-  :global(#{$selector}[data-style='flat'][data-variant='primary']#{$on}) {
-    --flat-ring-width: var(--border-thickness-xs);
-
-    background-color: color-mix(in srgb, #{$surface} 14%, transparent);
-    color: #{$accent};
-    box-shadow: inset 0 0 0 var(--flat-ring-width)
-      color-mix(in srgb, #{$accent} 65%, transparent);
+  :global(#{$primary}) {
+    background-color: #{$surface};
+    color: var(--shade-10);
+    box-shadow: none;
   }
 
-  :global(#{$selector}[data-style='flat'][data-variant='secondary']#{$on}) {
-    --flat-ring-width: var(--border-thickness-xxs);
-
-    background-color: transparent;
+  :global(#{$secondary}),
+  :global(#{$neutral}) {
+    background-color: var(--color-input-background);
     color: #{$accent};
-    box-shadow: inset 0 0 0 var(--flat-ring-width)
-      color-mix(in srgb, #{$accent} 30%, transparent);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
+  }
+
+  :global(#{$neutral}),
+  :global(#{$plain}) {
+    color: var(--color-text-primary);
+  }
+
+  :global(#{$primary}[disabled]),
+  :global(#{$primary}[aria-disabled='true']),
+  :global(#{$secondary}[disabled]),
+  :global(#{$secondary}[aria-disabled='true']),
+  :global(#{$neutral}[disabled]),
+  :global(#{$neutral}[aria-disabled='true']) {
+    opacity: 0.5;
   }
 
   @include for-mouse {
-    :global(#{$selector}[data-style='flat'][data-variant='primary']:hover#{$on}) {
-      background-color: color-mix(in srgb, #{$surface} 26%, transparent);
-      box-shadow: inset 0 0 0 var(--flat-ring-width)
-        color-mix(in srgb, #{$accent} 95%, transparent);
+    :global(#{$primary}:hover#{$live}) {
+      background-color: color-mix(in srgb, #{$surface} 84%, var(--shade-950));
     }
 
-    :global(#{$selector}[data-style='flat'][data-variant='secondary']:hover#{$on}) {
-      background-color: color-mix(in srgb, #{$surface} 16%, transparent);
-      box-shadow: inset 0 0 0 var(--flat-ring-width)
-        color-mix(in srgb, #{$accent} 60%, transparent);
+    :global(#{$secondary}:hover#{$live}),
+    :global(#{$neutral}:hover#{$live}) {
+      background-color: color-mix(
+        in srgb,
+        var(--color-foreground) 6%,
+        var(--color-input-background)
+      );
     }
   }
 
-  // Emitted per variant so the press state ties with the hover rules above on
-  // specificity and wins on source order. A mouse press always also matches
-  // `:hover`, so a bare `[data-style]:active` would lose its fill and ring.
-  :global(#{$selector}[data-style='flat'][data-variant='primary']:active#{$on}),
-  :global(#{$selector}[data-style='flat'][data-variant='secondary']:active#{$on}) {
+  :global(#{$primary}:active#{$live}),
+  :global(#{$secondary}:active#{$live}),
+  :global(#{$neutral}:active#{$live}) {
     transform: $active-transform;
-    background-color: color-mix(in srgb, #{$surface} 36%, transparent);
-    box-shadow: inset 0 0 0 var(--flat-ring-width) #{$accent};
   }
 }
 

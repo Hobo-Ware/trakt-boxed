@@ -28,7 +28,11 @@
 
   .trakt-footer-content {
     height: 100%;
+    max-width: var(--boxed-content-max-width);
+    margin-inline: auto;
     position: relative;
+
+    border-top: var(--border-thickness-xxs) solid var(--color-border);
 
     display: flex;
     flex-direction: column;
@@ -47,7 +51,7 @@
   .trakt-footer-grid {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+    align-items: start;
 
     gap: var(--gap-l);
 

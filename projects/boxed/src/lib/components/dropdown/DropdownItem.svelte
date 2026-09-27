@@ -110,10 +110,11 @@
     --item-padding-inline: var(--dropdown-item-padding-inline, var(--ni-12));
 
     padding: var(--item-padding-block) var(--item-padding-inline);
-    height: var(--dropdown-item-height, calc(var(--ni-20) + var(--ni-12) * 2));
+    height: var(--dropdown-item-height, var(--ni-40));
     width: 100%;
     box-sizing: border-box;
-    border-radius: var(--dropdown-item-radius, var(--border-radius-m));
+    border-radius: var(--dropdown-item-radius, var(--ni-6));
+    font-size: var(--ni-14);
 
     align-content: center;
     justify-self: center;
@@ -144,8 +145,8 @@
       display: flex;
 
       :global(svg) {
-        width: var(--ni-20);
-        height: var(--ni-20);
+        width: var(--ni-18);
+        height: var(--ni-18);
       }
     }
 
@@ -220,112 +221,59 @@
       text-decoration: none;
     }
 
-    @mixin variant($color, $bg-color) {
+    @mixin color($color) {
       color: var(--dropdown-item-foreground, #{$color});
 
       @include for-mouse {
         &:hover:not([disabled="true"]) {
-          background: var(--dropdown-item-background-hover, #{$bg-color});
-        }
-      }
-
-      &[data-style="flat"] {
-        background: var(--dropdown-item-background, #{$color});
-        color: var(--dropdown-item-foreground, #{$bg-color});
-
-        @include for-mouse {
-          &:hover:not([disabled="true"]) {
-            background: var(--dropdown-item-background-hover, #{$bg-color});
-            color: var(--dropdown-item-foreground, #{$color});
-          }
+          background: var(
+            --dropdown-item-background-hover,
+            color-mix(in srgb, currentColor 8%, transparent)
+          );
         }
       }
 
       &[disabled="true"] {
-        background: var(
-          --dropdown-item-background,
-          var(--color-foreground-button-disabled)
-        );
-        color: var(
-          --dropdown-item-foreground,
-          var(--color-surface-button-disabled)
-        );
+        background: var(--dropdown-item-background, transparent);
+        opacity: 0.5;
       }
 
       &.is-selected {
         background: var(
           --dropdown-item-background-selected,
-          var(--color-foreground-button-disabled)
+          var(--boxed-color-accent-soft)
         );
-        color: var(
-          --dropdown-item-foreground,
-          var(--color-surface-button-disabled)
-        );
-      }
-    }
-
-    @mixin color($color, $active-bg, $outline-color, $bg-color) {
-      &[data-variant="primary"] {
-        @include variant($color, $bg-color);
-      }
-
-      &[data-variant="secondary"] {
-        @include variant($bg-color, $color);
+        color: var(--dropdown-item-foreground, var(--boxed-color-accent-text));
       }
 
       &:active {
-        background: var(--dropdown-item-background-active, #{$active-bg});
+        background: var(
+          --dropdown-item-background-active,
+          color-mix(in srgb, currentColor 12%, transparent)
+        );
       }
 
       &:focus-visible,
       &:has(> :global(.trakt-link:focus-visible)) {
-        outline: var(--border-thickness-xs) solid $outline-color;
+        outline: var(--border-thickness-xs) solid var(--color-link-active);
       }
     }
 
-    &[data-color="purple"] {
-      @include color(
-        var(--purple-800),
-        var(--purple-200),
-        var(--purple-800),
-        var(--purple-50)
-      );
+    &[data-color="purple"],
+    &[data-color="default"] {
+      @include color(var(--color-text-primary));
     }
 
     &[data-color="red"] {
-      @include color(
-        var(--red-600),
-        var(--red-200),
-        var(--red-600),
-        var(--red-50)
-      );
+      @include color(var(--color-accent-red));
     }
 
     &[data-color="blue"] {
-      @include color(
-        var(--blue-600),
-        var(--blue-200),
-        var(--blue-600),
-        var(--blue-50)
-      );
+      @include color(var(--color-accent-blue));
     }
 
     &[data-color="orange"] {
-      @include color(
-        var(--orange-600),
-        var(--orange-200),
-        var(--orange-600),
-        var(--orange-50)
-      );
-    }
-
-    &[data-color="default"] {
-      @include color(
-        var(--shade-700),
-        var(--shade-200),
-        var(--shade-700),
-        var(--shade-50)
-      );
+      @include color(var(--color-accent-orange));
     }
   }
 </style>

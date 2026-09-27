@@ -191,12 +191,12 @@
     --segment-inset: var(--ni-4);
     --segment-block-inset: var(--segment-inset);
     --segment-gap: var(--gap-xs);
-    --track-base-radius: var(--segmented-select-radius, var(--border-radius-l));
+    --track-base-radius: var(--segmented-select-radius, var(--border-radius-m));
     --track-radius: var(--track-base-radius);
     --segment-radius: calc(var(--track-base-radius) - var(--segment-inset));
     --segment-font-size: var(--font-size-text);
-    --selector-shadow: var(--ni-0) var(--ni-2) var(--ni-8) var(--ni-0)
-      color-mix(in srgb, var(--color-shadow) 30%, transparent);
+    --selector-shadow: 0 0 0 var(--border-thickness-xxs)
+      var(--color-segmented-track-border);
 
     position: relative;
     box-sizing: border-box;
@@ -208,6 +208,8 @@
 
     padding: var(--segment-block-inset) var(--segment-inset);
     border-radius: var(--track-radius);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs)
+      var(--color-segmented-track-border);
     background-color: var(
       --segmented-select-background,
       var(--color-segmented-track-background)
@@ -292,6 +294,7 @@
 
     color: var(--color-text-secondary);
     font-size: var(--segment-font-size);
+    font-weight: 600;
     border-radius: var(--segment-radius);
 
     -webkit-tap-highlight-color: transparent;
@@ -325,7 +328,7 @@
     }
 
     &:focus-visible {
-      outline: var(--ni-2) solid var(--color-segmented-selector-foreground);
+      outline: var(--ni-2) solid var(--color-link-active);
       outline-offset: calc(-1 * var(--ni-2));
     }
 

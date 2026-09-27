@@ -30,13 +30,12 @@
   .trakt-settings-group-card {
     overflow: hidden;
 
-    border-radius: var(--border-radius-l);
+    border-radius: var(--ni-10);
+    border: var(--border-thickness-xxs) solid var(--color-border);
     background: var(--color-card-background);
-    box-shadow: var(--shadow-base);
 
     > :global(* + *) {
-      border-top: var(--border-thickness-xxs) solid
-        color-mix(in srgb, var(--color-foreground) 8%, transparent);
+      border-top: var(--border-thickness-xxs) solid var(--color-border);
     }
 
     &[data-variant="vip"] {
@@ -51,8 +50,8 @@
       --settings-group-row-padding-inline: 0;
 
       border-radius: 0;
+      border: none;
       background: none;
-      box-shadow: none;
     }
   }
 </style>

@@ -28,6 +28,11 @@
   const isDestructive = $derived(operation === "destructive");
   const isPreventative = $derived(operation === "preventative");
   const cancelText = $derived(externalCancelText ?? m.button_text_cancel());
+  const confirmColor = $derived.by(() => {
+    if (isDestructive) return "red";
+    if (isPreventative) return "default";
+    return "purple";
+  });
 
   let preflightOverride = $state<boolean | null>(null);
   const isPreflightEnabled = $derived(
@@ -84,10 +89,9 @@
   </div>
 
   {#snippet footer()}
-    <div class="trakt-confirmation-actions" data-operation={operation}>
+    <div class="trakt-confirmation-actions">
       <Button
-        size="small"
-        style={isPreventative ? "flat" : "outline"}
+        style="flat"
         color={isPreventative ? "purple" : "default"}
         label={cancelText}
         onclick={() => onAction("cancel", isPreflightEnabled)}
@@ -95,10 +99,9 @@
         {cancelText}
       </Button>
       <Button
-        size="small"
-        style={isPreventative ? "outline" : "flat"}
+        style="flat"
         variant="primary"
-        color={isDestructive ? "custom" : "default"}
+        color={confirmColor}
         label={buttonText}
         disabled={isConfirmDisabled}
         onclick={() => onAction("confirm", isPreflightEnabled)}
@@ -132,10 +135,9 @@
     padding: var(--gap-m);
     margin-top: var(--ni-8);
 
-    border: var(--border-thickness-xxs) solid
-      color-mix(in srgb, var(--color-text-primary) 8%, transparent);
-    border-radius: var(--border-radius-m);
-    background: color-mix(in srgb, var(--color-text-primary) 3%, transparent);
+    border: var(--border-thickness-xxs) solid var(--color-border);
+    border-radius: var(--ni-10);
+    background: var(--color-input-background);
   }
 
   .trakt-confirmation-preflight :global(.trakt-switch) {
@@ -169,10 +171,5 @@
   .trakt-confirmation-actions :global(.trakt-button) {
     padding-inline: var(--ni-10);
     justify-content: center;
-  }
-
-  .trakt-confirmation-actions[data-operation="destructive"] {
-    --color-background-custom: var(--color-confirmation-destructive-background);
-    --color-foreground-custom: var(--color-confirmation-destructive-foreground);
   }
 </style>

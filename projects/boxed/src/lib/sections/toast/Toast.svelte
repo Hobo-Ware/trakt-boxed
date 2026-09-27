@@ -31,7 +31,7 @@
     position: fixed;
     z-index: var(--layer-overlay);
 
-    border-radius: var(--border-radius-l);
+    border-radius: var(--ni-10);
 
     box-sizing: border-box;
     padding: var(--toast-padding);

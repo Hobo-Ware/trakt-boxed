@@ -152,9 +152,9 @@
     flex-shrink: 0;
     width: var(--ni-36);
     height: var(--ni-36);
-    border-radius: var(--border-radius-m);
-    background: color-mix(in srgb, var(--purple-500) 15%, transparent);
-    color: var(--purple-500);
+    border-radius: var(--border-radius-s);
+    background: var(--boxed-color-accent-soft);
+    color: var(--boxed-color-accent-text);
     display: flex;
     align-items: center;
     justify-content: center;

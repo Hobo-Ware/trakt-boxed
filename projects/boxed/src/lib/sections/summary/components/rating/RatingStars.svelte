@@ -393,7 +393,7 @@
       --star-fill-duration: 0ms;
 
       :global(.star-item) {
-        color: var(--orange-400);
+        color: var(--boxed-color-star);
       }
 
       :global(.star-item[data-highlighted]) {

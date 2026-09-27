@@ -1,17 +1,17 @@
 <script lang="ts">
-  import Logo from "$lib/components/logo/Logo.svelte";
+  import BoxedLogo from "$boxed/brand/BoxedLogo.svelte";
   import RenderFor from "$lib/guards/RenderFor.svelte";
 </script>
 
 <div class="trakt-footer-logo">
   <RenderFor audience="all" device={["tablet-lg", "desktop"]}>
     <div class="trakt-logo">
-      <Logo />
+      <BoxedLogo variant="full" />
     </div>
   </RenderFor>
 
   <div class="trakt-taglines">
-    <p class="trakt-tagline bold">discover.track.share.</p>
+    <p class="trakt-tagline">discover.track.share.</p>
   </div>
 </div>
 
@@ -19,22 +19,19 @@
   .trakt-footer-logo {
     display: flex;
     flex-direction: column;
-    gap: var(--ni-8);
-    align-items: center;
+    gap: var(--ni-10);
+    align-items: flex-start;
   }
 
   .trakt-logo {
-    height: var(--ni-38);
-    width: var(--ni-136);
-    display: flex;
+    --boxed-logo-size: var(--ni-24);
 
-    :global(svg) {
-      width: 100%;
-      height: 100%;
-    }
+    display: flex;
   }
 
   .trakt-tagline {
     white-space: nowrap;
+    font-size: var(--ni-14);
+    color: var(--color-text-secondary);
   }
 </style>
