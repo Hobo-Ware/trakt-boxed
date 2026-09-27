@@ -63,7 +63,7 @@
     );
 
     &[data-variant="line"] {
-      --bar-fill: var(--purple-200);
+      --bar-fill: var(--boxed-color-accent-fill);
     }
 
     li {

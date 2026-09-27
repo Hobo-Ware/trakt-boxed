@@ -252,8 +252,8 @@
     padding-inline: var(--ni-12);
 
     border-radius: var(--border-radius-xxl);
-    background: color-mix(in srgb, var(--purple-500) 16%, transparent);
-    color: var(--purple-100);
+    background: var(--boxed-color-accent-soft);
+    color: var(--boxed-color-accent-text);
     font-size: var(--ni-12);
     font-weight: 600;
 

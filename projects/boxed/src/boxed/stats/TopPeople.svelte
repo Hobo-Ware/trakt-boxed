@@ -107,7 +107,7 @@
     width: 100%;
     font-family: "Roboto Mono", monospace;
     font-size: var(--ni-11);
-    color: var(--purple-200);
+    color: var(--boxed-color-accent-text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

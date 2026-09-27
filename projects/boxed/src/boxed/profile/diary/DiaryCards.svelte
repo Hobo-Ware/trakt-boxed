@@ -192,7 +192,7 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--purple-300);
+    color: var(--boxed-color-accent-text);
   }
 
   .diary-month-count {
@@ -256,7 +256,7 @@
     font-size: var(--ni-11);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--purple-300);
+    color: var(--boxed-color-accent-text);
   }
 
   .stub-weekday {
@@ -331,7 +331,7 @@
   }
 
   .diary-card-code {
-    color: var(--purple-300);
+    color: var(--boxed-color-accent-text);
   }
 
   .diary-card-meta,

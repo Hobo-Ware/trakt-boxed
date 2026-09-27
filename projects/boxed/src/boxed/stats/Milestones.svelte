@@ -130,7 +130,7 @@
   .milestone-detail {
     font-family: "Roboto Mono", monospace;
     font-size: var(--ni-12);
-    color: var(--purple-200);
+    color: var(--boxed-color-accent-text);
   }
 
   .boxed-milestones li.milestone-empty {

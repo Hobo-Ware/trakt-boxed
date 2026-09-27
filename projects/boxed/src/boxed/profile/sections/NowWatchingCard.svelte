@@ -171,7 +171,7 @@
   .now-code {
     font-family: "Roboto Mono", monospace;
     font-size: var(--ni-12);
-    color: var(--purple-300);
+    color: var(--boxed-color-accent-text);
     margin-inline-end: var(--ni-6);
   }
 

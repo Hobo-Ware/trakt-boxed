@@ -307,8 +307,8 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius-m);
-    background: color-mix(in srgb, var(--purple-500) 22%, transparent);
-    color: var(--purple-100);
+    background: var(--boxed-color-accent-soft);
+    color: var(--boxed-color-accent-text);
 
     :global(svg) {
       width: var(--ni-20);
