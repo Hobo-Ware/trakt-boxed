@@ -3,7 +3,7 @@
   import { useRecentlyWatchedList } from "$lib/sections/lists/stores/useRecentlyWatchedList.ts";
   import { of } from "rxjs";
   import { SvelteSet } from "svelte/reactivity";
-  import LoadMore from "../LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
   import DiaryCards from "./DiaryCards.svelte";
   import DiaryTable from "./DiaryTable.svelte";
   import { toDiaryEntries } from "./_internal/toDiaryEntries.ts";

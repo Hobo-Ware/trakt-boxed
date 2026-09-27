@@ -13,7 +13,7 @@
   import { fromRune } from "$lib/utils/store/fromRune.svelte.ts";
   import PillSwitch from "../components/PillSwitch.svelte";
   import PosterGrid from "../poster/PosterGrid.svelte";
-  import TitleTabs from "../title/TitleTabs.svelte";
+  import TitleTabs from "$boxed/components/TitleTabs.svelte";
   import { whileVisible } from "../utils/whileVisible.ts";
   import type { CreditSort } from "./_internal/CreditSort.ts";
   import { toPersonCredits } from "./_internal/toPersonCredits.ts";

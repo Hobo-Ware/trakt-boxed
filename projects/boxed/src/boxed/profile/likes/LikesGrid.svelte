@@ -4,7 +4,7 @@
   import { useFavoritesList } from "$lib/sections/lists/stores/useFavoritesList.ts";
   import PosterGrid from "../../poster/PosterGrid.svelte";
   import type { PosterMedia } from "../../poster/PosterMedia.ts";
-  import LoadMore from "../LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
 
   const PAGE_SIZE = 48;
   const SKELETON_COUNT = 24;

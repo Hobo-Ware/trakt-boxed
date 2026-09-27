@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { whileVisible } from "../utils/whileVisible.ts";
+  import { whileVisible } from "$boxed/utils/whileVisible.ts";
 
   const MAX_CHAINED_LOADS = 3;
 

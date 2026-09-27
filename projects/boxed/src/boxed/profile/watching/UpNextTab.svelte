@@ -4,7 +4,7 @@
   import { useUpNextList } from "$lib/sections/lists/progress/useUpNextList.ts";
   import UpNextCard from "../../home/UpNextCard.svelte";
   import UpNextSkeleton from "../../home/UpNextSkeleton.svelte";
-  import LoadMore from "../LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
 
   const PAGE_SIZE = 24;
 

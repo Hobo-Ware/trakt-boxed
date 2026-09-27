@@ -4,7 +4,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import type { Snippet } from "svelte";
   import { parseTitleTab } from "./_internal/parseTitleTab.ts";
-  import TitleTabs from "./TitleTabs.svelte";
+  import TitleTabs from "$boxed/components/TitleTabs.svelte";
 
   type TitleTab = { id: T; label: string };
 

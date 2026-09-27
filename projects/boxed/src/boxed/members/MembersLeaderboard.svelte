@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LoadMore from "$boxed/profile/LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import { useLeaderboard } from "$lib/sections/profile/stores/useLeaderboard.ts";

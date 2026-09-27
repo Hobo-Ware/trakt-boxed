@@ -3,7 +3,7 @@
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import { useMyActivityList } from "$lib/sections/profile/components/useMyActivityList.ts";
-  import LoadMore from "../LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
   import type { ProfileContext } from "../ProfileContext.ts";
   import { toReviewTarget } from "../_internal/toReviewTarget.ts";
   import ReviewRow from "./ReviewRow.svelte";

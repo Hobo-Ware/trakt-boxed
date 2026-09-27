@@ -3,7 +3,7 @@
   import type { PersonalListType } from "$lib/sections/lists/user/models/PersonalListType.ts";
   import { usePersonalListsSummary } from "$lib/sections/lists/user/usePersonalListsSummary.ts";
   import ListCardGrid from "../../lists/ListCardGrid.svelte";
-  import LoadMore from "../LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
 
   const PAGE_SIZE = 20;
 

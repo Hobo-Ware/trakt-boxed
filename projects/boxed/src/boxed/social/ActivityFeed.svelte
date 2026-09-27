@@ -2,7 +2,7 @@
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { getLocale } from "$lib/features/i18n";
   import { toRelativeHumanDay } from "$lib/utils/formatting/date/toRelativeHumanDay.ts";
-  import LoadMore from "../profile/LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
   import ActivityRow from "./ActivityRow.svelte";
   import type { ActivityEvent } from "./ActivityEvent.ts";
   import { toActivityDays } from "./_internal/toActivityDays.ts";

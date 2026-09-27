@@ -14,7 +14,7 @@
   import ReviewsTab from "./ReviewsTab.svelte";
   import TitleCompactHeader from "./TitleCompactHeader.svelte";
   import TitleFacetLayout from "./TitleFacetLayout.svelte";
-  import TitleTabs from "./TitleTabs.svelte";
+  import TitleTabs from "$boxed/components/TitleTabs.svelte";
 
   type FacetTab = "reviews" | "watching" | "lists";
 

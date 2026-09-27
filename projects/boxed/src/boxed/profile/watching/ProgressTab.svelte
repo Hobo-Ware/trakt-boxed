@@ -1,6 +1,6 @@
 <script lang="ts">
   import { useProgressList } from "$lib/sections/profile/components/useProgressList.ts";
-  import LoadMore from "../LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
   import ProgressRows from "./ProgressRows.svelte";
 
   const PAGE_SIZE = 50;

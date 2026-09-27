@@ -1,7 +1,7 @@
 <script lang="ts">
   import { useProgressList } from "$lib/sections/profile/components/useProgressList.ts";
   import PosterGrid from "../../poster/PosterGrid.svelte";
-  import LoadMore from "../LoadMore.svelte";
+  import LoadMore from "$boxed/components/LoadMore.svelte";
 
   const PAGE_SIZE = 50;
 
