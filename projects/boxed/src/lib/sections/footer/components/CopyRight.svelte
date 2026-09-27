@@ -9,11 +9,11 @@
 
 <div class="trakt-footer-copyright">
   <div class="trakt-copyright">
-    <p class="secondary tag">
+    <p class="trakt-copyright-text">
       {copyright}
       {m.text_copyright_notice()}
     </p>
-    <p class="secondary tag">
+    <p class="trakt-copyright-text">
       {m.text_copyright_crafted_by()}
     </p>
   </div>
@@ -37,6 +37,11 @@
     :global(.trakt-action-button) {
       --button-size: var(--ni-32);
     }
+  }
+
+  .trakt-copyright-text {
+    font-size: var(--ni-12);
+    color: var(--color-text-secondary);
   }
 
   .trakt-copyright {

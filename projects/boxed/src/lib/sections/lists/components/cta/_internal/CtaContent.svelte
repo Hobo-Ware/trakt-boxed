@@ -40,14 +40,14 @@
     width: var(--content-width);
     height: var(--content-height);
 
-    border-radius: var(--border-radius-m);
+    border-radius: var(--ni-10);
 
     background-color: var(--color-card-background);
 
     padding: var(--content-padding);
     box-sizing: border-box;
 
-    box-shadow: var(--shadow-base);
+    box-shadow: 0 0 0 var(--border-thickness-xxs) var(--color-border);
 
     transition: padding var(--transition-increment) ease-in-out;
 
@@ -64,7 +64,7 @@
       width: var(--content-width);
       height: var(--content-height);
 
-      border-radius: var(--border-radius-m);
+      border-radius: var(--ni-10);
 
       background: var(--color-cta-background-gradient);
 
@@ -97,7 +97,7 @@
     height: var(--content-height);
 
     overflow: hidden;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--ni-10);
 
     --cta-mask-dir: to right;
 

@@ -158,14 +158,14 @@
     );
 
     --scale-factor-button: 1;
-    --button-height: var(--ni-52);
+    --button-height: var(--ni-40);
 
     all: unset;
     display: flex;
     align-items: center;
     gap: var(--gap-m);
     min-width: var(--ni-40);
-    padding: var(--ni-16);
+    padding: 0 var(--ni-18);
     flex-shrink: 0;
     cursor: pointer;
     user-select: none;
@@ -193,6 +193,10 @@
   // https://css-tricks.com/flexbox-truncated-text/
   :global(#{$b} .button-label) {
     min-width: 0;
+  }
+
+  :global(#{$b} .button-label p) {
+    font-size: var(--ni-14);
   }
 
   :global(#{$b} p),
@@ -239,10 +243,9 @@
   }
 
   :global(#{$b}[data-size=small]) {
-    --button-height: var(--ni-40);
-    border-radius: calc(var(--border-radius-m) * 0.8);
-    padding: var(--ni-12);
-    gap: var(--ni-12);
+    --button-height: var(--ni-32);
+    padding: 0 var(--ni-12);
+    gap: var(--ni-8);
   }
 
   :global(#{$b}[data-size=tag]) {
@@ -261,7 +264,7 @@
   :global(#{$b}:active[disabled]) {
     height: var(--button-height);
     box-sizing: border-box;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-s);
   }
 
   :global(#{$b}::before) {
@@ -310,8 +313,8 @@
   }
 
   :global(#{$b}[data-style=ghost]) {
-    margin: var(--ni-neg-4) var(--ni-neg-10);
-    transform: scale(calc(var(--scale-factor-button) * 0.76925));
+    padding-inline: var(--ni-12);
+    transform: scale(var(--scale-factor-button));
     background: transparent;
   }
 
@@ -333,21 +336,18 @@
       outline: var(--border-thickness-xs) solid var(--color-background-button);
     }
 
-    :global(#{$b}[data-style=ghost]:hover#{$on}[data-variant=primary]) {
-      background: var(--color-background-button);
+    :global(#{$b}[data-style=ghost]:hover#{$on}[data-variant=primary]),
+    :global(#{$b}[data-style=ghost]:hover#{$on}[data-variant=secondary]) {
+      background: color-mix(in srgb, var(--color-foreground) 8%, transparent);
     }
 
-    :global(#{$b}[data-style=ghost]:hover#{$on}[data-variant=secondary]) {
-      background: color-mix(
-        in srgb,
-        var(--color-foreground-button) 10%,
-        transparent 90%
-      );
+    :global(#{$b}[data-style=ghost]:hover#{$on}[data-variant=primary]) {
+      color: var(--color-text-primary);
     }
   }
 
   :global(#{$b}[data-style=ghost]:active#{$on}) {
-    transform: scale(calc(var(--scale-factor-button) * 0.7));
+    transform: scale(calc(var(--scale-factor-button) * 0.97));
   }
 
   :global(#{$b}[data-style=ghost][data-size=tag]) {
@@ -419,6 +419,10 @@
   // faint foreground tint and the label carries the saturated colour (which the
   // variant swap parks in --color-foreground-button), so secondaries stay
   // distinct per colour. Declared before the disabled rule so disabled wins.
+  :global(#{$b}[data-style=outline][data-color=default]) {
+    --color-button-stroke: var(--color-outline-stroke, var(--color-border));
+  }
+
   :global(#{$b}[data-style=outline][data-variant=secondary]) {
     color: var(--color-outline-text, var(--color-foreground-button));
   }

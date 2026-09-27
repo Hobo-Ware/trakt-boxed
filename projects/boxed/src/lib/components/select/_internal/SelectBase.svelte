@@ -72,6 +72,7 @@
           class="trakt-select-trigger"
           aria-label={placeholder}
           data-has-value={hasValue}
+          data-select-type={rest.type}
         >
           {#if icon}
             <span class="trigger-icon">{@render icon()}</span>
@@ -138,8 +139,8 @@
   @use "$style/scss/mixins/index.scss" as *;
 
   .trakt-select-trigger {
-    --color-foreground-select: var(--color-foreground);
-    --color-border-select: var(--shade-300);
+    --color-foreground-select: var(--color-text-primary);
+    --color-border-select: var(--color-border);
     --button-height: var(--ni-40);
 
     all: unset;
@@ -173,8 +174,9 @@
 
     padding: var(--ni-12);
     box-sizing: border-box;
+    font-size: var(--ni-14);
 
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-s);
     border: var(--border-thickness-xxs) solid var(--color-border-select);
 
     background-color: var(--color-background-select);
@@ -187,28 +189,28 @@
 
     &:not([data-disabled]) {
       @include for-mouse {
-        &:hover,
-        &:focus-visible {
-          background-color: var(--color-foreground-select);
-          color: var(--color-background-select);
-          border-color: var(--color-background-select);
+        &:hover {
+          background-color: color-mix(
+            in srgb,
+            var(--color-foreground) 6%,
+            var(--color-input-background)
+          );
         }
+      }
 
-        &:focus-visible {
-          outline: var(--border-thickness-xs) solid
-            var(--color-foreground-select);
-        }
+      &:focus-visible {
+        outline: var(--border-thickness-xs) solid var(--color-link-active);
+        outline-offset: var(--ni-2);
       }
     }
 
-    &[data-has-value="true"] {
-      border-color: var(--purple-500);
+    &[data-has-value="true"][data-select-type="multiple"] {
+      border-color: var(--boxed-color-accent-fill);
     }
 
     &[data-disabled] {
       cursor: not-allowed;
-      --color-foreground-select: var(--color-foreground-select-disabled);
-      --color-background-select: var(--color-surface-button-disabled);
+      opacity: 0.5;
     }
 
     :global(.trakt-dropdown-caret) {
@@ -230,8 +232,9 @@
     width: var(--bits-select-anchor-width);
     max-height: min(var(--ni-276), var(--bits-floating-available-height));
 
-    border-radius: var(--border-radius-m);
-    background-color: var(--color-modal-background);
+    border-radius: var(--ni-10);
+    border: var(--border-thickness-xxs) solid var(--color-border);
+    background-color: var(--color-card-background);
     box-shadow: var(--shadow-menu);
 
     padding: var(--ni-8);

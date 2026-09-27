@@ -1,5 +1,4 @@
 <script lang="ts">
-  import SwitchIcon from "../icons/SwitchIcon.svelte";
   import type { SwitchProps } from "./SwitchProps";
 
   const {
@@ -14,7 +13,11 @@
   }: SwitchProps = $props();
 </script>
 
-<label class="trakt-switch" class:has-custom-icon={!!icon}>
+<label
+  class="trakt-switch"
+  class:has-custom-icon={!!icon}
+  class:has-text={!!innerText}
+>
   <input
     type="checkbox"
     role="switch"
@@ -27,11 +30,7 @@
   />
 
   <span class="trakt-switch-tick">
-    {#if icon}
-      {@render icon()}
-    {:else}
-      <SwitchIcon />
-    {/if}
+    {@render icon?.()}
   </span>
   {#if innerText && !indeterminate}
     <span class="trakt-switch-text bold ellipsis">
@@ -43,65 +42,30 @@
 <style lang="scss">
   @use "$style/scss/mixins/index.scss" as *;
 
-  @mixin state-styles($background-color, $foreground-color) {
-    --color-foreground-switch: #{$background-color};
-    --color-background-switch: #{$foreground-color};
-
-    &:has(input:not([disabled]):is(:checked):not(:indeterminate)) {
-      --color-foreground-switch: #{$foreground-color};
-      --color-background-switch: #{$background-color};
-    }
-
-    @include for-mouse {
-      &:hover:has(input:not([disabled])) {
-        --color-foreground-switch: #{$foreground-color};
-        --color-background-switch: #{$background-color};
-
-        &:has(input:is(:checked)) {
-          --color-foreground-switch: #{$background-color};
-          --color-background-switch: #{$foreground-color};
-        }
-      }
-    }
-  }
-
   @mixin color-styles($color) {
     &:has(input[data-color="#{$color}"]) {
-      $foreground-color: var(--color-switch-foreground-#{$color});
-      $background-color: var(--color-switch-background-#{$color});
-      --color-tick: var(--color-tick-#{$color});
-
-      &.has-custom-icon {
-        $foreground-color: var(--color-switch-foreground-#{$color});
-        $background-color: var(--color-tick-#{$color});
-        --color-tick: var(--color-switch-foreground-#{$color});
-      }
-
-      @include state-styles($background-color, $foreground-color);
-    }
-  }
-
-  @keyframes direction-preview {
-    0% {
-      transform: rotate(initial);
-    }
-    50% {
-      transform: rotate(45deg);
-    }
-    100% {
-      transform: rotate(initial);
+      --color-switch-on: var(--color-tick-#{$color}, var(--color-tick-purple));
     }
   }
 
   .trakt-switch {
-    --button-width: var(--custom-width, var(--ni-64));
-    --button-height: var(--ni-28);
+    --button-width: var(--custom-width, var(--ni-44));
+    --button-height: var(--ni-24);
 
-    --text-width: calc(var(--button-width) - var(--ni-40));
-    --text-offset: var(--ni-10);
+    --text-width: calc(var(--button-width) - var(--ni-32));
+    --text-offset: var(--ni-8);
 
-    --tick-size: var(--ni-20);
-    --tick-offset: var(--ni-4);
+    --tick-size: var(--ni-18);
+    --tick-offset: var(--ni-3);
+
+    --color-switch-on: var(--color-tick-purple);
+    --color-background-switch: color-mix(
+      in srgb,
+      var(--color-foreground) 14%,
+      var(--color-input-background)
+    );
+    --color-foreground-switch: var(--color-text-secondary);
+    --color-tick: var(--shade-10);
 
     all: unset;
     cursor: pointer;
@@ -115,15 +79,12 @@
     width: var(--button-width);
     height: var(--button-height);
 
-    box-shadow: var(--ni-0) var(--ni-4) var(--ni-4) var(--ni-0)
-      color-mix(in srgb, var(--color-shadow) 25%, transparent) inset;
-
     box-sizing: border-box;
-    padding: var(--ni-4);
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius-xxl);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
 
     transition: var(--transition-increment) ease-in-out;
-    transition-property: background-color, outline;
+    transition-property: background-color, box-shadow, outline;
 
     -webkit-tap-highlight-color: transparent;
     background-color: var(--color-background-switch);
@@ -132,32 +93,47 @@
       @include color-styles($color);
     }
 
+    &.has-text {
+      --button-width: var(--custom-width, var(--ni-64));
+    }
+
+    &:has(input:checked:not(:indeterminate)) {
+      --color-background-switch: var(--color-switch-on);
+      --color-foreground-switch: var(--shade-10);
+
+      box-shadow: none;
+    }
+
+    @include for-mouse {
+      &:hover:has(input:not([disabled]):not(:checked)) {
+        --color-background-switch: color-mix(
+          in srgb,
+          var(--color-foreground) 22%,
+          var(--color-input-background)
+        );
+      }
+
+      &:hover:has(input:not([disabled]):checked) {
+        --color-background-switch: color-mix(
+          in srgb,
+          var(--color-switch-on) 84%,
+          var(--shade-950)
+        );
+      }
+    }
+
     &:has(input:active[disabled]) {
       animation: jiggle-wiggle var(--animation-duration-jiggle-wiggle) infinite;
     }
 
     &:has(input[disabled]) {
-      --color-foreground-switch: var(--color-foreground-button-disabled);
-      --color-background-switch: var(--color-surface-button-disabled);
-      --color-tick: var(--color-foreground-button-disabled);
-
+      opacity: 0.5;
       cursor: not-allowed;
     }
 
     &:has(input:indeterminate) {
       .trakt-switch-tick {
         opacity: 0.7;
-      }
-    }
-
-    @include for-mouse {
-      &:hover:has(input:not([disabled])) {
-        .trakt-switch-tick {
-          :global(svg) {
-            animation: direction-preview calc(var(--transition-increment) * 2)
-              ease-in;
-          }
-        }
       }
     }
 
@@ -179,10 +155,6 @@
               (var(--button-width) - var(--tick-size) - 2 * var(--tick-offset))
           )
         );
-
-        :global(svg) {
-          transform: rotate(90deg);
-        }
       }
     }
 
@@ -195,20 +167,18 @@
               2
           )
         );
-
-        :global(svg) {
-          transform: rotate(45deg);
-        }
       }
     }
 
     &:has(input:focus-visible) {
-      outline: var(--border-thickness-xs) solid var(--color-foreground-switch);
+      outline: var(--border-thickness-xs) solid var(--color-link-active);
+      outline-offset: var(--ni-2);
     }
 
     .trakt-switch-text {
       user-select: none;
       color: var(--color-foreground-switch);
+      font-size: var(--ni-12);
 
       transition: var(--transition-increment) ease-in-out;
       transition-property: color, transform;
@@ -238,56 +208,17 @@
       height: var(--tick-size);
 
       background: var(--color-tick);
-      color: var(--shade-10);
+      color: var(--color-switch-on);
       border-radius: 50%;
+      box-shadow: 0 var(--ni-1) var(--ni-3)
+        color-mix(in srgb, var(--shade-950) 30%, transparent);
 
       transition: var(--transition-increment) ease-in-out;
       transition-property: transform, opacity;
 
       :global(svg) {
-        transition: transform var(--transition-increment) ease-in-out;
-      }
-
-      &::before {
-        content: "";
-
-        position: absolute;
-        top: 0;
-        inset-inline-start: 0;
-
-        width: 100%;
-        height: 100%;
-
-        border-radius: 50%;
-
-        box-shadow:
-          0px -2px 4px 0px rgba(0, 0, 0, 0.25) inset,
-          0px 1px 2px 0px rgba(255, 255, 255, 0.44) inset,
-          var(--ni-0) var(--ni-2) var(--ni-8) var(--ni-0) rgba(0, 0, 0, 0.16);
-      }
-    }
-  }
-
-  .trakt-switch.has-custom-icon {
-    &:has(input:checked) {
-      .trakt-switch-tick {
-        :global(svg) {
-          transform: rotate(0deg);
-        }
-      }
-    }
-
-    .trakt-switch-tick {
-      background: none;
-      color: var(--color-foreground-switch);
-
-      :global(svg) {
-        width: var(--ni-16);
-        height: var(--ni-16);
-      }
-
-      &::before {
-        display: none;
+        width: var(--ni-12);
+        height: var(--ni-12);
       }
     }
   }

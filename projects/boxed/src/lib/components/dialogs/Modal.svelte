@@ -42,7 +42,8 @@
     inset: 0;
     z-index: calc(var(--layer-top) - 1);
 
-    backdrop-filter: blur(var(--ni-8));
+    background: color-mix(in srgb, var(--shade-950) 60%, transparent);
+    backdrop-filter: blur(var(--ni-4));
     opacity: 0;
     will-change: opacity;
   }
@@ -67,12 +68,12 @@
   :global(.trakt-modal) {
     padding: var(--ni-24);
     border-radius: var(--border-radius-l);
-    border: var(--border-thickness-xxs) solid
-      color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+    border: var(--border-thickness-xxs) solid var(--color-border);
     outline: none;
-    background-color: var(--color-modal-background);
+    background-color: var(--color-card-background);
     color: var(--color-text-primary);
-    box-shadow: var(--shadow-dialog);
+    box-shadow: 0 var(--ni-24) var(--ni-64)
+      color-mix(in srgb, var(--shade-950) 45%, transparent);
 
     max-width: var(--ni-480);
     min-width: var(--ni-320);

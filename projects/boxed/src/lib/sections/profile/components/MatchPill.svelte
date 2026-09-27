@@ -74,7 +74,7 @@
   }
 
   .trakt-match-pill {
-    --pill-accent: var(--color-foreground);
+    --pill-accent: var(--boxed-color-accent-fill);
     --height-match-label: calc(var(--font-size-text) + var(--ni-2));
     --fill: 0%;
 
@@ -93,12 +93,11 @@
       to right,
       color-mix(in srgb, var(--pill-accent) 22%, transparent) 0%,
       color-mix(in srgb, var(--pill-accent) 22%, transparent) var(--fill),
-      color-mix(in srgb, var(--color-foreground) 5%, transparent) var(--fill),
-      color-mix(in srgb, var(--color-foreground) 5%, transparent) 100%
+      var(--color-input-background) var(--fill),
+      var(--color-input-background) 100%
     );
 
-    border: var(--ni-1) solid
-      color-mix(in srgb, var(--color-border) 40%, transparent);
+    border: var(--ni-1) solid var(--color-border);
     color: inherit;
 
     cursor: pointer;

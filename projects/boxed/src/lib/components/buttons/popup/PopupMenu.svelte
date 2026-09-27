@@ -94,7 +94,7 @@
     padding: $button-padding;
     flex-shrink: 0;
 
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-s);
     color: var(--shade-10);
 
     transition: var(--transition-increment) ease-in-out;
@@ -123,8 +123,8 @@
     }
 
     &:not(:disabled) {
-      --active-background-color: var(--shade-10);
-      --active-color: var(--purple-900);
+      --active-background-color: var(--color-card-background);
+      --active-color: var(--color-text-primary);
 
       &[data-popup-state="opened"] {
         background-color: var(--active-background-color);
@@ -183,14 +183,15 @@
   }
 
   .trakt-popup-menu-container {
-    --list-padding: var(--ni-8);
+    --list-padding: var(--ni-6);
 
-    min-width: var(--ni-156);
+    min-width: var(--ni-176);
     max-width: var(--ni-240);
     padding: var(--list-padding);
 
-    border-radius: var(--border-radius-m);
-    background-color: var(--shade-10);
+    border-radius: var(--ni-10);
+    border: var(--border-thickness-xxs) solid var(--color-border);
+    background-color: var(--color-card-background);
 
     position: absolute;
     box-shadow: var(--shadow-menu);
@@ -200,7 +201,7 @@
 
       display: grid;
       grid-template-columns: 100%;
-      gap: var(--gap-xxs);
+      gap: var(--ni-1);
 
       :global(li) {
         width: 100%;

@@ -178,10 +178,12 @@
     flex-direction: column;
     gap: var(--gap-micro);
 
-    background-color: var(--color-modal-background);
+    background-color: var(--color-card-background);
     border: var(--ni-1) solid var(--color-border);
-    border-radius: var(--border-radius-l);
-    box-shadow: var(--shadow-raised);
+    border-radius: var(--ni-10);
+    box-shadow: 0 var(--ni-12) var(--ni-32)
+      color-mix(in srgb, var(--shade-950) 30%, transparent);
+    font-size: var(--ni-14);
     backdrop-filter: blur(var(--ni-16));
 
     margin-bottom: var(--ni-24);
