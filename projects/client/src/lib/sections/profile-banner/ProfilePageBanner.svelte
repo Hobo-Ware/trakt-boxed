@@ -16,8 +16,8 @@
   import type { DisplayableProfileProps } from "../profile/DisplayableProfileProps";
   import BlockedUserTag from "./_internal/BlockedUserTag.svelte";
   import PendingFollowTag from "./_internal/PendingFollowTag.svelte";
-  import ProfileOverflowMenu from "./_internal/ProfileOverflowMenu.svelte";
-  import { useFollowUserRequest } from "./_internal/useFollowUser";
+  import ProfileOverflowMenu from "./ProfileOverflowMenu.svelte";
+  import { useFollowUserRequest } from "./useFollowUser";
   import ProfileImage from "./ProfileImage.svelte";
 
   type ProfilePageBannerProps = DisplayableProfileProps & {
