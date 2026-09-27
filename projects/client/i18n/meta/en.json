@@ -123,6 +123,46 @@
       "default": "Highest rated",
       "description": "Stats page section title for the user's highest rated movies and shows."
     },
+    "boxed_import_trakt_name": {
+      "default": "Trakt",
+      "description": "Name on the import card that restores a Trakt JSON backup. Brand name, usually left untranslated."
+    },
+    "boxed_settings_import_export": {
+      "default": "Import & export",
+      "description": "Settings navigation label for the page where the user imports data from other services and exports their Trakt data."
+    },
+    "boxed_settings_profile_description": {
+      "default": "How you appear on your profile, reviews and lists.",
+      "description": "Subtitle under the Profile heading on the settings profile page."
+    },
+    "boxed_settings_avatar_hint": {
+      "default": "Click your avatar to upload a new one.",
+      "description": "Hint next to the avatar on the settings profile page, telling the user the avatar itself opens the upload menu."
+    },
+    "boxed_settings_save": {
+      "default": "Save changes",
+      "description": "Button that saves the edited profile fields (display name, location, about) on the settings profile page."
+    },
+    "boxed_settings_saved": {
+      "default": "Profile saved.",
+      "description": "Short confirmation shown after the settings profile form saved successfully."
+    },
+    "boxed_import_featured": {
+      "default": "Switching? Start here",
+      "description": "Small badge on the highlighted import card (Letterboxd) in settings and onboarding."
+    },
+    "boxed_import_tvtime_description": {
+      "default": "Shows, episodes, films and watch dates from any TV Time export.",
+      "description": "Description on the TV Time import card in settings and onboarding."
+    },
+    "boxed_import_trakt_description": {
+      "default": "Restore a Trakt JSON backup into this account.",
+      "description": "Description on the Trakt backup import card in settings and onboarding."
+    },
+    "boxed_welcome_skip": {
+      "default": "Skip for now",
+      "description": "Link on the onboarding page that skips setup and goes to the home page."
+    },
     "boxed_show_your_progress": {
       "default": "Your progress",
       "description": "Label on the show page card that shows how many episodes the user has watched."

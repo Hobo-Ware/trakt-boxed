@@ -107,10 +107,10 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 9 - settings and static
 
-- [ ] Settings profile + import (board `Settings`)
-- [ ] Other settings pages (reskin)
-- [ ] Onboarding `/welcome` (board `Onboarding`)
-- [ ] VIP, about, legal, FAQ, 404 (reskin)
+- [x] Settings profile + import (board `Settings`): settings shell with side nav (chips on mobile), profile form (avatar, cover reset, display name, location, about, private) saving only changed fields, import cards (Letterboxd first) above the client import / export section. Website, favourites pickers, currently-watching / public-watchlist switches and backdrop chooser left out (no client support). CLS 0.0000
+- [x] Other settings pages (reskin): general, account, data, advanced, plex, preview, connected apps, streaming services wrapped in the shell. `settings/apps/**/+page.ts` redirects stay mounted. CLS up to 0.0007 (streaming select widening)
+- [x] Onboarding `/welcome` (board `Onboarding`): chromeless welcome hero on a colour-tile poster wall, import step, finish, skip. Only the client's import step exists, so favourites / follow steps and the step indicator are left out. CLS 0.0000
+- [x] VIP, about, legal, FAQ, 404 (reskin): serif headings, fixed reading column on legal pages, rebuilt error pages (poster wall + serif title), VIP keeps purple. `vip/renew` still mounted (needs a helper two folders deep in `_internal`). CLS 0.0000 except about 0.0004, privacy 0.0034, faq 0.0087, and terms mobile 0.0184 (over the limit: long paragraphs re-wrap when Roboto replaces the metric-matched Arial fallback; the client page measured 0.0323). Options: `display=optional` for the body font, or accept
 
 ### Wave 10 - rigor
 

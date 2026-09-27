@@ -1,8 +1,5 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../client/src/routes/settings/general/+page.svelte";
-
-  const props = $props();
+  import GeneralSettingsBody from "$lib/sections/settings/GeneralSettingsBody.svelte";
 </script>
 
-<Legacy {...props} />
+<GeneralSettingsBody />

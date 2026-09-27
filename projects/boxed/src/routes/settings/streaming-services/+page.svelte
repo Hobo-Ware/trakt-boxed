@@ -1,8 +1,5 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../client/src/routes/settings/streaming-services/+page.svelte";
-
-  const props = $props();
+  import StreamingServicesSettings from "$lib/sections/settings/StreamingServicesSettings.svelte";
 </script>
 
-<Legacy {...props} />
+<StreamingServicesSettings />

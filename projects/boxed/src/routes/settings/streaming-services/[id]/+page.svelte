@@ -1,8 +1,12 @@
-<!-- legacy-mount -->
 <script lang="ts">
-  import Legacy from "../../../../../../client/src/routes/settings/streaming-services/[id]/+page.svelte";
+  import StreamingServicesDetail from "$lib/sections/settings/StreamingServicesDetail.svelte";
+  import type { PageProps } from "./$types";
 
-  const props = $props();
+  const { params }: PageProps = $props();
+
+  const syncId = $derived(Number(params.id));
 </script>
 
-<Legacy {...props} />
+{#if Number.isFinite(syncId)}
+  <StreamingServicesDetail {syncId} />
+{/if}
