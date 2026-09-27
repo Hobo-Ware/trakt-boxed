@@ -46,9 +46,9 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 - [x] Boxed app shell, legacy mounts, top bar, mobile tab bar (`35cf5361f`)
 - [x] Tokens: state colours in `app.html` (Newsreader title face moves to wave 3, loaded only once a page uses it)
-- [ ] Poster tile: 3-state outline, show progress bar, hover drawer, long-press
+- [x] Poster tile: 3-state outline, show progress bar, hover drawer, long-press
       (board `Posters`)
-- [ ] Shared primitives: section header, poster row/grid, skeletons, stars
+- [x] Shared primitives: section header, poster row/grid, skeletons, stars
       display, page container, backdrop hero
 
 ### Wave 2 - logging
@@ -72,7 +72,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 5 - home and discovery
 
-- [x] Landing `/` (board `Landing`): the client's spotlight backdrop, poster stack and login / get started buttons inside the boxed layout, serif three-line headline, trending posters, six feature tiles, Letterboxd / TV Time import card, footer. Popular reviews left out (slow endpoint, PLAN 2b). CLS 0.0000
+- [x] Landing `/` (board `Landing`, redesigned 2026-09-27): poster wall hero, the three-box section (brand mark colours, D3 amended), TV section, import card, footer, login / get started. Popular reviews left out (slow endpoint, PLAN 2b)
 - [x] Home `/home` (boards `Home`, `Home-mobile`, `Twist-C`, `Twist-C-mobile`): greeting + streak, Just watched rail and New from friends (both from the one friends feed request, no per-friend calls), Up next cards with one-tap mark watched, then viewport-gated Start watching, Out this week, Popular, Recommended. Popular reviews from friends is left out: no cheap endpoint (PLAN 2b). CLS 0.0000 desktop + mobile, slow and fast, scrolled
 - [x] Films / Shows landing (board `Browse`): `/discover` with a Movies / Shows / Both switch (writes `?mode=`), the shared filter drawer and seasonal toggle, Trending up front, Popular / Anticipated / Recommended viewport-gated, genre chips. CLS 0.0000. Open: in the harness the Recommended row never settles when recommendations come back empty; check with a real account
 - [x] Charts grid (board `Browse-grid`): `/discover/{trending,popular,anticipated,recommended}` 8-column poster grid with infinite scroll (next page appended below). Genre facets use `?genres=` on the chart instead of `/films/genre/x` paths. CLS 0.0000
@@ -119,4 +119,6 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 - [ ] i18n: every `boxed_*` key has translations. All keys live in `projects/boxed/i18n/meta/en.json` with descriptions; translations arrive through Crowdin (`crowdin.yml` reads en.json and opens a PR). Needs the source upload once this branch is the translation source; not done from here because the Crowdin project is shared with production
 - [x] Remove remaining legacy mounts: 15 routes now redirect (307, query kept) to their boxed pages (watchlist, progress, start watching, history, user lists and list views, person credits, title lists, episode related); rebuilt related titles (movie / show, all pages loaded up front so the footer never moves), official lists and releases (sharing new `ListDetail` and `CalendarWeek` bodies with the user list and calendar pages); calendar layout is now boxed. Still mounted on purpose: smart lists, library, year / month in review, vip/renew, and `/history?sync_id` (sync banner). CLS 0.0000 to 0.0002
 - [x] Title rail list card vs `lists/ListCard`: reviewed and kept separate. The rail card is a different compact design (72px fan, card surface, own same-size skeleton); a variant would move the same CSS without removing any
+- [x] Brand and theme pass (2026-09-27): "trakt boxed" three-box mark, favicon, PWA icons and boot splash; theme-aware accent tokens and readable state colours in light theme; shared buttons, menus, selects, switches, dialogs, toasts, settings cards, footer and every summary drawer restyled for boxed
+- [x] CI adapted to this repository (2026-09-27): no deploy, R2, DeepSource or Crowdin steps; build runs on every PR; PR gate keeps commitlint + no-fixups; Trakt-only scheduled workflows removed
 - [x] Port the shared layer into boxed 1:1 (2026-09-27): `git mv` of `src/lib`, hooks, worker, mocks, style, static, i18n, test, e2e, scripts and project config into `projects/boxed` unchanged; client route hooks and the pages still in use (smart lists, library, year / month in review, vip/renew, api, sitemap, callbacks) moved next to the boxed pages; `$clientRoutes` became `$routes`; `projects/client` deleted; root tasks, 8 workflows, crowdin.yml, gemini / deepsource / vscode config and agent rules repointed. svelte-check 0 / 0 over 10,397 files, 3736 / 3737 tests (the Myanmar numeral test depends on the machine's ICU data, untouched by this branch), production build OK
