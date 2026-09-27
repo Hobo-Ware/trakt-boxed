@@ -105,7 +105,7 @@
 
   .person-count {
     width: 100%;
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     color: var(--boxed-color-accent-text);
     overflow: hidden;

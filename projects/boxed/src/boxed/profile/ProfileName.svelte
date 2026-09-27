@@ -67,7 +67,7 @@
 
   .profile-handle {
     flex-shrink: 0;
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--color-text-secondary);
 

@@ -80,7 +80,7 @@
       border-radius: var(--border-radius-m);
       background: var(--color-input-background);
       box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
-      font-family: "Roboto Mono", monospace;
+      font-family: var(--boxed-font-mono);
       font-size: var(--ni-14);
       color: var(--color-text-secondary);
     }
@@ -115,7 +115,7 @@
 
   .boxed-episode-strip-code {
     min-width: 2ch;
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--color-text-secondary);
   }

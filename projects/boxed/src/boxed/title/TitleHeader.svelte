@@ -163,7 +163,7 @@
   }
 
   .boxed-title-meta {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     letter-spacing: 0.04em;
     text-transform: uppercase;

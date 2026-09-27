@@ -169,7 +169,7 @@
     background: color-mix(in srgb, var(--shade-950) 75%, transparent);
     color: var(--shade-10);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-10);
   }
 
@@ -188,7 +188,7 @@
     align-items: center;
     gap: var(--ni-8);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--color-text-secondary);
 
@@ -236,7 +236,7 @@
   }
 
   .boxed-episode-meta {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--color-text-secondary);
   }

@@ -413,7 +413,7 @@
 
   .boxed-review-year {
     margin-inline-start: var(--ni-10);
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-18);
     font-weight: 400;
     color: var(--color-text-secondary);
@@ -424,7 +424,7 @@
     display: flex;
     align-items: center;
     gap: var(--ni-12);
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     text-transform: uppercase;
     color: var(--color-text-secondary);
@@ -485,7 +485,7 @@
 
       span {
         margin-inline-start: var(--ni-6);
-        font-family: "Roboto Mono", monospace;
+        font-family: var(--boxed-font-mono);
         font-size: var(--ni-11);
       }
     }
@@ -518,7 +518,7 @@
     }
 
     time {
-      font-family: "Roboto Mono", monospace;
+      font-family: var(--boxed-font-mono);
       font-size: var(--ni-11);
       color: var(--color-text-secondary);
     }

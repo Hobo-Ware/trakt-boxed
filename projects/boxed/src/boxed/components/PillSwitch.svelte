@@ -68,7 +68,7 @@
 
   .boxed-pill-count {
     min-width: 2.8em;
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     font-weight: 500;
     text-align: start;

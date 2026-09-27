@@ -287,7 +287,7 @@
   }
 
   .diary-code {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--boxed-color-accent-text);
     white-space: nowrap;
@@ -341,7 +341,7 @@
   }
 
   .diary-mono {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--color-text-secondary);
   }

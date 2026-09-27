@@ -56,7 +56,7 @@
     text-decoration: none;
     color: var(--color-text-primary);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
 
     &.is-wide {

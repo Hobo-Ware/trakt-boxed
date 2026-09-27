@@ -253,7 +253,7 @@
 
   .stub-month,
   .stub-weekday {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -326,7 +326,7 @@
   .diary-card-code,
   .episode-time {
     flex-shrink: 0;
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--color-text-secondary);
   }
@@ -394,7 +394,7 @@
     position: absolute;
     inset-inline-start: var(--ni-6);
     bottom: var(--ni-4);
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     color: var(--shade-10);
     text-shadow: 0 0 var(--ni-4) var(--shade-950);

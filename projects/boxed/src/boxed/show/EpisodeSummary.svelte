@@ -259,7 +259,7 @@
     margin-inline-start: var(--ni-8);
     line-height: var(--ni-16);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     color: var(--color-link-active);
   }

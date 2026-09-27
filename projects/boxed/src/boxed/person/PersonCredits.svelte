@@ -321,7 +321,7 @@
 
   .boxed-person-seen-percent {
     min-width: 4ch;
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     text-align: end;
     color: var(--boxed-color-watched-text);

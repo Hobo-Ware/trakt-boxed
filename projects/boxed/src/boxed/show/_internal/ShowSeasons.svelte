@@ -189,7 +189,7 @@
 
   .boxed-show-season-meta,
   .boxed-show-season-progress {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     white-space: nowrap;
     overflow: hidden;

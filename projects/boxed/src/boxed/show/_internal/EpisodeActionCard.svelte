@@ -206,7 +206,7 @@
   .boxed-episode-state-meta {
     height: var(--ni-16);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     white-space: nowrap;
     color: var(--color-text-secondary);

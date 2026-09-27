@@ -86,7 +86,7 @@
   .boxed-title-tab-count {
     min-width: 3.6em;
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     letter-spacing: 0;
     color: var(--color-text-secondary);

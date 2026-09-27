@@ -119,7 +119,7 @@
     background: color-mix(in srgb, var(--shade-950) 80%, transparent);
     color: var(--shade-10);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     text-transform: uppercase;
   }

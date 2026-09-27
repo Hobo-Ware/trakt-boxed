@@ -47,7 +47,7 @@
     padding-inline: var(--ni-8);
     border-radius: var(--border-radius-xxl);
     background: var(--color-input-background);
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-11);
     font-weight: 600;
     color: var(--color-text-primary);

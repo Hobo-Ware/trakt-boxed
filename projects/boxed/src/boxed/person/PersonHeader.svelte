@@ -180,7 +180,7 @@
   }
 
   .boxed-person-date {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     text-transform: uppercase;
     color: var(--color-text-primary);

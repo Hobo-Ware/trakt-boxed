@@ -145,7 +145,7 @@
     max-width: var(--ni-340);
     height: var(--ni-16);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     line-height: var(--ni-16);
     text-align: end;
@@ -236,7 +236,7 @@
   .boxed-show-next-meta {
     height: var(--ni-16);
 
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     line-height: var(--ni-16);
     white-space: nowrap;

@@ -102,7 +102,7 @@
 
   .boxed-title-activity-detail {
     min-height: 1.4em;
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     line-height: 1.4;
     color: var(--color-text-secondary);

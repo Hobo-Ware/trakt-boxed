@@ -57,7 +57,7 @@
 <style>
   .histogram-total {
     min-width: var(--ni-40);
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     text-align: end;
     color: var(--color-text-secondary);
