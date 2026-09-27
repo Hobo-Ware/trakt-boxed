@@ -119,7 +119,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 - [x] Accessibility pass: axe (WCAG 2 A / AA) over 14 key pages. Fixed two contrast failures (person type counts, diary month ribbon year). One open, left for a product decision: the inherited viewport tag sets `user-scalable=no` (axe critical: zoom disabled)
 - [ ] i18n: every `boxed_*` key has translations. All keys live in `projects/client/i18n/meta/en.json` with descriptions; translations arrive through Crowdin (`crowdin.yml` reads en.json and opens a PR). Needs the source upload once this branch is the translation source; not done from here because the Crowdin project is shared with production
 - [ ] Remove all remaining legacy mounts
-- [ ] Merge the title rail list card (`title/_internal/ListCard`) into `lists/ListCard` as a variant
+- [x] Title rail list card vs `lists/ListCard`: reviewed and kept separate. The rail card is a different compact design (72px fan, card surface, own same-size skeleton); a variant would move the same CSS without removing any
 - [ ] Port the shared layer into boxed 1:1: `git mv` the non-UI parts of
       `projects/client/src/lib` (requests, models, features state, stores,
       utils, i18n, paraglide) plus hooks, worker and static into
