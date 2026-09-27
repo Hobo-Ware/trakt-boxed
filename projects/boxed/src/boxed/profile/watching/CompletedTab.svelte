@@ -1,7 +1,6 @@
 <script lang="ts">
+  import PagedPosterGrid from "$boxed/poster/PagedPosterGrid.svelte";
   import { useProgressList } from "$lib/sections/profile/components/useProgressList.ts";
-  import PosterGrid from "../../poster/PosterGrid.svelte";
-  import LoadMore from "$boxed/components/LoadMore.svelte";
 
   const PAGE_SIZE = 50;
 
@@ -17,20 +16,14 @@
       type: "show" as const,
     })),
   );
-  const isFirstLoad = $derived($isLoading && shows.length === 0);
 </script>
 
-<PosterGrid
-  items={isFirstLoad ? null : shows}
+<PagedPosterGrid
+  items={shows}
+  isLoading={$isLoading}
+  hasNextPage={$hasNextPage}
+  onLoad={fetchNextPage}
   columns={8}
   skeletonCount={16}
   showUserMeta
-  loadingMore={$isLoading && !isFirstLoad}
-/>
-
-<LoadMore
-  hasNextPage={$hasNextPage}
-  isLoading={$isLoading}
-  loadedCount={shows.length}
-  onLoad={fetchNextPage}
 />

@@ -1,8 +1,7 @@
 <script lang="ts">
+  import PagedPosterGrid from "$boxed/poster/PagedPosterGrid.svelte";
   import { useWatchList } from "$lib/sections/lists/watchlist/useWatchList.ts";
-  import PosterGrid from "../../poster/PosterGrid.svelte";
-  import type { PosterMedia } from "../../poster/PosterMedia.ts";
-  import LoadMore from "$boxed/components/LoadMore.svelte";
+  import { toWatchlistPosters } from "../_internal/toWatchlistPosters.ts";
 
   const PAGE_SIZE = 50;
 
@@ -12,26 +11,14 @@
     limit: PAGE_SIZE,
   });
 
-  const items = $derived(
-    $list.flatMap((item): PosterMedia[] =>
-      item.type === "movie" || item.type === "show"
-        ? [{ ...item.entry, type: item.type }]
-        : []
-    ),
-  );
-  const isFirstLoad = $derived($isLoading && items.length === 0);
+  const items = $derived(toWatchlistPosters($list));
 </script>
 
-<PosterGrid
-  items={isFirstLoad ? null : items}
+<PagedPosterGrid
+  {items}
+  isLoading={$isLoading}
+  hasNextPage={$hasNextPage}
+  onLoad={fetchNextPage}
   columns={8}
   skeletonCount={16}
-  loadingMore={$isLoading && !isFirstLoad}
-/>
-
-<LoadMore
-  hasNextPage={$hasNextPage}
-  isLoading={$isLoading}
-  loadedCount={items.length}
-  onLoad={fetchNextPage}
 />
