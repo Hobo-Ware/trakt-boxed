@@ -93,7 +93,7 @@
     background: color-mix(in srgb, var(--color-text-secondary) 45%, transparent);
 
     &.is-peak {
-      background: var(--purple-300);
+      background: var(--boxed-color-accent-fill);
     }
   }
 

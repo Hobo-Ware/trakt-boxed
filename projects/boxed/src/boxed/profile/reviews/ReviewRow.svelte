@@ -139,7 +139,7 @@
     flex-shrink: 0;
     font-family: "Roboto Mono", monospace;
     font-size: var(--ni-12);
-    color: var(--purple-200);
+    color: var(--boxed-color-accent-text);
   }
 
   .review-meta {
@@ -178,7 +178,7 @@
       border: 0;
       background: none;
       font: inherit;
-      color: var(--purple-300);
+      color: var(--boxed-color-accent-text);
       cursor: pointer;
     }
   }

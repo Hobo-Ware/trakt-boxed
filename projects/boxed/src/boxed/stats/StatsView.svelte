@@ -471,7 +471,7 @@
     }
 
     .legend-movies::before {
-      background: var(--purple-200);
+      background: var(--boxed-color-accent-fill);
     }
 
     .legend-episodes::before {
@@ -559,7 +559,7 @@
     text-decoration: none;
 
     .stats-eyebrow {
-      color: var(--purple-100);
+      color: var(--boxed-color-accent-text);
     }
   }
 

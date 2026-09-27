@@ -12,6 +12,10 @@
   --color-floating-background: var(--shade-10);
   --color-shadow: var(--shade-900);
 
+  --boxed-color-accent-text: var(--purple-700);
+  --boxed-color-accent-fill: var(--purple-500);
+  --boxed-color-accent-soft: color-mix(in srgb, var(--purple-500) 12%, transparent);
+
   --color-foreground: var(--shade-920);
   --color-background: var(--shade-10);
 
@@ -521,6 +525,10 @@
 
   --color-floating-background: var(--shade-930);
   --color-shadow: var(--shade-940);
+
+  --boxed-color-accent-text: var(--purple-200);
+  --boxed-color-accent-fill: var(--purple-300);
+  --boxed-color-accent-soft: color-mix(in srgb, var(--purple-500) 18%, transparent);
 
   --color-foreground: var(--shade-10);
   --color-background: color-mix(

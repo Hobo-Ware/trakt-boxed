@@ -66,9 +66,9 @@
       }
 
       &.is-active {
-        background: color-mix(in srgb, var(--purple-500) 18%, transparent);
+        background: var(--boxed-color-accent-soft);
         box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--purple-500);
-        color: var(--purple-100);
+        color: var(--boxed-color-accent-text);
       }
     }
   }

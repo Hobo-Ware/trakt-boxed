@@ -110,7 +110,7 @@
     white-space: nowrap;
     font-family: "Roboto Mono", monospace;
     font-size: var(--ni-12);
-    color: var(--purple-200);
+    color: var(--boxed-color-accent-text);
   }
 
   .activity-time {

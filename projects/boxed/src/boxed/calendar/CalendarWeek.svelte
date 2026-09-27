@@ -317,7 +317,7 @@
       font-weight: 600;
 
       &.is-today {
-        color: var(--purple-300);
+        color: var(--boxed-color-accent-text);
       }
     }
   }
@@ -424,8 +424,8 @@
     font-weight: 600;
 
     &.is-accent {
-      background: color-mix(in srgb, var(--purple-500) 20%, transparent);
-      color: var(--purple-100);
+      background: var(--boxed-color-accent-soft);
+      color: var(--boxed-color-accent-text);
     }
   }
 

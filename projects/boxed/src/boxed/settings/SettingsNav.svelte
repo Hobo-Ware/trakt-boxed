@@ -83,7 +83,7 @@
       }
 
       :global(.trakt-link.trakt-link-active) {
-        background: color-mix(in srgb, var(--purple-500) 22%, transparent);
+        background: var(--boxed-color-accent-soft);
         box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--purple-400);
       }
 

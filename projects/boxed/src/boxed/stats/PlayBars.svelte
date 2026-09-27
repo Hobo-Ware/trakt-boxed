@@ -80,7 +80,7 @@
 
   .play-bar-movies {
     border-radius: var(--ni-3) var(--ni-3) 0 0;
-    background: var(--purple-200);
+    background: var(--boxed-color-accent-fill);
   }
 
   .play-bar-episodes {
