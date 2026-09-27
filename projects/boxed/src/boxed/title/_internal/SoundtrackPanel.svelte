@@ -1,4 +1,5 @@
 <script lang="ts">
+  import VipChip from "../VipChip.svelte";
   import PlayIcon from "$lib/components/icons/PlayIcon.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -21,7 +22,7 @@
 {#if isLoading || rows.length > 0}
   <SectionHeader title={m.list_title_soundtrack()}>
     {#snippet actions()}
-      <span class="boxed-vip-chip">{m.tag_text_vip()}</span>
+      <VipChip />
       {#if !isLoading && (tracks?.length ?? 0) > ROWS}
         <a
           class="boxed-soundtrack-all"
@@ -66,18 +67,6 @@
 {/if}
 
 <style>
-  .boxed-vip-chip {
-    padding: var(--ni-2) var(--ni-6);
-
-    border-radius: var(--border-radius-xxl);
-    background: var(--purple-500);
-    color: var(--shade-10);
-
-    font-size: var(--ni-10);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-  }
-
   .boxed-soundtrack-all {
     font-size: var(--ni-12);
     color: var(--color-text-secondary);

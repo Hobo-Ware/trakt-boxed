@@ -1,4 +1,5 @@
 <script lang="ts">
+  import VipChip from "./VipChip.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import type { SentimentAnalysis } from "$lib/requests/models/SentimentAnalysis.ts";
@@ -28,7 +29,7 @@
 <section class="boxed-sentiment">
   <header class="boxed-sentiment-header">
     <h2>{m.boxed_title_what_people_think()}</h2>
-    <span class="boxed-vip-chip">{m.tag_text_vip()}</span>
+    <VipChip />
   </header>
 
   <div class="boxed-sentiment-groups">
@@ -94,18 +95,6 @@
         font-size: var(--ni-20);
       }
     }
-  }
-
-  .boxed-vip-chip {
-    padding: var(--ni-2) var(--ni-6);
-
-    border-radius: var(--border-radius-xxl);
-    background: var(--purple-500);
-    color: var(--shade-10);
-
-    font-size: var(--ni-10);
-    font-weight: 700;
-    letter-spacing: 0.06em;
   }
 
   .boxed-sentiment-groups {
