@@ -28,6 +28,7 @@
   import SeasonEpisodes from "./_internal/SeasonEpisodes.svelte";
   import SeasonPoster from "./_internal/SeasonPoster.svelte";
   import SeasonSwitcher from "./_internal/SeasonSwitcher.svelte";
+  import { toSeasonProgress } from "./_internal/toSeasonProgress.ts";
 
 
   type SeasonSummaryProps = {
@@ -48,14 +49,11 @@
 
   const title = $derived(seasonLabel(season.number));
   const episodes = $derived($isLoading ? null : $list);
-  const watched = $derived(
-    Math.min(
-      $history?.shows.get(show.id)?.playsPerSeason.get(season.number) ?? 0,
-      season.episodes.aired,
-    ),
-  );
   const progress = $derived(
-    season.episodes.aired > 0 ? watched / season.episodes.aired : 0,
+    toSeasonProgress({
+      season,
+      watchedBySeason: $history?.shows.get(show.id)?.playsPerSeason,
+    }),
   );
 
   const year = $derived(
@@ -82,8 +80,8 @@
       src={season.poster?.url.medium ?? show.poster.url.medium}
       title={`${show.title} ${title}`}
       href={UrlBuilder.show(show.slug)}
-      {progress}
-      isComplete={season.episodes.aired > 0 && watched >= season.episodes.aired}
+      progress={progress.ratio}
+      isComplete={progress.isComplete}
     />
   {/snippet}
 
@@ -119,7 +117,7 @@
       {season}
       {title}
       episodes={episodes ?? []}
-      {watched}
+      {progress}
       whereToWatchHref={drawerHref(SummaryDrawers.WhereToWatch)}
     />
   {/snippet}

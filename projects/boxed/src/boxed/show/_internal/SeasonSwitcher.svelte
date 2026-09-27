@@ -3,7 +3,7 @@
   import type { Season } from "$lib/requests/models/Season.ts";
   import { seasonLabel } from "$lib/utils/intl/seasonLabel.ts";
   import { toSeasonHref } from "$boxed/utils/toSeasonHref.ts";
-  import { toSeasonStrip } from "./toSeasonStrip.ts";
+  import { toOrderedSeasons } from "./toOrderedSeasons.ts";
 
   type SeasonSwitcherProps = {
     slug: string;
@@ -13,11 +13,7 @@
 
   const { slug, seasons, current }: SeasonSwitcherProps = $props();
 
-  const ordered = $derived(
-    toSeasonStrip({ seasons, watchedBySeason: new Map() }).map((item) =>
-      item.season
-    ),
-  );
+  const ordered = $derived(toOrderedSeasons(seasons));
 </script>
 
 <nav class="boxed-season-switcher" aria-label={m.list_title_seasons()}>

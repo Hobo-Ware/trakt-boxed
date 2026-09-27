@@ -15,13 +15,14 @@
   import ActionRating from "$boxed/title/ActionRating.svelte";
   import ActionRow from "$boxed/title/ActionRow.svelte";
   import ShareAction from "$boxed/title/ShareAction.svelte";
+  import type { SeasonProgress } from "./toSeasonProgress.ts";
 
   type SeasonActionCardProps = {
     show: ShowEntry;
     season: Season;
     title: string;
     episodes: ReadonlyArray<EpisodeEntry>;
-    watched: number;
+    progress: SeasonProgress;
     whereToWatchHref: string;
   };
 
@@ -30,7 +31,7 @@
     season,
     title,
     episodes,
-    watched,
+    progress,
     whereToWatchHref,
   }: SeasonActionCardProps = $props();
 
@@ -41,9 +42,7 @@
   const aired = $derived(
     episodes.filter((episode) => episode.effectiveReleaseDate.getTime() <= now),
   );
-  const total = $derived(season.episodes.aired);
-  const isComplete = $derived(total > 0 && watched >= total);
-  const ratio = $derived(total > 0 ? Math.min(watched / total, 1) : 0);
+  const { watched, total, ratio, isComplete } = $derived(progress);
   const label = $derived(`${show.title} ${title}`);
 
   const target = $derived({
