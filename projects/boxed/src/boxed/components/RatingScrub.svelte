@@ -9,10 +9,12 @@
   const {
     rating,
     label = m.header_rate_now(),
+    variant = "form",
     onChange,
   }: {
     rating: number | null;
     label?: string;
+    variant?: "form" | "card";
     onChange: (rating: number | null) => void;
   } = $props();
 
@@ -38,8 +40,8 @@
   };
 </script>
 
-<div class="boxed-log-rating" bind:this={root}>
-  <span class="boxed-log-rating-label">{label}</span>
+<div class="boxed-rating-scrub" data-variant={variant} bind:this={root}>
+  <span class="boxed-rating-scrub-label">{label}</span>
   <RatingStars
     rating={rating ?? undefined}
     isRating={false}
@@ -61,19 +63,31 @@
 </div>
 
 <style>
-  .boxed-log-rating {
+  .boxed-rating-scrub {
     position: relative;
 
     display: flex;
     flex-direction: column;
     gap: var(--gap-xs);
+
+    &[data-variant="card"] {
+      align-items: center;
+      gap: var(--ni-4);
+    }
   }
 
-  .boxed-log-rating-label {
+  .boxed-rating-scrub-label {
     font-size: var(--ni-12);
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-text-secondary);
+
+    [data-variant="card"] > & {
+      font-size: var(--ni-14);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
   }
 </style>
