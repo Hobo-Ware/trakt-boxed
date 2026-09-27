@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { getLocale } from "$lib/features/i18n";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -33,7 +34,7 @@
       {@render skeletonRow()}
     {/each}
   {:else if entries.length === 0}
-    <li class="progress-empty">{m.boxed_profile_empty()}</li>
+    <EmptyState as="li" text={m.boxed_profile_empty()} />
   {:else}
     {#each entries as entry (entry.key)}
       {@const date = toDate(entry)}
@@ -183,14 +184,6 @@
     font-family: var(--boxed-font-mono);
     font-size: var(--ni-12);
     line-height: var(--ni-16);
-    color: var(--color-text-secondary);
-  }
-
-  .progress-empty {
-    min-height: var(--ni-240);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: var(--color-text-secondary);
   }
 </style>

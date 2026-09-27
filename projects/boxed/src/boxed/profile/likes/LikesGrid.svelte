@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import { useFavoritesList } from "$lib/sections/lists/stores/useFavoritesList.ts";
   import PosterGrid from "../../poster/PosterGrid.svelte";
@@ -32,7 +33,7 @@
 </script>
 
 {#if items && items.length === 0}
-  <p class="boxed-likes-empty">{emptyText}</p>
+  <EmptyState text={emptyText} />
 {:else}
   <PosterGrid
     {items}
@@ -49,14 +50,3 @@
   loadedCount={$list.length}
   onLoad={fetchNextPage}
 />
-
-<style>
-  .boxed-likes-empty {
-    min-height: var(--ni-240);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
-  }
-</style>

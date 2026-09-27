@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import FavoriteIcon from "$lib/components/icons/FavoriteIcon.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { getLocale, languageTag } from "$lib/features/i18n";
@@ -136,7 +137,7 @@
       {/each}
     </ol>
   {:else if buckets.length === 0}
-    <p class="diary-cards-empty">{m.boxed_profile_diary_empty()}</p>
+    <EmptyState text={m.boxed_profile_diary_empty()} />
   {:else}
     {#each buckets as bucket (bucket.key)}
       <section class="diary-month">
@@ -407,14 +408,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  .diary-cards-empty {
-    min-height: var(--ni-240);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
   }
 </style>

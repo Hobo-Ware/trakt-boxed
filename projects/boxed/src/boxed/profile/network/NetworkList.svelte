@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import type { ProfileSocialListType } from "$lib/sections/profile/models/ProfileSocialListType.ts";
@@ -40,7 +41,7 @@
       </li>
     {/each}
   {:else if members.length === 0}
-    <li class="network-empty">{emptyText}</li>
+    <EmptyState as="li" text={emptyText} />
   {:else}
     {#each members as profile (profile.key)}
       <MemberRow
@@ -86,14 +87,5 @@
     display: flex;
     flex-direction: column;
     gap: var(--ni-6);
-  }
-
-  .network-empty {
-    grid-column: 1 / -1;
-    min-height: var(--ni-240);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
   }
 </style>

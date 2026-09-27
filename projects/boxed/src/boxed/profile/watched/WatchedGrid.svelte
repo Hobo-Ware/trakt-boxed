@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import { useRecentlyWatchedList } from "$lib/sections/lists/stores/useRecentlyWatchedList.ts";
   import PosterGrid from "../../poster/PosterGrid.svelte";
@@ -51,7 +52,7 @@
 {/snippet}
 
 {#if titles && titles.length === 0}
-  <p class="boxed-watched-empty">{m.boxed_profile_empty()}</p>
+  <EmptyState text={m.boxed_profile_empty()} />
 {:else}
   <div class="boxed-watched-grid">
     <PosterGrid
@@ -105,14 +106,5 @@
       opacity: 0.6;
       cursor: progress;
     }
-  }
-
-  .boxed-watched-empty {
-    min-height: var(--ni-240);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
   }
 </style>

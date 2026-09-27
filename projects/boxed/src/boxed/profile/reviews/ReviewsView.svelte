@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import { useMyActivityList } from "$lib/sections/profile/components/useMyActivityList.ts";
@@ -46,7 +47,7 @@
       </li>
     {/each}
   {:else if reviews.length === 0}
-    <li class="reviews-empty">{m.list_placeholder_comments()}</li>
+    <EmptyState as="li" text={m.list_placeholder_comments()} />
   {:else}
     {#each reviews as review (review.key)}
       <ReviewRow comment={review.comment} target={review.target} />
@@ -81,13 +82,5 @@
     display: flex;
     flex-direction: column;
     gap: var(--ni-10);
-  }
-
-  .reviews-empty {
-    min-height: var(--ni-240);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
   }
 </style>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { DiscoverMode } from "$lib/features/filters/models/DiscoverMode.ts";
   import { useWatchList } from "$lib/sections/lists/watchlist/useWatchList.ts";
@@ -33,7 +34,7 @@
 </script>
 
 {#if !isFirstLoad && items.length === 0}
-  <p class="boxed-watchlist-empty">{m.text_cta_watchlist_unreleased()}</p>
+  <EmptyState text={m.text_cta_watchlist_unreleased()} />
 {:else}
   <PosterGrid
     items={isFirstLoad ? null : items}
@@ -49,14 +50,3 @@
   loadedCount={items.length}
   onLoad={fetchNextPage}
 />
-
-<style>
-  .boxed-watchlist-empty {
-    min-height: var(--ni-240);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
-  }
-</style>

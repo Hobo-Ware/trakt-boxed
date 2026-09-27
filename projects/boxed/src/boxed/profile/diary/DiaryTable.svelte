@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EmptyState from "$boxed/components/EmptyState.svelte";
   import CaretRightIcon from "$lib/components/icons/CaretRightIcon.svelte";
   import FavoriteIcon from "$lib/components/icons/FavoriteIcon.svelte";
   import Skeleton from "$lib/components/skeleton/Skeleton.svelte";
@@ -152,7 +153,7 @@
       {@render skeletonRow()}
     {/each}
   {:else if buckets.length === 0}
-    <p class="diary-empty">{m.boxed_profile_diary_empty()}</p>
+    <EmptyState text={m.boxed_profile_diary_empty()} />
   {:else}
     {#each buckets as bucket (bucket.key)}
       {#each bucket.entries as entry, index (entry.key)}
@@ -353,15 +354,6 @@
       width: var(--ni-14);
       height: var(--ni-14);
     }
-  }
-
-  .diary-empty {
-    min-height: var(--ni-240);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
   }
 
   @media (prefers-reduced-motion: reduce) {
