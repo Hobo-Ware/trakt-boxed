@@ -16,12 +16,12 @@
   import type { DiaryEntry } from "./DiaryEntry.ts";
   import type { DiaryViewProps } from "./DiaryViewProps.ts";
   import RewatchMark from "./RewatchMark.svelte";
-  import { isEntryLiked } from "./_internal/isEntryLiked.ts";
-  import { toEntryMedia } from "./_internal/toEntryMedia.ts";
-  import { toEntryRating } from "./_internal/toEntryRating.ts";
+  import { isEntryLiked } from "./isEntryLiked.ts";
+  import { toEntryMedia } from "./toEntryMedia.ts";
+  import { toEntryRating } from "./toEntryRating.ts";
   import { toEntryTitle } from "./_internal/toEntryTitle.ts";
-  import { toEpisodeRange } from "./_internal/toEpisodeRange.ts";
-  import { toEpisodeRangeLabel } from "./_internal/toEpisodeRangeLabel.ts";
+  import { toEpisodeRange } from "./toEpisodeRange.ts";
+  import { toEpisodeRangeLabel } from "./toEpisodeRangeLabel.ts";
 
   const SKELETON_ROWS = 10;
 

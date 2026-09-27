@@ -5,7 +5,7 @@
   import ProfileDrawer from "$lib/sections/profile/ProfileDrawer.svelte";
   import InView from "../components/InView.svelte";
   import SectionHeader from "../components/SectionHeader.svelte";
-  import { toDiaryEntries } from "./diary/_internal/toDiaryEntries.ts";
+  import { toDiaryEntries } from "./diary/toDiaryEntries.ts";
   import type { ProfileContext } from "./ProfileContext.ts";
   import CurrentlyWatching from "./sections/CurrentlyWatching.svelte";
   import CurrentlyWatchingSkeleton from "./sections/CurrentlyWatchingSkeleton.svelte";

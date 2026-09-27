@@ -6,9 +6,9 @@
   import SectionHeader from "../../components/SectionHeader.svelte";
   import Stars from "../../components/Stars.svelte";
   import type { DiaryEntry } from "../diary/DiaryEntry.ts";
-  import { toEntryRating } from "../diary/_internal/toEntryRating.ts";
-  import { toEpisodeRange } from "../diary/_internal/toEpisodeRange.ts";
-  import { toEpisodeRangeLabel } from "../diary/_internal/toEpisodeRangeLabel.ts";
+  import { toEntryRating } from "$boxed/profile/diary/toEntryRating.ts";
+  import { toEpisodeRange } from "$boxed/profile/diary/toEpisodeRange.ts";
+  import { toEpisodeRangeLabel } from "$boxed/profile/diary/toEpisodeRangeLabel.ts";
   import { useDiaryUserState } from "../diary/useDiaryUserState.ts";
 
   const ROWS = 8;

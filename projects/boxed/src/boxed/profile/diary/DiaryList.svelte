@@ -6,7 +6,7 @@
   import LoadMore from "$boxed/components/LoadMore.svelte";
   import DiaryCards from "./DiaryCards.svelte";
   import DiaryTable from "./DiaryTable.svelte";
-  import { toDiaryEntries } from "./_internal/toDiaryEntries.ts";
+  import { toDiaryEntries } from "./toDiaryEntries.ts";
   import { toMonthBuckets } from "./_internal/toMonthBuckets.ts";
   import { useDiaryUserState } from "./useDiaryUserState.ts";
 

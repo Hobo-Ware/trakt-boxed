@@ -1,5 +1,5 @@
-import type { PosterMedia } from '../../../poster/PosterMedia.ts';
-import type { DiaryEntry } from '../DiaryEntry.ts';
+import type { PosterMedia } from '$boxed/poster/PosterMedia.ts';
+import type { DiaryEntry } from './DiaryEntry.ts';
 
 export function toEntryMedia(entry: DiaryEntry): PosterMedia {
   return entry.type === 'movie'

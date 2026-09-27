@@ -1,8 +1,8 @@
 import type { EpisodeActivityHistory } from '$lib/requests/queries/users/episodeActivityHistoryQuery.ts';
 import type { HistoryEntry } from '$lib/sections/lists/stores/models/HistoryEntry.ts';
 import { getDayKey } from '$lib/utils/date/getDayKey.ts';
-import type { DiaryEntry, DiaryEpisodesEntry } from '../DiaryEntry.ts';
-import { findRewatches } from './findRewatches.ts';
+import type { DiaryEntry, DiaryEpisodesEntry } from './DiaryEntry.ts';
+import { findRewatches } from './_internal/findRewatches.ts';
 
 type EpisodeGroup = {
   first: EpisodeActivityHistory;

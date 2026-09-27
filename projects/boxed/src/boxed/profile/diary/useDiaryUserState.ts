@@ -1,7 +1,7 @@
 import { useUser } from '$lib/features/auth/stores/useUser.ts';
 import { combineLatest, map, of } from 'rxjs';
-import type { FavoritesLookup } from './_internal/isEntryLiked.ts';
-import type { RatingsLookup } from './_internal/toEntryRating.ts';
+import type { FavoritesLookup } from './isEntryLiked.ts';
+import type { RatingsLookup } from './toEntryRating.ts';
 
 type DiaryUserState = {
   ratings: RatingsLookup | null;

@@ -1,8 +1,8 @@
 import type { HistoryEntry } from '$lib/sections/lists/stores/models/HistoryEntry.ts';
 import { describe, expect, it } from 'vitest';
 import { findRewatches } from './findRewatches.ts';
-import { toDiaryEntries } from './toDiaryEntries.ts';
-import { toEpisodeRange } from './toEpisodeRange.ts';
+import { toDiaryEntries } from '$boxed/profile/diary/toDiaryEntries.ts';
+import { toEpisodeRange } from '$boxed/profile/diary/toEpisodeRange.ts';
 import { toMonthBuckets } from './toMonthBuckets.ts';
 
 let playId = 0;

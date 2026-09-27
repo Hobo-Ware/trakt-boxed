@@ -1,4 +1,4 @@
-import type { DiaryEntry } from '../DiaryEntry.ts';
+import type { DiaryEntry } from './DiaryEntry.ts';
 
 export type FavoritesLookup = {
   movies: ReadonlyMap<number, unknown>;

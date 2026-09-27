@@ -3,11 +3,11 @@
   import type { PosterMedia } from "../../poster/PosterMedia.ts";
   import DiaryEntryMeta from "../diary/DiaryEntryMeta.svelte";
   import type { DiaryEntry } from "../diary/DiaryEntry.ts";
-  import { isEntryLiked } from "../diary/_internal/isEntryLiked.ts";
-  import { toEntryMedia } from "../diary/_internal/toEntryMedia.ts";
-  import { toEntryRating } from "../diary/_internal/toEntryRating.ts";
-  import { toEpisodeRange } from "../diary/_internal/toEpisodeRange.ts";
-  import { toEpisodeRangeLabel } from "../diary/_internal/toEpisodeRangeLabel.ts";
+  import { isEntryLiked } from "$boxed/profile/diary/isEntryLiked.ts";
+  import { toEntryMedia } from "$boxed/profile/diary/toEntryMedia.ts";
+  import { toEntryRating } from "$boxed/profile/diary/toEntryRating.ts";
+  import { toEpisodeRange } from "$boxed/profile/diary/toEpisodeRange.ts";
+  import { toEpisodeRangeLabel } from "$boxed/profile/diary/toEpisodeRangeLabel.ts";
   import { useDiaryUserState } from "../diary/useDiaryUserState.ts";
   import { dedupe } from "$lib/utils/array/dedupe.ts";
   import PosterQuad from "./PosterQuad.svelte";

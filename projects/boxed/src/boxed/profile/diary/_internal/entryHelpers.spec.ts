@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { DiaryEntry } from '../DiaryEntry.ts';
-import { isEntryLiked } from './isEntryLiked.ts';
-import { toEntryMedia } from './toEntryMedia.ts';
-import { toEntryRating } from './toEntryRating.ts';
+import { isEntryLiked } from '$boxed/profile/diary/isEntryLiked.ts';
+import { toEntryMedia } from '$boxed/profile/diary/toEntryMedia.ts';
+import { toEntryRating } from '$boxed/profile/diary/toEntryRating.ts';
 import { toEntryTitle } from './toEntryTitle.ts';
 import { toLogTarget } from './toLogTarget.ts';
 

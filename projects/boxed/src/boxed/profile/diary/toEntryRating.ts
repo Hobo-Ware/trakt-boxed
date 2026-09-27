@@ -1,4 +1,4 @@
-import type { DiaryEntry } from '../DiaryEntry.ts';
+import type { DiaryEntry } from './DiaryEntry.ts';
 
 type RatingMap = ReadonlyMap<number, { rating: number }>;
 
