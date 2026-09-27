@@ -22,7 +22,6 @@
   {onClose}
   onOpened={() => (isOpen = true)}
   title={m.header_community_sentiment()}
-  variant="vip"
   size="auto"
 >
   {#if isOpen}

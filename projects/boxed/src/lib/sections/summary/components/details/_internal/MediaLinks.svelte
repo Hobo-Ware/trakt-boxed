@@ -28,7 +28,7 @@
   <div class="trakt-media-links">
     {#if hasOfficialLinks}
       <div class="trakt-media-links-group">
-        <span class="bold secondary">{m.header_official_links()}</span>
+        <span class="links-label">{m.header_official_links()}</span>
         <div class="trakt-media-links-list">
           {#if media.homepage}
             <ExternalLinkAction
@@ -63,7 +63,7 @@
 
     {#if hasOtherLinks}
       <div class="trakt-media-links-group">
-        <span class="bold secondary">{m.header_other_links()}</span>
+        <span class="links-label">{m.header_other_links()}</span>
 
         <div class="trakt-media-links-list">
           {#if media.imdbId}
@@ -102,16 +102,24 @@
     flex-direction: column;
     gap: var(--gap-m);
 
-    padding: var(--ni-24) 0;
-
-    border-top: var(--ni-1) solid var(--color-border);
-    border-bottom: var(--ni-1) solid var(--color-border);
+    padding: 0;
   }
 
   .trakt-media-links-group {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-micro);
+    gap: var(--ni-12);
+  }
+
+  .links-label {
+    padding-bottom: var(--ni-8);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+    font-size: var(--ni-12);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
   }
 
   .trakt-media-links-list {

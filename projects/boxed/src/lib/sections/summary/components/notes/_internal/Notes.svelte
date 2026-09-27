@@ -19,6 +19,8 @@
 
 <style>
   .trakt-notes {
+    --color-card-background: var(--color-input-background);
+
     display: flex;
     flex-direction: column;
     gap: var(--gap-s);

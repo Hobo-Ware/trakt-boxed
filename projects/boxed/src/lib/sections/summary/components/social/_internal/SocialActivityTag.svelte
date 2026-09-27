@@ -83,6 +83,7 @@
 
   .trakt-social-activity-icon {
     display: inline-flex;
+    color: var(--boxed-color-star);
     width: var(--ni-12);
     height: var(--ni-12);
 

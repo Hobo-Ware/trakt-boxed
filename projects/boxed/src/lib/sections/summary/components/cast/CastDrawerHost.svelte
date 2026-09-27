@@ -127,10 +127,11 @@
     .credit-list {
       display: flex;
       flex-direction: column;
-      gap: var(--gap-s);
     }
 
     .credit-list-empty {
+      margin: 0;
+      font-size: var(--ni-14);
       color: var(--color-text-secondary);
     }
   }

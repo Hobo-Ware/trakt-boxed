@@ -52,12 +52,10 @@
     padding-inline: var(--ni-12);
     box-sizing: border-box;
 
-    background-color: color-mix(
-      in srgb,
-      var(--color-foreground) 8%,
-      transparent
-    );
-    border-radius: var(--border-radius-m);
+    background-color: var(--color-input-background);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
+    border-radius: var(--border-radius-s);
+    font-size: var(--ni-14);
 
     transition: background-color var(--transition-increment) ease-in-out;
 
@@ -65,7 +63,7 @@
       &:hover {
         background-color: color-mix(
           in srgb,
-          var(--color-foreground) 16%,
+          var(--color-foreground) 8%,
           transparent
         );
       }

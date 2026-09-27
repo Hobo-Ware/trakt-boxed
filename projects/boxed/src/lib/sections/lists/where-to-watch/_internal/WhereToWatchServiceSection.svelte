@@ -152,25 +152,24 @@
   @use "$style/scss/mixins/index" as *;
 
   .trakt-where-to-watch-service-section {
-    --service-logo-box-height: var(--ni-64);
+    --service-logo-box-height: var(--ni-48);
 
     display: flex;
     flex-direction: column;
 
     overflow: hidden;
 
-    background: var(--color-card-background);
-    border-radius: var(--border-radius-m);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
   }
 
   .service-header {
     display: flex;
     align-items: center;
-    gap: var(--gap-m);
+    gap: var(--ni-12);
 
     width: 100%;
-    min-height: calc(var(--service-logo-box-height) + 2 * var(--ni-8));
-    padding: var(--ni-8);
+    min-height: calc(var(--service-logo-box-height) + 2 * var(--ni-10));
+    padding: var(--ni-10) 0;
     box-sizing: border-box;
 
     color: var(--color-text-primary);
@@ -182,9 +181,9 @@
 
       display: flex;
       align-items: center;
-      gap: var(--gap-m);
+      gap: var(--ni-12);
 
-      border-radius: var(--border-radius-m);
+      border-radius: var(--border-radius-s);
 
       text-decoration: none;
       color: var(--color-text-primary);
@@ -234,7 +233,7 @@
 
     min-height: var(--ni-40);
     padding-inline: var(--ni-8);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-s);
 
     color: var(--color-text-secondary);
   }
@@ -281,12 +280,13 @@
 
     height: var(--service-logo-box-height);
     width: calc(var(--service-logo-box-height) * 6 / 5);
-    padding: var(--ni-10);
+    padding: var(--ni-6);
     box-sizing: border-box;
     overflow: hidden;
 
-    border-radius: var(--border-radius-m);
-    background: color-mix(in srgb, var(--color-foreground) 8%, transparent);
+    border-radius: var(--border-radius-s);
+    background: var(--color-input-background);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
 
     :global(.trakt-streaming-service-logo) {
       width: 100%;
@@ -321,8 +321,9 @@
 
   .service-name {
     max-width: 100%;
-    font-size: var(--ni-16);
-    line-height: var(--ni-16);
+    font-size: var(--ni-14);
+    font-weight: 600;
+    line-height: var(--ni-18);
     text-align: start;
   }
 
@@ -332,8 +333,9 @@
     gap: var(--gap-xs);
 
     max-width: 100%;
-    margin-block-start: var(--ni-6);
+    margin-block-start: var(--ni-4);
 
+    font-size: var(--ni-12);
     color: var(--color-text-secondary);
   }
 
@@ -386,8 +388,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--gap-xs);
 
-    padding-inline: var(--ni-8);
-    padding-block-start: var(--ni-6);
-    padding-block-end: var(--ni-8);
+    padding-inline: 0;
+    padding-block-start: var(--ni-2);
+    padding-block-end: var(--ni-12);
   }
 </style>

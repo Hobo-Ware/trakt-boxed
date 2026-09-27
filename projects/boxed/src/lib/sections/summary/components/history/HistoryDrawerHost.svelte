@@ -99,6 +99,10 @@
   }
 
   .watch-history-placeholder {
-    padding-block: var(--gap-s);
+    margin: 0;
+    padding-block: var(--ni-8);
+    font-size: var(--ni-14);
+    line-height: 1.55;
+    color: var(--color-text-secondary);
   }
 </style>

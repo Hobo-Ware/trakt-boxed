@@ -87,8 +87,11 @@
   }
 
   .social-activity-placeholder {
+    margin: 0;
+    padding-block: var(--ni-8);
+    font-size: var(--ni-14);
+    line-height: 1.55;
     color: var(--color-text-secondary);
-    padding-block: var(--gap-s);
   }
 
   .trakt-social-activity-section {
@@ -100,7 +103,6 @@
   .trakt-social-activity-list {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xs);
 
     list-style: none;
     margin: 0;

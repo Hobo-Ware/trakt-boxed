@@ -143,7 +143,7 @@
 </script>
 
 <Drawer {onClose} {title} {metaInfo}>
-  <DropdownGroup>
+  <DropdownGroup style="flat">
     {#if isSingleMedia}
       <CheckInAction
         {...target}

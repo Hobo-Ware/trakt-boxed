@@ -8,7 +8,7 @@
 
 <div class="trakt-where-to-watch-category">
   {#if title}
-    <h2 class="capitalize bold secondary">
+    <h2 class="category-title">
       {title}
     </h2>
   {/if}
@@ -20,10 +20,18 @@
   .trakt-where-to-watch-category {
     display: flex;
     flex-direction: column;
-    gap: var(--ni-10);
+    gap: 0;
 
-    h2 {
-      margin-block-end: var(--ni-2);
+    .category-title {
+      margin: 0;
+      padding-bottom: var(--ni-8);
+      border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+      font-size: var(--ni-12);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
     }
   }
 </style>

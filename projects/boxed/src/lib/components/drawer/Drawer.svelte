@@ -212,9 +212,9 @@
 
   .trakt-drawer {
     --drawer-size: var(--ni-380);
-    --drawer-padding: var(--ni-16);
-    --drawer-gap: var(--gap-m);
-    --drawer-border-radius: var(--border-radius-xxl);
+    --drawer-padding: var(--ni-20);
+    --drawer-gap: var(--ni-16);
+    --drawer-border-radius: var(--border-radius-l);
     --drawer-header-overlay-height: calc(
       var(--drawer-padding) * 2 + var(--ni-48)
     );
@@ -242,9 +242,11 @@
       var(--drawer-padding) + env(safe-area-inset-bottom, 0)
     );
 
-    background: var(--color-drawer-background);
+    background: var(--color-card-background);
+    color: var(--color-text-primary);
 
-    box-shadow: var(--shadow-dialog);
+    box-shadow: 0 var(--ni-24) var(--ni-64)
+      color-mix(in srgb, var(--shade-950) 40%, transparent);
 
     display: flex;
     flex-direction: column;
@@ -253,9 +255,7 @@
     overflow: hidden;
     border-start-start-radius: var(--drawer-border-radius);
     border-end-start-radius: var(--drawer-border-radius);
-    border-inline-start: var(--ni-1) solid var(--color-drawer-border);
-
-    backdrop-filter: blur(var(--ni-12));
+    border-inline-start: var(--border-thickness-xxs) solid var(--color-border);
 
     &[data-header-variant="overlay"] {
       gap: 0;
@@ -285,7 +285,7 @@
 
           background: color-mix(
             in srgb,
-            var(--color-drawer-background) 75%,
+            var(--color-card-background) 75%,
             transparent
           );
           backdrop-filter: blur(var(--ni-10));
@@ -369,7 +369,7 @@
       border-end-start-radius: initial;
       border-start-end-radius: var(--drawer-border-radius);
       border-inline-start: none;
-      border-top: var(--ni-1) solid var(--color-drawer-border);
+      border-top: var(--border-thickness-xxs) solid var(--color-border);
 
       &:global(:not(.is-dragging)) {
         transition: height var(--transition-increment) ease-in-out;
@@ -397,14 +397,14 @@
     touch-action: none;
 
     margin-bottom: calc(-1 * var(--drawer-gap));
-    padding: var(--ni-18) 0;
+    padding: var(--ni-12) 0 var(--ni-18);
 
     .drag-indicator {
-      width: var(--ni-36);
+      width: var(--ni-40);
       height: var(--ni-4);
-      border-radius: var(--ni-2);
+      border-radius: var(--border-radius-xxl);
 
-      background: var(--color-text-secondary);
+      background: var(--color-border);
     }
   }
 
@@ -420,11 +420,28 @@
   .trakt-drawer-title {
     display: flex;
     flex-direction: column;
+    gap: var(--ni-4);
 
     min-width: 0;
 
+    h1,
+    :global(.shadow-list-title) {
+      margin: 0;
+      font-family: var(--boxed-font-title);
+      font-size: var(--ni-24);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--color-text-primary);
+    }
+
     .title-meta-info {
-      color: var(--list-meta-info-color);
+      order: -1;
+      font-size: var(--ni-12);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
     }
   }
 
@@ -436,6 +453,8 @@
 
     &.has-title {
       justify-content: space-between;
+      padding-bottom: var(--ni-16);
+      border-bottom: var(--border-thickness-xxs) solid var(--color-border);
     }
   }
 
@@ -464,6 +483,21 @@
   .trakt-drawer-content {
     padding-inline-start: var(--drawer-padding);
     padding-inline-end: var(--drawer-padding);
+  }
+
+  :global(.trakt-drawer-underlay) {
+    background: color-mix(in srgb, var(--shade-950) 56%, transparent);
+    animation: trakt-drawer-underlay-in var(--transition-increment) ease-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  @keyframes trakt-drawer-underlay-in {
+    from {
+      opacity: 0;
+    }
   }
 
   .trakt-drawer-vip-background {

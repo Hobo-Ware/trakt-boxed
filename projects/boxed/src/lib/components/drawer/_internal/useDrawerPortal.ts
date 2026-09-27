@@ -25,6 +25,7 @@ export function useDrawerPortal(
       }
 
       const newUnderlay = createUnderlay({ elevated });
+      newUnderlay.classList.add('trakt-drawer-underlay');
 
       document.body.appendChild(newUnderlay);
       document.body.appendChild(element);

@@ -45,18 +45,10 @@
 
 <style>
   .trakt-details-drawer-content {
-    --details-gap: var(--gap-l);
+    --details-gap: var(--ni-24);
 
     display: flex;
     flex-direction: column;
     gap: var(--details-gap);
-  }
-
-  .trakt-details-drawer-content :global(
-    .trakt-media-links + .trakt-media-parental-guide
-  ) {
-    margin-top: calc(-1 * var(--details-gap));
-
-    border-top: none;
   }
 </style>

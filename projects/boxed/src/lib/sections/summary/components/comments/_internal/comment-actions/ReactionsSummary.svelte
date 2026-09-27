@@ -32,6 +32,9 @@
     align-items: center;
 
     gap: var(--gap-xs);
+
+    font-size: var(--ni-12);
+    color: var(--color-text-secondary);
   }
 
   .trakt-reaction-emojis {

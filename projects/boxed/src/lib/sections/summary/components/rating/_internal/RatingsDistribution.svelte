@@ -36,12 +36,12 @@
 </script>
 
 <section class="trakt-ratings-distribution">
-  <h3 class="bold secondary small">{m.header_ratings_trakt()}</h3>
+  <h3 class="ratings-section-label">{m.header_ratings_trakt()}</h3>
 
   <div class="ratings-card">
     <div class="ratings-row">
       <div class="trakt-display">
-        <p class="trakt-rating-value bold">{traktPercent}</p>
+        <p class="trakt-rating-value">{traktPercent}</p>
         <p class="trakt-rating-votes secondary capitalize tag">
           {m.text_ratings_votes({ count: voteCountText })}
         </p>
@@ -62,8 +62,13 @@
                   active={bucket.value === maxValue && maxValue > 0}
                   minVisible={0.04}
                   index={i}
+                  fillStyle="flat"
+                  color={bucket.value === maxValue && maxValue > 0
+                    ? "var(--boxed-color-star)"
+                    : "color-mix(in srgb, var(--color-text-secondary) 40%, transparent)"}
                   label="{bucket.star}: {toHumanNumber(bucket.value, getLocale())}"
                   --distribution-bar-thickness="100%"
+                  --distribution-bar-track="color-mix(in srgb, var(--color-text-secondary) 12%, transparent)"
                 />
               </div>
               <span class="histogram-label tag secondary">{bucket.star}</span>
@@ -81,13 +86,22 @@
   .trakt-ratings-distribution {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-s);
+  }
+
+  .ratings-section-label {
+    margin: 0 0 var(--ni-12);
+    padding-bottom: var(--ni-8);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+    font-size: var(--ni-12);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
   }
 
   .ratings-card {
-    padding: var(--ni-12) var(--ni-16);
-    border-radius: var(--border-radius-l);
-    background: var(--color-card-background);
+    padding-block: var(--ni-4);
   }
 
   .ratings-row {
@@ -105,8 +119,13 @@
   }
 
   .trakt-rating-value {
-    font-size: var(--ni-32);
-    line-height: 100%;
+    margin: 0;
+    font-family: var(--boxed-font-title);
+    font-size: var(--ni-36);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--color-text-primary);
   }
 
   .trakt-rating-votes {
@@ -142,8 +161,8 @@
   }
 
   .histogram-bar {
-    width: 70%;
-    height: var(--ni-48);
+    width: 80%;
+    height: var(--ni-56);
     display: flex;
     justify-content: center;
   }

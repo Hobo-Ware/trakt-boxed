@@ -26,14 +26,15 @@
   }
 
   .trakt-sentiment-example {
-    padding: var(--ni-12);
-    border: var(--ni-1) solid var(--color-sentiment-highlight-border);
+    padding: var(--ni-16);
     border-radius: var(--border-radius-m);
+    background: var(--color-input-background);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
   }
 
   .trakt-sentiment-example {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xs);
+    gap: var(--ni-16);
   }
 </style>

@@ -100,6 +100,22 @@
       position: relative;
     }
 
+    :global(.trakt-text-card-title) {
+      font-size: var(--ni-14);
+      font-weight: 600;
+    }
+
+    :global(.trakt-text-card-title .trakt-link) {
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+
+    :global(.trakt-text-card-header-title > .secondary) {
+      font-family: "Roboto Mono", monospace;
+      font-size: var(--ni-12);
+      color: var(--color-text-secondary);
+    }
+
     :global(.trakt-user-rating-icon) {
       position: absolute;
       top: var(--ni-neg-4);

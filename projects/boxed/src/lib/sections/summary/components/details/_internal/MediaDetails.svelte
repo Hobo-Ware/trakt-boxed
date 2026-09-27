@@ -14,7 +14,7 @@
   {#each mediaDetails as { key, title, values } (key)}
     {#if values && values.length > 0}
       <CollapsableValues category={title} {values}>
-        <p class="bold secondary">{title}</p>
+        <p class="details-label">{title}</p>
         {#snippet value(value)}
           {#if typeof value === "object"}
             <Link href={value.link}>
@@ -28,3 +28,15 @@
     {/if}
   {/each}
 </DetailsGrid>
+
+<style>
+  .details-label {
+    margin: 0 0 var(--ni-2);
+
+    font-size: var(--ni-11);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+</style>

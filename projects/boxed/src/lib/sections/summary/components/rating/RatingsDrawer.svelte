@@ -67,7 +67,7 @@
         {/if}
 
         <section class="official-section">
-          <h3 class="bold secondary small">
+          <h3 class="ratings-section-label">
             {m.header_ratings_official()}
           </h3>
           <div class="official-grid">
@@ -88,17 +88,31 @@
   .trakt-ratings-drawer-content {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-l);
+    gap: var(--ni-24);
   }
 
   .ratings-empty {
+    margin: 0;
+    font-size: var(--ni-14);
+    line-height: 1.55;
     color: var(--color-text-secondary);
   }
 
   .official-section {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-s);
+  }
+
+  .ratings-section-label {
+    margin: 0 0 var(--ni-12);
+    padding-bottom: var(--ni-8);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+    font-size: var(--ni-12);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
   }
 
   .official-grid {

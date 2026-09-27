@@ -49,7 +49,7 @@
 
 {#if points.length >= 2}
   <section class="trakt-season-ratings-chart">
-    <h3 class="bold secondary small">
+    <h3 class="ratings-section-label">
       {m.header_ratings_quality_over_time()}
     </h3>
 
@@ -93,19 +93,28 @@
   .trakt-season-ratings-chart {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-s);
+  }
+
+  .ratings-section-label {
+    margin: 0 0 var(--ni-12);
+    padding-bottom: var(--ni-8);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+    font-size: var(--ni-12);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
   }
 
   .chart-card {
     display: flex;
     flex-direction: column;
     gap: var(--gap-s);
-    padding: var(--ni-12) var(--ni-16);
-    border-radius: var(--border-radius-l);
-    background: var(--color-card-background);
   }
 
   .meta {
+    font-size: var(--ni-12);
     color: var(--color-text-secondary);
   }
 

@@ -44,7 +44,7 @@
 
 <Drawer {onClose} title={m.header_manage_lists()} {metaInfo}>
   <div class="lists-layout">
-    <DropdownGroup>
+    <DropdownGroup style="flat">
       {#if target.type === "movie" || target.type === "show"}
         <WatchlistDropdownItem
           media={target.media}
@@ -75,5 +75,7 @@
   .lists-layout {
     --dropdown-item-direction: row-reverse;
     --dropdown-item-justify: space-between;
+
+    border-block: var(--border-thickness-xxs) solid var(--color-border);
   }
 </style>

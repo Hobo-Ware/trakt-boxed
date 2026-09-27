@@ -114,13 +114,24 @@
     min-height: calc(var(--height-comment-card) - 2 * var(--vertical-padding));
   }
 
+  :global(.trakt-card.trakt-comment-thread-card .trakt-card-content:not(.trakt-card-transparent)) {
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+  }
+
   .trakt-comment-thread-container {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-m);
+    gap: var(--ni-12);
     justify-content: flex-start;
 
-    padding: var(--vertical-padding) var(--ni-20);
+    padding: var(--vertical-padding) 0;
+
+    font-size: var(--ni-14);
+    line-height: 1.55;
+    color: var(--color-text-primary);
 
     height: 100%;
     box-sizing: border-box;
@@ -133,6 +144,6 @@
   .trakt-comment-thread {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-m);
+    gap: var(--ni-12);
   }
 </style>

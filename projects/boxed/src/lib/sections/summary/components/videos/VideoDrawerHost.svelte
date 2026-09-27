@@ -79,5 +79,17 @@
     :global(.trakt-list-items) {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    :global(.trakt-card-cover) {
+      border-radius: var(--border-radius-s);
+      box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
+    }
+
+    :global(.trakt-video-title) {
+      font-size: var(--ni-14);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-text-primary);
+    }
   }
 </style>

@@ -31,7 +31,7 @@
   aria-busy={isPending}
   data-state={guideState}
 >
-  <p class="guide-heading bold secondary">
+  <p class="guide-heading">
     {m.option_text_certification_parental_guidance()}
   </p>
 
@@ -94,13 +94,19 @@
     flex-direction: column;
     gap: var(--gap-xs);
 
-    padding-top: var(--gap-l);
-
-    border-top: var(--ni-1) solid var(--color-border);
   }
 
   .trakt-media-parental-guide .guide-heading {
     max-width: 100%;
+    margin: 0;
+    padding-bottom: var(--ni-8);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+    font-size: var(--ni-12);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
   }
 
   .trakt-media-parental-guide .guide-list {
@@ -124,7 +130,7 @@
     gap: var(--gap-l);
     height: var(--ni-52);
 
-    border-bottom: var(--ni-1) solid var(--color-border);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
   }
 
   .trakt-media-parental-guide .guide-row:last-child {
@@ -171,7 +177,7 @@
   }
 
   .trakt-media-parental-guide .guide-row[data-severity="none"] {
-    --guide-severity-color: var(--shade-300);
+    --guide-severity-color: var(--color-text-secondary);
   }
 
   .trakt-media-parental-guide .guide-row[data-severity="unknown"] {
@@ -179,15 +185,15 @@
   }
 
   .trakt-media-parental-guide .guide-row[data-severity="mild"] {
-    --guide-severity-color: var(--green-500);
+    --guide-severity-color: var(--boxed-color-watched);
   }
 
   .trakt-media-parental-guide .guide-row[data-severity="moderate"] {
-    --guide-severity-color: var(--yellow-500);
+    --guide-severity-color: var(--boxed-color-star);
   }
 
   .trakt-media-parental-guide .guide-row[data-severity="severe"] {
-    --guide-severity-color: var(--red-500);
+    --guide-severity-color: var(--boxed-color-liked);
   }
 
   @include for-mobile {
