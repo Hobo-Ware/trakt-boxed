@@ -65,14 +65,26 @@
   );
   const cover = $derived($profile?.cover?.url);
 
-  const context: ProfileContext = $derived({
-    slug,
-    profile: $profile,
-    name,
-    isMe: isMe,
-    stats: $stats,
-    isStatsLoading: $isStatsLoading,
-  });
+  const context: ProfileContext = {
+    get slug() {
+      return slug;
+    },
+    get profile() {
+      return $profile;
+    },
+    get name() {
+      return name;
+    },
+    get isMe() {
+      return isMe;
+    },
+    get stats() {
+      return $stats;
+    },
+    get isStatsLoading() {
+      return $isStatsLoading;
+    },
+  };
 </script>
 
 {#snippet actions()}
