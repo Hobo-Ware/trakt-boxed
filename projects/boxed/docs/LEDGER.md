@@ -60,8 +60,8 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 
 ### Wave 3 - films
 
-- [ ] Film page `/movies/[slug]` (boards `Film`, `Film-mobile`, `Twist-A`), incl. backdrop hero + Newsreader
-- [ ] Engagement tabs `/movies/[slug]/{reviews,members,lists}` (board `Facet`)
+- [x] Film page `/movies/[slug]` (boards `Film`, `Film-mobile`, `Twist-A`), incl. backdrop hero + Newsreader with a metric-matched Georgia fallback: ambient colour from the poster, action card (log / like / watchlist / rate, join prompt signed out), where to watch, share, ratings histogram with external ratings, cast / crew / details / genres / releases tabs, popular reviews with spoiler cover, sentiment pros and cons, trivia (VIP count / upsell), friends who watched, extras, soundtrack, popular lists. CLS 0.0000 desktop + mobile, slow and fast
+- [x] Engagement tabs (board `Facet`): `/movies/[slug]/reviews` with Reviews (popular / recent), Watching now and Lists tabs via `?tab=`, plus a your review card. `/movies/[slug]/lists` and `/related` are still legacy mounts. CLS 0.0000 desktop, 0.0002 mobile (web font swap on a tab label)
 - [ ] Your activity `/movies/[slug]/activity`
 
 ### Wave 4 - shows
@@ -121,6 +121,7 @@ Legend: `[ ]` todo, `[~]` in progress, `[x]` done (commit).
 - [ ] Accessibility pass (keyboard, contrast, labels)
 - [ ] i18n: every `boxed_*` key has translations
 - [ ] Remove all remaining legacy mounts
+- [ ] Merge the title rail list card (`title/_internal/ListCard`) into `lists/ListCard` as a variant
 - [ ] Port the shared layer into boxed 1:1: `git mv` the non-UI parts of
       `projects/client/src/lib` (requests, models, features state, stores,
       utils, i18n, paraglide) plus hooks, worker and static into
