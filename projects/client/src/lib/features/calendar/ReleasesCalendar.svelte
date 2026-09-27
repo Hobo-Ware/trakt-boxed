@@ -3,7 +3,7 @@
   import type { ReleasesCalendarEntry } from "$lib/requests/queries/calendars/releasesCalendarQuery";
   import { getDaysDifference } from "$lib/utils/date/getDaysDifference";
   import { useFilter } from "../filters/useFilter";
-  import { useReleasesCalendar } from "./_internal/useReleasesCalendar";
+  import { useReleasesCalendar } from "./useReleasesCalendar";
   import CalendarLayout from "./CalendarLayout.svelte";
   import { useCalendarPeriod } from "./context/useCalendarPeriod";
   import type { CalendarPeriod } from "./models/CalendarLayoutProps";
