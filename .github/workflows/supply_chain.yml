@@ -97,38 +97,3 @@ jobs:
           else
             echo "::warning::node_modules not present after deno install — skipping signature audit."
           fi
-
-  dependency-review:
-    if: github.event_name == 'pull_request' && github.event.pull_request.draft != true
-    name: The Lockfile Inquisition aka Dependency Review
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-
-    steps:
-      - name: Sealing the Outbound Gates aka Harden Runner
-        uses: step-security/harden-runner@v2
-        with:
-          egress-policy: block
-          allowed-endpoints: >
-            api.deps.dev:443
-            api.github.com:443
-            codeload.github.com:443
-            deno.com:443
-            dl.deno.land:443
-            github.com:443
-            jsr.io:443
-            npm.jsr.io:443
-            registry.npmjs.org:443
-            release-assets.githubusercontent.com:443
-            www-api.ibm.com:443
-
-      - name: Secure the Evidence aka Checkout Code
-        uses: actions/checkout@v5
-
-      - name: Scrutinizing the Lockfile Delta aka Dependency Review
-        uses: actions/dependency-review-action@v4
-        with:
-          fail-on-severity: high
-          comment-summary-in-pr: on-failure

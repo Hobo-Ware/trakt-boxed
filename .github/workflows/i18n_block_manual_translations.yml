@@ -46,9 +46,12 @@ jobs:
           CATALOGS=(
             'projects/boxed/i18n/messages/'
             ':(exclude)projects/boxed/i18n/messages/en.json'
+            'projects/client/i18n/messages/'
+            ':(exclude)projects/client/i18n/messages/en.json'
           )
 
-          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- "${CATALOGS[@]}")
+          CHANGED=$(git diff -M --name-status "$BASE_SHA" "$HEAD_SHA" -- "${CATALOGS[@]}" \
+            | awk '$1 != "R100" { print $NF }')
           if [ -z "$CHANGED" ]; then
             echo "No translated-catalog changes. 👌"
             exit 0
@@ -56,7 +59,7 @@ jobs:
 
           # Any added or modified line (a '+' that is not the '+++' file header)
           # is a hand-authored translation value - the thing CrowdIn owns.
-          ADDED=$(git diff "$BASE_SHA" "$HEAD_SHA" -- "${CATALOGS[@]}" \
+          ADDED=$(git diff -M "$BASE_SHA" "$HEAD_SHA" -- "${CATALOGS[@]}" \
             | grep -E '^\+' | grep -vE '^\+\+\+' || true)
 
           # A source key removal is the only legitimate catalog change in a PR.
