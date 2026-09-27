@@ -1,15 +1,15 @@
 <script lang="ts">
-  import ProfileOverview from "$boxed/profile/ProfileOverview.svelte";
   import ProfileShell from "$boxed/profile/ProfileShell.svelte";
+  import WatchedView from "$boxed/profile/watched/WatchedView.svelte";
   import type { PageProps } from "./$types";
 
   const { params }: PageProps = $props();
 </script>
 
 {#key params.slug}
-  <ProfileShell slug={params.slug} tab="profile" variant="full">
+  <ProfileShell slug={params.slug} tab="films">
     {#snippet children(context)}
-      <ProfileOverview {context} />
+      <WatchedView {context} type="movie" />
     {/snippet}
   </ProfileShell>
 {/key}
