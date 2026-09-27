@@ -8,16 +8,55 @@
   import { toHumanDuration } from "$lib/utils/formatting/date/toHumanDuration.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
+  import { useIsWatched } from "$lib/sections/media-actions/mark-as-watched/useIsWatched.ts";
+  import { useUpNextUndo } from "./_internal/useUpNextUndo.ts";
 
   const { entry }: { entry: UpNextEntry } = $props();
 
-  const { markAsWatched, isMarkingAsWatched } = $derived(
+  const { lastMark, remember, clear } = useUpNextUndo();
+
+  const toEpisodeActions = (episode: UpNextEntry) =>
     useMarkAsWatched({
+      type: "episode",
+      media: episode,
+      show: { id: episode.show.id, title: episode.show.title },
+      isToastEnabled: false,
+    });
+
+  const { markAsWatched, isMarkingAsWatched } = $derived(toEpisodeActions(entry));
+  const { isWatched } = $derived(
+    useIsWatched({
       type: "episode",
       media: entry,
       show: { id: entry.show.id, title: entry.show.title },
     }),
   );
+
+  const marked = $derived(
+    $lastMark?.show.id === entry.show.id ? $lastMark : null,
+  );
+  const markedActions = $derived(marked ? toEpisodeActions(marked) : null);
+  const markedCode = $derived(
+    marked
+      ? episodeNumberLabel({ seasonNumber: marked.season, episodeNumber: marked.number })
+      : null,
+  );
+
+  const markWatched = async () => {
+    const target = entry;
+    const hasEarlierPlays = $isWatched;
+    if (!hasEarlierPlays) remember(target);
+    await markAsWatched().catch(() => clear(target));
+  };
+
+  const revertWatched = async () => {
+    const target = marked;
+    const actions = markedActions;
+    if (!target || !actions) return;
+
+    clear(target);
+    await actions.removeWatched();
+  };
 
   const progress = $derived(
     entry.total > 0 ? Math.min(entry.completed / entry.total, 1) : 0,
@@ -55,26 +94,41 @@
       <span class="boxed-up-next-episode">
         {code}{#if entry.title}&nbsp;· {entry.title}{/if}
       </span>
-      <span class="boxed-up-next-meta">
-        {m.tag_text_remaining_episodes({ count: entry.remaining })}
-        {#if entry.minutesLeft > 0}
-          · {m.tag_text_remaining_duration({
-            duration: toHumanDuration(
-              { minutes: entry.minutesLeft },
-              languageTag(),
-            ),
-          })}
-        {/if}
-      </span>
+      {#if markedCode}
+        <span class="boxed-up-next-meta is-marked">
+          <span>{m.boxed_home_up_next_marked({ code: markedCode })}</span>
+          <button
+            type="button"
+            class="boxed-up-next-undo"
+            aria-label={m.action_toast_label_undo()}
+            onclick={revertWatched}
+          >
+            {m.button_text_undo()}
+          </button>
+        </span>
+      {:else}
+        <span class="boxed-up-next-meta">
+          {m.tag_text_remaining_episodes({ count: entry.remaining })}
+          {#if entry.minutesLeft > 0}
+            · {m.tag_text_remaining_duration({
+              duration: toHumanDuration(
+                { minutes: entry.minutesLeft },
+                languageTag(),
+              ),
+            })}
+          {/if}
+        </span>
+      {/if}
     </div>
     <button
       type="button"
       class="boxed-up-next-check"
+      class:is-marked={marked !== null}
       aria-label={m.button_label_mark_as_watched({
         title: `${entry.show.title} ${code}`,
       })}
       disabled={$isMarkingAsWatched}
-      onclick={() => markAsWatched()}
+      onclick={markWatched}
     >
       <CheckIcon />
     </button>
@@ -161,8 +215,30 @@
   }
 
   .boxed-up-next-meta {
+    height: var(--ni-18);
     font-size: var(--ni-12);
+    line-height: var(--ni-18);
     color: var(--color-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.is-marked {
+      color: var(--boxed-color-watched-text);
+      font-weight: 500;
+    }
+  }
+
+  .boxed-up-next-undo {
+    margin-inline-start: var(--ni-8);
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    font: inherit;
+    color: var(--color-link-active);
+    text-decoration: underline;
   }
 
   .boxed-up-next-check {
@@ -185,6 +261,7 @@
       height: var(--ni-18);
     }
 
+    &.is-marked,
     &:hover:not(:disabled),
     &:focus-visible {
       background: var(--boxed-color-watched);

@@ -6,12 +6,14 @@
 
   const PILE_SIZE = 3;
 
-  const {
-    entry,
-    isOpen,
-    onToggle,
-  }: { entry: DiaryEpisodesEntry; isOpen: boolean; onToggle: () => void } =
-    $props();
+  type BingePileProps = {
+    entry: DiaryEpisodesEntry;
+    isOpen: boolean;
+    onToggle: () => void;
+    size?: "normal" | "compact";
+  };
+
+  const { entry, isOpen, onToggle, size = "normal" }: BingePileProps = $props();
 
   const stills = $derived(entry.plays.slice(-PILE_SIZE).map(toEpisodeStill));
 </script>
@@ -20,6 +22,7 @@
   type="button"
   class="boxed-binge-pile"
   class:is-open={isOpen}
+  data-size={size}
   aria-expanded={isOpen}
   aria-label={m.boxed_profile_diary_toggle_label({ title: entry.show.title })}
   onclick={onToggle}
@@ -85,6 +88,34 @@
     font-size: var(--ni-11);
     font-weight: 600;
     color: var(--color-text-primary);
+  }
+
+  .boxed-binge-pile[data-size="compact"] {
+    width: var(--ni-40);
+    height: calc(var(--ni-36) * 1.5);
+
+    .pile-still {
+      inset-inline-end: calc(var(--index) * var(--ni-4));
+      top: calc(var(--index) * var(--ni-16));
+      width: calc(100% - var(--ni-8));
+      border-radius: var(--ni-2);
+      box-shadow:
+        0 0 0 var(--border-thickness-xxs) var(--color-background),
+        0 var(--ni-2) var(--ni-6) color-mix(in srgb, var(--shade-950) 70%, transparent);
+      transform: rotate(calc((var(--index) - 1) * 6deg));
+    }
+
+    &.is-open .pile-still {
+      transform: rotate(0deg) translateY(calc((var(--index) - 1) * var(--ni-2)));
+    }
+
+    .pile-count {
+      inset-inline-end: calc(-1 * var(--ni-6));
+      bottom: 0;
+      min-width: var(--ni-18);
+      height: var(--ni-18);
+      font-size: var(--ni-10);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
