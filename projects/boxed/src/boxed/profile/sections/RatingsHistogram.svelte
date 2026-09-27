@@ -3,6 +3,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import type { UserStats } from "$lib/requests/models/UserStats.ts";
   import { toHumanCount } from "$lib/utils/formatting/number/toHumanCount.ts";
+  import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import SectionHeader from "../../components/SectionHeader.svelte";
   import Stars from "../../components/Stars.svelte";
   import { toRatingSummary } from "../_internal/toRatingSummary.ts";
@@ -42,7 +43,7 @@
   <div class="histogram-footer">
     <span>
       {m.boxed_profile_rating_average()}
-      <strong>{summary.average === null ? "" : (summary.average / 2).toFixed(1)}</strong>
+      <strong>{summary.average === null ? "" : toIMDBRating(summary.average / 2, languageTag())}</strong>
     </span>
     <span class="histogram-most">
       {m.boxed_profile_rating_most_given()}

@@ -7,6 +7,7 @@
   import { toHumanClockTime } from "$lib/utils/formatting/date/toHumanClockTime.ts";
   import { toHumanDayOfWeek } from "$lib/utils/formatting/date/toHumanDayOfWeek.ts";
   import { toHumanMonth } from "$lib/utils/formatting/date/toHumanMonth.ts";
+  import { toIMDBRating } from "$lib/utils/formatting/number/toIMDBRating.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
   import Stars from "../../components/Stars.svelte";
@@ -39,7 +40,7 @@
     else expanded.add(key);
   };
 
-  const toRatingText = (rating: number) => (rating / 2).toFixed(1);
+  const toRatingText = (rating: number) => toIMDBRating(rating / 2, languageTag());
 </script>
 
 {#snippet skeletonCard()}
