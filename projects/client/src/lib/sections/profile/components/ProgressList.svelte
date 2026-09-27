@@ -9,7 +9,7 @@
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import { slide } from "svelte/transition";
   import ProgressItem from "./_internal/progress/ProgressItem.svelte";
-  import { useProgressList } from "./_internal/useProgressList.ts";
+  import { useProgressList } from "./useProgressList.ts";
 
   const { mode }: { mode: DiscoverMode } = $props();
 

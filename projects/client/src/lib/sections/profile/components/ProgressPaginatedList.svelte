@@ -7,7 +7,7 @@
   import {
     type ProgressListType,
     useProgressList,
-  } from "./_internal/useProgressList.ts";
+  } from "./useProgressList.ts";
 
   type ProgressPaginatedListProps = {
     type: ProgressListType;
