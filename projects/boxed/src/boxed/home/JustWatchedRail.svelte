@@ -4,7 +4,7 @@
   import * as m from "$lib/features/i18n/messages.ts";
   import { episodeNumberLabel } from "$lib/utils/intl/episodeNumberLabel.ts";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import type { JustWatchedEntry } from "./_internal/toJustWatched.ts";
+  import type { JustWatchedEntry } from "./toJustWatched.ts";
   import { toTimeAgo } from "$boxed/utils/toTimeAgo.ts";
 
   const SKELETON_COUNT = 6;

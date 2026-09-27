@@ -7,8 +7,8 @@
   import JustWatchedRail from "$boxed/home/JustWatchedRail.svelte";
   import UpNextCard from "$boxed/home/UpNextCard.svelte";
   import UpNextSkeleton from "$boxed/home/UpNextSkeleton.svelte";
-  import { toFriendsPosters } from "$boxed/home/_internal/toFriendsPosters.ts";
-  import { toJustWatched } from "$boxed/home/_internal/toJustWatched.ts";
+  import { toFriendsPosters } from "$boxed/home/toFriendsPosters.ts";
+  import { toJustWatched } from "$boxed/home/toJustWatched.ts";
   import OutThisWeekRow from "$boxed/home/sections/OutThisWeekRow.svelte";
   import PopularRow from "$boxed/home/sections/PopularRow.svelte";
   import RecommendedRow from "$boxed/home/sections/RecommendedRow.svelte";

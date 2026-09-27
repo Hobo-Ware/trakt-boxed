@@ -1,6 +1,6 @@
 import type { SocialActivity } from '$lib/requests/models/SocialActivity.ts';
 import type { UserProfile } from '$lib/requests/models/UserProfile.ts';
-import type { PosterMedia } from '../../poster/PosterMedia.ts';
+import type { PosterMedia } from '$boxed/poster/PosterMedia.ts';
 import { dedupe } from '$lib/utils/array/dedupe.ts';
 
 export type FriendsPoster = {
