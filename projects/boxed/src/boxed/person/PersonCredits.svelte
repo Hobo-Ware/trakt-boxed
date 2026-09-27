@@ -324,7 +324,7 @@
     font-family: "Roboto Mono", monospace;
     font-size: var(--ni-12);
     text-align: end;
-    color: var(--boxed-color-watched);
+    color: var(--boxed-color-watched-text);
   }
 
   .boxed-person-controls {

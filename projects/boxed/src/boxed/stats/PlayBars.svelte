@@ -84,7 +84,7 @@
   }
 
   .play-bar-episodes {
-    background: var(--purple-600);
+    background: var(--boxed-color-accent-fill-alt);
   }
 
   .play-bars-empty {

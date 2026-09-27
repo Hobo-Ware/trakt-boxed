@@ -177,7 +177,7 @@
     border-radius: 50%;
     background: transparent;
     box-shadow: inset 0 0 0 var(--border-thickness-xs) var(--boxed-color-watched);
-    color: var(--boxed-color-watched);
+    color: var(--boxed-color-watched-text);
     cursor: pointer;
 
     :global(svg) {

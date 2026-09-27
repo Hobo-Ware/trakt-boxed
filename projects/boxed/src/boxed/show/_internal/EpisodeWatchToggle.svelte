@@ -74,7 +74,7 @@
     &:hover:not(:disabled),
     &:focus-visible {
       box-shadow: inset 0 0 0 var(--border-thickness-xs) var(--boxed-color-watched);
-      color: var(--boxed-color-watched);
+      color: var(--boxed-color-watched-text);
     }
 
     &[data-state="watched"] {

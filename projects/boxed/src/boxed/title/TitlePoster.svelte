@@ -165,7 +165,7 @@
     background: color-mix(in srgb, var(--boxed-color-watched) 14%, transparent);
     box-shadow: inset 0 0 0 var(--border-thickness-xxs)
       color-mix(in srgb, var(--boxed-color-watched) 45%, transparent);
-    color: var(--boxed-color-watched);
+    color: var(--boxed-color-watched-text);
     font-size: var(--ni-12);
     white-space: nowrap;
 
@@ -214,15 +214,15 @@
     }
 
     &[data-stat="watchers"] dt {
-      color: var(--boxed-color-watched);
+      color: var(--boxed-color-watched-text);
     }
 
     &[data-stat="lists"] dt {
-      color: var(--boxed-color-watchlist);
+      color: var(--boxed-color-watchlist-text);
     }
 
     &[data-stat="favorited"] dt {
-      color: var(--boxed-color-liked);
+      color: var(--boxed-color-liked-text);
     }
   }
 

@@ -139,7 +139,7 @@
     --state-color: var(--color-text-primary);
 
     &.is-complete {
-      --state-color: var(--boxed-color-watched);
+      --state-color: var(--boxed-color-watched-text);
     }
   }
 
@@ -154,7 +154,7 @@
     :global(svg) {
       width: var(--ni-18);
       height: var(--ni-18);
-      color: var(--boxed-color-watched);
+      color: var(--boxed-color-watched-text);
     }
   }
 

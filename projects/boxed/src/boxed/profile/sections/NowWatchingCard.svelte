@@ -138,7 +138,7 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--boxed-color-watched);
+    color: var(--boxed-color-watched-text);
   }
 
   .now-dot {

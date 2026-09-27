@@ -120,14 +120,14 @@
   }
 
   .boxed-sentiment-group {
-    --aspect-color: var(--boxed-color-watched);
+    --aspect-color: var(--boxed-color-watched-text);
 
     display: flex;
     flex-direction: column;
     gap: var(--ni-10);
 
     &[data-kind="cons"] {
-      --aspect-color: var(--boxed-color-liked);
+      --aspect-color: var(--boxed-color-liked-text);
     }
 
     ul {
