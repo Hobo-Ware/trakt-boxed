@@ -72,9 +72,10 @@
   .trakt-comment-replies {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xl);
+    gap: var(--ni-16);
 
-    padding-inline-start: var(--ni-32);
+    padding-inline-start: var(--ni-16);
+    border-inline-start: var(--border-thickness-xxs) solid var(--color-border);
   }
 
   .toggle-replies-button {
@@ -85,15 +86,16 @@
     gap: var(--gap-xs);
     align-items: center;
 
+    font-size: var(--ni-12);
     color: var(--color-text-secondary);
 
     transition: color var(--transition-increment) ease-in-out;
 
-    color: var(--purple-400);
     cursor: pointer;
 
-    &:hover {
-      color: var(--purple-500);
+    &:hover,
+    &:focus-visible {
+      color: var(--color-text-primary);
     }
 
     :global(svg) {

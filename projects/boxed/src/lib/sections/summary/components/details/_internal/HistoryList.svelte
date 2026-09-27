@@ -56,9 +56,11 @@
     justify-content: space-between;
     gap: var(--gap-s);
 
-    padding-block: var(--gap-s);
-    border-bottom: var(--ni-1) solid
-      color-mix(in srgb, var(--color-border) 50%, transparent);
+    min-height: var(--ni-52);
+    padding-block: var(--ni-8);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+    font-size: var(--ni-14);
 
     &:last-child {
       border-bottom: none;

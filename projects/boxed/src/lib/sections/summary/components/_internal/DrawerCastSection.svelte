@@ -125,7 +125,6 @@
   .credit-list {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-s);
   }
 
   .credit-list-empty {

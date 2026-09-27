@@ -30,7 +30,7 @@
     return url && !PLACEHOLDERS.includes(url) ? url : undefined;
   });
   const cardHeight = $derived(
-    headshotUrl ? "var(--height-summary-card-compact)" : "fit-content",
+    headshotUrl ? "var(--ni-80)" : "fit-content",
   );
   const personHref = $derived(UrlBuilder.people(member.key, member.positions));
   const descriptionItems = $derived(member.descriptionItems ?? []);
@@ -121,6 +121,7 @@
 <div class="trakt-credit-member-item" role="listitem">
   <Card
     classList="trakt-credit-member-card"
+    variant="transparent"
     eager
     --height-card={cardHeight}
     --width-card="100%"
@@ -162,6 +163,7 @@
 
   .trakt-credit-member-item {
     width: 100%;
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
   }
 
   :global(.trakt-credit-member-card) {
@@ -193,31 +195,32 @@
   .credit-member-card-content {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    align-items: start;
-    gap: var(--gap-s);
+    align-items: center;
+    gap: var(--ni-12);
 
     width: 100%;
     min-width: 0;
-    min-height: var(--height-summary-card-compact);
-    padding: var(--ni-4) var(--ni-12) var(--ni-4) var(--ni-4);
+    min-height: var(--ni-80);
+    padding: var(--ni-8) 0;
     box-sizing: border-box;
   }
 
   .credit-member-card-content[data-has-headshot="false"] {
     grid-template-columns: minmax(0, 1fr);
-    min-height: var(--ni-64);
-    padding: var(--ni-12);
+    min-height: var(--ni-56);
+    padding: var(--ni-10) 0;
   }
 
   .credit-member-avatar {
-    width: var(--width-summary-card-cover-compact);
-    height: var(--height-summary-card-cover-compact);
+    width: var(--ni-44);
+    height: var(--ni-64);
 
     flex-shrink: 0;
     overflow: hidden;
 
-    border-radius: var(--border-radius-m);
-    background-color: var(--color-card-background);
+    border-radius: var(--border-radius-xs);
+    background-color: var(--color-input-background);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
 
     :global(img) {
       display: block;
@@ -230,7 +233,7 @@
 
   .credit-member-details {
     min-width: 0;
-    padding: var(--ni-8) 0;
+    padding: 0;
 
     display: flex;
     flex-direction: column;
@@ -260,10 +263,14 @@
   }
 
   .trakt-card-title {
+    font-size: var(--ni-14);
+    font-weight: 600;
     color: var(--color-text-primary);
   }
 
   .trakt-card-subtitle {
+    font-size: var(--ni-12);
+    line-height: 1.45;
     color: var(--color-text-secondary);
   }
 

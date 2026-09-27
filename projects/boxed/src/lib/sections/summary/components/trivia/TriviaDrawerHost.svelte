@@ -106,7 +106,6 @@
   {onClose}
   onOpened={() => (isOpen = true)}
   title={m.list_title_trivia()}
-  variant="vip"
   size="auto"
   metaInfo={$hasSpoilers ? metaInfo : undefined}
   {badge}
@@ -148,8 +147,5 @@
   .trivia-drawer-list {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-m);
-
-    padding: var(--ni-2);
   }
 </style>

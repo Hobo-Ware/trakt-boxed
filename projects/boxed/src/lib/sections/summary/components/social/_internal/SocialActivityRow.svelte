@@ -57,10 +57,12 @@
 
 <style>
   .trakt-social-activity-row {
-    padding: var(--gap-xs) var(--gap-s);
-    border-radius: var(--border-radius-m);
+    padding-block: var(--ni-12);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
 
-    background: color-mix(in srgb, var(--color-foreground) 5%, transparent);
+    &:last-child {
+      border-bottom: none;
+    }
 
     :global(.trakt-link) {
       text-decoration: none;

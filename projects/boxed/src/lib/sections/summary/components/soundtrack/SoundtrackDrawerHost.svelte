@@ -36,7 +36,6 @@
   {onClose}
   onOpened={() => (isOpen = true)}
   title={m.list_title_soundtrack()}
-  variant="vip"
   size="auto"
   {metaInfo}
 >

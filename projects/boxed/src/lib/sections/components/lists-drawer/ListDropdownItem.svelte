@@ -74,7 +74,20 @@
     {#if $isListUpdating}
       <LoadingIndicator />
     {:else}
-      <BookmarkIcon {state} size="normal" />
+      <span class="trakt-list-state-icon" data-state={state}>
+        <BookmarkIcon {state} size="normal" />
+      </span>
     {/if}
   {/snippet}
 </DropdownItem>
+
+<style>
+  .trakt-list-state-icon {
+    display: flex;
+    color: var(--color-text-secondary);
+
+    &[data-state="added"] {
+      color: var(--boxed-color-accent-text);
+    }
+  }
+</style>

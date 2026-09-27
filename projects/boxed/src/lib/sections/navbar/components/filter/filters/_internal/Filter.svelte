@@ -28,6 +28,14 @@
 
     min-width: 0;
 
+    &:not([data-variant="inline"]) > span {
+      font-size: var(--ni-12);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+    }
+
     &[data-variant="inline"] {
       flex-direction: row;
       align-items: center;

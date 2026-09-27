@@ -19,9 +19,9 @@
     {@render icon()}
   </div>
 
-  <span class="secondary">{text}</span>
+  <span class="stat-label">{text}</span>
 
-  <span class="bold">
+  <span class="stat-value">
     {#if isLoading}
       <Skeleton width="var(--ni-32)" height="1lh" />
     {:else}
@@ -32,20 +32,40 @@
 
 <style>
   .trakt-media-stat {
-    box-shadow: var(--shadow-base);
+    box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
 
-    background-color: var(--color-card-background);
+    background-color: var(--color-input-background);
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--gap-xxs);
+    gap: var(--ni-4);
 
     border-radius: var(--border-radius-m);
 
     padding: var(--ni-12);
 
     flex: 1;
+    min-width: 0;
+  }
+
+  .stat-label {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: var(--ni-12);
+    color: var(--color-text-secondary);
+  }
+
+  .stat-value {
+    font-family: var(--boxed-font-title);
+    font-size: var(--ni-20);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--color-text-primary);
   }
 
   .stat-icon {

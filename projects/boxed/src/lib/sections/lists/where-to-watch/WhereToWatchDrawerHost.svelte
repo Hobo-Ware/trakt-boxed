@@ -167,6 +167,6 @@
   .where-to-watch-categories {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xl);
+    gap: var(--ni-28);
   }
 </style>

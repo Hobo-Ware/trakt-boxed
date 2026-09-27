@@ -24,16 +24,16 @@
 </script>
 
 <header class="trakt-social-activity-summary-header">
-  <p class="secondary small bold">
+  <p class="social-activity-summary-label">
     {activityCountLabel}
   </p>
 
   {#if averageRating}
     <div class="social-activity-summary-rating">
-      <span class="secondary small bold">
+      <span class="social-activity-summary-rating-value">
         {toUserRating(averageRating, getLocale())}
       </span>
-      <span class="social-activity-summary-rating-icon secondary">
+      <span class="social-activity-summary-rating-icon">
         <StarIcon fill="full" />
       </span>
     </div>
@@ -46,8 +46,24 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-s);
-    padding: 0 var(--gap-s) var(--ni-2);
+    padding-bottom: var(--ni-8);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
     min-width: 0;
+  }
+
+  .social-activity-summary-label {
+    margin: 0;
+    font-size: var(--ni-12);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  .social-activity-summary-rating-value {
+    font-size: var(--ni-14);
+    font-weight: 600;
+    color: var(--color-text-primary);
   }
 
   .social-activity-summary-rating {
@@ -61,6 +77,7 @@
 
   .social-activity-summary-rating-icon {
     display: inline-flex;
+    color: var(--boxed-color-star);
     width: var(--ni-14);
     height: var(--ni-14);
 

@@ -14,12 +14,12 @@
     {
       aspects: pros,
       sentiment: "good" as const,
-      sentimentColor: "var(--color-sentiment-good)",
+      sentimentColor: "var(--boxed-color-watched)",
     },
     {
       aspects: cons,
       sentiment: "bad" as const,
-      sentimentColor: "var(--color-sentiment-bad)",
+      sentimentColor: "var(--boxed-color-liked)",
     },
   ]);
 </script>
@@ -64,10 +64,12 @@
     padding: 0;
     padding-inline-start: var(--ni-12);
 
-    font-size: var(--font-size-text);
+    font-size: var(--ni-14);
+    line-height: 1.55;
 
-    color: color-mix(in srgb, var(--color-text-secondary) 50%, transparent);
+    color: var(--sentiment-color);
     p.capitalize {
+      margin: 0;
       color: var(--color-text-primary);
     }
   }
@@ -82,6 +84,7 @@
 
   .trakt-sentiment-aspects {
     display: flex;
+    align-items: flex-start;
     gap: var(--gap-s);
 
     color: var(--color-text-primary);

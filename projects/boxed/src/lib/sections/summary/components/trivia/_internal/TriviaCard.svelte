@@ -3,7 +3,6 @@
   import type { MediaEntry } from "$lib/requests/models/MediaEntry";
   import type { MediaTrivia } from "$lib/requests/models/MediaTrivia";
   import { createSafeMarked } from "$lib/utils/markdown/createSafeMarked.ts";
-  import InfoCard from "../../_internal/InfoCard.svelte";
 
   const {
     trivia,
@@ -20,7 +19,7 @@
   {@html marked.parse(trivia.text)}
 {/snippet}
 
-<InfoCard>
+<article class="trakt-trivia-card">
   {#if !trivia.isSpoiler}
     {@render parsedContent()}
   {:else}
@@ -28,4 +27,27 @@
       {@render parsedContent()}
     </Spoiler>
   {/if}
-</InfoCard>
+</article>
+
+<style lang="scss">
+  .trakt-trivia-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ni-8);
+
+    padding-block: var(--ni-16);
+    border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+    font-size: var(--ni-14);
+    line-height: 1.55;
+    color: var(--color-text-primary);
+
+    :global(p) {
+      margin: 0;
+    }
+
+    :global(.trakt-spoiler) {
+      cursor: pointer;
+    }
+  }
+</style>

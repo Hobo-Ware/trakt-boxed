@@ -107,14 +107,15 @@
 
 <style>
   .trakt-filter-tabs {
-    --color-tablist-background: var(--color-filter-tablist-background);
-    --color-tab-background: var(--color-filter-tab-background);
-    --color-tab-active-text: var(--color-filter-tab-active-text);
+    --color-tablist-background: var(--color-input-background);
+    --color-tab-background: var(--boxed-color-accent-soft);
+    --color-tab-active-text: var(--boxed-color-accent-text);
     --tab-list-padding: 0;
 
     :global(.trakt-tabs-list) {
       width: 100%;
       height: var(--ni-40);
+      box-shadow: inset 0 0 0 var(--border-thickness-xxs) var(--color-border);
     }
   }
 
@@ -128,6 +129,18 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-xs);
+
+    .display-title {
+      padding-bottom: var(--ni-8);
+      margin-bottom: var(--ni-4);
+      border-bottom: var(--border-thickness-xxs) solid var(--color-border);
+
+      font-size: var(--ni-12);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+    }
 
     .display-toggles {
       display: flex;
