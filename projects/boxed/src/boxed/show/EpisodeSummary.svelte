@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { EpisodeIntlProvider } from "$lib/components/episode/EpisodeIntlProvider.ts";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { getLocale, languageTag } from "$lib/features/i18n/index.ts";
@@ -35,7 +36,6 @@
   import GuestCast from "./_internal/GuestCast.svelte";
   import SeasonEpisodeStrip from "./_internal/SeasonEpisodeStrip.svelte";
   import { toAdjacentEpisodes } from "./_internal/toAdjacentEpisodes.ts";
-  import { toEpisodeTypeLabel } from "./_internal/toEpisodeTypeLabel.ts";
   import { toSeasonHref } from "$boxed/utils/toSeasonHref.ts";
 
   const DIRECTOR_PREVIEW = 2;
@@ -84,7 +84,7 @@
     episodeNumberLabel({ seasonNumber: episode.season, episodeNumber: episode.number }),
   );
   const label = $derived(`${showTitle} ${code}`);
-  const typeLabel = $derived(toEpisodeTypeLabel(episode.type));
+  const typeLabel = $derived(EpisodeIntlProvider.episodeTypeText(episode.type));
   const directors = $derived(crew.directors.slice(0, DIRECTOR_PREVIEW));
   const userRating = $derived($ratings?.episodes.get(episode.id)?.rating ?? null);
 

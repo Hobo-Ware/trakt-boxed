@@ -1,5 +1,6 @@
 <script lang="ts">
   import { toStarAverage } from "$boxed/utils/toStarAverage.ts";
+  import { EpisodeIntlProvider } from "$lib/components/episode/EpisodeIntlProvider.ts";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
   import { getLocale, languageTag } from "$lib/features/i18n/index.ts";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -14,7 +15,6 @@
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder.ts";
   import Stars from "../../components/Stars.svelte";
   import EpisodeWatchToggle from "./EpisodeWatchToggle.svelte";
-  import { toEpisodeTypeLabel } from "./toEpisodeTypeLabel.ts";
 
 
   type SeasonEpisodeRowProps = {
@@ -35,7 +35,7 @@
     episodeNumberLabel({ seasonNumber: episode.season, episodeNumber: episode.number }),
   );
   const href = $derived(UrlBuilder.episode(show.slug, episode.season, episode.number));
-  const typeLabel = $derived(toEpisodeTypeLabel(episode.type));
+  const typeLabel = $derived(EpisodeIntlProvider.episodeTypeText(episode.type));
   const hasDate = $derived(!isMaxDate(episode.airDate));
   const hasAired = $derived(episode.effectiveReleaseDate.getTime() <= now.getTime());
   const date = $derived(
