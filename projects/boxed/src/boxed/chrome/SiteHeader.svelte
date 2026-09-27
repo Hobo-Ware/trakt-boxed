@@ -1,8 +1,7 @@
 <script lang="ts">
+  import BoxedLogo from "../brand/BoxedLogo.svelte";
   import { page } from "$app/state";
   import SearchIcon from "$lib/components/icons/SearchIcon.svelte";
-  import Link from "$lib/components/link/Link.svelte";
-  import Logo from "$lib/components/logo/Logo.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import RenderFor from "$lib/guards/RenderFor.svelte";
   import GetVIPLink from "$lib/sections/navbar/components/GetVIPLink.svelte";
@@ -70,9 +69,13 @@
 {#if !isHidden}
 <header class="boxed-site-header">
   <div class="boxed-site-header-inner">
-    <Link href={UrlBuilder.home()} label={m.button_label_home()}>
-      <span class="boxed-logo"><Logo /></span>
-    </Link>
+    <a
+      class="boxed-site-logo"
+      href={UrlBuilder.home()}
+      aria-label={m.button_label_home()}
+    >
+      <BoxedLogo />
+    </a>
 
     <nav class="boxed-site-nav" aria-label={m.page_title_discover()}>
       {#each links as link (link.section)}
@@ -152,15 +155,13 @@
     gap: var(--gap-xl);
   }
 
-  .boxed-logo {
+  .boxed-site-logo {
+    --boxed-logo-size: var(--ni-24);
+
     display: flex;
     align-items: center;
-
-    :global(svg) {
-      height: var(--ni-24);
-      width: auto;
-      color: var(--color-text-primary);
-    }
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .boxed-site-nav {
