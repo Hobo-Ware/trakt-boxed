@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toReviewHref } from "$boxed/review/toReviewHref.ts";
   import Stars from "$boxed/components/Stars.svelte";
   import FavoriteIcon from "$lib/components/icons/FavoriteIcon.svelte";
   import { getLocale, languageTag } from "$lib/features/i18n/index.ts";
@@ -18,7 +19,7 @@
 
   const rating = $derived(comment.user.stats.rating);
   const isSpoilerGated = $derived(comment.isSpoiler && !isSpoilerRevealed);
-  const href = $derived(`/comments/${comment.id}`);
+  const href = $derived(toReviewHref(comment.id));
 </script>
 
 <li class="boxed-review-row">

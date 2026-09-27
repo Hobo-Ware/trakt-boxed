@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toReviewsHref } from "$boxed/utils/toReviewsHref.ts";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { getLocale, languageTag } from "$lib/features/i18n/index.ts";
@@ -305,8 +306,8 @@
       <PopularReviews
         slug={show.slug}
         target={{ type: "show" }}
-        moreHref={`/shows/${show.slug}/reviews`}
-        recentHref={`/shows/${show.slug}/reviews?sort=newest`}
+        moreHref={toReviewsHref({ type: "show", slug: show.slug })}
+        recentHref={toReviewsHref({ type: "show", slug: show.slug, sort: "newest" })}
         totalCount={$stats?.comments}
         {toReviewHref}
       />

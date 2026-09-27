@@ -1,3 +1,4 @@
+import { toReviewsHref } from '$boxed/utils/toReviewsHref.ts';
 import { toSeasonHref } from '$boxed/utils/toSeasonHref.ts';
 import { directCommentTargetUrl } from '$lib/sections/summary/directCommentTargetUrl.ts';
 import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
@@ -22,11 +23,11 @@ const toTitleHref = (target: ReviewTarget) => {
   }
 };
 
-const toReviewsHref = (target: ReviewTarget) => {
+const toTitleReviewsHref = (target: ReviewTarget) => {
   switch (target.type) {
     case 'movie':
     case 'show':
-      return `${toTitleHref(target)}/reviews`;
+      return toReviewsHref({ type: target.type, slug: target.slug });
     case 'season':
     case 'episode':
       return null;
@@ -38,7 +39,7 @@ export function toReviewHrefs(
 ): ReviewHrefs {
   return {
     title: toTitleHref(target),
-    reviews: toReviewsHref(target),
+    reviews: toTitleReviewsHref(target),
     thread: directCommentTargetUrl({ commentId, target }),
   };
 }

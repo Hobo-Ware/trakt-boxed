@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toReviewsHref } from "$boxed/utils/toReviewsHref.ts";
   import { useAuth } from "$lib/features/auth/stores/useAuth.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { getLocale, languageTag } from "$lib/features/i18n/index.ts";
@@ -92,7 +93,9 @@
   const { buildDrawerLink } = summaryDrawerNavigation();
   const drawerHref = (drawer: SummaryDrawers) => buildDrawerLink(drawer).href;
 
-  const reviewsHref = $derived(`/movies/${movie.slug}/reviews`);
+  const reviewsHref = $derived(
+    toReviewsHref({ type: "movie", slug: movie.slug }),
+  );
 
   const directors = $derived(crew.directors.slice(0, DIRECTOR_PREVIEW));
 
@@ -249,7 +252,7 @@
         slug={movie.slug}
         target={{ type: "movie" }}
         moreHref={reviewsHref}
-        recentHref={`${reviewsHref}?sort=newest`}
+        recentHref={toReviewsHref({ type: "movie", slug: movie.slug, sort: "newest" })}
         totalCount={$stats?.comments}
         {toReviewHref}
       />

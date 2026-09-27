@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { toReviewsHref } from "$boxed/utils/toReviewsHref.ts";
   import { useUser } from "$lib/features/auth/stores/useUser.ts";
   import { languageTag } from "$lib/features/i18n/index.ts";
   import * as m from "$lib/features/i18n/messages.ts";
@@ -66,7 +67,9 @@
       ? toHumanDuration({ minutes: season.totalRuntime }, languageTag())
       : null,
   );
-  const reviewsHref = $derived(`/shows/${show.slug}/reviews`);
+  const reviewsHref = $derived(
+    toReviewsHref({ type: "show", slug: show.slug }),
+  );
   const average = $derived(
     season.rating ? toIMDBRating(season.rating * STAR_SCALE, languageTag()) : "-",
   );
@@ -137,7 +140,7 @@
           episodeCount: season.episodes.count,
         }}
         moreHref={reviewsHref}
-        recentHref={`${reviewsHref}?sort=newest`}
+        recentHref={toReviewsHref({ type: "show", slug: show.slug, sort: "newest" })}
         totalCount={undefined}
         {toReviewHref}
       />
