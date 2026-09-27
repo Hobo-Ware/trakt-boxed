@@ -1,4 +1,5 @@
 <script lang="ts" generics="T extends string">
+  import { withSearchParams } from "$boxed/utils/withSearchParams.ts";
   import { page } from "$app/state";
 
   type TitleTab = { id: T; label: string; count?: string | null };
@@ -12,11 +13,12 @@
 
   const { tabs, active, param, variant = "compact" }: TitleTabsProps = $props();
 
-  const toHref = (id: T) => {
-    const url = new URL(page.url);
-    url.searchParams.set(param, id);
-    return `${url.pathname}${url.search}`;
-  };
+  const toHref = (id: T) =>
+    withSearchParams({
+      path: page.url.pathname,
+      search: page.url.searchParams,
+      set: { [param]: id },
+    });
 </script>
 
 <div class="boxed-title-tablist" role="tablist" data-variant={variant}>

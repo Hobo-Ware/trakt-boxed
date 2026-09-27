@@ -1,4 +1,4 @@
-import { redirectPath } from '$boxed/utils/redirectPath.ts';
+import { withSearchParams } from '$boxed/utils/withSearchParams.ts';
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
@@ -9,7 +9,7 @@ export const load: PageLoad = ({ url }) => {
 
   redirect(
     307,
-    redirectPath({
+    withSearchParams({
       path: '/profile/me/diary',
       search: url.searchParams,
       drop: ['page'],

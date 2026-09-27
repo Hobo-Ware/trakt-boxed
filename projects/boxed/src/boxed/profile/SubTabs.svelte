@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { withSearchParams } from "$boxed/utils/withSearchParams.ts";
   import { page } from "$app/state";
 
   type SubTab<T extends string> = { id: T; label: string; href?: string };
@@ -13,9 +14,11 @@
 
   const hrefFor = (tab: SubTab<string>) => {
     if (tab.href) return tab.href;
-    const url = new URL(page.url);
-    url.searchParams.set("tab", tab.id);
-    return `${url.pathname}${url.search}`;
+    return withSearchParams({
+      path: page.url.pathname,
+      search: page.url.searchParams,
+      set: { tab: tab.id },
+    });
   };
 </script>
 

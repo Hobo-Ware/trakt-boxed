@@ -1,12 +1,12 @@
-type RedirectPathProps = {
+type WithSearchParamsProps = {
   path: string;
   search: URLSearchParams;
   set?: Readonly<Record<string, string>>;
   drop?: ReadonlyArray<string>;
 };
 
-export function redirectPath(
-  { path, search, set = {}, drop = [] }: RedirectPathProps,
+export function withSearchParams(
+  { path, search, set = {}, drop = [] }: WithSearchParamsProps,
 ): string {
   const params = new URLSearchParams(search);
   drop.forEach((key) => params.delete(key));

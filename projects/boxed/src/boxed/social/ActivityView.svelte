@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { withSearchParams } from "$boxed/utils/withSearchParams.ts";
   import { page } from "$app/state";
   import FollowingFaces from "$boxed/profile/sections/FollowingFaces.svelte";
   import SectionHeader from "$boxed/components/SectionHeader.svelte";
@@ -33,11 +34,12 @@
     { id: "you", label: m.boxed_activity_tab_you },
   ];
 
-  const hrefFor = (tab: ActivityTab) => {
-    const url = new URL(page.url);
-    url.searchParams.set("tab", tab);
-    return `${url.pathname}${url.search}`;
-  };
+  const hrefFor = (tab: ActivityTab) =>
+    withSearchParams({
+      path: page.url.pathname,
+      search: page.url.searchParams,
+      set: { tab },
+    });
 </script>
 
 <div class="boxed-activity">

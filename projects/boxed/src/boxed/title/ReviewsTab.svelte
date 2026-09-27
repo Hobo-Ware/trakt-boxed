@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { withSearchParams } from "$boxed/utils/withSearchParams.ts";
   import { page } from "$app/state";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { CommentSortType } from "$lib/requests/models/CommentSortType.ts";
@@ -28,11 +29,12 @@
       "likes",
   );
 
-  const toSortHref = (value: CommentSortType) => {
-    const url = new URL(page.url);
-    url.searchParams.set(SORT_PARAM, value);
-    return `${url.pathname}${url.search}`;
-  };
+  const toSortHref = (value: CommentSortType) =>
+    withSearchParams({
+      path: page.url.pathname,
+      search: page.url.searchParams,
+      set: { [SORT_PARAM]: value },
+    });
 </script>
 
 <div class="boxed-review-sorts" role="group" aria-label={m.list_title_comments()}>
