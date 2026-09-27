@@ -235,24 +235,7 @@
       width: var(--ni-104);
     }
 
-    .boxed-title-poster-progress {
-    position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    height: var(--ni-4);
-    background: color-mix(in srgb, var(--shade-950) 60%, transparent);
-
-    &::after {
-      content: "";
-      position: absolute;
-      inset-block: 0;
-      inset-inline-start: 0;
-      width: var(--progress);
-      background: var(--boxed-color-watched);
-    }
-  }
-
-  .boxed-title-watched {
+    .boxed-title-watched {
       height: var(--ni-22);
       padding: 0 var(--ni-8);
       font-size: var(--ni-11);

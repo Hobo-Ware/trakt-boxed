@@ -217,31 +217,7 @@
       gap: var(--ni-6);
     }
 
-    .boxed-title-eyebrow {
-    height: var(--ni-24);
-    min-width: 0;
-
-    display: flex;
-    align-items: center;
-    gap: var(--ni-8);
-    overflow: hidden;
-    white-space: nowrap;
-
-    font-size: var(--ni-14);
-    color: var(--color-text-secondary);
-
-    :global(a) {
-      color: var(--color-text-primary);
-      text-decoration: none;
-
-      &:hover,
-      &:focus-visible {
-        color: var(--color-link-active);
-      }
-    }
-  }
-
-  .boxed-title-name {
+    .boxed-title-name {
       font-size: var(--ni-32);
     }
 
