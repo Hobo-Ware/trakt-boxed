@@ -3,11 +3,11 @@
   import { languageTag } from "$lib/features/i18n";
   import { m } from "$lib/features/i18n/messages";
   import { type VipSubscription } from "$lib/requests/models/VipSubscription";
-  import { getStartOfDay } from "$lib/utils/date/getStartOfDay";
   import { toHumanLongDate } from "$lib/utils/formatting/date/toHumanLongDate";
   import CrownIcon from "./icons/CrownIcon.svelte";
   import PaymentMethodDetail from "./PaymentMethodDetail.svelte";
   import SubscriptionDetail from "./SubscriptionDetail.svelte";
+  import { toPaidUntil } from "$lib/sections/vip/utils/toPaidUntil";
   import { toVipDurationLabel } from "$lib/sections/vip/utils/toVipDurationLabel";
 
   const { subscription }: { subscription: VipSubscription | Nil } = $props();
@@ -20,18 +20,7 @@
       undefined,
   );
 
-  const paidUntil = $derived.by(() => {
-    if (!subscription?.renewsAt || !subscription.expiresAt) {
-      return null;
-    }
-
-    const paidThroughDay = getStartOfDay(subscription.expiresAt);
-    const renewalDay = getStartOfDay(subscription.renewsAt);
-
-    return paidThroughDay.getTime() > renewalDay.getTime()
-      ? subscription.expiresAt
-      : null;
-  });
+  const paidUntil = $derived(subscription ? toPaidUntil(subscription) : null);
 </script>
 
 {#if subscription}
