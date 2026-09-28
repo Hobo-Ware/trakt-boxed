@@ -1,4 +1,4 @@
-# trakt-web
+# trakt boxed
 
 ## Developing
 

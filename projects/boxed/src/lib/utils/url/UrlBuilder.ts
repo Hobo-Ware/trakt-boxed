@@ -293,8 +293,8 @@ export const UrlBuilder = {
       `https://developer.trakt.tv/apps/${id}/edit`,
   },
   github: {
-    web: () => 'https://github.com/trakt/trakt-web',
-    reportIssue: () => 'https://github.com/trakt/trakt-web/issues/new',
+    web: () => 'https://github.com/Hobo-Ware/trakt-boxed',
+    reportIssue: () => 'https://github.com/Hobo-Ware/trakt-boxed/issues/new',
   },
   socialMedia: {
     reddit: () => 'https://www.reddit.com/r/trakt',
