@@ -11429,6 +11429,42 @@
       "default": "Media type",
       "description": "Accessible name for the movies / shows / all switch on browse pages."
     },
+    "boxed_vip_title": {
+      "default": "Go further with Trakt VIP",
+      "description": "Title of the VIP signup page."
+    },
+    "boxed_vip_plans_title": {
+      "default": "Choose your plan",
+      "description": "Section title above the VIP plan cards."
+    },
+    "boxed_vip_plan_monthly": {
+      "default": "Monthly",
+      "description": "Name of the monthly VIP plan on its card."
+    },
+    "boxed_vip_plan_yearly": {
+      "default": "Yearly",
+      "description": "Name of the yearly VIP plan on its card."
+    },
+    "boxed_vip_plan_two_years": {
+      "default": "Two years",
+      "description": "Name of the two-year VIP plan on its card."
+    },
+    "boxed_vip_per_month": {
+      "default": "per month",
+      "description": "Unit shown next to a VIP plan's monthly price."
+    },
+    "boxed_vip_features_title": {
+      "default": "What you get with VIP",
+      "description": "Section title above the list of VIP features."
+    },
+    "boxed_vip_limits_limit": {
+      "default": "Limit",
+      "description": "Column header for the limit name in the free vs VIP limits table."
+    },
+    "boxed_vip_limits_free": {
+      "default": "Free",
+      "description": "Column header for the free account limit in the free vs VIP limits table."
+    },
     "boxed_profile_heatmap_label": {
       "default": "Watch activity over the last year",
       "description": "Accessible label for the profile activity heatmap."
