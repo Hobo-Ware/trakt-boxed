@@ -1424,7 +1424,7 @@ const onclick = () => trailer && (play(trailer), track({ slug })); // track = us
 | --- | --- | --- |
 | `projects/client/i18n/meta/en.json` | **Source of truth.** `{ $schema, meta, messages }`, ~2,277 keys. Schema: `i18n/schema/meta-messages.schema.json`. | **Yes, add keys here only** |
 | `projects/client/i18n/messages/en.json` | Generated from meta (flat `key: default`). Gitignored. | No |
-| `projects/client/i18n/messages/<locale>.json` (27 others) | Translations, synced from CrowdIn ("feat(i18n): update translations" commits). Committed. | No, let CrowdIn fill them |
+| `projects/boxed/i18n/messages/<locale>.json` (27 others) | Translations, written in this repo when a key is added (no Crowdin here; that sync is upstream trakt-web only). Committed. | **Yes, add every new key to all 27** |
 | `projects/client/i18n/project.inlang/settings.json` | `baseLocale: "en"`, 28 locales, message-format plugin with `pathPattern ./messages/{languageTag}.json` | No |
 | `projects/client/src/lib/paraglide/` | Compiled output (`messages/_index.js` + one file per locale). Gitignored. | Never |
 
@@ -1466,7 +1466,7 @@ The client's vite config runs `paraglideVitePlugin`, so client dev/build compile
 
 Paraglide builds a fallback map (`getFallbackMap` in `@inlang/paraglide-js/dist/compiler/compile-project.js`). Each locale falls back to its closest locale by BCP-47 lookup, and in the end to `en`. A locale module that lacks a key re-exports it from its fallback locale file.
 
-So a new key shows **English in all 27 other locales** until CrowdIn delivers translations. Nothing crashes. `i18n:check` only compares placeholders.
+So a key missing from a locale shows **English** there. Nothing crashes, and `i18n:check` only compares placeholders, so add the translations in the same change as the key.
 
 ### 8.5 Using messages
 
