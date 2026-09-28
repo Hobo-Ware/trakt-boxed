@@ -8,7 +8,7 @@
   import CrownIcon from "./icons/CrownIcon.svelte";
   import PaymentMethodDetail from "./PaymentMethodDetail.svelte";
   import SubscriptionDetail from "./SubscriptionDetail.svelte";
-  import { toVipDurationLabel } from "./utils/toVipDurationLabel";
+  import { toVipDurationLabel } from "$lib/sections/vip/utils/toVipDurationLabel";
 
   const { subscription }: { subscription: VipSubscription | Nil } = $props();
 

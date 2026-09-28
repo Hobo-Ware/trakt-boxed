@@ -1,11 +1,11 @@
 <script lang="ts">
   import * as m from "$lib/features/i18n/messages.ts";
-  import type { VipDealPlan } from "./models/VipDealPlan";
+  import type { VipDealPlan } from "$lib/sections/vip/models/VipDealPlan";
   import SubscriptionTag from "./SubscriptionTag.svelte";
   import UpgradeButton from "./UpgradeButton.svelte";
-  import { useVip } from "./useVip";
-  import { isPaypalGateway } from "./utils/isPaypalGateway";
-  import { toVipPriceLabel } from "./utils/toVipPriceLabel";
+  import { useVip } from "$lib/sections/vip/useVip";
+  import { isPaypalGateway } from "$lib/sections/vip/utils/isPaypalGateway";
+  import { toVipPriceLabel } from "$lib/sections/vip/utils/toVipPriceLabel";
 
   const { plan }: { plan: VipDealPlan } = $props();
 

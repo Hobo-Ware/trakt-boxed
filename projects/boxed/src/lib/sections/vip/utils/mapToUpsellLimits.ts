@@ -1,6 +1,6 @@
 import * as m from '$lib/features/i18n/messages.ts';
 import type { UserLimits } from '$lib/requests/models/UserLimits.ts';
-import { USER_LIMITS_PLACEHOLDER } from '$lib/sections/vip/_internal/constants/index.ts';
+import { USER_LIMITS_PLACEHOLDER } from '$lib/sections/vip/constants/index.ts';
 import type { UsageCategoryItem } from './mapToUsageCategories.ts';
 
 export function mapToUpsellLimits(

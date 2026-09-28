@@ -2,8 +2,8 @@
   import Button from "$lib/components/buttons/Button.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import type { Snippet } from "svelte";
-  import type { VipPlan } from "./models/VipPlan";
-  import { useVip } from "./useVip";
+  import type { VipPlan } from "$lib/sections/vip/models/VipPlan";
+  import { useVip } from "$lib/sections/vip/useVip";
 
   const {
     plan,

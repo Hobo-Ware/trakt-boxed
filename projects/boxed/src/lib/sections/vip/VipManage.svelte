@@ -2,7 +2,7 @@
   import AccountDetails from "./_internal/AccountDetails.svelte";
   import PaypalSwitchCard from "./_internal/PaypalSwitchCard.svelte";
   import UsageTabs from "./_internal/UsageTabs.svelte";
-  import { useVip } from "./_internal/useVip";
+  import { useVip } from "./useVip";
   import VipContent from "./_internal/VipContent.svelte";
   import VipFeatures from "./_internal/VipFeatures.svelte";
 

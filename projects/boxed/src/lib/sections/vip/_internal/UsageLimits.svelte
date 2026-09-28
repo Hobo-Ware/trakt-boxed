@@ -1,7 +1,7 @@
 <script lang="ts">
   import { useUser } from "$lib/features/auth/stores/useUser";
   import UsageLimitsCard from "./UsageLimitsCard.svelte";
-  import { mapToUsageCategories } from "./utils/mapToUsageCategories";
+  import { mapToUsageCategories } from "$lib/sections/vip/utils/mapToUsageCategories";
 
   const { limits } = useUser();
 

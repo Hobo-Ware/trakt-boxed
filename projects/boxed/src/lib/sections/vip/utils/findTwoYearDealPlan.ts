@@ -1,5 +1,5 @@
-import type { VipDealPlan } from '../models/VipDealPlan.ts';
-import type { VipPlan } from '../models/VipPlan.ts';
+import type { VipDealPlan } from '$lib/sections/vip/models/VipDealPlan.ts';
+import type { VipPlan } from '$lib/sections/vip/models/VipPlan.ts';
 import { isTwoYearDealPlan } from './isTwoYearDealPlan.ts';
 
 export function findTwoYearDealPlan(

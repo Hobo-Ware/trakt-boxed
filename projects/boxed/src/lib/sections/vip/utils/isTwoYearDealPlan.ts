@@ -1,5 +1,5 @@
-import type { VipDealPlan } from '../models/VipDealPlan.ts';
-import type { VipPlan } from '../models/VipPlan.ts';
+import type { VipDealPlan } from '$lib/sections/vip/models/VipDealPlan.ts';
+import type { VipPlan } from '$lib/sections/vip/models/VipPlan.ts';
 
 // A first-term-only discount on the 2 year plan is a deal (former VIP rejoin
 // or PayPal switch); the always-on v3 Lite discount is not first-term-only.

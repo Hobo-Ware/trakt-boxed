@@ -1,5 +1,5 @@
 import type { UserLimits } from '$lib/requests/models/UserLimits.ts';
-import type { VipPlan } from '../models/VipPlan.ts';
+import type { VipPlan } from '$lib/sections/vip/models/VipPlan.ts';
 
 export const VIP_PLANS: VipPlan[] = [
   {

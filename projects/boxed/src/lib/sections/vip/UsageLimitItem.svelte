@@ -3,7 +3,7 @@
   import { languageTag } from "$lib/features/i18n";
   import { toHumanNumber } from "$lib/utils/formatting/number/toHumanNumber.ts";
   import UsageBar from "./_internal/UsageBar.svelte";
-  import type { UsageCategoryItem } from "./_internal/utils/mapToUsageCategories.ts";
+  import type { UsageCategoryItem } from "./utils/mapToUsageCategories.ts";
 
   const {
     item,

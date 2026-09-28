@@ -8,7 +8,7 @@ import { time } from '../../utils/timing/time.ts';
 import {
   type VipPlan,
   VipPlanSchema,
-} from '../../sections/vip/_internal/models/VipPlan.ts';
+} from '$lib/sections/vip/models/VipPlan.ts';
 import { z } from 'zod';
 
 type VipPlansParams = ApiParams;

@@ -1,11 +1,11 @@
 <script lang="ts">
   import * as m from "$lib/features/i18n/messages.ts";
-  import { VIP_PLANS } from "./constants";
+  import { VIP_PLANS } from "$lib/sections/vip/constants";
   import TraktIcon from "./icons/TraktIcon.svelte";
   import SubscriptionCard from "./SubscriptionCard.svelte";
   import TwoYearDealCard from "./TwoYearDealCard.svelte";
-  import { useVip } from "./useVip";
-  import { findTwoYearDealPlan } from "./utils/findTwoYearDealPlan";
+  import { useVip } from "$lib/sections/vip/useVip";
+  import { findTwoYearDealPlan } from "$lib/sections/vip/utils/findTwoYearDealPlan";
   import VipContentContainer from "./VipContentContainer.svelte";
   import VipHeader from "./VipHeader.svelte";
 

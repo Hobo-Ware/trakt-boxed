@@ -4,7 +4,7 @@
   import FooterCard from "./FooterCard.svelte";
   import IncreasedLimitsIcon from "./icons/IncreasedLimitsIcon.svelte";
   import UsageLimitsCard from "./UsageLimitsCard.svelte";
-  import { mapToUpsellLimits } from "./utils/mapToUpsellLimits";
+  import { mapToUpsellLimits } from "$lib/sections/vip/utils/mapToUpsellLimits";
 
   const { limits } = useUser();
   const upsellLimits = $derived(mapToUpsellLimits($limits));

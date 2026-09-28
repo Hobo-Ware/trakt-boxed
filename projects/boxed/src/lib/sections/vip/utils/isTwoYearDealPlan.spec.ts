@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { VipPlan } from '../models/VipPlan.ts';
+import type { VipPlan } from '$lib/sections/vip/models/VipPlan.ts';
 import { isTwoYearDealPlan } from './isTwoYearDealPlan.ts';
 
 const twoYears: VipPlan = {

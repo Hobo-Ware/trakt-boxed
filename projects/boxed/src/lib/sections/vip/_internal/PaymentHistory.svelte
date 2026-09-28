@@ -12,8 +12,8 @@
   import CreditCardIcon from "./icons/CreditCardIcon.svelte";
   import CrownIcon from "./icons/CrownIcon.svelte";
   import SyncIcon from "./icons/SyncIcon.svelte";
-  import { toPaymentMethodLabel } from "./utils/toPaymentMethodLabel";
-  import { toVipDurationLabel } from "./utils/toVipDurationLabel";
+  import { toPaymentMethodLabel } from "$lib/sections/vip/utils/toPaymentMethodLabel";
+  import { toVipDurationLabel } from "$lib/sections/vip/utils/toVipDurationLabel";
 
   const { transactions }: { transactions: VipTransaction[] } = $props();
 

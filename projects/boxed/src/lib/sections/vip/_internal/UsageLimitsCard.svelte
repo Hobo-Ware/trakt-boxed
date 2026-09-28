@@ -3,7 +3,7 @@
   import { MoreButtonIntlProvider } from "$lib/components/buttons/more/MoreButtonIntlProvider";
   import * as m from "$lib/features/i18n/messages";
   import UsageLimitItem from "../UsageLimitItem.svelte";
-  import type { UsageCategoryItem } from "./utils/mapToUsageCategories";
+  import type { UsageCategoryItem } from "$lib/sections/vip/utils/mapToUsageCategories";
 
   const {
     title,

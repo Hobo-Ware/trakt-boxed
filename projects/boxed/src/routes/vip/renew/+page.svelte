@@ -2,8 +2,8 @@
   import Redirect from "$lib/components/router/Redirect.svelte";
   import TraktPage from "$lib/sections/layout/TraktPage.svelte";
   import NavbarStateSetter from "$lib/sections/navbar/NavbarStateSetter.svelte";
-  import { useVip } from "$lib/sections/vip/_internal/useVip";
-  import { isPaypalGateway } from "$lib/sections/vip/_internal/utils/isPaypalGateway";
+  import { useVip } from "$lib/sections/vip/useVip";
+  import { isPaypalGateway } from "$lib/sections/vip/utils/isPaypalGateway";
   import VipSubscribe from "$lib/sections/vip/VipSubscribe.svelte";
   import { DEFAULT_SHARE_COVER } from "$lib/utils/assets";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";

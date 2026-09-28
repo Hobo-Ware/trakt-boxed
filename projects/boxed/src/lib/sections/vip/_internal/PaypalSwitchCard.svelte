@@ -3,10 +3,10 @@
   import { m } from "$lib/features/i18n/messages";
   import { type VipSubscription } from "$lib/requests/models/VipSubscription";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import { useVip } from "./useVip";
-  import { findTwoYearDealPlan } from "./utils/findTwoYearDealPlan";
-  import { isPaypalGateway } from "./utils/isPaypalGateway";
-  import { toVipPriceLabel } from "./utils/toVipPriceLabel";
+  import { useVip } from "$lib/sections/vip/useVip";
+  import { findTwoYearDealPlan } from "$lib/sections/vip/utils/findTwoYearDealPlan";
+  import { isPaypalGateway } from "$lib/sections/vip/utils/isPaypalGateway";
+  import { toVipPriceLabel } from "$lib/sections/vip/utils/toVipPriceLabel";
 
   const { subscription }: { subscription: VipSubscription | Nil } = $props();
 

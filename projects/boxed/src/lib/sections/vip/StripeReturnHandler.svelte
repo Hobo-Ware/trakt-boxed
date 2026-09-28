@@ -2,7 +2,7 @@
   import { goto } from "$app/navigation";
   import { page } from "$app/state";
   import { onMount } from "svelte";
-  import { useVip } from "./_internal/useVip";
+  import { useVip } from "./useVip";
 
   // FIXME: should not be a Svelte component, but a route handler
   const { confirmCheckout } = useVip();

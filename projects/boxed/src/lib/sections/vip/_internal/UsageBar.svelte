@@ -2,7 +2,7 @@
   import DistributionBar from "$lib/components/charts/DistributionBar.svelte";
   import { languageTag } from "$lib/features/i18n";
   import { toHumanNumber } from "$lib/utils/formatting/number/toHumanNumber";
-  import { calculateLimitProgress } from "./utils/calculateLimitProgress";
+  import { calculateLimitProgress } from "$lib/sections/vip/utils/calculateLimitProgress";
 
   const lowPercentageThreshold = 5;
 

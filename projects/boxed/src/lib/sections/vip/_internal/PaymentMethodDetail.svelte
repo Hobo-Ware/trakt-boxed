@@ -3,7 +3,7 @@
   import { type VipSubscription } from "$lib/requests/models/VipSubscription";
   import CreditCardIcon from "./icons/CreditCardIcon.svelte";
   import SubscriptionDetail from "./SubscriptionDetail.svelte";
-  import { toPaymentMethodLabel } from "./utils/toPaymentMethodLabel";
+  import { toPaymentMethodLabel } from "$lib/sections/vip/utils/toPaymentMethodLabel";
 
   const { subscription }: { subscription: VipSubscription } = $props();
 
