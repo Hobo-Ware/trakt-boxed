@@ -7,8 +7,8 @@
   import ProfileImage from "$lib/sections/profile-banner/ProfileImage.svelte";
   import { toHumanLongDate } from "$lib/utils/formatting/date/toHumanLongDate";
   import { toDisplayableName } from "$lib/utils/profile/toDisplayableName";
-  import LifetimeBadge from "./LifetimeBadge.svelte";
-  import SubscriptionActions from "./SubscriptionActions.svelte";
+  import LifetimeBadge from "$lib/sections/vip/LifetimeBadge.svelte";
+  import SubscriptionActions from "$lib/sections/vip/SubscriptionActions.svelte";
   import SubscriptionDetails from "./SubscriptionDetails.svelte";
   import VipContentContainer from "./VipContentContainer.svelte";
 

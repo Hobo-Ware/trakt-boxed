@@ -15,7 +15,7 @@
   import { type VipSubscription } from "$lib/requests/models/VipSubscription";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay";
   import { UrlBuilder } from "$lib/utils/url/UrlBuilder";
-  import CrownIcon from "./icons/CrownIcon.svelte";
+  import CrownIcon from "./_internal/icons/CrownIcon.svelte";
   import { useVip } from "$lib/sections/vip/useVip";
 
   const { subscription }: { subscription: VipSubscription | Nil } = $props();

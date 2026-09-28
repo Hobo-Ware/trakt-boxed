@@ -2,7 +2,7 @@
   import TabView from "$lib/components/tabs/TabView.svelte";
   import * as m from "$lib/features/i18n/messages.ts";
   import { type VipSubscription } from "$lib/requests/models/VipSubscription";
-  import PaymentHistory from "./PaymentHistory.svelte";
+  import PaymentHistory from "$lib/sections/vip/PaymentHistory.svelte";
   import UsageLimits from "./UsageLimits.svelte";
   import VipContentContainer from "./VipContentContainer.svelte";
 

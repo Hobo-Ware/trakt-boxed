@@ -9,9 +9,9 @@
   import { type VipTransaction } from "$lib/requests/models/VipTransaction";
   import { toHumanCurrency } from "$lib/utils/formatting/currency/toHumanCurrency";
   import { toHumanDay } from "$lib/utils/formatting/date/toHumanDay";
-  import CreditCardIcon from "./icons/CreditCardIcon.svelte";
-  import CrownIcon from "./icons/CrownIcon.svelte";
-  import SyncIcon from "./icons/SyncIcon.svelte";
+  import CreditCardIcon from "./_internal/icons/CreditCardIcon.svelte";
+  import CrownIcon from "./_internal/icons/CrownIcon.svelte";
+  import SyncIcon from "./_internal/icons/SyncIcon.svelte";
   import { toPaymentMethodLabel } from "$lib/sections/vip/utils/toPaymentMethodLabel";
   import { toVipDurationLabel } from "$lib/sections/vip/utils/toVipDurationLabel";
 
