@@ -1,3 +1,20 @@
+<script module lang="ts">
+  const MORE_PAGES_FLAG = "data-boxed-more-pages";
+
+  let pendingLists = 0;
+
+  const markMorePages = () => {
+    pendingLists += 1;
+    globalThis.document.documentElement.setAttribute(MORE_PAGES_FLAG, "");
+
+    return () => {
+      pendingLists -= 1;
+      if (pendingLists > 0) return;
+      globalThis.document.documentElement.removeAttribute(MORE_PAGES_FLAG);
+    };
+  };
+</script>
+
 <script lang="ts">
   import { whileVisible } from "$boxed/utils/whileVisible.ts";
 
@@ -37,6 +54,11 @@
   };
 
   $effect(() => {
+    if (!hasNextPage) return;
+    return markMorePages();
+  });
+
+  $effect(() => {
     USER_SCROLL_EVENTS.forEach((type) =>
       globalThis.addEventListener(type, onUserScroll, { passive: true })
     );
@@ -57,6 +79,10 @@
 {/if}
 
 <style>
+  :global(html[data-boxed-more-pages] .trakt-footer) {
+    display: none;
+  }
+
   .boxed-load-more {
     visibility: hidden;
     overflow-anchor: none;

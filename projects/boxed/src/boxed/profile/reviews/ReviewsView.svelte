@@ -10,6 +10,7 @@
 
   const PAGE_SIZE = 20;
   const SKELETON_ROWS = 6;
+  const LOADING_MORE_ROWS = 3;
 
   const { context }: { context: ProfileContext } = $props();
 
@@ -34,17 +35,21 @@
   );
 </script>
 
+{#snippet skeletonRow()}
+  <li class="review-skeleton" aria-hidden="true">
+    <Skeleton width="var(--ni-72)" height="calc(1.5 * var(--ni-72))" />
+    <span class="skeleton-lines">
+      <Skeleton width="40%" height="var(--ni-20)" />
+      <Skeleton width="var(--ni-96)" height="var(--ni-12)" />
+      <Skeleton width="100%" height="var(--ni-44)" />
+    </span>
+  </li>
+{/snippet}
+
 <ul class="boxed-profile-reviews">
   {#if reviews === null}
     {#each { length: SKELETON_ROWS }, index (index)}
-      <li class="review-skeleton" aria-hidden="true">
-        <Skeleton width="var(--ni-72)" height="calc(1.5 * var(--ni-72))" />
-        <span class="skeleton-lines">
-          <Skeleton width="40%" height="var(--ni-20)" />
-          <Skeleton width="var(--ni-96)" height="var(--ni-12)" />
-          <Skeleton width="100%" height="var(--ni-44)" />
-        </span>
-      </li>
+      {@render skeletonRow()}
     {/each}
   {:else if reviews.length === 0}
     <EmptyState as="li" text={m.list_placeholder_comments()} />
@@ -52,6 +57,11 @@
     {#each reviews as review (review.key)}
       <ReviewRow comment={review.comment} target={review.target} />
     {/each}
+    {#if $isLoading}
+      {#each { length: LOADING_MORE_ROWS }, index (index)}
+        {@render skeletonRow()}
+      {/each}
+    {/if}
   {/if}
 </ul>
 
