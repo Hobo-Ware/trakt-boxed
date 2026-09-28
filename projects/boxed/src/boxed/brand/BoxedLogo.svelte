@@ -6,7 +6,7 @@
   const { variant = "full" }: BoxedLogoProps = $props();
 </script>
 
-<span class="boxed-logo" data-variant={variant}>
+<span class="boxed-logo" data-variant={variant} dir="ltr">
   <svg
     class="boxed-logo-mark"
     viewBox="0 0 64 26"
